@@ -16,12 +16,12 @@ public class StandardTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void Shoot(Vector3 direction)
     {
-        StandardProjectile p = Instantiate(Projectile, transform.position, transform.rotation);
+        StandardProjectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.velocity = direction.normalized * ProjectileSpeed;
     }
 }
