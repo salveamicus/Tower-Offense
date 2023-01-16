@@ -21,6 +21,8 @@ public class StandardTower : MonoBehaviour
 
     void Shoot(Vector3 direction)
     {
+        // Vector3.back is used to change the z coordinate of the projectile so that
+        // it renders on top of the tower
         StandardProjectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.velocity = direction.normalized * ProjectileSpeed;
     }
