@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 385705826675642670}
   - component: {fileID: 385705826675642656}
   - component: {fileID: 385705826675642671}
+  - component: {fileID: 486427415}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -25,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385705826675642669}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -77,6 +78,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &486427415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385705826675642669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f413b617cdef114fa8dbb2faa6e31fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  credits: {fileID: 0}
+  selected_prefab: {fileID: 0}
 --- !u!1001 &2185734915588239571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,6 +99,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 385705826675642670}
     m_Modifications:
+    - target: {fileID: 3638176311955478909, guid: 193f128603fa39c42839861aa108287f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638176311955478909, guid: 193f128603fa39c42839861aa108287f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638176311955478909, guid: 193f128603fa39c42839861aa108287f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1520625613}
+    - target: {fileID: 3638176311955478909, guid: 193f128603fa39c42839861aa108287f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638176311955478909, guid: 193f128603fa39c42839861aa108287f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: selectKnight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638176311955478909, guid: 193f128603fa39c42839861aa108287f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: select_unit_to_purchase, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638176311955478909, guid: 193f128603fa39c42839861aa108287f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4411477625880727108, guid: 193f128603fa39c42839861aa108287f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -180,3 +223,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4411477625880727108, guid: 193f128603fa39c42839861aa108287f, type: 3}
   m_PrefabInstance: {fileID: 2185734915588239571}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5513440292415498088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5969212271489865659, guid: 193f128603fa39c42839861aa108287f, type: 3}
+  m_PrefabInstance: {fileID: 2185734915588239571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1520625613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513440292415498088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a145c4d41f2fc488118b54ef159568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storePanel: {fileID: 385705826675642669}
+  knight: {fileID: 3820236453980896677, guid: d2ea45b7282a6fe41927bb84189201ae, type: 3}
