@@ -19,6 +19,7 @@ public class StandardUnit : MonoBehaviour
     {
         if (Health <= 0)
         {
+            // Destroy(this) only destroys the script, not the entire object
             Destroy(this.gameObject);
         }
     }
