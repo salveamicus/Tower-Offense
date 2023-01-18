@@ -7,6 +7,7 @@ public class StandardUnit : MonoBehaviour
     public StandardProjectile Projectile;
     public float ProjectileSpeed = 0.1f;
     public float Health = 50f;
+    public float speed = 0.1f; 
 
     // Start is called before the first frame update
     void Start()

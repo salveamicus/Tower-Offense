@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2160359574138009433}
   - component: {fileID: 2160359574138009432}
   - component: {fileID: 2160359574138009435}
+  - component: {fileID: 1960161082845028702}
   m_Layer: 0
   m_Name: StandardUnit
   m_TagString: Unit
@@ -228,3 +229,17 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   ProjectileSpeed: 0.1
   Health: 50
+  speed: 0.1
+--- !u!114 &1960161082845028702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160359574138009434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b4d01d256368547954d32aceed900d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCircle: {fileID: 1476025404945999650}
