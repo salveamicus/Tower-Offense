@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 1628215143210689245}
   - component: {fileID: 6784839219395636620}
   - component: {fileID: 3638176311955478909}
-  - component: {fileID: 1821485798385133028}
+  - component: {fileID: 5386462943236979247}
   m_Layer: 5
   m_Name: Purchase knight btn
   m_TagString: Untagged
@@ -257,8 +257,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6784839219395636620}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1821485798385133028
+      m_Calls:
+      - m_Target: {fileID: 5386462943236979247}
+        m_TargetAssemblyTypeName: selectUnitToPurchase, Assembly-CSharp
+        m_MethodName: selectKnight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5386462943236979247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,6 +279,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5969212271489865659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f413b617cdef114fa8dbb2faa6e31fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 29a145c4d41f2fc488118b54ef159568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storePanel: {fileID: 385705826675642669, guid: 8d788ab6ab84ee64c8777b4cca5cbdc4, type: 3}
+  knight: {fileID: 3820236453980896677, guid: d2ea45b7282a6fe41927bb84189201ae, type: 3}
+  knightCost: 30

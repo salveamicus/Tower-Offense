@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class activate_panel : MonoBehaviour
+public class activatePanel : MonoBehaviour
 {
     public GameObject storePanel;
     public void changeStorePanel() {
