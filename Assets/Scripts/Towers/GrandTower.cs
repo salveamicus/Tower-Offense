@@ -12,7 +12,7 @@ public class GrandTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShootStandardProjectile(Vector3.right);
+        
     }
 
     // Update is called once per frame
