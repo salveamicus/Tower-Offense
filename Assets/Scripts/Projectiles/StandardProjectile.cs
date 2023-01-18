@@ -7,6 +7,7 @@ public class StandardProjectile : MonoBehaviour
     public Rigidbody2D body;
     public Vector3 velocity = Vector3.zero;
     public string OwnerTag = "";
+    public float Damage = 10f;
 
     void Start()
     {
