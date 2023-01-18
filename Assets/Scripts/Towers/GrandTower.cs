@@ -6,13 +6,13 @@ public class GrandTower : MonoBehaviour
 {
     public StandardProjectile standardProjectile;
 
-    public float ProjectileSpeed = 0.5f;
+    public float ProjectileSpeed = 0.2f;
     public float Health = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ShootStandardProjectile(Vector3.right);
     }
 
     // Update is called once per frame
