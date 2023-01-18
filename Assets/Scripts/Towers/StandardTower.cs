@@ -18,7 +18,10 @@ public class StandardTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void Shoot(Vector3 direction)
