@@ -33,4 +33,9 @@ public class StandardTower : MonoBehaviour
         p.velocity = direction.normalized * ProjectileSpeed;
         p.OwnerTag = tag;
     }
+
+    public void Damage(float amount)
+    {
+        Health -= amount;
+    }
 }

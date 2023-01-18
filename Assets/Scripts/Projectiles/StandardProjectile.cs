@@ -48,12 +48,12 @@ public class StandardProjectile : MonoBehaviour
             // If hit object is a unit
             if (collider.gameObject.CompareTag("Unit"))
             {
-                collider.gameObject.GetComponent<StandardUnit>().Health -= Damage; 
+                collider.gameObject.GetComponent<StandardUnit>().Damage(Damage);
                 Destroy(this.gameObject);
             }
             else if (collider.gameObject.CompareTag("Tower"))
             {
-                collider.gameObject.GetComponent<StandardTower>().Health -= Damage;
+                collider.gameObject.GetComponent<StandardTower>().Damage(Damage);
                 Destroy(this.gameObject);
             }
         }
