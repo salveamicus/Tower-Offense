@@ -90,8 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f413b617cdef114fa8dbb2faa6e31fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: {fileID: 0}
-  selected_prefab: {fileID: 0}
+  credits: {fileID: 3191295187332686180, guid: cf1fc385abb46e94bb11f32d6e5f62dd, type: 3}
+  selectedPrefab: {fileID: 0}
+  cost: 0
 --- !u!1001 &2185734915588239571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,12 +212,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5386462943236979247, guid: 193f128603fa39c42839861aa108287f, type: 3}
+      propertyPath: storePanel
+      value: 
+      objectReference: {fileID: 385705826675642669}
     - target: {fileID: 5969212271489865659, guid: 193f128603fa39c42839861aa108287f, type: 3}
       propertyPath: m_Name
       value: Purchase knight btn
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1821485798385133028, guid: 193f128603fa39c42839861aa108287f, type: 3}
+    - {fileID: 5386462943236979247, guid: 193f128603fa39c42839861aa108287f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 193f128603fa39c42839861aa108287f, type: 3}
 --- !u!224 &2552975652273421975 stripped
 RectTransform:
@@ -242,3 +248,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storePanel: {fileID: 385705826675642669}
   knight: {fileID: 3820236453980896677, guid: d2ea45b7282a6fe41927bb84189201ae, type: 3}
+  knightCost: 30

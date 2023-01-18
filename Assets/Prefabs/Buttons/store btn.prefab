@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 5725495740259600462}
   - component: {fileID: 5725495740259600461}
   - component: {fileID: 5725495740259600460}
-  - component: {fileID: 5725495740259600463}
+  - component: {fileID: -6997934558017386359}
   m_Layer: 5
   m_Name: store btn
   m_TagString: Untagged
@@ -258,8 +258,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725495740259600463}
-        m_TargetAssemblyTypeName: activate_panel, Assembly-CSharp
+      - m_Target: {fileID: -6997934558017386359}
+        m_TargetAssemblyTypeName: activatePanel, Assembly-CSharp
         m_MethodName: changeStorePanel
         m_Mode: 1
         m_Arguments:
@@ -270,7 +270,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5725495740259600463
+--- !u!114 &-6997934558017386359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
