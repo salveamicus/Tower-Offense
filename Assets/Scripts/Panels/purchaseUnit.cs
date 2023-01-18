@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class purchaseUnit : MonoBehaviour
 {
-    public GameObject credits;
+    public GameObject amount;
     public GameObject selectedPrefab;
     public int cost;
     Plane plane = new Plane(new Vector3(0,0,1), 0);
     
     void LateUpdate() {
-        if (Input.GetMouseButtonDown(0) && selectedPrefab && Convert.ToInt32(credits.GetComponent<Text>().text) >= cost) {
+        if (Input.GetMouseButtonDown(0) && selectedPrefab && Convert.ToInt32(amount.GetComponent<Text>().text) >= cost) {
             Vector3 screenPosition = Input.mousePosition;
             Vector3 scenePosition;
             float distance = 1;
@@ -20,7 +20,7 @@ public class purchaseUnit : MonoBehaviour
             plane.Raycast(ray, out distance);
             scenePosition = ray.GetPoint(distance);
             Instantiate(selectedPrefab, scenePosition, Quaternion.identity);
-            credits.GetComponent<Text>().text = Convert.ToString(Convert.ToInt32(credits.GetComponent<Text>().text) - cost);
+            amount.GetComponent<Text>().text = Convert.ToString(Convert.ToInt32(amount.GetComponent<Text>().text) - cost);
         }
     }
 }
