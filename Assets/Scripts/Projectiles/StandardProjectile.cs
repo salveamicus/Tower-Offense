@@ -6,6 +6,7 @@ public class StandardProjectile : MonoBehaviour
 {
     public Rigidbody2D body;
     public Vector3 velocity = Vector3.zero;
+    public string OwnerTag = "";
 
     void Start()
     {
@@ -37,5 +38,10 @@ public class StandardProjectile : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("the thingy worked");
+
+        if (!collider.gameObject.CompareTag(OwnerTag))
+        {
+            Debug.Log("Hit the thingy");
+        }
     }
 }

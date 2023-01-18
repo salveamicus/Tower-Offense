@@ -26,5 +26,6 @@ public class StandardTower : MonoBehaviour
         // it renders on top of the tower
         StandardProjectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.velocity = direction.normalized * ProjectileSpeed;
+        p.OwnerTag = tag;
     }
 }

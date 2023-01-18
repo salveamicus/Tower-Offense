@@ -23,5 +23,6 @@ public class StandardUnit : MonoBehaviour
     {
         StandardProjectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.velocity = direction.normalized * ProjectileSpeed;
+        p.OwnerTag = tag;
     }
 }
