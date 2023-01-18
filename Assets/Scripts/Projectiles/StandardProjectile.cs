@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class StandardProjectile : MonoBehaviour
 {
+    public Rigidbody2D body;
     public Vector3 velocity = Vector3.zero;
+
+    public string OwnerTag = "";
+    public float Damage = 10f;
+
+    void Start()
+    {
+        body.isKinematic = true; // disables velocity and stuff
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,6 +34,28 @@ public class StandardProjectile : MonoBehaviour
             //  The sprite is being rotated about the z axis (imagine z axis as depth of the screen)
             //  so Vector3.forward * degrees is the same as: new Vector3(0, 0, degrees)
             transform.eulerAngles = Vector3.forward * degrees;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("the thingy worked");
+
+        if (!collider.gameObject.CompareTag(OwnerTag))
+        {
+            Debug.Log("Hit the thingy");
+
+            // If hit object is a unit
+            if (collider.gameObject.CompareTag("Unit"))
+            {
+                collider.gameObject.GetComponent<StandardUnit>().Damage(Damage);
+                Destroy(this.gameObject);
+            }
+            else if (collider.gameObject.CompareTag("Tower"))
+            {
+                collider.gameObject.GetComponent<StandardTower>().Damage(Damage);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
