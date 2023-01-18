@@ -5,7 +5,7 @@ using UnityEngine;
 public class selectUnitToPurchase : MonoBehaviour
 {
     public GameObject knight;
-    public int knightCost;
+    int knightCost = gameStatistics.knightCost;
     public void selectKnight() {
         GameObject selected = transform.parent.GetComponent<purchaseUnit>().selectedPrefab;
         if (GameObject.ReferenceEquals(selected, knight)) {
