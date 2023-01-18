@@ -1,50 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1533095524
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1533095526}
-  - component: {fileID: 1533095525}
-  m_Layer: 0
-  m_Name: game statistics
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1533095526
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533095524}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.399506, y: 8.978455, z: -0.87436867}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7509298143268633074}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1533095525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533095524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1403e215a6047da419183bfb7fcaa691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentCredits: 2000
 --- !u!1 &42880103714640550
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e37d6e6cf7b274f8e4c2779fd3debd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStats: {fileID: 1533095524}
+  gameStats: {fileID: 5728483484347284204, guid: cd4f42b52e3731a4493b3730589c7a02, type: 3}
 --- !u!1 &4114124172084639985
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +620,6 @@ RectTransform:
   - {fileID: 1010019406418453121}
   - {fileID: 5437293892431742022}
   - {fileID: 981537130386240500}
-  - {fileID: 1533095526}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -825,7 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f413b617cdef114fa8dbb2faa6e31fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStats: {fileID: 1533095524}
+  gameStats: {fileID: 5728483484347284204, guid: cd4f42b52e3731a4493b3730589c7a02, type: 3}
   selectedPrefab: {fileID: 0}
   cost: 0
 --- !u!1001 &307014250450254739
