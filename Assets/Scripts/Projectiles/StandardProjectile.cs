@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class StandardProjectile : MonoBehaviour
 {
+    public Rigidbody2D body;
     public Vector3 velocity = Vector3.zero;
+
+    void Start()
+    {
+        body.isKinematic = true; // disables velocity and stuff
+    }
 
     // Update is called once per frame
     void Update()
@@ -26,5 +32,10 @@ public class StandardProjectile : MonoBehaviour
             //  so Vector3.forward * degrees is the same as: new Vector3(0, 0, degrees)
             transform.eulerAngles = Vector3.forward * degrees;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("the thingy worked");
     }
 }

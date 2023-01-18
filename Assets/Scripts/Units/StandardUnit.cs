@@ -10,7 +10,7 @@ public class StandardUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Shoot(Vector3.left);       
+
     }
 
     // Update is called once per frame
