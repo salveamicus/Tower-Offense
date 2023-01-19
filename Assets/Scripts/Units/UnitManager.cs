@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UnitManager : MonoBehaviour
 {
@@ -23,6 +25,12 @@ public class UnitManager : MonoBehaviour
 
         if (_isDraggingMouseBox && _dragStartPosition != Input.mousePosition)
             _SelectUnitsInDraggingBox();
+
+        if (Input.GetMouseButton(1))
+        {
+            this.gameObject.GetComponent<StandardUnit>().moveGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            this.gameObject.GetComponent<StandardUnit>().hasDirection = false;
+        }
 
         if (Globals.SELECTED_UNITS.Count > 0)
         {
