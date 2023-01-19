@@ -30,7 +30,7 @@ public class StandardUnit : MonoBehaviour
         moveDirection = Vector3.Normalize(toNormalize);
         transform.position += speed * moveDirection;
 
-        Debug.Log("Health: " + Health + ", Position: " + transform.position);
+        //Debug.Log("Health: " + Health + ", Position: " + transform.position); //use this is you need to debug movement or health 
 
         if (Health <= 0)
         {
