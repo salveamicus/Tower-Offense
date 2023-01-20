@@ -20,6 +20,11 @@ public class UnitManager : MonoBehaviour
             _dragStartPosition = Input.mousePosition;
         }
 
+        if (Input.GetMouseButtonDown(2) && (!_isDraggingMouseBox))
+        {
+            _DeselectAllUnits();
+        }
+
         if (Input.GetMouseButtonUp(0))
             _isDraggingMouseBox = false;
 
