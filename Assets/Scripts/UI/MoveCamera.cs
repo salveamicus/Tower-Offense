@@ -19,7 +19,7 @@ public class MoveCamera : MonoBehaviour
         else if (Input.mouseScrollDelta.y < 0)
         {
             Camera.main.orthographicSize += scrollSpeed;
-            Camera.main.nearClipPlane += scrollSpeed;
+            Camera.main.farClipPlane += scrollSpeed;
         }
 
         if ((Input.mousePosition.y >= Screen.height && Input.mousePosition.x >= Screen.width) || (Input.GetKey("right") && Input.GetKey("up")))
