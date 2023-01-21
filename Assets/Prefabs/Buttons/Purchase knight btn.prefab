@@ -508,4 +508,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a145c4d41f2fc488118b54ef159568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knight: {fileID: 3820236453980896677, guid: d2ea45b7282a6fe41927bb84189201ae, type: 3}
+  knight: {fileID: 68236646586539732, guid: 2be8490e31e08e04f817bbf5cab68b07, type: 3}

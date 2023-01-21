@@ -451,6 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStats: {fileID: 1874929525282537315}
+
 --- !u!1 &4114124172084639985
 GameObject:
   m_ObjectHideFlags: 0
