@@ -8,10 +8,11 @@ public class StandardUnit : MonoBehaviour
     public Vector3 moveDirection = Vector3.zero;
     public Vector3 moveGoal;
     private Vector3 toNormalize;
+    private Vector3 zAdjustedGoal;
+    public bool hasDirection = false;
     public float speed = 0.05f;
     public float ProjectileSpeed = 0.1f;
     public float Health = 50f;
-    public bool hasDirection;
 
     private void Start()
     {
@@ -23,10 +24,19 @@ public class StandardUnit : MonoBehaviour
     void Update()
     {
         // For movement
+        zAdjustedGoal = Vector3.zero;
+        zAdjustedGoal.x = moveGoal.x;
+        zAdjustedGoal.y = moveGoal.y;
+        zAdjustedGoal.z = transform.position.z;
+
+        if (Vector3.Distance(transform.position, zAdjustedGoal) < 0.2)
+        {
+            zAdjustedGoal = transform.position;
+        }
+
         toNormalize = Vector3.zero;
-        toNormalize.x = moveGoal.x - transform.position.x;
-        toNormalize.y = moveGoal.y - transform.position.y;
-        toNormalize.z = transform.position.z;
+        toNormalize = zAdjustedGoal - transform.position;
+
         moveDirection = Vector3.Normalize(toNormalize);
         transform.position += speed * moveDirection;
 
