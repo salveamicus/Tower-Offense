@@ -95,8 +95,7 @@ GameObject:
   - component: {fileID: 2160359574138009430}
   - component: {fileID: 2160359574138009433}
   - component: {fileID: 2160359574138009432}
-  - component: {fileID: 2160359574138009435}
-  - component: {fileID: 1960161082845028702}
+  - component: {fileID: 9184017506740824566}
   m_Layer: 0
   m_Name: StandardUnit
   m_TagString: Unit
@@ -161,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 2c22e809ba706eb8689eb460d577d30c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -169,7 +168,7 @@ SpriteRenderer:
   m_Size: {x: 0.8, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!60 &2160359574138009432
@@ -214,7 +213,7 @@ PolygonCollider2D:
       - {x: 0.19999999, y: -0.21}
       - {x: 0.26, y: -0.07}
       - {x: 0.26, y: 0.04}
---- !u!114 &2160359574138009435
+--- !u!114 &9184017506740824566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,26 +222,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2160359574138009434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbbe78883e957c746a1edec1b2c07e25, type: 3}
+  m_Script: {fileID: 11500000, guid: 662286ae3619eedfc96679203c658c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1572402366, guid: 45cdee511487cbd15ab503c14089cf92, type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
   moveGoal: {x: 0, y: 0, z: 0}
+  hasDirection: 0
   speed: 0.05
   ProjectileSpeed: 0.1
   Health: 50
-  hasDirection: 0
---- !u!114 &1960161082845028702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2160359574138009434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d76bce7d30424a4dbec407ac62c73b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectionCircle: {fileID: 1476025404945999650}
