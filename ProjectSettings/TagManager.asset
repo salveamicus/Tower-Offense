@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Tower
   - Unit
+  - Tower
+  - Terrain
   layers:
   - Default
   - TransparentFX

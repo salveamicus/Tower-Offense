@@ -7,6 +7,7 @@ public class gameStatistics : MonoBehaviour
 
     // UI statistics
     public int currentCredits = 2000;
+    public static int initialCredits = 2000;
     public static int continuousSpawnStartDelay = 30;
     public static int continuousSpawnDelay = 10;
 
@@ -16,4 +17,7 @@ public class gameStatistics : MonoBehaviour
     // tower statistics
 
 
+    void start() {
+        currentCredits = initialCredits;
+    }
 }

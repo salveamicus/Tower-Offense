@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6669588453241588556}
-  - component: {fileID: 5405895933223713635}
+  - component: {fileID: 9045715084600738088}
   m_Layer: 0
   m_Name: game statistics
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5405895933223713635
+--- !u!114 &9045715084600738088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5728483484347284204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfdf99819d0feda4599949f0c7361ada, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a60d602eca380c2794a22a272a9e0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentCredits: 2000
