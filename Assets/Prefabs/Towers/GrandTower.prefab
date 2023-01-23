@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8755781905659066133}
   - component: {fileID: 8755781905659066132}
   - component: {fileID: 8755781905659066135}
-  - component: {fileID: 8755781905659066134}
+  - component: {fileID: 549671430370844576}
   m_Layer: 0
   m_Name: GrandTower
   m_TagString: Untagged
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 58d1889bc05fd9d098e26184d5071145, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c6e7c7aa4274d7985a6e6a95efddb4d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4, y: 2.4}
   m_EdgeRadius: 0
---- !u!114 &8755781905659066134
+--- !u!114 &549671430370844576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f546a0cea2d97764186d7d048160ec5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardProjectile: {fileID: 0}
+  standardProjectile: {fileID: 1572402366, guid: 45cdee511487cbd15ab503c14089cf92, type: 3}
   ProjectileSpeed: 0.2
   Health: 100
