@@ -73,8 +73,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 123
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bc7becae29da254d8a566dcb7dfc7ff, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2bc7becae29da254d8a566dcb7dfc7ff, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b8f4cc93125a340d08edd4c530b70dab, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: b8f4cc93125a340d08edd4c530b70dab, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 61086899738212879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed705082e70131b458ce7ae254047ed5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5217db8c73adee08f9b1a136c7ddefed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &70057839488563924
@@ -224,8 +224,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Knight
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bc7becae29da254d8a566dcb7dfc7ff, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2bc7becae29da254d8a566dcb7dfc7ff, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b8f4cc93125a340d08edd4c530b70dab, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: b8f4cc93125a340d08edd4c530b70dab, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -379,9 +379,6 @@ GameObject:
   - component: {fileID: 1628215143210689245}
   - component: {fileID: 6784839219395636620}
   - component: {fileID: 3638176311955478909}
-<<<<<<< HEAD:Assets/Prefabs/Buttons/Purchase knight btn.prefab
-  - component: {fileID: 1116071961929852533}
-=======
   - component: {fileID: 4030136947975974562}
 >>>>>>> develop:Assets/Prefabs/Buttons/selectKnight.prefab
   m_Layer: 5
@@ -496,11 +493,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< HEAD:Assets/Prefabs/Buttons/Purchase knight btn.prefab
-      - m_Target: {fileID: 0}
-=======
       - m_Target: {fileID: 4030136947975974562}
->>>>>>> develop:Assets/Prefabs/Buttons/selectKnight.prefab
         m_TargetAssemblyTypeName: selectUnitToPurchase, Assembly-CSharp
         m_MethodName: selectKnight
         m_Mode: 1
@@ -512,9 +505,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-<<<<<<< HEAD:Assets/Prefabs/Buttons/Purchase knight btn.prefab
---- !u!114 &1116071961929852533
-=======
 --- !u!114 &4030136947975974562
 >>>>>>> develop:Assets/Prefabs/Buttons/selectKnight.prefab
 MonoBehaviour:
@@ -525,11 +515,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5969212271489865659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a5ad4cd1f40634393cd8335d25f070, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e2f41628e20cfffaa7128bf27e18b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:Assets/Prefabs/Buttons/Purchase knight btn.prefab
-  knight: {fileID: 5576036957444648228}
-=======
-  knight: {fileID: 68236646586539732, guid: 2be8490e31e08e04f817bbf5cab68b07, type: 3}
->>>>>>> develop:Assets/Prefabs/Buttons/selectKnight.prefab
+  knight: {fileID: 0}
