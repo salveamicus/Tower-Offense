@@ -789,14 +789,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5437293892431742022}
     m_Modifications:
-    - target: {fileID: 3579199329216174431, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1238b9cd010e4344ba438bc564433215, type: 3}
-    - target: {fileID: 3638176311955478909, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4411477625880727108, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -881,72 +873,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5523961471243327435, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 2bc7becae29da254d8a566dcb7dfc7ff, type: 2}
-    - target: {fileID: 5523961471243327435, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 2bc7becae29da254d8a566dcb7dfc7ff, type: 2}
     - target: {fileID: 5969212271489865659, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
       propertyPath: m_Name
       value: Purchase knight btn
       objectReference: {fileID: 0}
-    - target: {fileID: 5979881867698352805, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 2bc7becae29da254d8a566dcb7dfc7ff, type: 2}
-    - target: {fileID: 5979881867698352805, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 2bc7becae29da254d8a566dcb7dfc7ff, type: 2}
-    m_RemovedComponents:
-    - {fileID: 4374617196646480881, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
-    - {fileID: 5386462943236979247, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
---- !u!1 &264661872031075012 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 61086899738212879, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
-  m_PrefabInstance: {fileID: 249178627257921739}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7769603126481542393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264661872031075012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed705082e70131b458ce7ae254047ed5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &4489513935076572815 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4411477625880727108, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
   m_PrefabInstance: {fileID: 249178627257921739}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5627057201020657135 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5576036957444648228, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
-  m_PrefabInstance: {fileID: 249178627257921739}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5882726182123579248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5969212271489865659, guid: e473d329e04182a4d8ad298761a3228a, type: 3}
-  m_PrefabInstance: {fileID: 249178627257921739}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1116071961929852533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5882726182123579248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a5ad4cd1f40634393cd8335d25f070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knight: {fileID: 5627057201020657135}
