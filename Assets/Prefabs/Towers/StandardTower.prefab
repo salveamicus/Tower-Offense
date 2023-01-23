@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1891091073567653922}
   - component: {fileID: 1891091073567653921}
   - component: {fileID: 6854697144628277370}
-  - component: {fileID: 1844014088}
   m_Layer: 0
   m_Name: StandardTower
   m_TagString: Tower
@@ -83,7 +82,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &6854697144628277370
@@ -112,17 +111,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0
---- !u!114 &1844014088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891091073567653920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f912af5497cb825ba9c2acb29fe93054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Projectile: {fileID: 1572402366, guid: 45cdee511487cbd15ab503c14089cf92, type: 3}
-  ProjectileSpeed: 0.1

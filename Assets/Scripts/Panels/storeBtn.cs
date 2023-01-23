@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class activatePanel : MonoBehaviour
+public class storeBtn : MonoBehaviour
 {
-    public GameObject storePanel;
+    GameObject storePanel;
     public void changeStorePanel() {
+        storePanel = transform.parent.GetChild(1).gameObject;
         if (storePanel.activeInHierarchy) {
             storePanel.SetActive(false);
         }
