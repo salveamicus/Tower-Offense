@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 735992589053478795}
   - component: {fileID: 735992589053478804}
   - component: {fileID: 735992589053478805}
-  - component: {fileID: 735992589053478806}
+  - component: {fileID: 1142074126704846552}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 735992589053478806}
-        m_TargetAssemblyTypeName: change_scene, Assembly-CSharp
+      - m_Target: {fileID: 1142074126704846552}
+        m_TargetAssemblyTypeName: changeScene, Assembly-CSharp
         m_MethodName: loadGame
         m_Mode: 1
         m_Arguments:
@@ -135,7 +135,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &735992589053478806
+--- !u!114 &1142074126704846552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -11,9 +11,13 @@ GameObject:
   - component: {fileID: 2145406352768200605}
   - component: {fileID: 5457572674098866452}
   - component: {fileID: 5979881867698352805}
+<<<<<<< HEAD:Assets/Prefabs/Buttons/Purchase knight btn.prefab
   - component: {fileID: 7769603126481542393}
+=======
+  - component: {fileID: 2046237068623909804}
+>>>>>>> develop:Assets/Prefabs/Buttons/selectKnight.prefab
   m_Layer: 5
-  m_Name: cost
+  m_Name: knight cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +140,11 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD:Assets/Prefabs/Buttons/Purchase knight btn.prefab
 --- !u!114 &7769603126481542393
+=======
+--- !u!114 &2046237068623909804
+>>>>>>> develop:Assets/Prefabs/Buttons/selectKnight.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -371,9 +379,13 @@ GameObject:
   - component: {fileID: 1628215143210689245}
   - component: {fileID: 6784839219395636620}
   - component: {fileID: 3638176311955478909}
+<<<<<<< HEAD:Assets/Prefabs/Buttons/Purchase knight btn.prefab
   - component: {fileID: 1116071961929852533}
+=======
+  - component: {fileID: 4030136947975974562}
+>>>>>>> develop:Assets/Prefabs/Buttons/selectKnight.prefab
   m_Layer: 5
-  m_Name: Purchase knight btn
+  m_Name: selectKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,7 +496,11 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+<<<<<<< HEAD:Assets/Prefabs/Buttons/Purchase knight btn.prefab
       - m_Target: {fileID: 0}
+=======
+      - m_Target: {fileID: 4030136947975974562}
+>>>>>>> develop:Assets/Prefabs/Buttons/selectKnight.prefab
         m_TargetAssemblyTypeName: selectUnitToPurchase, Assembly-CSharp
         m_MethodName: selectKnight
         m_Mode: 1
@@ -496,7 +512,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+<<<<<<< HEAD:Assets/Prefabs/Buttons/Purchase knight btn.prefab
 --- !u!114 &1116071961929852533
+=======
+--- !u!114 &4030136947975974562
+>>>>>>> develop:Assets/Prefabs/Buttons/selectKnight.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -508,4 +528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a5ad4cd1f40634393cd8335d25f070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Prefabs/Buttons/Purchase knight btn.prefab
   knight: {fileID: 5576036957444648228}
+=======
+  knight: {fileID: 68236646586539732, guid: 2be8490e31e08e04f817bbf5cab68b07, type: 3}
+>>>>>>> develop:Assets/Prefabs/Buttons/selectKnight.prefab
