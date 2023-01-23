@@ -121,9 +121,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8755781905659066129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f546a0cea2d97764186d7d048160ec5c, type: 3}
+  m_Script: {fileID: 11500000, guid: dfaec272db4b18b438e7e8c4ae7f680f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardProjectile: {fileID: 1572402366, guid: 45cdee511487cbd15ab503c14089cf92, type: 3}
-  ProjectileSpeed: 0.2
+  Projectile: {fileID: 0}
+  ProjectileSpeed: 0.1
   Health: 100
