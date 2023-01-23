@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1891091073567653922}
   - component: {fileID: 1891091073567653921}
   - component: {fileID: 6854697144628277370}
+  - component: {fileID: -7511692800206537560}
   m_Layer: 0
   m_Name: StandardTower
   m_TagString: Tower
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 791e3882d50c56122b29f3ab1471c355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abb8a5f01073fb046bd30fca06aeb4dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &6854697144628277370
@@ -111,3 +112,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0
+--- !u!114 &-7511692800206537560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891091073567653920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfaec272db4b18b438e7e8c4ae7f680f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
+  ProjectileSpeed: 0.1
+  Health: 100

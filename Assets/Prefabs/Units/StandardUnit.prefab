@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b862c6e8c2a04849bc19ed59739d8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
   moveGoal: {x: 0, y: 0, z: 0}
   hasDirection: 0

@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 2.4, y: 2.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &8755781905659066135
@@ -124,6 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfaec272db4b18b438e7e8c4ae7f680f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
   ProjectileSpeed: 0.1
   Health: 100
