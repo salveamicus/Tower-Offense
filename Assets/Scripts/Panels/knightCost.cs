@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class changeKnightButtonCost : MonoBehaviour
+public class knightCost : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

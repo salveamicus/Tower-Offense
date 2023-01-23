@@ -6,7 +6,6 @@ using System;
 
 public class creditAmountOnPanel : MonoBehaviour
 {
-    public GameObject gameStats;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +15,6 @@ public class creditAmountOnPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(gameStats.GetComponent<gameStatistics>().currentCredits);
+        gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(gameStatistics.currentCredits);
     }
 }

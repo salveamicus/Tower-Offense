@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5979881867698352805}
   - component: {fileID: 2046237068623909804}
   m_Layer: 5
-  m_Name: cost
+  m_Name: knight cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 3638176311955478909}
   - component: {fileID: 4030136947975974562}
   m_Layer: 5
-  m_Name: Purchase knight btn
+  m_Name: selectKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class purchaseUnit : MonoBehaviour
+public class storePanel : MonoBehaviour
 {
-    public GameObject gameStats;
+    // public GameObject gameStatistics;
     public GameObject selectedPrefab;
     public int cost;
     int currentCredits;
@@ -20,7 +20,7 @@ public class purchaseUnit : MonoBehaviour
         if (framesUntilSpawn > 0) {
             framesUntilSpawn -= 1;
         }
-        currentCredits = gameStats.GetComponent<gameStatistics>().currentCredits;
+        currentCredits = gameStatistics.currentCredits;
         if (Input.GetMouseButtonDown(0)) // left click 
         {
             startMouseDown = Time.frameCount;
@@ -35,7 +35,7 @@ public class purchaseUnit : MonoBehaviour
                 plane.Raycast(ray, out distance);
                 scenePosition = ray.GetPoint(distance);
                 Instantiate(selectedPrefab, scenePosition, Quaternion.identity);
-                gameStats.GetComponent<gameStatistics>().currentCredits = currentCredits - cost;
+                gameStatistics.currentCredits = currentCredits - cost;
             }
         }
         else if (Input.GetMouseButton(0))
@@ -53,7 +53,7 @@ public class purchaseUnit : MonoBehaviour
                 plane.Raycast(ray, out distance);
                 scenePosition = ray.GetPoint(distance);
                 Instantiate(selectedPrefab, scenePosition, Quaternion.identity);
-                gameStats.GetComponent<gameStatistics>().currentCredits = currentCredits - cost;
+                gameStatistics.currentCredits = currentCredits - cost;
                 framesUntilSpawn = continuousSpawnDelay;
             }
         }
