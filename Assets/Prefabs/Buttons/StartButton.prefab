@@ -123,8 +123,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: change_scene, Assembly-CSharp
+      - m_Target: {fileID: 1142074126704846552}
+        m_TargetAssemblyTypeName: changeScene, Assembly-CSharp
         m_MethodName: loadGame
         m_Mode: 1
         m_Arguments:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 735992589053478800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382a49736cbd59f00bf918f422baa81c, type: 3}
+  m_Script: {fileID: 11500000, guid: 503581c673fdf864382d1f0cd44d92fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &735992589619333082
@@ -215,8 +215,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b8f4cc93125a340d08edd4c530b70dab, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: b8f4cc93125a340d08edd4c530b70dab, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

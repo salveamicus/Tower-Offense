@@ -168,7 +168,7 @@ SpriteRenderer:
   m_Size: {x: 0.8, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &9184017506740824566
@@ -180,10 +180,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2160359574138009434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 662286ae3619eedfc96679203c658c84, type: 3}
+  m_Script: {fileID: 11500000, guid: fbbe78883e957c746a1edec1b2c07e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 1572402366, guid: 45cdee511487cbd15ab503c14089cf92, type: 3}
+  Projectile: {fileID: 0}
   moveDirection: {x: 0, y: 0, z: 0}
   moveGoal: {x: 0, y: 0, z: 0}
   hasDirection: 0

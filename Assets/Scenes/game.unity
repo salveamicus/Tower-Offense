@@ -146,6 +146,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionCircle: {fileID: 347896973}
+--- !u!114 &455931198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455931189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b8da3875d9e534cb8265770d13b9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 0.1
+  scrollSpeed: 0.1
+--- !u!1 &683576515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 824160966830277738, guid: 9c3ea2935d42da84a8b47969ab01f70c, type: 3}
+  m_PrefabInstance: {fileID: 7509298143419481834}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &683576520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683576515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c507d0533a4e3c4284f362adcdd2a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1063376308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -272,6 +303,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1494187041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6449122578860894686, guid: 9c3ea2935d42da84a8b47969ab01f70c, type: 3}
+  m_PrefabInstance: {fileID: 7509298143419481834}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1494187047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494187041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a145c4d41f2fc488118b54ef159568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knight: {fileID: 68236646586539732, guid: 2be8490e31e08e04f817bbf5cab68b07, type: 3}
 --- !u!1 &1551413363
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +479,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4167063488803563288, guid: 9c3ea2935d42da84a8b47969ab01f70c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1494187047}
+    - target: {fileID: 4167063488803563288, guid: 9c3ea2935d42da84a8b47969ab01f70c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: selectKnight
+      objectReference: {fileID: 0}
     - target: {fileID: 7509298143268633074, guid: 9c3ea2935d42da84a8b47969ab01f70c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -518,5 +575,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4342851086759153863, guid: 9c3ea2935d42da84a8b47969ab01f70c, type: 3}
+    - {fileID: 1714945650168868297, guid: 9c3ea2935d42da84a8b47969ab01f70c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9c3ea2935d42da84a8b47969ab01f70c, type: 3}
