@@ -13,6 +13,7 @@ public class StandardUnit : MonoBehaviour
     public float speed = 0.05f;
     public float ProjectileSpeed = 0.1f;
     public float Health = 50f;
+    public bool isSelected = false;
 
     private void Start()
     {
