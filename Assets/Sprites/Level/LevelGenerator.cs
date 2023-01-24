@@ -8,6 +8,9 @@ public class LevelGenerator : MonoBehaviour
     public GrandTower grandTower;
     public StandardTower standardTower;
 
+    // Generation Paramters
+    public float smallestRadius = 2.5f;
+
     // The Grand Tower of the current level
     private GrandTower currentGrandTower = null;
 
@@ -41,5 +44,17 @@ public class LevelGenerator : MonoBehaviour
         RemoveAllChildren();
 
         currentGrandTower = Instantiate(grandTower, transform.position, Quaternion.identity, transform);       
+
+        int numTowers = levelNumber; // This will change eventually to only make a new tower every X levels
+        float angle = 360f / numTowers;
+        float startingAngle = -90; // This will change eventually to be a random number
+
+        for (int i = 0; i < levelNumber; ++i)
+        {
+            float radians = (startingAngle + angle * i) * Mathf.Deg2Rad;
+            Vector3 pos = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0).normalized * smallestRadius;
+
+            Instantiate(standardTower, pos, Quaternion.identity, transform);
+        }
     }
 }
