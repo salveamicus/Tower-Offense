@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardTower : MonoBehaviour
+public class StandardTower : Tower
 {
     public StandardProjectile Projectile;
     public float ProjectileSpeed = 0.1f;
@@ -30,24 +30,11 @@ public class StandardTower : MonoBehaviour
 
         if (canShoot)
         {
-            float closestDistance = Mathf.Infinity;
-            Vector3 closestTarget = Vector3.zero;
-            
-            foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
-            {
-                float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
-                , new Vector2(unit.transform.position.x, unit.transform.position.y));
+            Tuple<float, Vector3> target = GetClosestTarget();
 
-                if (dist < closestDistance)
-                {
-                    closestDistance = dist;
-                    closestTarget = unit.transform.position;
-                }
-            }
-
-            if (closestDistance <= shootRadius)
+            if (target.Item1 <= shootRadius)
             {
-                Shoot(closestTarget - transform.position);
+                Shoot(target.Item2 - transform.position);
                 canShoot = false;
 
                 Invoke("ResetCooldown", shootCooldownSeconds);
