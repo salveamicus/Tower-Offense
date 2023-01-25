@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StandardTower : Tower
 {
-    public StandardProjectile Projectile;
+    public Projectile Projectile;
     public float ProjectileSpeed = 0.1f;
     public float Health = 100f;
     public float shootRadius = 3f;
@@ -33,8 +33,8 @@ public class StandardTower : Tower
     {
         // Vector3.back is used to change the z coordinate of the projectile so that
         // it renders on top of the tower
-        StandardProjectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
-        p.velocity = direction.normalized * ProjectileSpeed;
+        Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
+        p.Velocity = direction.normalized * ProjectileSpeed;
         p.OwnerTag = tag;
     }
 

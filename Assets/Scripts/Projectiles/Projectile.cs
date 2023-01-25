@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Projectile : MonoBehaviour
 {
     public Rigidbody2D body;
+    public Vector3 Velocity = Vector3.zero;
 
     public string OwnerTag = "";
     public float Damage = 10f;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StandardUnit : MonoBehaviour, Unit
 {
-    public StandardProjectile Projectile;
+    public Projectile Projectile;
     public Vector3 moveDirection = Vector3.zero;
     public Vector3 moveGoal;
     private Vector3 toNormalize;
@@ -52,8 +52,8 @@ public class StandardUnit : MonoBehaviour, Unit
 
     public void Shoot(Vector3 direction)
     {
-        StandardProjectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
-        p.velocity = direction.normalized * ProjectileSpeed;
+        Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
+        p.Velocity = direction.normalized * ProjectileSpeed;
         p.OwnerTag = tag;
     }
 

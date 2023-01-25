@@ -31,7 +31,7 @@ public class GrandTower : Tower
     void ShootStandardProjectile(Vector3 direction)
     {
         StandardProjectile p = Instantiate(standardProjectile, transform.position + Vector3.back, transform.rotation);
-        p.velocity = direction.normalized * ProjectileSpeed;
+        p.Velocity = direction.normalized * ProjectileSpeed;
         p.OwnerTag = "Tower";
     }
 
