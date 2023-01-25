@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class selectUnitToPurchase : MonoBehaviour
 {
-    public GameObject knight;
-    int knightCost = gameStatistics.knightCost;
     public void selectKnight() {
-        GameObject selected = transform.parent.GetComponent<storePanel>().selectedPrefab;
-        if (GameObject.ReferenceEquals(selected, knight)) {
-            transform.parent.GetComponent<storePanel>().selectedPrefab = null;
+        int selected = transform.parent.GetComponent<storePanel>().selectedButton;
+        if (selected == 0) {
+            transform.parent.GetComponent<storePanel>().selectedButton = -1;
+            transform.GetComponent<Image>().color = Color.white;
         }
         else {
-            transform.parent.GetComponent<storePanel>().selectedPrefab = knight;
-            transform.parent.GetComponent<storePanel>().cost = knightCost;
+            transform.parent.GetComponent<storePanel>().selectedButton = 0;
+            int index = transform.parent.GetComponent<storePanel>().selectedButton;
+            if (index != -1) {
+                transform.parent.GetChild(index).GetComponent<Image>().color = Color.white;
+            }
+            transform.GetComponent<Image>().color = new Color(0.5f, 1f, 0.5f);
         }
     }
 }
