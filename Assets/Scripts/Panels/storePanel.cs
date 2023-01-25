@@ -14,6 +14,7 @@ public class storePanel : MonoBehaviour
     Plane plane = new Plane(new Vector3(0,0,1), 0); // the xy plane
     int startMouseDown = 0;
     int framesUntilSpawn = 0;
+    int storePanelEdge = 800;
     static int continuousSpawnStartDelay = gameStatistics.continuousSpawnStartDelay;
     static int continuousSpawnDelay = gameStatistics.continuousSpawnDelay;
     
@@ -27,7 +28,7 @@ public class storePanel : MonoBehaviour
             startMouseDown = Time.frameCount;
             if (selectedButton != -1 && // there is a unit selected in the store
                 currentCredits >= costs[selectedButton] && // have enough credits
-                Input.mousePosition.x < 400) // mouse position is not on the store panel
+                Input.mousePosition.x < storePanelEdge) // mouse position is not on the store panel
             {
                 Vector3 screenPosition = Input.mousePosition;
                 Vector3 scenePosition;
@@ -45,7 +46,7 @@ public class storePanel : MonoBehaviour
                 framesUntilSpawn == 0 &&
                 selectedButton != -1 && // there is a unit selected in the store
                 currentCredits >= costs[selectedButton] && // have enough credits
-                Input.mousePosition.x < 400) // mouse position is not on the store panel
+                Input.mousePosition.x < storePanelEdge) // mouse position is not on the store panel
             {
                 Vector3 screenPosition = Input.mousePosition;
                 Vector3 scenePosition;
