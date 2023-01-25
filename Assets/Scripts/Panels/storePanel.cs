@@ -17,6 +17,17 @@ public class storePanel : MonoBehaviour
     static int continuousSpawnStartDelay = gameStatistics.continuousSpawnStartDelay;
     static int continuousSpawnDelay = gameStatistics.continuousSpawnDelay;
     
+    void PurchaseUnit(Vector3 screenPosition) {
+        Vector3 scenePosition;
+        float distance = 1f;
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        plane.Raycast(ray, out distance);
+        scenePosition = ray.GetPoint(distance);
+        GameObject newUnit = (GameObject)Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
+        gameStatistics.units.Add(newUnit);
+        gameStatistics.currentCredits = currentCredits - costs[selectedButton];
+    }
+
     void Update() {
         if (framesUntilSpawn > 0) {
             framesUntilSpawn -= 1;
@@ -29,14 +40,7 @@ public class storePanel : MonoBehaviour
                 currentCredits >= costs[selectedButton] && // have enough credits
                 Input.mousePosition.x < 400) // mouse position is not on the store panel
             {
-                Vector3 screenPosition = Input.mousePosition;
-                Vector3 scenePosition;
-                float distance = 1;
-                Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-                plane.Raycast(ray, out distance);
-                scenePosition = ray.GetPoint(distance);
-                Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
-                gameStatistics.currentCredits = currentCredits - costs[selectedButton];
+                PurchaseUnit(Input.mousePosition);
             }
         }
         else if (Input.GetMouseButton(0))
@@ -47,14 +51,7 @@ public class storePanel : MonoBehaviour
                 currentCredits >= costs[selectedButton] && // have enough credits
                 Input.mousePosition.x < 400) // mouse position is not on the store panel
             {
-                Vector3 screenPosition = Input.mousePosition;
-                Vector3 scenePosition;
-                float distance = 1;
-                Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-                plane.Raycast(ray, out distance);
-                scenePosition = ray.GetPoint(distance);
-                Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
-                gameStatistics.currentCredits = currentCredits - costs[selectedButton];
+                PurchaseUnit(Input.mousePosition);
                 framesUntilSpawn = continuousSpawnDelay;
             }
         }
