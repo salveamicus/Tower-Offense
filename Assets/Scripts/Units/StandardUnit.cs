@@ -13,6 +13,7 @@ public class StandardUnit : Unit
     public bool hasDirection = false;
     public float speed = 0.05f;
     public float ProjectileSpeed = 0.1f;
+    float maxHealth = 50f;
     public float Health = 50f;
     public bool isSelected = false;
 
@@ -76,5 +77,6 @@ public class StandardUnit : Unit
     public override void Damage(float amount)
     {
         Health -= amount;
+        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(amount/maxHealth);
     }
 }
