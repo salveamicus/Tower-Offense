@@ -14,7 +14,7 @@ public class GrandTower : Tower
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -25,6 +25,8 @@ public class GrandTower : Tower
             Debug.Log("The Grand Tower is dead -- Win Condition");
         }
     
+        UpdateRangeRadius(shootRadius);
+        ShowRangeIfMouseHover();
         ShootIfPossible(shootRadius, shootCooldownSeconds);
     }
 
