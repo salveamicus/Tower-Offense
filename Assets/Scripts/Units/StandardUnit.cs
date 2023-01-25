@@ -77,6 +77,6 @@ public class StandardUnit : Unit
     public override void Damage(float amount)
     {
         Health -= amount;
-        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(amount/maxHealth);
+        //transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(amount/maxHealth);
     }
 }
