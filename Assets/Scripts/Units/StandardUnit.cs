@@ -15,7 +15,7 @@ public class StandardUnit : Unit
     public float Health = 50f;
     public bool isSelected = false;
 
-    public float shootRadius = 1f;
+    public float shootRadius = 0.5f;
     public float shootCooldownSeconds = 2f;
 
     private void Start()

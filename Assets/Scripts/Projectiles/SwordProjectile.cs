@@ -19,6 +19,8 @@ public class SwordProjectile : Projectile
     {
         if (Velocity != Vector3.zero)
         {
+            transform.position = transform.position + Velocity;
+
             float degrees = Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg + 90;
             transform.eulerAngles = Vector3.forward * degrees;
         }
