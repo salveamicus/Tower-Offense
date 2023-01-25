@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfaec272db4b18b438e7e8c4ae7f680f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangeSphere: {fileID: 6737397063256012100}
   Projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
   ProjectileSpeed: 0.1
   Health: 100

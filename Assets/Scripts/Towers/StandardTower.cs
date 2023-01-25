@@ -14,7 +14,7 @@ public class StandardTower : Tower
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -26,6 +26,8 @@ public class StandardTower : Tower
             Destroy(this.gameObject);
         }
 
+        UpdateRangeRadius(shootRadius);
+        ShowRangeIfMouseHover();
         ShootIfPossible(shootRadius, shootCooldownSeconds);
     }
 

@@ -6,6 +6,9 @@ using UnityEngine;
 // Base class to define functions for all towers
 public abstract class Tower : MonoBehaviour
 {
+    public GameObject rangeSphere;
+    public SpriteRenderer spriteRenderer;
+
     protected bool canShoot = true;
 
     // I made this because I am not writing this function more than once
@@ -47,6 +50,25 @@ public abstract class Tower : MonoBehaviour
     public virtual void ResetCooldown()
     {
         canShoot = true;
+    }
+
+    public virtual void UpdateRangeRadius(float range)
+    {
+        rangeSphere.transform.localScale = new Vector3(range * 2, 1, range * 2);
+    }
+
+    public virtual void ShowRangeIfMouseHover()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        bool show = true;
+
+        if (mousePos.x > transform.position.x + spriteRenderer.bounds.size.x / 2) show = false;
+        if (mousePos.x < transform.position.x - spriteRenderer.bounds.size.x / 2) show = false;
+        if (mousePos.y > transform.position.y + spriteRenderer.bounds.size.y / 2) show = false;
+        if (mousePos.y < transform.position.y - spriteRenderer.bounds.size.y / 2) show = false;
+
+        rangeSphere.SetActive(show);
     }
 
     public abstract void Shoot(Vector3 direction);
