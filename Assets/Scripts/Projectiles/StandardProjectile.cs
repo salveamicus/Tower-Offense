@@ -49,7 +49,7 @@ public class StandardProjectile : MonoBehaviour
             // If hit object is a unit
             if (collider.gameObject.CompareTag("Unit"))
             {
-                collider.gameObject.GetComponent<StandardUnit>().Damage(Damage);
+                collider.gameObject.GetComponent<Unit>().Damage(Damage);
                 Destroy(this.gameObject);
             }
             else if (collider.gameObject.CompareTag("Tower"))

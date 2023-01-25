@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardUnit : MonoBehaviour
+public class StandardUnit : MonoBehaviour, Unit
 {
     public StandardProjectile Projectile;
     public Vector3 moveDirection = Vector3.zero;
@@ -50,7 +50,7 @@ public class StandardUnit : MonoBehaviour
         }
     }
 
-    void Shoot(Vector3 direction)
+    public void Shoot(Vector3 direction)
     {
         StandardProjectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.velocity = direction.normalized * ProjectileSpeed;
