@@ -21,6 +21,7 @@ public class StandardUnit : Unit
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         moveGoal = transform.position;
         hasDirection = false;
     }
@@ -53,6 +54,8 @@ public class StandardUnit : Unit
             Destroy(this.gameObject);
         }
 
+        UpdateRangeRadius(shootRadius);
+        ShowRangeIfMouseHover();
         ShootIfPossible(shootRadius, shootCooldownSeconds);
 
         // Turn towards closest tower

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public abstract class Unit : MonoBehaviour
 {
+    public GameObject rangeSphere;
+    public SpriteRenderer spriteRenderer;
+
     protected bool canShoot = true;
 
     public virtual Tuple<float, Vector3> GetClosestTarget()
@@ -40,6 +43,25 @@ public abstract class Unit : MonoBehaviour
 
             Invoke("ResetCooldown", cooldown);
         }
+    }
+
+    public virtual void UpdateRangeRadius(float range)
+    {
+        rangeSphere.transform.localScale = new Vector3(range * 2, 1, range * 2);   
+    }
+
+    public virtual void ShowRangeIfMouseHover()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        bool show = true;
+
+        if (mousePos.x > transform.position.x + spriteRenderer.bounds.size.x / 2) show = false;
+        if (mousePos.x < transform.position.x - spriteRenderer.bounds.size.x / 2) show = false;
+        if (mousePos.y > transform.position.y + spriteRenderer.bounds.size.y / 2) show = false;
+        if (mousePos.y < transform.position.y - spriteRenderer.bounds.size.y / 2) show = false;
+
+        rangeSphere.SetActive(show);
     }
 
     public virtual void ResetCooldown()
