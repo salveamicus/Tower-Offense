@@ -8,9 +8,21 @@ public class MoveCamera : MonoBehaviour
     public float panSpeed = 0.1f;
     public float scrollSpeed = 0.1f;
 
+    private bool _isDraggingMouseBox = false;
+    private Vector3 _dragStartPosition;
+
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            _isDraggingMouseBox = true;
+            _dragStartPosition = Input.mousePosition;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+            _isDraggingMouseBox = false;
+
         if (Input.mouseScrollDelta.y > 0)
         {
             Camera.main.orthographicSize -= scrollSpeed;
@@ -53,6 +65,16 @@ public class MoveCamera : MonoBehaviour
         else if (Input.mousePosition.y >= Screen.height || Input.GetKey("up"))
         {
             transform.position += panSpeed * Vector3.up;
+        }
+    }
+    void OnGUI()
+    {
+        if (_isDraggingMouseBox)
+        {
+            // Create a rect from both mouse positions
+            var rect = Utils.GetScreenRect(_dragStartPosition, Input.mousePosition);
+            Utils.DrawScreenRect(rect, new Color(0.5f, 1f, 0.4f, 0.2f));
+            Utils.DrawScreenRectBorder(rect, 1, new Color(0.5f, 1f, 0.4f));
         }
     }
 }

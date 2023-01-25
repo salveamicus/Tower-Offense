@@ -14,15 +14,20 @@ public class storePanel : MonoBehaviour
     Plane plane = new Plane(new Vector3(0,0,1), 0); // the xy plane
     int startMouseDown = 0;
     int framesUntilSpawn = 0;
+    int storePanelEdge = 800;
     static int continuousSpawnStartDelay = gameStatistics.continuousSpawnStartDelay;
     static int continuousSpawnDelay = gameStatistics.continuousSpawnDelay;
     
     void PurchaseUnit(Vector3 screenPosition) {
-        Vector3 scenePosition;
-        float distance = 1f;
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        float distance = 1f;
         plane.Raycast(ray, out distance);
-        scenePosition = ray.GetPoint(distance);
+        Vector3 scenePosition = ray.GetPoint(distance);
+        foreach (GameObject tower in gameStatistics.towers) {
+            if (Vector3.Distance(tower.transform.position, scenePosition) < gameStatistics.placementRadius) {
+                return;
+            }
+        }
         GameObject newUnit = (GameObject)Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
         gameStatistics.units.Add(newUnit);
         gameStatistics.currentCredits = currentCredits - costs[selectedButton];
@@ -38,7 +43,7 @@ public class storePanel : MonoBehaviour
             startMouseDown = Time.frameCount;
             if (selectedButton != -1 && // there is a unit selected in the store
                 currentCredits >= costs[selectedButton] && // have enough credits
-                Input.mousePosition.x < 400) // mouse position is not on the store panel
+                Input.mousePosition.x < storePanelEdge) // mouse position is not on the store panel
             {
                 PurchaseUnit(Input.mousePosition);
             }
@@ -49,7 +54,7 @@ public class storePanel : MonoBehaviour
                 framesUntilSpawn == 0 &&
                 selectedButton != -1 && // there is a unit selected in the store
                 currentCredits >= costs[selectedButton] && // have enough credits
-                Input.mousePosition.x < 400) // mouse position is not on the store panel
+                Input.mousePosition.x < storePanelEdge) // mouse position is not on the store panel
             {
                 PurchaseUnit(Input.mousePosition);
                 framesUntilSpawn = continuousSpawnDelay;
