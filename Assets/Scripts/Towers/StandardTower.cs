@@ -50,7 +50,7 @@ public class StandardTower : MonoBehaviour
                 Shoot(closestTarget - transform.position);
                 canShoot = false;
 
-                Invoke("canShoot", shootCooldownSeconds);
+                Invoke("ResetCooldown", shootCooldownSeconds);
             }
         }
     }
