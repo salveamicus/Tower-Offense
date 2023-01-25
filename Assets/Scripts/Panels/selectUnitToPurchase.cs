@@ -19,5 +19,6 @@ public class selectUnitToPurchase : MonoBehaviour
             }
             transform.GetComponent<Image>().color = new Color(0.5f, 1f, 0.5f);
         }
+        Debug.Log(gameStatistics.units.Count);
     }
 }
