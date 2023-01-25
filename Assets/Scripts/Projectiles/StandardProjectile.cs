@@ -54,7 +54,7 @@ public class StandardProjectile : MonoBehaviour
             }
             else if (collider.gameObject.CompareTag("Tower"))
             {
-                collider.gameObject.GetComponent<StandardTower>().Damage(Damage);
+                collider.gameObject.GetComponent<Tower>().Damage(Damage);
                 Destroy(this.gameObject);
             }
         }
