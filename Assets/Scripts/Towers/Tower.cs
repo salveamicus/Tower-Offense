@@ -6,6 +6,8 @@ using UnityEngine;
 // Base class to define functions for all towers
 public abstract class Tower : MonoBehaviour
 {
+    protected bool canShoot = true;
+
     // I made this because I am not writing this function more than once
     public virtual Tuple<float, Vector3> GetClosestTarget()
     {
@@ -27,4 +29,26 @@ public abstract class Tower : MonoBehaviour
         return new Tuple<float, Vector3>(closestDistance, closestTarget);
     }
 
+    public virtual void ShootIfPossible(float radius, float cooldown)
+    {
+        if (!canShoot) return;
+
+        Tuple<float, Vector3> target = GetClosestTarget();
+
+        if (target.Item1 <= radius)
+        {
+            Shoot(target.Item2 - transform.position);
+            canShoot = false;
+
+            Invoke("ResetCooldown", cooldown);
+        }
+    }
+
+    public virtual void ResetCooldown()
+    {
+        canShoot = true;
+    }
+
+    public abstract void Shoot(Vector3 direction);
+    public abstract void Damage(float amount);
 }

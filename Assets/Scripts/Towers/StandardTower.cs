@@ -11,8 +11,6 @@ public class StandardTower : Tower
     public float shootRadius = 3f;
     public float shootCooldownSeconds = 3f;
 
-    bool canShoot = true;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,26 +26,10 @@ public class StandardTower : Tower
             Destroy(this.gameObject);
         }
 
-        if (canShoot)
-        {
-            Tuple<float, Vector3> target = GetClosestTarget();
-
-            if (target.Item1 <= shootRadius)
-            {
-                Shoot(target.Item2 - transform.position);
-                canShoot = false;
-
-                Invoke("ResetCooldown", shootCooldownSeconds);
-            }
-        }
+        ShootIfPossible(shootRadius, shootCooldownSeconds);
     }
 
-    void ResetCooldown()
-    {
-        canShoot = true;
-    }
-
-    void Shoot(Vector3 direction)
+    public override void Shoot(Vector3 direction)
     {
         // Vector3.back is used to change the z coordinate of the projectile so that
         // it renders on top of the tower
@@ -56,7 +38,7 @@ public class StandardTower : Tower
         p.OwnerTag = tag;
     }
 
-    public void Damage(float amount)
+    public override void Damage(float amount)
     {
         Health -= amount;
     }
