@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardProjectile : MonoBehaviour
+public class StandardProjectile : Projectile
 {
-    public Rigidbody2D body;
     public Vector3 velocity = Vector3.zero;
-
-    public string OwnerTag = "";
-    public float Damage = 10f;
 
     void Start()
     {
@@ -35,28 +31,6 @@ public class StandardProjectile : MonoBehaviour
             //  The sprite is being rotated about the z axis (imagine z axis as depth of the screen)
             //  so Vector3.forward * degrees is the same as: new Vector3(0, 0, degrees)
             transform.eulerAngles = Vector3.forward * degrees;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        Debug.Log("the thingy worked");
-
-        if (!collider.gameObject.CompareTag(OwnerTag))
-        {
-            Debug.Log("Hit the thingy");
-
-            // If hit object is a unit
-            if (collider.gameObject.CompareTag("Unit"))
-            {
-                collider.gameObject.GetComponent<Unit>().Damage(Damage);
-                Destroy(this.gameObject);
-            }
-            else if (collider.gameObject.CompareTag("Tower"))
-            {
-                collider.gameObject.GetComponent<Tower>().Damage(Damage);
-                Destroy(this.gameObject);
-            }
         }
     }
 }
