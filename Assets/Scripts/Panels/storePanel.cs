@@ -18,11 +18,15 @@ public class storePanel : MonoBehaviour
     static int continuousSpawnDelay = gameStatistics.continuousSpawnDelay;
     
     void PurchaseUnit(Vector3 screenPosition) {
-        Vector3 scenePosition;
-        float distance = 1f;
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        float distance = 1f;
         plane.Raycast(ray, out distance);
-        scenePosition = ray.GetPoint(distance);
+        Vector3 scenePosition = ray.GetPoint(distance);
+        foreach (GameObject tower in gameStatistics.towers) {
+            if (Vector3.Distance(tower.transform.position, scenePosition) < gameStatistics.placementRadius) {
+                return;
+            }
+        }
         GameObject newUnit = (GameObject)Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
         gameStatistics.units.Add(newUnit);
         gameStatistics.currentCredits = currentCredits - costs[selectedButton];
