@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1650974869570457753}
   m_Layer: 0
   m_Name: GrandTower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16653766b1093dadfbf54061d866e5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangeSphere: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   standardProjectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
   ProjectileSpeed: 0.2
   Health: 100
+  shootRadius: 5
+  shootCooldownSeconds: 4
