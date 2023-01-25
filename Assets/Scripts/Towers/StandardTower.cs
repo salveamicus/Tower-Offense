@@ -11,6 +11,8 @@ public class StandardTower : Tower
     public float Health = 100f;
     public float shootRadius = 3f;
     public float shootCooldownSeconds = 3f;
+    
+    public GameObject healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,9 @@ public class StandardTower : Tower
         UpdateRangeRadius(shootRadius);
         ShowRangeIfMouseHover();
         ShootIfPossible(shootRadius, shootCooldownSeconds);
+
+        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1), 0.4f, 0);
+        healthBar.transform.rotation = Quaternion.identity;
     }
 
     public override void Shoot(Vector3 direction)
@@ -44,6 +49,6 @@ public class StandardTower : Tower
     public override void Damage(float amount)
     {
         Health -= amount;
-        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(amount/maxHealth);
+        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
 }

@@ -20,6 +20,8 @@ public class StandardUnit : Unit
     public float shootRadius = 0.5f;
     public float shootCooldownSeconds = 2f;
 
+    public GameObject healthBar;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -65,6 +67,9 @@ public class StandardUnit : Unit
 
         float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
         transform.eulerAngles = Vector3.forward * degrees;
+
+        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1)/2*0.6f, 0.4f, 0);
+        healthBar.transform.rotation = Quaternion.identity;
     }
 
     public override void Shoot(Vector3 direction)
@@ -77,6 +82,6 @@ public class StandardUnit : Unit
     public override void Damage(float amount)
     {
         Health -= amount;
-        //transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(amount/maxHealth);
+        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
 }
