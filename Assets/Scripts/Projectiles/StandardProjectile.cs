@@ -12,6 +12,7 @@ public class StandardProjectile : MonoBehaviour
 
     void Start()
     {
+        body = gameObject.GetComponent<Rigidbody2D>();
         body.isKinematic = true; // disables velocity and stuff
     }
 

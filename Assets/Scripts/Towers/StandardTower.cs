@@ -8,6 +8,10 @@ public class StandardTower : MonoBehaviour
     public StandardProjectile Projectile;
     public float ProjectileSpeed = 0.1f;
     public float Health = 100f;
+    public float shootRadius = 3f;
+    public float shootCooldownSeconds = 3f;
+
+    bool canShoot = true;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,37 @@ public class StandardTower : MonoBehaviour
             // Destroy(this) only destroys the script, not the entire object
             Destroy(this.gameObject);
         }
+
+        if (canShoot)
+        {
+            float closestDistance = Mathf.Infinity;
+            Vector3 closestTarget = Vector3.zero;
+            
+            foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
+            {
+                float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
+                , new Vector2(unit.transform.position.x, unit.transform.position.y));
+
+                if (dist < closestDistance)
+                {
+                    closestDistance = dist;
+                    closestTarget = unit.transform.position;
+                }
+            }
+
+            if (closestDistance <= shootRadius)
+            {
+                Shoot(closestTarget - transform.position);
+                canShoot = false;
+
+                Invoke("canShoot", shootCooldownSeconds);
+            }
+        }
+    }
+
+    void ResetCooldown()
+    {
+        canShoot = true;
     }
 
     void Shoot(Vector3 direction)
