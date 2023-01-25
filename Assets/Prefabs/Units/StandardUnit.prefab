@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b862c6e8c2a04849bc19ed59739d8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
+  Projectile: {fileID: 672542398565441424, guid: a678b6a7243b01f52a5dbb31bc10c932, type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
   moveGoal: {x: 0, y: 0, z: 0}
   hasDirection: 0
@@ -303,6 +303,8 @@ MonoBehaviour:
   ProjectileSpeed: 0.1
   Health: 50
   isSelected: 0
+  shootRadius: 2
+  shootCooldownSeconds: 1
 --- !u!114 &3991358683692401194
 MonoBehaviour:
   m_ObjectHideFlags: 0

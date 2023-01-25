@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardUnit : MonoBehaviour
+public class StandardUnit : Unit
 {
-    public StandardProjectile Projectile;
+    public Projectile Projectile;
     public Vector3 moveDirection = Vector3.zero;
     public Vector3 moveGoal;
     private Vector3 toNormalize;
@@ -15,6 +16,9 @@ public class StandardUnit : MonoBehaviour
     float maxHealth = 50f;
     public float Health = 50f;
     public bool isSelected = false;
+
+    public float shootRadius = 0.5f;
+    public float shootCooldownSeconds = 2f;
 
     private void Start()
     {
@@ -49,16 +53,25 @@ public class StandardUnit : MonoBehaviour
             // Destroy(this) only destroys the script, not the entire object
             Destroy(this.gameObject);
         }
+
+        ShootIfPossible(shootRadius, shootCooldownSeconds);
+
+        // Turn towards closest tower
+        Tuple<float, Vector3> target = GetClosestTarget();
+        Vector3 directionVector = target.Item2 - transform.position;
+
+        float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
+        transform.eulerAngles = Vector3.forward * degrees;
     }
 
-    void Shoot(Vector3 direction)
+    public override void Shoot(Vector3 direction)
     {
-        StandardProjectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
-        p.velocity = direction.normalized * ProjectileSpeed;
+        Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
+        p.Velocity = direction.normalized * ProjectileSpeed;
         p.OwnerTag = tag;
     }
 
-    public void Damage(float amount)
+    public override void Damage(float amount)
     {
         Health -= amount;
         transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(amount/maxHealth);
