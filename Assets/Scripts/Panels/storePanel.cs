@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class storePanel : MonoBehaviour
 {
     // public GameObject gameStatistics;
-    public GameObject selectedPrefab;
-    public int cost;
+    public int selectedButton = -1;
+    public GameObject[] units;
+    int[] costs = {gameStatistics.knightCost};
     int currentCredits;
     Plane plane = new Plane(new Vector3(0,0,1), 0); // the xy plane
     int startMouseDown = 0;
@@ -24,8 +25,8 @@ public class storePanel : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // left click 
         {
             startMouseDown = Time.frameCount;
-            if (selectedPrefab && // there is a unit selected in the store
-                currentCredits >= cost && // have enough credits
+            if (selectedButton != -1 && // there is a unit selected in the store
+                currentCredits >= costs[selectedButton] && // have enough credits
                 Input.mousePosition.x < 400) // mouse position is not on the store panel
             {
                 Vector3 screenPosition = Input.mousePosition;
@@ -34,16 +35,16 @@ public class storePanel : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(screenPosition);
                 plane.Raycast(ray, out distance);
                 scenePosition = ray.GetPoint(distance);
-                Instantiate(selectedPrefab, scenePosition, Quaternion.identity);
-                gameStatistics.currentCredits = currentCredits - cost;
+                Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
+                gameStatistics.currentCredits = currentCredits - costs[selectedButton];
             }
         }
         else if (Input.GetMouseButton(0))
         {
             if(Time.frameCount > startMouseDown + continuousSpawnStartDelay &&
                 framesUntilSpawn == 0 &&
-                selectedPrefab && // there is a unit selected in the store
-                currentCredits >= cost && // have enough credits
+                selectedButton != -1 && // there is a unit selected in the store
+                currentCredits >= costs[selectedButton] && // have enough credits
                 Input.mousePosition.x < 400) // mouse position is not on the store panel
             {
                 Vector3 screenPosition = Input.mousePosition;
@@ -52,8 +53,8 @@ public class storePanel : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(screenPosition);
                 plane.Raycast(ray, out distance);
                 scenePosition = ray.GetPoint(distance);
-                Instantiate(selectedPrefab, scenePosition, Quaternion.identity);
-                gameStatistics.currentCredits = currentCredits - cost;
+                Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
+                gameStatistics.currentCredits = currentCredits - costs[selectedButton];
                 framesUntilSpawn = continuousSpawnDelay;
             }
         }

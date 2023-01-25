@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardTower : MonoBehaviour
+public class StandardTower : Tower
 {
     public StandardProjectile Projectile;
     public float ProjectileSpeed = 0.1f;
     public float Health = 100f;
+    public float shootRadius = 3f;
+    public float shootCooldownSeconds = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +25,11 @@ public class StandardTower : MonoBehaviour
             // Destroy(this) only destroys the script, not the entire object
             Destroy(this.gameObject);
         }
+
+        ShootIfPossible(shootRadius, shootCooldownSeconds);
     }
 
-    void Shoot(Vector3 direction)
+    public override void Shoot(Vector3 direction)
     {
         // Vector3.back is used to change the z coordinate of the projectile so that
         // it renders on top of the tower
@@ -34,7 +38,7 @@ public class StandardTower : MonoBehaviour
         p.OwnerTag = tag;
     }
 
-    public void Damage(float amount)
+    public override void Damage(float amount)
     {
         Health -= amount;
     }
