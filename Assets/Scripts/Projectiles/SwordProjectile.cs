@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordProjectile : MonoBehaviour
+public class SwordProjectile : Projectile
 {
-    public Rigidbody2D body;
-
-    public string OwnerTag = "";
-    public float Damage = 10f;
     public float LifetimeSeconds = 1f;
 
     // Start is called before the first frame update
@@ -19,26 +15,12 @@ public class SwordProjectile : MonoBehaviour
         Invoke("Die", LifetimeSeconds);
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (!collider.gameObject.CompareTag(OwnerTag))
+        if (Velocity != Vector3.zero)
         {
-            if (collider.gameObject.CompareTag("Unit"))
-            {
-                collider.gameObject.GetComponent<Unit>().Damage(Damage);
-                Destroy(gameObject);
-            }
-            else if (collider.gameObject.CompareTag("Tower"))
-            {
-                collider.gameObject.GetComponent<Tower>().Damage(Damage);
-                Destroy(gameObject);
-            }
+            float degrees = Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg + 90;
+            transform.eulerAngles = Vector3.forward * degrees;
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardUnit : MonoBehaviour, Unit
+public class StandardUnit : Unit
 {
     public Projectile Projectile;
     public Vector3 moveDirection = Vector3.zero;
@@ -14,6 +14,9 @@ public class StandardUnit : MonoBehaviour, Unit
     public float ProjectileSpeed = 0.1f;
     public float Health = 50f;
     public bool isSelected = false;
+
+    public float shootRadius = 1f;
+    public float shootCooldownSeconds = 2f;
 
     private void Start()
     {
@@ -48,16 +51,18 @@ public class StandardUnit : MonoBehaviour, Unit
             // Destroy(this) only destroys the script, not the entire object
             Destroy(this.gameObject);
         }
+
+        ShootIfPossible(shootRadius, shootCooldownSeconds);
     }
 
-    public void Shoot(Vector3 direction)
+    public override void Shoot(Vector3 direction)
     {
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * ProjectileSpeed;
         p.OwnerTag = tag;
     }
 
-    public void Damage(float amount)
+    public override void Damage(float amount)
     {
         Health -= amount;
     }
