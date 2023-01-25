@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,6 +54,13 @@ public class StandardUnit : Unit
         }
 
         ShootIfPossible(shootRadius, shootCooldownSeconds);
+
+        // Turn towards closest tower
+        Tuple<float, Vector3> target = GetClosestTarget();
+        Vector3 directionVector = target.Item2 - transform.position;
+
+        float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
+        transform.eulerAngles = Vector3.forward * degrees;
     }
 
     public override void Shoot(Vector3 direction)

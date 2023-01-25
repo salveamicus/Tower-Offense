@@ -37,9 +37,9 @@ public abstract class Unit : MonoBehaviour
         {
             Shoot(target.Item2 - transform.position);
             canShoot = false;
-        }
 
-        Invoke("ResetCooldown", cooldown);
+            Invoke("ResetCooldown", cooldown);
+        }
     }
 
     public virtual void ResetCooldown()
