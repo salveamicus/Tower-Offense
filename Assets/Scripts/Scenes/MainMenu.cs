@@ -12,6 +12,6 @@ public class MainMenu : MonoBehaviour
 
     public void TutorialGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Tutorial");
     }
 }
