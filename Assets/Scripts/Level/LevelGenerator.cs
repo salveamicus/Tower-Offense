@@ -10,20 +10,33 @@ public class LevelGenerator : MonoBehaviour
 
     // Generation Paramters
     public float smallestRadius = 2.5f;
+    public float levelGenTime = 3f;
 
     // The Grand Tower of the current level
     private GrandTower currentGrandTower = null;
 
+    private int currentLevel = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        GenerateLevel(0);       
+        GenerateLevel(currentLevel);       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Check to see if the level is dead
+        // If the level is dead, delete all towers, wait 3 seconds, and then start the next level
+        if (currentGrandTower != null && currentGrandTower.Health <= 0f)
+        {
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            Invoke("GenerateNextLevel", levelGenTime);
+        }
     }
 
     void RemoveAllChildren()
@@ -56,5 +69,10 @@ public class LevelGenerator : MonoBehaviour
 
             Instantiate(standardTower, pos, Quaternion.identity, transform);
         }
+    }
+
+    public void GenerateNextLevel()
+    {
+        GenerateLevel(++currentLevel);
     }
 }

@@ -20,10 +20,8 @@ public class GrandTower : Tower
     // Update is called once per frame
     void Update()
     {
-        if (Health <= 0)
-        {
-            Debug.Log("The Grand Tower is dead -- Win Condition");
-        }
+        // No need to check if health is less than 0 because the level generator 
+        // will automatically check for this
     
         UpdateRangeRadius(shootRadius);
         ShowRangeIfMouseHover();
