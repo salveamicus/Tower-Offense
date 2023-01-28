@@ -7,6 +7,7 @@ public class GrandTower : Tower
     public StandardProjectile standardProjectile;
 
     public float ProjectileSpeed = 0.2f;
+    public float MaxHealth = 100f;
     public float Health = 100f;
     public float shootRadius = 5f;
     public float shootCooldownSeconds = 4f;
@@ -44,6 +45,6 @@ public class GrandTower : Tower
     public override void Damage(float amount)
     {
         Health -= amount;       
+        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
     }
-
 }
