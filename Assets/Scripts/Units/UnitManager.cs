@@ -33,8 +33,11 @@ public class UnitManager : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            this.gameObject.GetComponent<StandardUnit>().moveGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            this.gameObject.GetComponent<StandardUnit>().hasDirection = false;
+            if(this.gameObject.GetComponent<StandardUnit>().isSelected == true)
+            {
+                this.gameObject.GetComponent<StandardUnit>().moveGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                this.gameObject.GetComponent<StandardUnit>().hasDirection = false;
+            }
         }
 
         if (Globals.SELECTED_UNITS.Count > 0)
@@ -77,16 +80,6 @@ public class UnitManager : MonoBehaviour
         }
     }
 
-    void OnGUI()
-    {
-        if (_isDraggingMouseBox)
-        {
-            // Create a rect from both mouse positions
-            var rect = Utils.GetScreenRect(_dragStartPosition, Input.mousePosition);
-            Utils.DrawScreenRect(rect, new Color(0.5f, 1f, 0.4f, 0.2f));
-            Utils.DrawScreenRectBorder(rect, 1, new Color(0.5f, 1f, 0.4f));
-        }
-    }
     private void OnMouseDown()
     {
         if (IsActive())
@@ -101,6 +94,7 @@ public class UnitManager : MonoBehaviour
         if (Globals.SELECTED_UNITS.Contains(this)) return;
         Globals.SELECTED_UNITS.Add(this);
         selectionCircle.SetActive(true);
+        this.gameObject.GetComponent<StandardUnit>().isSelected = true;
     }
     protected virtual bool IsActive()
     {
@@ -138,6 +132,7 @@ public class UnitManager : MonoBehaviour
         if (!Globals.SELECTED_UNITS.Contains(this)) return;
         Globals.SELECTED_UNITS.Remove(this);
         selectionCircle.SetActive(false);
+        this.gameObject.GetComponent<StandardUnit>().isSelected = false;
     }
 
     private void _DeselectAllUnits()

@@ -2,38 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrandTower : MonoBehaviour
+public class GrandTower : Tower
 {
     public StandardProjectile standardProjectile;
 
-    public float ProjectileSpeed = 0.2f;
+    public float ProjectileSpeed = 8f;
+    public float MaxHealth = 100f;
     public float Health = 100f;
+    public float shootRadius = 5f;
+    public float shootCooldownSeconds = 4f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Health <= 0)
-        {
-            Debug.Log("The Grand Tower is dead -- Win Condition");
-        }
+        // No need to check if health is less than 0 because the level generator 
+        // will automatically check for this
+    
+        UpdateRangeRadius(shootRadius);
+        ShowRangeIfMouseHover();
+        ShootIfPossible(shootRadius, shootCooldownSeconds);
     }
 
     void ShootStandardProjectile(Vector3 direction)
     {
         StandardProjectile p = Instantiate(standardProjectile, transform.position + Vector3.back, transform.rotation);
-        p.velocity = direction.normalized * ProjectileSpeed;
+        p.Velocity = direction.normalized * ProjectileSpeed;
         p.OwnerTag = "Tower";
     }
 
-    public void Damage(float amount)
+    // Will eventually randomly select from all available projectiles
+    public override void Shoot(Vector3 direction)
     {
-        Health -= amount;       
+        ShootStandardProjectile(direction);
     }
 
+    public override void Damage(float amount)
+    {
+        Health -= amount;       
+        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
+    }
 }

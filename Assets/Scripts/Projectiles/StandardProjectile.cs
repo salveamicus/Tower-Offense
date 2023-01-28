@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardProjectile : MonoBehaviour
+public class StandardProjectile : Projectile
 {
-    public Rigidbody2D body;
-    public Vector3 velocity = Vector3.zero;
-
-    public string OwnerTag = "";
-    public float Damage = 10f;
+    public float LifetimeSeconds = 3f;
 
     void Start()
     {
+        body = gameObject.GetComponent<Rigidbody2D>();
         body.isKinematic = true; // disables velocity and stuff
+
+        // Despawn if never hits anything
+        Invoke("Die", LifetimeSeconds);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (velocity != Vector3.zero)
+        if (Velocity != Vector3.zero)
         {
-            transform.position += velocity;
+            transform.position += Velocity * Time.deltaTime;
 
             // Gets the angle to rotate the sprite by by using trig ( tan angle = y/x ).
             // Offset by 90 degrees because the sprite is facing up in the png
             // Atan2: Finds the angle of a vector whose angle = y / x
             // Rad2Deg: Equal to 180 degrees / pi Radians (Converts radians to degrees)
-            float degrees = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90;
+            float degrees = Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg - 90;
 
             // I have no idea wehat eulerAngles means, but if you set its value to x, it will
             // set the rotation to x degrees.
@@ -34,28 +34,6 @@ public class StandardProjectile : MonoBehaviour
             //  The sprite is being rotated about the z axis (imagine z axis as depth of the screen)
             //  so Vector3.forward * degrees is the same as: new Vector3(0, 0, degrees)
             transform.eulerAngles = Vector3.forward * degrees;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        Debug.Log("the thingy worked");
-
-        if (!collider.gameObject.CompareTag(OwnerTag))
-        {
-            Debug.Log("Hit the thingy");
-
-            // If hit object is a unit
-            if (collider.gameObject.CompareTag("Unit"))
-            {
-                collider.gameObject.GetComponent<StandardUnit>().Damage(Damage);
-                Destroy(this.gameObject);
-            }
-            else if (collider.gameObject.CompareTag("Tower"))
-            {
-                collider.gameObject.GetComponent<StandardTower>().Damage(Damage);
-                Destroy(this.gameObject);
-            }
         }
     }
 }

@@ -3,16 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardTower : MonoBehaviour
+public class StandardTower : Tower
 {
-    public StandardProjectile Projectile;
-    public float ProjectileSpeed = 0.1f;
+    public Projectile Projectile;
+    public float ProjectileSpeed = 5f;
+    public float maxHealth = 100f;
     public float Health = 100f;
+    public float shootRadius = 3f;
+    public float shootCooldownSeconds = 3f;
+    
+    public GameObject healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -23,19 +28,27 @@ public class StandardTower : MonoBehaviour
             // Destroy(this) only destroys the script, not the entire object
             Destroy(this.gameObject);
         }
+
+        UpdateRangeRadius(shootRadius);
+        ShowRangeIfMouseHover();
+        ShootIfPossible(shootRadius, shootCooldownSeconds);
+
+        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1), 0.4f, 0);
+        healthBar.transform.rotation = Quaternion.identity;
     }
 
-    void Shoot(Vector3 direction)
+    public override void Shoot(Vector3 direction)
     {
         // Vector3.back is used to change the z coordinate of the projectile so that
         // it renders on top of the tower
-        StandardProjectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
-        p.velocity = direction.normalized * ProjectileSpeed;
+        Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
+        p.Velocity = direction.normalized * ProjectileSpeed;
         p.OwnerTag = tag;
     }
 
-    public void Damage(float amount)
+    public override void Damage(float amount)
     {
         Health -= amount;
+        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
 }

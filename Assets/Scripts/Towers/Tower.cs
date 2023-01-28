@@ -1,0 +1,82 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// Base class to define functions for all towers
+public abstract class Tower : MonoBehaviour
+{
+    public GameObject rangeSphere;
+    public SpriteRenderer spriteRenderer;
+
+    public Bounds TowerBounds { get => spriteRenderer.bounds; }
+
+    protected bool canShoot = true;
+
+    // I made this because I am not writing this function more than once
+    public virtual Tuple<float, Vector3> GetClosestTarget()
+    {
+        float closestDistance = Mathf.Infinity;
+        Vector3 closestTarget = Vector3.zero;
+        
+        foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
+        {
+            // Gets the closest point of the unit
+            // See Unit.cs implementation for more details
+            Vector3 closestPoint = unit.gameObject.GetComponent<Unit>().UnitBounds.ClosestPoint(transform.position);
+
+            float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
+            , new Vector2(closestPoint.x, closestPoint.y));
+
+            if (dist < closestDistance)
+            {
+                closestDistance = dist;
+                closestTarget = closestPoint;
+            }
+        }
+
+        return new Tuple<float, Vector3>(closestDistance, closestTarget);
+    }
+
+    public virtual void ShootIfPossible(float radius, float cooldown)
+    {
+        if (!canShoot) return;
+
+        Tuple<float, Vector3> target = GetClosestTarget();
+
+        if (target.Item1 <= radius)
+        {
+            Shoot(target.Item2 - transform.position);
+            canShoot = false;
+
+            Invoke("ResetCooldown", cooldown);
+        }
+    }
+
+    public virtual void ResetCooldown()
+    {
+        canShoot = true;
+    }
+
+    public virtual void UpdateRangeRadius(float range)
+    {
+        rangeSphere.transform.localScale = new Vector3(range * 2, 1, range * 2);
+    }
+
+    public virtual void ShowRangeIfMouseHover()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        bool show = true;
+
+        if (mousePos.x > transform.position.x + spriteRenderer.bounds.size.x / 2) show = false;
+        if (mousePos.x < transform.position.x - spriteRenderer.bounds.size.x / 2) show = false;
+        if (mousePos.y > transform.position.y + spriteRenderer.bounds.size.y / 2) show = false;
+        if (mousePos.y < transform.position.y - spriteRenderer.bounds.size.y / 2) show = false;
+
+        rangeSphere.SetActive(show);
+    }
+
+    public abstract void Shoot(Vector3 direction);
+    public abstract void Damage(float amount);
+}
