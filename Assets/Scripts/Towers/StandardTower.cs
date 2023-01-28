@@ -6,7 +6,7 @@ using UnityEngine;
 public class StandardTower : Tower
 {
     public Projectile Projectile;
-    public float ProjectileSpeed = 0.1f;
+    public float ProjectileSpeed = 5f;
     public float maxHealth = 100f;
     public float Health = 100f;
     public float shootRadius = 3f;
