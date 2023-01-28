@@ -20,7 +20,7 @@ public class StandardProjectile : Projectile
     {
         if (Velocity != Vector3.zero)
         {
-            transform.position += Velocity;
+            transform.position += Velocity * Time.deltaTime;
 
             // Gets the angle to rotate the sprite by by using trig ( tan angle = y/x ).
             // Offset by 90 degrees because the sprite is facing up in the png

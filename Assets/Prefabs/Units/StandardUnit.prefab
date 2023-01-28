@@ -275,8 +275,8 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   moveGoal: {x: 0, y: 0, z: 0}
   hasDirection: 0
-  speed: 0.5
-  ProjectileSpeed: 0.1
+  speed: 0.05
+  ProjectileSpeed: 3
   Health: 50
   isSelected: 0
   shootRadius: 2

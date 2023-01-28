@@ -12,7 +12,7 @@ public class StandardUnit : Unit
     private Vector3 zAdjustedGoal;
     public bool hasDirection = false;
     public float speed = 0.05f;
-    public float ProjectileSpeed = 0.1f;
+    public float ProjectileSpeed = 3f;
     float maxHealth = 50f;
     public float Health = 50f;
     public bool isSelected = false;

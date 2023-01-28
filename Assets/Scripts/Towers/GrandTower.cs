@@ -6,7 +6,7 @@ public class GrandTower : Tower
 {
     public StandardProjectile standardProjectile;
 
-    public float ProjectileSpeed = 0.2f;
+    public float ProjectileSpeed = 8f;
     public float MaxHealth = 100f;
     public float Health = 100f;
     public float shootRadius = 5f;
