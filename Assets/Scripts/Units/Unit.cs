@@ -8,6 +8,8 @@ public abstract class Unit : MonoBehaviour
     public GameObject rangeSphere;
     public SpriteRenderer spriteRenderer;
 
+    public Bounds UnitBounds { get => spriteRenderer.bounds; }
+
     protected bool canShoot = true;
 
     public virtual Tuple<float, Vector3> GetClosestTarget()
