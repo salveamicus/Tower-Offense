@@ -17,7 +17,7 @@ public class StandardUnit : Unit
     public float Health = 50f;
     public bool isSelected = false;
 
-    public float shootRadius = 0.5f;
+    public float shootRadius = 2f;
     public float shootCooldownSeconds = 2f;
 
     public GameObject healthBar;
@@ -67,6 +67,14 @@ public class StandardUnit : Unit
 
         float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
         transform.eulerAngles = Vector3.forward * degrees;
+
+        // Move towards closet tower if not able to shoot anythnig
+        // and not already moving
+        if (target.Item1 > shootRadius && transform.position == zAdjustedGoal && target.Item1 != Mathf.Infinity)
+        {
+            Vector3 direction = target.Item2 - transform.position;
+            moveGoal = target.Item2 - direction.normalized * shootRadius / 2;
+        }
 
         healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1)/2*0.6f, 0.4f, 0);
         healthBar.transform.rotation = Quaternion.identity;
