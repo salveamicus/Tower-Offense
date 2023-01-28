@@ -100,9 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
-  velocity: {x: 0, y: 0, z: 0}
+  Velocity: {x: 0, y: 0, z: 0}
   OwnerTag: 
   Damage: 10
+  LifetimeSeconds: 3
 --- !u!61 &8038442995084886024
 BoxCollider2D:
   m_ObjectHideFlags: 0

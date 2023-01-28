@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class StandardProjectile : Projectile
 {
+    public float LifetimeSeconds = 3f;
+
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
         body.isKinematic = true; // disables velocity and stuff
+
+        // Despawn if never hits anything
+        Invoke("Die", LifetimeSeconds);
     }
 
     // Update is called once per frame

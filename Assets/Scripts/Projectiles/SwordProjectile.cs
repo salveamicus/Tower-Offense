@@ -12,6 +12,7 @@ public class SwordProjectile : Projectile
         body = gameObject.GetComponent<Rigidbody2D>();
         body.isKinematic = true;
 
+        // Despawn if never hits anything
         Invoke("Die", LifetimeSeconds);
     }
 
@@ -24,11 +25,5 @@ public class SwordProjectile : Projectile
             float degrees = Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg + 90;
             transform.eulerAngles = Vector3.forward * degrees;
         }
-    }
-
-    // Remove from screen
-    void Die()
-    {
-        Destroy(gameObject);
     }
 }
