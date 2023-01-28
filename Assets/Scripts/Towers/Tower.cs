@@ -9,6 +9,8 @@ public abstract class Tower : MonoBehaviour
     public GameObject rangeSphere;
     public SpriteRenderer spriteRenderer;
 
+    public Bounds TowerBounds { get => spriteRenderer.bounds; }
+
     protected bool canShoot = true;
 
     // I made this because I am not writing this function more than once
