@@ -32,6 +32,7 @@ public class StandardUnit : Unit
     // Update is called once per frame
     void Update()
     {
+
         // For movement
         zAdjustedGoal = Vector3.zero;
         zAdjustedGoal.x = moveGoal.x;
@@ -47,7 +48,7 @@ public class StandardUnit : Unit
         toNormalize = zAdjustedGoal - transform.position;
 
         moveDirection = Vector3.Normalize(toNormalize);
-        transform.position += speed * moveDirection;
+        transform.position += speed * Time.deltaTime * moveDirection; //deltatime used to anchor movement to time elapsed rather than frame count
 
         //Debug.Log("Health: " + Health + ", Position: " + transform.position); //use this is you need to debug movement or health 
 
