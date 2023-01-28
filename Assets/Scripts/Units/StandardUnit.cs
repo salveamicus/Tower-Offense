@@ -72,8 +72,7 @@ public class StandardUnit : Unit
         // and not already moving
         if (target.Item1 > shootRadius && transform.position == zAdjustedGoal && target.Item1 != Mathf.Infinity)
         {
-            Vector3 direction = target.Item2 - transform.position;
-            moveGoal = target.Item2 - direction.normalized * shootRadius / 2;
+            moveGoal = target.Item2 - directionVector.normalized * shootRadius / 2;
         }
 
         healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1)/2*0.6f, 0.4f, 0);
