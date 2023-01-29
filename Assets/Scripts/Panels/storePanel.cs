@@ -23,6 +23,9 @@ public class storePanel : MonoBehaviour
         float distance = 1f;
         plane.Raycast(ray, out distance);
         Vector3 scenePosition = ray.GetPoint(distance);
+
+        if (gameStatistics.regeneratingLevel) return;
+
         foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower")) {
             if (Vector3.Distance(tower.transform.position, scenePosition) < gameStatistics.placementRadius) {
                 return;
