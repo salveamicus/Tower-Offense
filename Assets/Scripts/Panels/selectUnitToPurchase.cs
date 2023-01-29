@@ -15,6 +15,7 @@ public class selectUnitToPurchase : MonoBehaviour
                 //tower.transform.GetChild(0).gameObject.SetActive(false);
                 tower.gameObject.GetComponent<Tower>().rangeDisplayOverride = false;
             }
+            gameStatistics.purchasingUnit = false;
         }
         else {
             transform.parent.GetComponent<storePanel>().selectedButton = 0;
@@ -27,6 +28,7 @@ public class selectUnitToPurchase : MonoBehaviour
                 //tower.transform.GetChild(0).gameObject.SetActive(true);
                 tower.gameObject.GetComponent<Tower>().rangeDisplayOverride = true;
             }
+            gameStatistics.purchasingUnit = true;
         }
     }
 }
