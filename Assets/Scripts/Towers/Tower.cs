@@ -11,6 +11,9 @@ public abstract class Tower : MonoBehaviour
 
     public Bounds TowerBounds { get => spriteRenderer.bounds; }
 
+    // Display the range sphere even if the mouse is not hovering over it
+    public bool rangeDisplayOverride = false;
+
     protected bool canShoot = true;
 
     // I made this because I am not writing this function more than once
@@ -21,17 +24,13 @@ public abstract class Tower : MonoBehaviour
         
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
         {
-            // Gets the closest point of the unit
-            // See Unit.cs implementation for more details
-            Vector3 closestPoint = unit.gameObject.GetComponent<Unit>().UnitBounds.ClosestPoint(transform.position);
-
             float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
-            , new Vector2(closestPoint.x, closestPoint.y));
+            , new Vector2(unit.transform.position.x, unit.transform.position.y));
 
             if (dist < closestDistance)
             {
                 closestDistance = dist;
-                closestTarget = closestPoint;
+                closestTarget = unit.transform.position;
             }
         }
 
@@ -74,7 +73,7 @@ public abstract class Tower : MonoBehaviour
         if (mousePos.y > transform.position.y + spriteRenderer.bounds.size.y / 2) show = false;
         if (mousePos.y < transform.position.y - spriteRenderer.bounds.size.y / 2) show = false;
 
-        rangeSphere.SetActive(show);
+        rangeSphere.SetActive(show || rangeDisplayOverride);
     }
 
     public abstract void Shoot(Vector3 direction);

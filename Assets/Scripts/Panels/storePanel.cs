@@ -14,7 +14,7 @@ public class storePanel : MonoBehaviour
     Plane plane = new Plane(new Vector3(0,0,1), 0); // the xy plane
     int startMouseDown = 0;
     int framesUntilSpawn = 0;
-    int storePanelEdge = 1000;
+    int storePanelEdge = 1920 - 195; // resolution width - store panel width
     static int continuousSpawnStartDelay = gameStatistics.continuousSpawnStartDelay;
     static int continuousSpawnDelay = gameStatistics.continuousSpawnDelay;
     
@@ -23,13 +23,15 @@ public class storePanel : MonoBehaviour
         float distance = 1f;
         plane.Raycast(ray, out distance);
         Vector3 scenePosition = ray.GetPoint(distance);
-        foreach (GameObject tower in gameStatistics.towers) {
+
+        if (gameStatistics.regeneratingLevel) return;
+
+        foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower")) {
             if (Vector3.Distance(tower.transform.position, scenePosition) < gameStatistics.placementRadius) {
                 return;
             }
         }
-        GameObject newUnit = (GameObject)Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
-        gameStatistics.units.Add(newUnit);
+        Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
         gameStatistics.currentCredits = currentCredits - costs[selectedButton];
     }
 

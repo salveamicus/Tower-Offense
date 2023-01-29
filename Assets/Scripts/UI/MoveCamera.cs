@@ -69,7 +69,7 @@ public class MoveCamera : MonoBehaviour
     }
     void OnGUI()
     {
-        if (_isDraggingMouseBox)
+        if (_isDraggingMouseBox && !gameStatistics.purchasingUnit)
         {
             // Create a rect from both mouse positions
             var rect = Utils.GetScreenRect(_dragStartPosition, Input.mousePosition);

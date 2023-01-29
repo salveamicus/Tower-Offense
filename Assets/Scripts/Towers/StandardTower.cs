@@ -11,6 +11,7 @@ public class StandardTower : Tower
     public float Health = 100f;
     public float shootRadius = 3f;
     public float shootCooldownSeconds = 3f;
+    public int creditReward = 40;
     
     public GameObject healthBar;
 
@@ -26,6 +27,7 @@ public class StandardTower : Tower
         if (Health <= 0)
         {
             // Destroy(this) only destroys the script, not the entire object
+            gameStatistics.currentCredits += creditReward;
             Destroy(this.gameObject);
         }
 
