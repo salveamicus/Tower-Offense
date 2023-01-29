@@ -14,10 +14,8 @@ public class gameStatistics : MonoBehaviour
 
     // units
     public static int knightCost = 30;
-    public static List<GameObject> units = new List<GameObject>();
 
     // towers
-    public static List<GameObject> towers = new List<GameObject>();
     public static float placementRadius = 5f;
 
     void start() {

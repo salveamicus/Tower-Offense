@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public float barWidth = 0.6f;
-    public float height = 1f;
+    public float barWidth;
+    public float height;
     public void ChangeHealth(float ratio) {
         ratio = (ratio < 0) ? 0 : ratio; // To prevent negative health issues ~ Adam
         transform.position = new Vector3((ratio-1)/2*barWidth, transform.position.y, 0);
