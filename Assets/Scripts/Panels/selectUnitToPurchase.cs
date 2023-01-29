@@ -26,6 +26,5 @@ public class selectUnitToPurchase : MonoBehaviour
                 tower.transform.GetChild(0).gameObject.SetActive(true);
             }
         }
-        Debug.Log("number of units is " + Convert.ToString(gameStatistics.units.Count));
     }
 }
