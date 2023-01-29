@@ -12,6 +12,8 @@ public class GrandTower : Tower
     public float shootRadius = 5f;
     public float shootCooldownSeconds = 4f;
 
+    public int creditReward = 100;
+
     // Start is called before the first frame update
     void Start()
     {

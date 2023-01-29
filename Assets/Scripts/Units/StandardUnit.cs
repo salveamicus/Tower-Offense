@@ -22,6 +22,9 @@ public class StandardUnit : Unit
 
     public GameObject healthBar;
 
+    //For animation
+    public Animator animator;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -38,6 +41,12 @@ public class StandardUnit : Unit
         zAdjustedGoal.x = moveGoal.x;
         zAdjustedGoal.y = moveGoal.y;
         zAdjustedGoal.z = transform.position.z;
+
+        //For calculating if movement spritesheet should animate
+        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
+        
+        //Reset attack sprite animation boolean
+        animator.SetBool("IsAttacking", false);
 
         if (Vector3.Distance(transform.position, zAdjustedGoal) < 0.2)
         {
@@ -82,6 +91,9 @@ public class StandardUnit : Unit
 
     public override void Shoot(Vector3 direction)
     {
+        //Play attack sprite animation
+        animator.SetBool("IsAttacking", true);
+
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * ProjectileSpeed;
         p.OwnerTag = tag;

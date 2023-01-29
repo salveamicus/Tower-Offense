@@ -11,13 +11,12 @@ public class gameStatistics : MonoBehaviour
     public static int continuousSpawnStartDelay = 30;
     public static int continuousSpawnDelay = 10;
     public static bool purchasingUnit = false;
+    public static bool regeneratingLevel = false;
 
     // units
     public static int knightCost = 30;
-    public static List<GameObject> units = new List<GameObject>();
 
     // towers
-    public static List<GameObject> towers = new List<GameObject>();
     public static float placementRadius = 5f;
 
     void start() {
