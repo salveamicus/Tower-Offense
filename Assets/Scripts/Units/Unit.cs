@@ -8,6 +8,8 @@ public abstract class Unit : MonoBehaviour
     public GameObject rangeSphere;
     public SpriteRenderer spriteRenderer;
 
+    public Bounds UnitBounds { get => spriteRenderer.bounds; }
+
     protected bool canShoot = true;
 
     public virtual Tuple<float, Vector3> GetClosestTarget()
@@ -15,15 +17,22 @@ public abstract class Unit : MonoBehaviour
         float closestDistance = Mathf.Infinity;
         Vector3 closestTarget = Vector3.zero;
 
-        foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Tower"))
+        foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower"))
         {
+            // Get the closest point of the tower to the unit.
+            // This allows for a more accurate targeting algorithm so that units stop moving
+            // once they are in range of the closest point of the tower, meaning that they no longer target
+            // the center of the tower, because for a large tower that would mean that they would have to be
+            // inside the tower to start shooting
+            Vector3 closestPoint = tower.gameObject.GetComponent<Tower>().TowerBounds.ClosestPoint(transform.position);
+
             float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
-            , new Vector2(unit.transform.position.x, unit.transform.position.y));
+            , new Vector2(closestPoint.x, closestPoint.y));
 
             if (dist < closestDistance)
             {
                 closestDistance = dist;
-                closestTarget = unit.transform.position;
+                closestTarget = closestPoint;
             }
         }
 

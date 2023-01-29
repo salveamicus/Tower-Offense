@@ -26,4 +26,10 @@ public abstract class Projectile : MonoBehaviour
             }
         }
     }
+
+    // Remove from screen
+    public virtual void Die()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -12,15 +12,18 @@ public class StandardUnit : Unit
     private Vector3 zAdjustedGoal;
     public bool hasDirection = false;
     public float speed = 0.05f;
-    public float ProjectileSpeed = 0.1f;
+    public float ProjectileSpeed = 3f;
     float maxHealth = 50f;
     public float Health = 50f;
     public bool isSelected = false;
 
-    public float shootRadius = 0.5f;
+    public float shootRadius = 2f;
     public float shootCooldownSeconds = 2f;
 
     public GameObject healthBar;
+
+    //For animation
+    public Animator animator;
 
     private void Start()
     {
@@ -32,11 +35,18 @@ public class StandardUnit : Unit
     // Update is called once per frame
     void Update()
     {
+
         // For movement
         zAdjustedGoal = Vector3.zero;
         zAdjustedGoal.x = moveGoal.x;
         zAdjustedGoal.y = moveGoal.y;
         zAdjustedGoal.z = transform.position.z;
+
+        //For calculating if movement spritesheet should animate
+        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
+        
+        //Reset attack sprite animation boolean
+        animator.SetBool("IsAttacking", false);
 
         if (Vector3.Distance(transform.position, zAdjustedGoal) < 0.2)
         {
@@ -47,7 +57,7 @@ public class StandardUnit : Unit
         toNormalize = zAdjustedGoal - transform.position;
 
         moveDirection = Vector3.Normalize(toNormalize);
-        transform.position += speed * moveDirection;
+        transform.position += speed * Time.deltaTime * moveDirection; //deltatime used to anchor movement to time elapsed rather than frame count
 
         //Debug.Log("Health: " + Health + ", Position: " + transform.position); //use this is you need to debug movement or health 
 
@@ -68,12 +78,22 @@ public class StandardUnit : Unit
         float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
         transform.eulerAngles = Vector3.forward * degrees;
 
+        // Move towards closet tower if not able to shoot anythnig
+        // and not already moving
+        if (target.Item1 > shootRadius && transform.position == zAdjustedGoal && target.Item1 != Mathf.Infinity)
+        {
+            moveGoal = target.Item2 - directionVector.normalized * shootRadius / 2;
+        }
+
         healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1)/2*0.6f, 0.4f, 0);
         healthBar.transform.rotation = Quaternion.identity;
     }
 
     public override void Shoot(Vector3 direction)
     {
+        //Play attack sprite animation
+        animator.SetBool("IsAttacking", true);
+
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * ProjectileSpeed;
         p.OwnerTag = tag;

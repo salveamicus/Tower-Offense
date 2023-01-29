@@ -80,16 +80,6 @@ public class UnitManager : MonoBehaviour
         }
     }
 
-    void OnGUI()
-    {
-        if (_isDraggingMouseBox)
-        {
-            // Create a rect from both mouse positions
-            var rect = Utils.GetScreenRect(_dragStartPosition, Input.mousePosition);
-            Utils.DrawScreenRect(rect, new Color(0.5f, 1f, 0.4f, 0.2f));
-            Utils.DrawScreenRectBorder(rect, 1, new Color(0.5f, 1f, 0.4f));
-        }
-    }
     private void OnMouseDown()
     {
         if (IsActive())

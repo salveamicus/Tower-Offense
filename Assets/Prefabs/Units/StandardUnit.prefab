@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 9184017506740824566}
   - component: {fileID: 3991358683692401194}
   - component: {fileID: 217074514894490492}
+  - component: {fileID: 3656354903411235390}
   m_Layer: 0
   m_Name: StandardUnit
   m_TagString: Unit
@@ -275,13 +276,14 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   moveGoal: {x: 0, y: 0, z: 0}
   hasDirection: 0
-  speed: 0.05
-  ProjectileSpeed: 0.1
+  speed: 0.5
+  ProjectileSpeed: 3
   Health: 50
   isSelected: 0
   shootRadius: 2
   shootCooldownSeconds: 1
   healthBar: {fileID: 2536854017638562432}
+  animator: {fileID: 3656354903411235390}
 --- !u!114 &3991358683692401194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +313,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.23
+--- !u!95 &3656354903411235390
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160359574138009434}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e33cdddcab1c834abf7d2276bfd53f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &3481158730303669315
 PrefabInstance:
   m_ObjectHideFlags: 0

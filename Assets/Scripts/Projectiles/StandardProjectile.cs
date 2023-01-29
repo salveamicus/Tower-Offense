@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class StandardProjectile : Projectile
 {
+    public float LifetimeSeconds = 3f;
+
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
         body.isKinematic = true; // disables velocity and stuff
+
+        // Despawn if never hits anything
+        Invoke("Die", LifetimeSeconds);
     }
 
     // Update is called once per frame
@@ -15,7 +20,7 @@ public class StandardProjectile : Projectile
     {
         if (Velocity != Vector3.zero)
         {
-            transform.position += Velocity;
+            transform.position += Velocity * Time.deltaTime;
 
             // Gets the angle to rotate the sprite by by using trig ( tan angle = y/x ).
             // Offset by 90 degrees because the sprite is facing up in the png

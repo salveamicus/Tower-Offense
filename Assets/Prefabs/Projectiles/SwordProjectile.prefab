@@ -67,7 +67,7 @@ MonoBehaviour:
   Velocity: {x: 0, y: 0, z: 0}
   OwnerTag: Tower
   Damage: 10
-  LifetimeSeconds: 1
+  LifetimeSeconds: 0.5
 --- !u!50 &672542398565441455
 Rigidbody2D:
   serializedVersion: 4

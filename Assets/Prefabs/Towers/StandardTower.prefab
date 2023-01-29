@@ -129,7 +129,7 @@ MonoBehaviour:
   rangeSphere: {fileID: 6737397063256012100}
   spriteRenderer: {fileID: 0}
   Projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
-  ProjectileSpeed: 0.1
+  ProjectileSpeed: 5
   maxHealth: 100
   Health: 100
   shootRadius: 3

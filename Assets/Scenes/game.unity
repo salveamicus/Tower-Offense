@@ -178,8 +178,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: StandardUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 9184017506740824566, guid: 4d6095c2b43d9404da3abd116c94e3dc, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 41640547}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d6095c2b43d9404da3abd116c94e3dc, type: 3}
+--- !u!1 &41640541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2160359574138009434, guid: 4d6095c2b43d9404da3abd116c94e3dc, type: 3}
+  m_PrefabInstance: {fileID: 31427375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &41640547
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41640541}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e33cdddcab1c834abf7d2276bfd53f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &1201975488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 981537130386240500, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5.399994
+      value: 5.4000244
       objectReference: {fileID: 0}
     - target: {fileID: 981537130386240500, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: m_AnchoredPosition.y
