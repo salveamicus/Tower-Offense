@@ -30,6 +30,8 @@ public class LevelGenerator : MonoBehaviour
         // If the level is dead, delete all towers, wait 3 seconds, and then start the next level
         if (currentGrandTower != null && currentGrandTower.Health <= 0f)
         {
+            gameStatistics.currentCredits += currentGrandTower.creditReward;
+
             foreach (Transform child in transform)
             {
                 Destroy(child.gameObject);
