@@ -24,17 +24,13 @@ public abstract class Tower : MonoBehaviour
         
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
         {
-            // Gets the closest point of the unit
-            // See Unit.cs implementation for more details
-            Vector3 closestPoint = unit.gameObject.GetComponent<Unit>().UnitBounds.ClosestPoint(transform.position);
-
             float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
-            , new Vector2(closestPoint.x, closestPoint.y));
+            , new Vector2(unit.transform.position.x, unit.transform.position.y));
 
             if (dist < closestDistance)
             {
                 closestDistance = dist;
-                closestTarget = closestPoint;
+                closestTarget = unit.transform.position;
             }
         }
 
