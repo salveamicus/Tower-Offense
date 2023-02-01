@@ -9,8 +9,8 @@ public class StandardTower : Tower
     public float ProjectileSpeed = 5f;
     public float maxHealth = 100f;
     public float Health = 100f;
-    public float shootCooldownSeconds = 3f;
 
+    public override float ShootCooldownSeconds => 3f;
     public override float ShootRadius => 3f;
     public override int CreditReward => 40;
 
@@ -30,9 +30,9 @@ public class StandardTower : Tower
             Destroy(this.gameObject);
         }
 
-        UpdateRangeRadius(ShootRadius);
+        UpdateRangeRadius();
         ShowRangeIfMouseHover();
-        ShootIfPossible(ShootRadius, shootCooldownSeconds);
+        ShootIfPossible();
 
         healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
         healthBar.transform.rotation = Quaternion.identity;

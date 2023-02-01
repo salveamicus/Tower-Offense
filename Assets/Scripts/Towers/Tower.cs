@@ -12,8 +12,9 @@ public abstract class Tower : MonoBehaviour
 
     public abstract int CreditReward { get; }
     public abstract float ShootRadius { get; }
+    public abstract float ShootCooldownSeconds { get; }
 
-    public Bounds TowerBounds { get => spriteRenderer.bounds; }
+    public Bounds TowerBounds => spriteRenderer.bounds;
 
     // Display the range sphere even if the mouse is not hovering over it
     public bool rangeDisplayOverride = false;
@@ -41,18 +42,18 @@ public abstract class Tower : MonoBehaviour
         return new Tuple<float, Vector3>(closestDistance, closestTarget);
     }
 
-    public virtual void ShootIfPossible(float radius, float cooldown)
+    public virtual void ShootIfPossible()
     {
         if (!canShoot) return;
 
         Tuple<float, Vector3> target = GetClosestTarget();
 
-        if (target.Item1 <= radius)
+        if (target.Item1 <= ShootRadius)
         {
             Shoot(target.Item2 - transform.position);
             canShoot = false;
 
-            Invoke("ResetCooldown", cooldown);
+            Invoke("ResetCooldown", ShootCooldownSeconds);
         }
     }
 
@@ -61,9 +62,9 @@ public abstract class Tower : MonoBehaviour
         canShoot = true;
     }
 
-    public virtual void UpdateRangeRadius(float range)
+    public virtual void UpdateRangeRadius()
     {
-        rangeSphere.transform.localScale = new Vector3(range * 2, 1, range * 2);
+        rangeSphere.transform.localScale = new Vector3(ShootRadius * 2, 1, ShootRadius * 2);
     }
 
     public virtual void ShowRangeIfMouseHover()

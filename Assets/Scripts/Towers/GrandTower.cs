@@ -9,8 +9,8 @@ public class GrandTower : Tower
     public float ProjectileSpeed = 8f;
     public float MaxHealth = 100f;
     public float Health = 100f;
-    public float shootCooldownSeconds = 4f;
 
+    public override float ShootCooldownSeconds => 4f;
     public override float ShootRadius => 100f;
     public override int CreditReward => 100;
 
@@ -26,9 +26,9 @@ public class GrandTower : Tower
         // No need to check if health is less than 0 because the level generator 
         // will automatically check for this
     
-        UpdateRangeRadius(ShootRadius);
+        UpdateRangeRadius();
         ShowRangeIfMouseHover();
-        ShootIfPossible(ShootRadius, shootCooldownSeconds);
+        ShootIfPossible();
     }
 
     void ShootStandardProjectile(Vector3 direction)
