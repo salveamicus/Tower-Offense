@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LevelGenerator : MonoBehaviour
 {
     // Towers to generate level with
     public GrandTower grandTower;
     public StandardTower standardTower;
+    public GameObject levelNumber;
 
     // Generation Paramters
     public float smallestRadius = 2.5f;
@@ -79,5 +81,6 @@ public class LevelGenerator : MonoBehaviour
     public void GenerateNextLevel()
     {
         GenerateLevel(++currentLevel);
+        levelNumber.GetComponent<TextMeshProUGUI>().text = "Level " + currentLevel.ToString();
     }
 }
