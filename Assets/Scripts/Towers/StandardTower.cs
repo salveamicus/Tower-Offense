@@ -35,7 +35,7 @@ public class StandardTower : Tower
         ShowRangeIfMouseHover();
         ShootIfPossible(shootRadius, shootCooldownSeconds);
 
-        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1), 0.4f, 0);
+        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
         healthBar.transform.rotation = Quaternion.identity;
     }
 
@@ -51,6 +51,6 @@ public class StandardTower : Tower
     public override void Damage(float amount)
     {
         Health -= amount;
-        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
+        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
 }
