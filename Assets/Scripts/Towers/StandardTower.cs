@@ -9,7 +9,6 @@ public class StandardTower : Tower
     public float ProjectileSpeed = 5f;
     public float maxHealth = 100f;
     public float Health = 100f;
-    public float shootRadius = 3f;
     public float shootCooldownSeconds = 3f;
     public int creditReward = 40;
     
@@ -19,6 +18,7 @@ public class StandardTower : Tower
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        shootRadius = 3f;
     }
 
     // Update is called once per frame
