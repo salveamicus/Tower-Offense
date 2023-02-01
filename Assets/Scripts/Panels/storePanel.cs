@@ -27,7 +27,7 @@ public class storePanel : MonoBehaviour
         if (gameStatistics.regeneratingLevel) return;
 
         foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower")) {
-            if (Vector3.Distance(tower.transform.position, scenePosition) < gameStatistics.placementRadius) {
+            if (Vector3.Distance(tower.transform.position, scenePosition) < tower.GetComponent<Tower>().shootRadius) {
                 return;
             }
         }

@@ -8,6 +8,7 @@ public abstract class Tower : MonoBehaviour
 {
     public GameObject rangeSphere;
     public SpriteRenderer spriteRenderer;
+    public float shootRadius;
 
     public Bounds TowerBounds { get => spriteRenderer.bounds; }
 
