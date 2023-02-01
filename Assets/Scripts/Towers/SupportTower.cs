@@ -1,0 +1,63 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SupportTower : Tower
+{
+    public float maxHealth = 100f;
+    public float Health = 100f;
+    public float HealthAmount = 5f;
+
+    public override float ShootCooldownSeconds => 0.5f;
+    public override float ShootRadius => 2f;
+    public override int CreditReward => 10;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();       
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Health <= 0)
+        {
+            gameStatistics.currentCredits += CreditReward;
+            Destroy(gameObject);
+        }
+
+        UpdateRangeRadius();
+        ShowRangeIfMouseHover();
+
+        if (canShoot) Shoot(Vector3.zero);
+
+        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
+        healthBar.transform.rotation = Quaternion.identity;
+    }
+
+    public override void Shoot(Vector3 direction)
+    {
+        canShoot = false;
+
+        foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower"))
+        {
+            float distance = Vector2.Distance(transform.position
+            , new Vector2(tower.transform.position.x, tower.transform.position.y));
+
+            if (distance <= ShootRadius)
+            {
+                Debug.Log("this ran");
+                tower.gameObject.GetComponent<Tower>().Damage(-HealthAmount);
+            }
+        }
+
+        Invoke("ResetCooldown", ShootCooldownSeconds);
+    }
+
+    public override void Damage(float amount)
+    {
+        Health -= amount;
+        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
+    }
+}
