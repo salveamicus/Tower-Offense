@@ -31,7 +31,7 @@ public class LevelGenerator : MonoBehaviour
         if (currentGrandTower != null && currentGrandTower.Health <= 0f)
         {
             gameStatistics.regeneratingLevel = true;
-            gameStatistics.currentCredits += currentGrandTower.creditReward;
+            gameStatistics.currentCredits += currentGrandTower.CreditReward;
 
             foreach (Transform child in transform)
             {

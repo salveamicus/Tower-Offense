@@ -7,8 +7,11 @@ using UnityEngine;
 public abstract class Tower : MonoBehaviour
 {
     public GameObject rangeSphere;
+    public GameObject healthBar;
     public SpriteRenderer spriteRenderer;
-    public float shootRadius;
+
+    public abstract int CreditReward { get; }
+    public abstract float ShootRadius { get; }
 
     public Bounds TowerBounds { get => spriteRenderer.bounds; }
 

@@ -10,15 +10,14 @@ public class StandardTower : Tower
     public float maxHealth = 100f;
     public float Health = 100f;
     public float shootCooldownSeconds = 3f;
-    public int creditReward = 40;
-    
-    public GameObject healthBar;
+
+    public override float ShootRadius => 3f;
+    public override int CreditReward => 40;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        shootRadius = 3f;
     }
 
     // Update is called once per frame
@@ -27,13 +26,13 @@ public class StandardTower : Tower
         if (Health <= 0)
         {
             // Destroy(this) only destroys the script, not the entire object
-            gameStatistics.currentCredits += creditReward;
+            gameStatistics.currentCredits += CreditReward;
             Destroy(this.gameObject);
         }
 
-        UpdateRangeRadius(shootRadius);
+        UpdateRangeRadius(ShootRadius);
         ShowRangeIfMouseHover();
-        ShootIfPossible(shootRadius, shootCooldownSeconds);
+        ShootIfPossible(ShootRadius, shootCooldownSeconds);
 
         healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
         healthBar.transform.rotation = Quaternion.identity;

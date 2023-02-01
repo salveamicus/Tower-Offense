@@ -11,13 +11,13 @@ public class GrandTower : Tower
     public float Health = 100f;
     public float shootCooldownSeconds = 4f;
 
-    public int creditReward = 100;
+    public override float ShootRadius => 100f;
+    public override int CreditReward => 100;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        shootRadius = 5f;
     }
 
     // Update is called once per frame
@@ -26,9 +26,9 @@ public class GrandTower : Tower
         // No need to check if health is less than 0 because the level generator 
         // will automatically check for this
     
-        UpdateRangeRadius(shootRadius);
+        UpdateRangeRadius(ShootRadius);
         ShowRangeIfMouseHover();
-        ShootIfPossible(shootRadius, shootCooldownSeconds);
+        ShootIfPossible(ShootRadius, shootCooldownSeconds);
     }
 
     void ShootStandardProjectile(Vector3 direction)
