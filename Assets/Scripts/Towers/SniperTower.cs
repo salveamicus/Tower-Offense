@@ -52,4 +52,12 @@ public class SniperTower : Tower
         Health -= amount;
         healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
+
+    public override void Heal(float amount)
+    {
+        Health += amount;
+        if (Health > maxHealth) Health = maxHealth;
+
+        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
+    }
 }

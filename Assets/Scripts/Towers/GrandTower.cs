@@ -49,4 +49,12 @@ public class GrandTower : Tower
         Health -= amount;       
         transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
     }
+
+    public override void Heal(float amount)
+    {
+        Health += amount;
+        if (Health > MaxHealth) Health = MaxHealth;
+
+        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
+    }
 }

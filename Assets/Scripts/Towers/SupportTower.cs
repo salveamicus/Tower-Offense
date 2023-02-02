@@ -8,7 +8,7 @@ public class SupportTower : Tower
     public float Health = 100f;
     public float HealthAmount = 5f;
 
-    public override float ShootCooldownSeconds => 0.5f;
+    public override float ShootCooldownSeconds => 1f;
     public override float ShootRadius => 2f;
     public override int CreditReward => 10;
 
@@ -42,13 +42,16 @@ public class SupportTower : Tower
 
         foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower"))
         {
+            // Don't heal self
+            if (tower.transform.position == transform.position) continue;
+
             float distance = Vector2.Distance(transform.position
             , new Vector2(tower.transform.position.x, tower.transform.position.y));
 
             if (distance <= ShootRadius)
             {
                 Debug.Log("this ran");
-                tower.gameObject.GetComponent<Tower>().Damage(-HealthAmount);
+                tower.gameObject.GetComponent<Tower>().Heal(HealthAmount);
             }
         }
 
@@ -58,6 +61,14 @@ public class SupportTower : Tower
     public override void Damage(float amount)
     {
         Health -= amount;
+        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
+    }
+
+    public override void Heal(float amount)
+    {
+        Health += amount;
+        if (Health > maxHealth) Health = maxHealth;
+
         healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
 }

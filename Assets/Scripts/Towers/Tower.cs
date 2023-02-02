@@ -83,4 +83,5 @@ public abstract class Tower : MonoBehaviour
 
     public abstract void Shoot(Vector3 direction);
     public abstract void Damage(float amount);
+    public abstract void Heal(float amount);
 }
