@@ -45,12 +45,13 @@ public class SupportTower : Tower
             // Don't heal self
             if (tower.transform.position == transform.position) continue;
 
+            Vector3 closestPoint = tower.GetComponent<Tower>().TowerBounds.ClosestPoint(transform.position);
+
             float distance = Vector2.Distance(transform.position
-            , new Vector2(tower.transform.position.x, tower.transform.position.y));
+            , new Vector2(closestPoint.x, closestPoint.y));
 
             if (distance <= ShootRadius)
             {
-                Debug.Log("this ran");
                 tower.gameObject.GetComponent<Tower>().Heal(HealthAmount);
             }
         }
