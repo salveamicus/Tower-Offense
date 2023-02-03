@@ -42,6 +42,29 @@ public abstract class Tower : MonoBehaviour
         return new Tuple<float, Vector3>(closestDistance, closestTarget);
     }
 
+    public virtual int GetAcceleratorTowers()
+    {
+        int counter = 0;
+
+        foreach (GameObject towerObject in GameObject.FindGameObjectsWithTag("Tower"))
+        {
+            Tower tower = towerObject.GetComponent<Tower>();
+
+            // Skip non acceleration towers
+            if (!(tower is AccelerationTower)) continue;
+            
+            // If the closest point of this tower is in range of the accelerator's radius
+            Vector3 closest = TowerBounds.ClosestPoint(tower.transform.position);
+
+            float distance = Vector2.Distance(new Vector2(closest.x, closest.y)
+            , new Vector2(tower.transform.position.x, tower.transform.position.y));
+
+            if (distance <= tower.ShootRadius) ++counter;
+        }
+
+        return counter;
+    }
+
     public virtual void ShootIfPossible()
     {
         if (!canShoot) return;
