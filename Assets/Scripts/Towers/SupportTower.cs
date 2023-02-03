@@ -27,6 +27,7 @@ public class SupportTower : Tower
             Destroy(gameObject);
         }
 
+        UpdateAcceleratorCount();
         UpdateRangeRadius();
         ShowRangeIfMouseHover();
 
@@ -56,7 +57,7 @@ public class SupportTower : Tower
             }
         }
 
-        Invoke("ResetCooldown", ShootCooldownSeconds);
+        Invoke("ResetCooldown", AcceleratedCooldown);
     }
 
     public override void Damage(float amount)
