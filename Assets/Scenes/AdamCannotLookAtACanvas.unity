@@ -250,7 +250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100614274330112225, guid: 77ab3d179cb3e6940836254f1c385d81, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100614274330112225, guid: 77ab3d179cb3e6940836254f1c385d81, type: 3}
       propertyPath: m_LocalPosition.x
@@ -305,6 +305,11 @@ PrefabInstance:
 --- !u!4 &479599246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 100614274330112225, guid: 77ab3d179cb3e6940836254f1c385d81, type: 3}
+  m_PrefabInstance: {fileID: 479599245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &668365223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1403777428053982915, guid: 77ab3d179cb3e6940836254f1c385d81, type: 3}
   m_PrefabInstance: {fileID: 479599245}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &852555944
@@ -654,7 +659,7 @@ GameObject:
   - component: {fileID: 2093216834}
   m_Layer: 0
   m_Name: AccelerationTower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -671,8 +676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eef66c457866a9668390b4d9fd8e861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeSphere: {fileID: 0}
-  healthBar: {fileID: 0}
+  rangeSphere: {fileID: 852555944}
+  healthBar: {fileID: 668365223}
   spriteRenderer: {fileID: 0}
   rangeDisplayOverride: 0
   MaxHealth: 70
@@ -753,7 +758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093216833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11949349, y: -0.48819765, z: -9.888616}
+  m_LocalPosition: {x: -5.77, y: 1.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -779,11 +784,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3838426869515909440, guid: 24d2e76c3f67bf3259606b3e62d190e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.99
+      value: -5.25
       objectReference: {fileID: 0}
     - target: {fileID: 3838426869515909440, guid: 24d2e76c3f67bf3259606b3e62d190e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.9
+      value: 2.77
       objectReference: {fileID: 0}
     - target: {fileID: 3838426869515909440, guid: 24d2e76c3f67bf3259606b3e62d190e0, type: 3}
       propertyPath: m_LocalPosition.z
