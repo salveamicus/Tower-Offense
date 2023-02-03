@@ -30,6 +30,7 @@ public class StandardTower : Tower
             Destroy(this.gameObject);
         }
 
+        UpdateAcceleratorCount();
         UpdateRangeRadius();
         ShowRangeIfMouseHover();
         ShootIfPossible();

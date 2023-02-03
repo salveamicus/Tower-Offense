@@ -14,12 +14,16 @@ public abstract class Tower : MonoBehaviour
     public abstract float ShootRadius { get; }
     public abstract float ShootCooldownSeconds { get; }
 
+    // Function that calculates how the cooldown is affected by nearby acceleration towers
+    public float AcceleratedCooldown => ShootCooldownSeconds / (accelerators + 1);
+
     public Bounds TowerBounds => spriteRenderer.bounds;
 
     // Display the range sphere even if the mouse is not hovering over it
     public bool rangeDisplayOverride = false;
 
     protected bool canShoot = true;
+    protected int accelerators = 0;
 
     // I made this because I am not writing this function more than once
     public virtual Tuple<float, Vector3> GetClosestTarget()
@@ -42,9 +46,9 @@ public abstract class Tower : MonoBehaviour
         return new Tuple<float, Vector3>(closestDistance, closestTarget);
     }
 
-    public virtual int GetAcceleratorTowers()
+    public virtual void UpdateAcceleratorCount()
     {
-        int counter = 0;
+        accelerators = 0;
 
         foreach (GameObject towerObject in GameObject.FindGameObjectsWithTag("Tower"))
         {
@@ -59,10 +63,8 @@ public abstract class Tower : MonoBehaviour
             float distance = Vector2.Distance(new Vector2(closest.x, closest.y)
             , new Vector2(tower.transform.position.x, tower.transform.position.y));
 
-            if (distance <= tower.ShootRadius) ++counter;
+            if (distance <= tower.ShootRadius) ++accelerators;
         }
-
-        return counter;
     }
 
     public virtual void ShootIfPossible()
@@ -76,7 +78,7 @@ public abstract class Tower : MonoBehaviour
             Shoot(target.Item2 - transform.position);
             canShoot = false;
 
-            Invoke("ResetCooldown", ShootCooldownSeconds);
+            Invoke("ResetCooldown", AcceleratedCooldown);
         }
     }
 
