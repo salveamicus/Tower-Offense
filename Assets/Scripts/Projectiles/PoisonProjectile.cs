@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PoisonProjectile : Projectile
 {
+    public Poisoner poisoner;
+
     public float LifetimeSeconds = 5f;
     public float PoisonTime = 100f;
 
@@ -31,5 +33,6 @@ public class PoisonProjectile : Projectile
     protected override void OnHitUnit(Unit unit)
     {
         unit.PoisonTime += PoisonTime;
+        Instantiate(poisoner, unit.transform.position, Quaternion.identity);
     }
 }
