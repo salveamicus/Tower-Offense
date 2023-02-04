@@ -141,3 +141,4 @@ MonoBehaviour:
   OwnerTag: 
   Damage: 10
   LifetimeSeconds: 3
+  FireTime: 120
