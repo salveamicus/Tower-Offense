@@ -7,6 +7,7 @@ public class Poisoner : MonoBehaviour
     public SpriteRenderer sprite;
 
     public float SpriteScaling = 3f;
+    public float PoisonRadius = 1.5f;
     public float LifeTimeSeconds = 3f;
     public float PoisonTime = 100f;
 
@@ -36,7 +37,7 @@ public class Poisoner : MonoBehaviour
             float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
             , new Vector2(unit.transform.position.x, unit.transform.position.y));
 
-            if (unit.UnitBounds.Contains(unit.UnitBounds.ClosestPoint(transform.position)) && unit.PoisonTime <= 0)
+            if (distance <= PoisonRadius && unit.PoisonTime < 3)
             {
                 unit.PoisonTime += PoisonTime;
             }
