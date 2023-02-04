@@ -20,8 +20,6 @@ public class StandardUnit : Unit
     public float shootRadius = 2f;
     public float shootCooldownSeconds = 2f;
 
-    public GameObject healthBar;
-
     //For animation
     public Animator animator;
 
@@ -73,7 +71,7 @@ public class StandardUnit : Unit
         UpdateRangeRadius(shootRadius);
         ShowRangeIfMouseHover();
         ShootIfPossible(shootRadius, shootCooldownSeconds);
-
+        
         // Turn towards closest tower
         Tuple<float, Vector3> target = GetClosestTarget();
         Vector3 directionVector = target.Item2 - transform.position;

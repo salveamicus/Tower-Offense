@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class Unit : MonoBehaviour
 {
     public GameObject rangeSphere;
+    public GameObject healthBar;
     public SpriteRenderer spriteRenderer;
 
     public Bounds UnitBounds { get => spriteRenderer.bounds; }
