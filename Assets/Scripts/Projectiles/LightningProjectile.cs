@@ -30,6 +30,18 @@ public class LightningProjectile : Projectile
     {
         List<Vector3> points = new List<Vector3>();
         points.Add(from);
+
+        float firstTargetDistance = Vector2.Distance(new Vector2(from.x, from.y), new Vector2(firstTarget.x, firstTarget.y));
+
+        Vector3 direction = (firstTarget - from).normalized;
+
+        // Add random points to make it look more like a lightning bolt
+        for (int i = 1; i < 15; ++i)
+        {
+            Vector3 pointOnLine = from + direction * firstTargetDistance / i;
+            points.Add(pointOnLine + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) * 0.2f);
+        }
+
         points.Add(firstTarget);
 
         int pierced = 1;
