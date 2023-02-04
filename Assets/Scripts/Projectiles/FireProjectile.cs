@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireProjectile : Projectile
 {
     public float LifetimeSeconds = 3f;
-    public float FireTime = 60f;
+    public float FireTime = 120f;
 
     // Start is called before the first frame update
     void Start()
