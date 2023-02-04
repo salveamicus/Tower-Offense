@@ -11,6 +11,7 @@ public abstract class Unit : MonoBehaviour
     public Bounds UnitBounds { get => spriteRenderer.bounds; }
 
     public float FireTime = 0;
+    public float PoisonTime = 0;
 
     protected bool canShoot = true;
 
@@ -84,9 +85,18 @@ public abstract class Unit : MonoBehaviour
     public virtual void UpdateFireTime()
     {
         if (FireTime <= 0) return;
-        Damage(gameStatistics.fireDamage);
+        Damage(gameStatistics.fireDamage); // TODO: Test with delta time
 
         --FireTime;
+    }
+
+    // Apply poison damage if poisoned
+    public virtual void UpdatePoisonTime()
+    {
+        if (PoisonTime <= 0) return;
+        Damage(gameStatistics.poisonDamage * Time.deltaTime);
+
+        --PoisonTime;
     }
 
     public abstract void Shoot(Vector3 direction);

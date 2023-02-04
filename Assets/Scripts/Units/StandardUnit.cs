@@ -35,7 +35,6 @@ public class StandardUnit : Unit
     // Update is called once per frame
     void Update()
     {
-
         // For movement
         zAdjustedGoal = Vector3.zero;
         zAdjustedGoal.x = moveGoal.x;
@@ -61,6 +60,9 @@ public class StandardUnit : Unit
 
         //Debug.Log("Health: " + Health + ", Position: " + transform.position); //use this is you need to debug movement or health 
 
+        UpdateFireTime();
+        UpdatePoisonTime();
+
         if (Health <= 0)
         {
             // Destroy(this) only destroys the script, not the entire object
@@ -70,7 +72,6 @@ public class StandardUnit : Unit
         UpdateRangeRadius(shootRadius);
         ShowRangeIfMouseHover();
         ShootIfPossible(shootRadius, shootCooldownSeconds);
-        UpdateFireTime();
 
         // Turn towards closest tower
         Tuple<float, Vector3> target = GetClosestTarget();

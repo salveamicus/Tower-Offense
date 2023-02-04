@@ -30,6 +30,6 @@ public class PoisonProjectile : Projectile
 
     protected override void OnHitUnit(Unit unit)
     {
-        // TODO: Add Poison Effect on hit
+        unit.PoisonTime += PoisonTime;
     }
 }
