@@ -30,6 +30,7 @@ public class SniperTower : Tower
             Destroy(this.gameObject);
         }
 
+        UpdateAcceleratorCount();
         UpdateRangeRadius();
         ShowRangeIfMouseHover();
         ShootIfPossible();
