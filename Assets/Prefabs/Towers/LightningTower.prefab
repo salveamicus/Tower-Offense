@@ -130,7 +130,7 @@ MonoBehaviour:
   healthBar: {fileID: 7041219261905818657}
   spriteRenderer: {fileID: 0}
   rangeDisplayOverride: 0
-  Projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
+  Projectile: {fileID: 6431274346231894845, guid: 66fc4092de5c73a55a23b52905adb5dd, type: 3}
   MaxHealth: 150
   Health: 150
 --- !u!1 &6026506311813473439

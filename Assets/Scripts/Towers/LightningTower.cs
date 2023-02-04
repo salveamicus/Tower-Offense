@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LightningTower : Tower
 {
-    public Projectile Projectile;
+    public LightningProjectile Projectile;
     public float MaxHealth = 150;
     public float Health = 150f;
 
@@ -36,13 +37,30 @@ public class LightningTower : Tower
         healthBar.transform.rotation = Quaternion.identity;
     }
 
-    public override void Shoot(Vector3 direction)
+    public override void ShootIfPossible()
+    {
+        if (!canShoot) return;
+
+        Tuple<float, Vector3> target = GetClosestTarget();
+
+        if (target.Item1 <= ShootRadius)
+        {
+            Shoot(target.Item2);
+            canShoot = false;
+
+            Invoke("ResetCooldown", AcceleratedCooldown);
+        }
+    }
+
+    public override void Shoot(Vector3 target)
     {
         // Vector3.back is used to change the z coordinate of the projectile so that
         // it renders on top of the tower
-        Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
-        p.Velocity = direction.normalized;
-        p.OwnerTag = tag;
+        //Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
+        //p.Velocity = direction.normalized;
+        //p.OwnerTag = tag;
+        LightningProjectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
+        p.Zap(transform.position, target, "Unit");
     }
 
     public override void Damage(float amount)
