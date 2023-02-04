@@ -42,7 +42,6 @@ public class PoisonTower : Tower
         {
             if (Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(unit.transform.position.x, unit.transform.position.y)) <= ToxicRadius)
             {
-                Debug.Log("Damaging");
                 unit.gameObject.GetComponent<Unit>().Damage(ToxicDamage * Time.deltaTime);
             }
         }
