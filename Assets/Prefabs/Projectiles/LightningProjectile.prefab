@@ -150,5 +150,5 @@ MonoBehaviour:
   Damage: 40
   lineRenderer: {fileID: 3421111714178884548}
   LifetimeSeconds: 0.5
-  ArcDistance: 10
+  ArcDistance: 1
   Piercing: 10

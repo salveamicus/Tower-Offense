@@ -34,16 +34,19 @@ public class LightningProjectile : Projectile
 
         int pierced = 1;
 
+        Vector2 arcPos = new Vector2(firstTarget.x, firstTarget.y);
+
         foreach (GameObject target in GameObject.FindGameObjectsWithTag(enemyTag))
         {
             if (pierced > Piercing) break;
 
-            float distance = Vector2.Distance(new Vector2(firstTarget.x, firstTarget.y)
-            , new Vector2(target.transform.position.x, target.transform.position.y));
+            float distance = Vector2.Distance(arcPos, new Vector2(target.transform.position.x, target.transform.position.y));
 
             if (distance <= ArcDistance) 
             {
                 ++pierced;
+                arcPos = new Vector2(target.transform.position.x, target.transform.position.y);
+
                 points.Add(target.transform.position);
 
                 if (enemyTag == "Tower")
