@@ -13,7 +13,10 @@ public abstract class Unit : MonoBehaviour
     public float FireTime = 0;
     public float PoisonTime = 0;
 
+    public float SpeedMultiplier => 1f / (1f + deccelerators);
+
     protected bool canShoot = true;
+    protected float deccelerators = 0;
 
     public virtual Tuple<float, Vector3> GetClosestTarget()
     {
@@ -74,6 +77,27 @@ public abstract class Unit : MonoBehaviour
         if (mousePos.y < transform.position.y - spriteRenderer.bounds.size.y / 2) show = false;
 
         rangeSphere.SetActive(show);
+    }
+
+    public virtual void UpdateDecceleratorCount()
+    {
+        deccelerators = 0;
+
+        foreach (GameObject towerObject in GameObject.FindGameObjectsWithTag("Tower"))
+        {
+            Tower tower = towerObject.gameObject.GetComponent<Tower>();
+
+            // Skip non deccelerator towers
+            if (!(tower is TemporalTower)) continue;
+
+            // If the closest point of this tower is in range of the accelerator's radius
+            Vector3 closest = UnitBounds.ClosestPoint(tower.transform.position);
+
+            float distance = Vector2.Distance(new Vector2(closest.x, closest.y)
+            , new Vector2(tower.transform.position.x, tower.transform.position.y));
+
+            if (distance <= tower.ShootRadius) ++deccelerators;
+        }
     }
 
     public virtual void ResetCooldown()

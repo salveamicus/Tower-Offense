@@ -56,7 +56,7 @@ public class StandardUnit : Unit
         toNormalize = zAdjustedGoal - transform.position;
 
         moveDirection = Vector3.Normalize(toNormalize);
-        transform.position += speed * Time.deltaTime * moveDirection; //deltatime used to anchor movement to time elapsed rather than frame count
+        transform.position += speed * Time.deltaTime * moveDirection * SpeedMultiplier; //deltatime used to anchor movement to time elapsed rather than frame count
 
         //Debug.Log("Health: " + Health + ", Position: " + transform.position); //use this is you need to debug movement or health 
 
@@ -69,6 +69,7 @@ public class StandardUnit : Unit
             Destroy(this.gameObject);
         }
 
+        UpdateDecceleratorCount();
         UpdateRangeRadius(shootRadius);
         ShowRangeIfMouseHover();
         ShootIfPossible(shootRadius, shootCooldownSeconds);
@@ -97,7 +98,7 @@ public class StandardUnit : Unit
         animator.SetBool("IsAttacking", true);
 
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
-        p.Velocity = direction.normalized * ProjectileSpeed;
+        p.Velocity = direction.normalized * ProjectileSpeed * SpeedMultiplier;
         p.OwnerTag = tag;
     }
 
