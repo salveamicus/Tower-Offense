@@ -44,7 +44,7 @@ public class SniperTower : Tower
         // Vector3.back is used to change the z coordinate of the projectile so that
         // it renders on top of the tower
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
-        p.Velocity = direction.normalized * ProjectileSpeed;
+        p.Velocity = direction.normalized * ProjectileSpeed * ProjectileVelMultiplier;
         p.OwnerTag = tag;
     }
 

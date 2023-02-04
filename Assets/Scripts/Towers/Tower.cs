@@ -16,6 +16,7 @@ public abstract class Tower : MonoBehaviour
 
     // Function that calculates how the cooldown is affected by nearby acceleration towers
     public float AcceleratedCooldown => ShootCooldownSeconds / (accelerators + 1);
+    public float ProjectileVelMultiplier => 1f + accelerators / 10f;
 
     public Bounds TowerBounds => spriteRenderer.bounds;
 
