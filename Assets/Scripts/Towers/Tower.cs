@@ -24,7 +24,7 @@ public abstract class Tower : MonoBehaviour
     public bool rangeDisplayOverride = false;
 
     protected bool canShoot = true;
-    protected int accelerators = 0;
+    protected float accelerators = 0;
 
     // I made this because I am not writing this function more than once
     public virtual Tuple<float, Vector3> GetClosestTarget()
@@ -56,7 +56,7 @@ public abstract class Tower : MonoBehaviour
             Tower tower = towerObject.GetComponent<Tower>();
 
             // Skip non acceleration towers
-            if (!(tower is AccelerationTower)) continue;
+            if (!(tower is AccelerationTower) && !(tower is TemporalTower)) continue;
             
             // If the closest point of this tower is in range of the accelerator's radius
             Vector3 closest = TowerBounds.ClosestPoint(tower.transform.position);
@@ -64,7 +64,11 @@ public abstract class Tower : MonoBehaviour
             float distance = Vector2.Distance(new Vector2(closest.x, closest.y)
             , new Vector2(tower.transform.position.x, tower.transform.position.y));
 
-            if (distance <= tower.ShootRadius) ++accelerators;
+            if (distance <= tower.ShootRadius)
+            {
+                if (tower is TemporalTower) accelerators += 1.5f;
+                else ++accelerators;
+            }
         }
     }
 
