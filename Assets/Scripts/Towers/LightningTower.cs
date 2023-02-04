@@ -9,7 +9,7 @@ public class LightningTower : Tower
     public float MaxHealth = 150;
     public float Health = 150f;
 
-    public override float ShootCooldownSeconds => 5f;
+    public override float ShootCooldownSeconds => 2f;
     public override float ShootRadius => 4f;
     public override int CreditReward => 110;
 

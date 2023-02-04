@@ -5,8 +5,11 @@ using UnityEngine;
 public class LightningProjectile : Projectile
 {
     public LineRenderer lineRenderer;
+
     public float LifetimeSeconds = 0.5f;
     public float ArcDistance = 1f;
+    
+    public int Piercing = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -29,15 +32,28 @@ public class LightningProjectile : Projectile
         points.Add(from);
         points.Add(firstTarget);
 
+        int pierced = 1;
+
         foreach (GameObject target in GameObject.FindGameObjectsWithTag(enemyTag))
         {
+            if (pierced > Piercing) break;
+
             float distance = Vector2.Distance(new Vector2(firstTarget.x, firstTarget.y)
             , new Vector2(target.transform.position.x, target.transform.position.y));
 
             if (distance <= ArcDistance) 
             {
-                Debug.Log("this ran");
+                ++pierced;
                 points.Add(target.transform.position);
+
+                if (enemyTag == "Tower")
+                {
+                    target.gameObject.GetComponent<Tower>().Damage(Damage);
+                }
+                else if (enemyTag == "Unit")
+                {
+                    target.gameObject.GetComponent<Unit>().Damage(Damage);
+                }
             }
         }
 

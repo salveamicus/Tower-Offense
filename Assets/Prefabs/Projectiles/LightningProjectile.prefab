@@ -53,7 +53,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: dd59b3178278f101f90b2500dfe147bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +79,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -147,7 +147,8 @@ MonoBehaviour:
   body: {fileID: 0}
   Velocity: {x: 0, y: 0, z: 0}
   OwnerTag: 
-  Damage: 10
+  Damage: 40
   lineRenderer: {fileID: 3421111714178884548}
   LifetimeSeconds: 0.5
   ArcDistance: 10
+  Piercing: 10
