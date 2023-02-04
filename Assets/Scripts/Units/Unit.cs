@@ -85,7 +85,7 @@ public abstract class Unit : MonoBehaviour
     public virtual void UpdateFireTime()
     {
         if (FireTime <= 0) return;
-        Damage(gameStatistics.fireDamage); // TODO: Test with delta time
+        Damage(gameStatistics.fireDamage * Time.deltaTime);
 
         --FireTime;
     }
