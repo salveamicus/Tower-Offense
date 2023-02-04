@@ -217,6 +217,8 @@ MonoBehaviour:
   ProjectileSpeed: 1
   MaxHealth: 120
   Health: 120
+  ToxicRadius: 2
+  ToxicDamage: 10
 --- !u!1001 &3975948686921306689
 PrefabInstance:
   m_ObjectHideFlags: 0

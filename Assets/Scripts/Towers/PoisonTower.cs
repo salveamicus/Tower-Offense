@@ -9,6 +9,10 @@ public class PoisonTower : Tower
     public float MaxHealth = 120f;
     public float Health = 120f;
 
+    // Anything within this radius of the tower has their health slowly drained away
+    public float ToxicRadius = 2f;
+    public float ToxicDamage = 10f;
+
     public override float ShootCooldownSeconds => 5f;
     public override float ShootRadius => 3f;
     public override int CreditReward => 50;
@@ -32,6 +36,16 @@ public class PoisonTower : Tower
         UpdateRangeRadius();
         ShowRangeIfMouseHover();
         ShootIfPossible();
+
+        // Slowly damage everything in the ToxicRadius
+        foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
+        {
+            if (Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(unit.transform.position.x, unit.transform.position.y)) <= ToxicRadius)
+            {
+                Debug.Log("Damaging");
+                unit.gameObject.GetComponent<Unit>().Damage(ToxicDamage * Time.deltaTime);
+            }
+        }
 
         healthBar.transform.position = transform.position + new Vector3((Health/MaxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
         healthBar.transform.rotation = Quaternion.identity;
