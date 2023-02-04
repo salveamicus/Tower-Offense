@@ -70,6 +70,7 @@ public class StandardUnit : Unit
         UpdateRangeRadius(shootRadius);
         ShowRangeIfMouseHover();
         ShootIfPossible(shootRadius, shootCooldownSeconds);
+        UpdateFireTime();
 
         // Turn towards closest tower
         Tuple<float, Vector3> target = GetClosestTarget();

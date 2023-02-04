@@ -16,6 +16,8 @@ public class gameStatistics : MonoBehaviour
     // units
     public static int knightCost = 30;
 
+    public static float fireDamage = 0.1f;
+
     // towers
     public static float placementRadius = 5f;
 

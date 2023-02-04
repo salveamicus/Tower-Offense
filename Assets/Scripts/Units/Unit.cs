@@ -10,6 +10,8 @@ public abstract class Unit : MonoBehaviour
 
     public Bounds UnitBounds { get => spriteRenderer.bounds; }
 
+    public float FireTime = 0;
+
     protected bool canShoot = true;
 
     public virtual Tuple<float, Vector3> GetClosestTarget()
@@ -76,6 +78,15 @@ public abstract class Unit : MonoBehaviour
     public virtual void ResetCooldown()
     {
         canShoot = true;
+    }
+
+    // Apply fire damage if on fire
+    public virtual void UpdateFireTime()
+    {
+        if (FireTime <= 0) return;
+        Damage(gameStatistics.fireDamage);
+
+        --FireTime;
     }
 
     public abstract void Shoot(Vector3 direction);

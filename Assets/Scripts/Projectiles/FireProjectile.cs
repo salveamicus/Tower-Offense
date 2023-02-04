@@ -5,6 +5,7 @@ using UnityEngine;
 public class FireProjectile : Projectile
 {
     public float LifetimeSeconds = 3f;
+    public float FireTime = 60f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,5 +26,10 @@ public class FireProjectile : Projectile
 
             transform.eulerAngles = Vector3.forward * degrees;
         }
+    }
+
+    protected override void OnHitUnit(Unit unit)
+    {
+        unit.FireTime += FireTime;
     }
 }
