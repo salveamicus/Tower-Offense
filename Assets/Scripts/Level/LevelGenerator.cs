@@ -22,7 +22,7 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GenerateLevel(currentLevel);       
+        GenerateLevel(currentLevel);
     }
 
     // Update is called once per frame
@@ -81,6 +81,6 @@ public class LevelGenerator : MonoBehaviour
     public void GenerateNextLevel()
     {
         GenerateLevel(++currentLevel);
-        levelNumber.GetComponent<TextMeshProUGUI>().text = "Level " + currentLevel.ToString();
+        levelNumber.GetComponent<TextMeshProUGUI>().text = "Level " + currentLevel.ToString(); 
     }
 }

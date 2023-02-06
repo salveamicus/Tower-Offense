@@ -817,8 +817,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 455931194, guid: 85cea6c593e13a7479eded333425798a, type: 3}
-      propertyPath: borderRadius
-      value: 8
+      propertyPath: scrollSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1548686797794192930, guid: 85cea6c593e13a7479eded333425798a, type: 3}
       propertyPath: m_RootOrder
