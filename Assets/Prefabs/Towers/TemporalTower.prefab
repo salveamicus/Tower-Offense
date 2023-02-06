@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4197217455477252025}
   - component: {fileID: 8152364208668713055}
   - component: {fileID: 5165431634190464111}
+  - component: {fileID: 676284719185053141}
   m_Layer: 0
   m_Name: TemporalTower
   m_TagString: Tower
@@ -132,6 +133,26 @@ MonoBehaviour:
   rangeDisplayOverride: 0
   MaxHealth: 150
   Health: 150
+--- !u!95 &676284719185053141
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485872254843554389}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1c390ae2fe3cf449ad76f470093f444, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5374632166568135215
 GameObject:
   m_ObjectHideFlags: 0
