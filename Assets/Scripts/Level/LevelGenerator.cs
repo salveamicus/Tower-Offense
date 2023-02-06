@@ -22,7 +22,7 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GenerateLevel(currentLevel);       
+        GenerateLevel(currentLevel);
     }
 
     // Update is called once per frame
