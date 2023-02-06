@@ -6,9 +6,7 @@ using UnityEngine;
 public class StandardUnit : Unit
 {
     public Projectile Projectile;
-    public Vector3 moveDirection = Vector3.zero;
     public Vector3 moveGoal;
-    private Vector3 toNormalize;
     private Vector3 zAdjustedGoal;
     public bool hasDirection = false;
     public float speed = 0.05f;
@@ -45,16 +43,7 @@ public class StandardUnit : Unit
         //Reset attack sprite animation boolean
         animator.SetBool("IsAttacking", false);
 
-        if (Vector3.Distance(transform.position, zAdjustedGoal) < 0.2)
-        {
-            zAdjustedGoal = transform.position;
-        }
-
-        toNormalize = Vector3.zero;
-        toNormalize = zAdjustedGoal - transform.position;
-
-        moveDirection = Vector3.Normalize(toNormalize);
-        transform.position += speed * Time.deltaTime * moveDirection * SpeedMultiplier; //deltatime used to anchor movement to time elapsed rather than frame count
+        movement(moveGoal);
 
         //Debug.Log("Health: " + Health + ", Position: " + transform.position); //use this is you need to debug movement or health 
 

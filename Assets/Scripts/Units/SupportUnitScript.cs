@@ -7,6 +7,8 @@ public class SupportUnitScript : Unit
 {
     public float maxHealth = 50f;
     public float health = 50f;
+    public Vector3 moveGoal;
+    private Vector3 zAdjustedGoal;
 
     public float healAmount = 10f;
     public float healRadius = 1.5f;
@@ -21,6 +23,9 @@ public class SupportUnitScript : Unit
     // Update is called once per frame
     void Update()
     {
+        // For movement
+        movement(moveGoal);
+
         UpdateFireTime();
         UpdatePoisonTime();
 

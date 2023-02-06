@@ -7,6 +7,9 @@ public class SniperUnit : Unit
 {
     public Projectile Projectile;
 
+    public Vector3 moveGoal;
+    private Vector3 zAdjustedGoal;
+
     public float projectileSpeed = 4f;
 
     public float maxHealth = 50f;
@@ -24,6 +27,9 @@ public class SniperUnit : Unit
     // Update is called once per frame
     void Update()
     {
+        // For movement
+        movement(moveGoal);
+
         UpdateFireTime();
         UpdatePoisonTime();
 

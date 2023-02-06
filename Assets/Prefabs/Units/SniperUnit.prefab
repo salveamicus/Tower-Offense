@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 5186386227338107970}
   - component: {fileID: 5699048222165537676}
   - component: {fileID: 5582882846023463679}
+  - component: {fileID: 6280719963174523623}
   m_Layer: 0
   m_Name: SniperUnit
   m_TagString: Unit
@@ -208,6 +209,7 @@ MonoBehaviour:
   FireTime: 0
   PoisonTime: 0
   Projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
+  moveGoal: {x: 0, y: 0, z: 0}
   projectileSpeed: 4
   maxHealth: 50
   health: 50
@@ -226,6 +228,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionCircle: {fileID: 867019839176233997}
+--- !u!50 &6280719963174523623
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557734351484718965}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8649459598546499695
 GameObject:
   m_ObjectHideFlags: 0
