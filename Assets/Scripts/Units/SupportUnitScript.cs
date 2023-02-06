@@ -3,17 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SniperUnit : Unit
+public class SupportUnitScript : Unit
 {
-    public Projectile Projectile;
-
-    public float projectileSpeed = 4f;
-
     public float maxHealth = 50f;
     public float health = 50f;
 
-    public float shootRadius = 5f;
-    public float shootCooldownSeconds = 4f;
+    public float healAmount = 10f;
+    public float healRadius = 1.5f;
+    public float healCooldownSeconds = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +27,10 @@ public class SniperUnit : Unit
         if (health <= 0) Destroy(gameObject);
 
         UpdateDecceleratorCount();
-        UpdateRangeRadius(shootRadius);
+        UpdateRangeRadius(healRadius);
         ShowRangeIfMouseHover();
-        ShootIfPossible(shootRadius, shootCooldownSeconds);
+
+        if (canShoot) Shoot(Vector3.zero);
 
         // Turn towards closest tower
         Tuple<float, Vector3> target = GetClosestTarget();
@@ -47,9 +45,21 @@ public class SniperUnit : Unit
 
     public override void Shoot(Vector3 direction)
     {
-        Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
-        p.Velocity = direction.normalized * projectileSpeed * SpeedMultiplier;
-        p.OwnerTag = tag;
+        canShoot = false;
+
+        foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
+        {
+            if (unit.transform.position == transform.position) continue;
+
+            float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
+            ,new Vector2(unit.transform.position.x, unit.transform.position.y));
+
+            if (distance > healRadius) continue;
+
+            unit.gameObject.GetComponent<Unit>().Heal(healAmount);
+        }
+
+        Invoke("ResetCooldown", healCooldownSeconds);
     }
 
     public override void Damage(float amount)

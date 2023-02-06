@@ -105,4 +105,10 @@ public class StandardUnit : Unit
         Health -= amount;
         transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
+    
+    public override void Heal(float amount)
+    {
+        Health = MathF.Min(Health + amount, maxHealth);
+        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
+    }
 }
