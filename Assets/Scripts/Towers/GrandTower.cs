@@ -11,7 +11,7 @@ public class GrandTower : Tower
     public float Health = 100f;
 
     public override float ShootCooldownSeconds => 4f;
-    public override float ShootRadius => 100f;
+    public override float ShootRadius => 10f;
     public override int CreditReward => 100;
 
     // Start is called before the first frame update

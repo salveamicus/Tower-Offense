@@ -5,9 +5,10 @@ using UnityEngine.UIElements;
 
 public class MoveCamera : MonoBehaviour
 {
-    public float panSpeed = 1f;
-    public float scrollSpeed = 1f;
+    public float panSpeed = 8f;
+    public float scrollSpeed = 20f;
     public float borderRadius = 10f;
+    public float speedMult = 1f;
 
     private bool _isDraggingMouseBox = false;
     private Vector3 _dragStartPosition;
@@ -15,6 +16,7 @@ public class MoveCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             _isDraggingMouseBox = true;

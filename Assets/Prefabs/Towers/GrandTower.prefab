@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeSphere: {fileID: 1732287762}
-  healthBar: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  healthBar: {fileID: 2984352247611583747}
+  spriteRenderer: {fileID: 8755781905659066132}
   rangeDisplayOverride: 0
   standardProjectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
   ProjectileSpeed: 8
@@ -286,6 +286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77ab3d179cb3e6940836254f1c385d81, type: 3}
+--- !u!1 &2984352247611583747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1403777428053982915, guid: 77ab3d179cb3e6940836254f1c385d81, type: 3}
+  m_PrefabInstance: {fileID: 4184324182539539392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4284260848460833569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 100614274330112225, guid: 77ab3d179cb3e6940836254f1c385d81, type: 3}
