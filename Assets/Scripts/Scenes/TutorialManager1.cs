@@ -9,6 +9,8 @@ public class TutorialManager1 : MonoBehaviour
     public int currentState;
     int completedState;
     public GameObject[] panels;
+    public GameObject leftCube;
+    public GameObject rightCube;
 
     void Start()
     {
@@ -17,6 +19,8 @@ public class TutorialManager1 : MonoBehaviour
         foreach (GameObject panel in panels) {
             panel.SetActive(false);
         }
+        rightCube.SetActive(false);
+        leftCube.SetActive(true);
         panels[0].SetActive(true);
     }
 
@@ -29,9 +33,9 @@ public class TutorialManager1 : MonoBehaviour
                     unit.transform.position.y > 3 || unit.transform.position.y < -3) {
                         inBox = false;
                         break;
-                    }
-            }
-        if (units.Length > 0 && inBox == true) {
+                }
+        }
+        if (currentState < 4 && units.Length > 0 && inBox == true) {
             currentState = 4;
             foreach (GameObject panel in panels) {
                 panel.SetActive(false);
@@ -43,15 +47,17 @@ public class TutorialManager1 : MonoBehaviour
                 currentState = 1;
                 panels[0].SetActive(false);
                 panels[1].SetActive(true);
+                leftCube.SetActive(false);
+                
             }
         }
         else if (currentState == 1) {
-            // if left mouse button up, go to next panel
-            if (Input.GetMouseButtonUp(0)) {
+            if (Globals.SELECTED_UNITS.Count > 0 && Input.GetMouseButtonUp(0)) {
                 completedState = 1;
                 currentState = 2;
                 panels[1].SetActive(false);
                 panels[2].SetActive(true);
+                rightCube.SetActive(true);
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) && completedState >= 1) {
                 currentState = 2;
