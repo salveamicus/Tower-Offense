@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 319, y: 325}
-  m_SizeDelta: {x: -1166.5486, y: -1023.9543}
+  m_AnchoredPosition: {x: 300, y: 300}
+  m_SizeDelta: {x: -1000, y: -1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &101365041
 CanvasRenderer:
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 48f5168cc2a290446a63dbc7cda6fb31, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -43, y: -456.6}
-  m_SizeDelta: {x: -1037, y: -929.96}
+  m_AnchoredPosition: {x: 0, y: -285}
+  m_SizeDelta: {x: 300, y: -630}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &114143302
 CanvasRenderer:
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 48f5168cc2a290446a63dbc7cda6fb31, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -245,8 +245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24, y: -4}
-  m_SizeDelta: {x: -1037, y: -772.754}
+  m_AnchoredPosition: {x: 0, y: -100.000015}
+  m_SizeDelta: {x: -800, y: -600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &654515118
 CanvasRenderer:
@@ -276,8 +276,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 48f5168cc2a290446a63dbc7cda6fb31, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -319,11 +319,11 @@ RectTransform:
   m_Father: {fileID: 1242810191}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 550, y: 100}
+  m_SizeDelta: {x: 1120, y: 272}
+  m_Pivot: {x: 1, y: 1}
 --- !u!222 &666519424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -352,8 +352,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The red area shows the range of all towers. You cannot place units there.
-    With the knight button selected, left click somewhere outside the range.
+  m_text: 'The red area shows the range of all towers. You cannot place units there.
+    Try buying a troop and placing him on the battlefield.
+
+
+    With the knight
+    button selected, left click somewhere outside the range of the tower.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -455,10 +459,10 @@ RectTransform:
   m_Father: {fileID: 114143300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 30}
+  m_SizeDelta: {x: 1720, y: 272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &713139066
 CanvasRenderer:
@@ -488,8 +492,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Well done! you can also hold down left click to continuously spawn units.You
-    can now deselect the knight button.
+  m_text: 'Well done! Your troops are simple minded, so they will always go after
+    the tower closest to them. It will be your job to direct them toward the correct
+    path to achieve victory.
+
+
+    Hold down left click to continuously buy and create
+    units. Click the knight button again to de-select it.
+
+
+    Units can be selected
+    individually using left click or in groups using left click dragging and directed
+    to a specific location using right click.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -594,7 +608,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.1039, y: -0.1351}
-  m_SizeDelta: {x: 830.8527, y: 256.501}
+  m_SizeDelta: {x: 830.8527, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &952730999
 CanvasRenderer:
@@ -624,8 +638,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Your goal is to destroy as many grand towers as possible. As you progress
-    through the levels, the guarding towers become stronger.
+  m_text: 'The source of these towers'' power seems to come from their grand towers
+    (like that big golden one in the middle of the field). Your goal will be to destory
+    as many of these as you can with the credits (top left) provided.
+
+
+    Be weary
+    however, as every grand tower destroyed results in an overall boost of power
+    from all towers.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -729,7 +749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.1039, y: -0.1351}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 830.8527, y: 256.501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1172083017
@@ -760,8 +780,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Congratulations! You have destroyed the grand tower! Press any key to start
-    the first level.
+  m_text: 'Congratulations! You''re now ready to enter actual combat!
+
+
+    Press
+    any key to start the first level.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -866,8 +889,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -43, y: -457}
-  m_SizeDelta: {x: -1037, y: -929.1617}
+  m_AnchoredPosition: {x: 0, y: -396.2096}
+  m_SizeDelta: {x: -400, y: -807.5808}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1242810193
 CanvasRenderer:
@@ -897,8 +920,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 48f5168cc2a290446a63dbc7cda6fb31, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -943,8 +966,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24, y: -4}
-  m_SizeDelta: {x: -1037, y: -772.754}
+  m_AnchoredPosition: {x: -40, y: 80}
+  m_SizeDelta: {x: -880, y: -820}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1246027783
 CanvasRenderer:
@@ -974,8 +997,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 48f5168cc2a290446a63dbc7cda6fb31, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1020,8 +1043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24, y: -4}
-  m_SizeDelta: {x: -1037, y: -772.754}
+  m_AnchoredPosition: {x: 0, y: -25}
+  m_SizeDelta: {x: -600, y: -550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1408810455
 CanvasRenderer:
@@ -1051,8 +1074,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 48f5168cc2a290446a63dbc7cda6fb31, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1097,8 +1120,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24, y: -4}
-  m_SizeDelta: {x: -1037, y: -772.754}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: -800, y: -600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1798960265
 CanvasRenderer:
@@ -1128,8 +1151,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 48f5168cc2a290446a63dbc7cda6fb31, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1173,7 +1196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.1039, y: -0.1351}
+  m_AnchoredPosition: {x: -100, y: 75}
   m_SizeDelta: {x: 830.8527, y: 256.501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1821982130
@@ -1204,11 +1227,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\t\t       Welcome To Medieval Militant!\nMysterious towers have risen
-    out of the ground all over the land, terrorizing the local villages. It is your
-    job as the king to guide your militant to victory and reign supreme over the
-    these vengeful structures.\n\nPress the left and right arrow keys to go through
-    the tutorial."
+  m_text: 'Welcome To Medieval Militant!
+
+
+    Mysterious towers have risen out of
+    the ground all over the land, terrorizing the local villages. It is your job
+    as the king to guide your militant to victory and reign supreme over the these
+    vengeful structures.
+
+
+    Press the left and right arrow keys to navigate this
+    tutorial (arrow keys will also move the camera in-game)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1310,10 +1339,10 @@ RectTransform:
   m_Father: {fileID: 101365039}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 150, y: 130}
+  m_SizeDelta: {x: 1020, y: -220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1831755619
 CanvasRenderer:
@@ -1343,7 +1372,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press the knight button.
+  m_text: 'Select the knight button in the Shop:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1448,7 +1477,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.1039, y: -0.1351}
-  m_SizeDelta: {x: 830.8527, y: 256.501}
+  m_SizeDelta: {x: 830.8527, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1937677120
 CanvasRenderer:
@@ -1478,7 +1507,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Now, let's destroy a grand tower without any guard towers.
+  m_text: 'Grand towers leech off the powers of other towers surrounding them. So
+    the more surrounding towers destroyed, the weaker the grand tower gets. (our
+    scouts informed us that the symbols on each of these towers correlate to what
+    their ability is...)
+
+
+    It seems this grand tower is all by itself, so let''s
+    practice some general combat'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1554,6 +1590,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4142815538269025813, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d15d21583ef435e449187075e7698a3a, type: 3}
     - target: {fileID: 7509298143268633074, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: m_Pivot.x
       value: 0

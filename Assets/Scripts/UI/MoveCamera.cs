@@ -26,12 +26,12 @@ public class MoveCamera : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
             _isDraggingMouseBox = false;
 
-        if (Input.mouseScrollDelta.y > 0)
+        if ((Input.mouseScrollDelta.y > 0) && (Camera.main.orthographicSize > 3))
         {
             Camera.main.orthographicSize -= scrollSpeed * Time.deltaTime;
             Camera.main.nearClipPlane -= scrollSpeed * Time.deltaTime;
         }
-        else if (Input.mouseScrollDelta.y < 0)
+        else if ((Input.mouseScrollDelta.y < 0) && (Camera.main.orthographicSize < 10))
         {
             Camera.main.orthographicSize += scrollSpeed * Time.deltaTime;
             Camera.main.farClipPlane += scrollSpeed * Time.deltaTime;
