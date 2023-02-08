@@ -31,7 +31,7 @@ public class storePanel : MonoBehaviour
         }
 
         foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower")) {
-            if (Vector3.Distance(tower.transform.position, scenePosition) < tower.GetComponent<Tower>().shootRadius) {
+            if (Vector3.Distance(tower.transform.position, scenePosition) < tower.GetComponent<Tower>().ShootRadius) {
                 return;
             }
         }

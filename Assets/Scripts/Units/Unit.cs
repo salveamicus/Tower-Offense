@@ -1,16 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public abstract class Unit : MonoBehaviour
 {
     public GameObject rangeSphere;
+    public GameObject healthBar;
     public SpriteRenderer spriteRenderer;
 
     public Bounds UnitBounds { get => spriteRenderer.bounds; }
 
+    public float FireTime = 0;
+    public float PoisonTime = 0;
+
+    public float SpeedMultiplier => 1f / (1f + deccelerators);
+
     protected bool canShoot = true;
+    protected float deccelerators = 0;
 
     public virtual Tuple<float, Vector3> GetClosestTarget()
     {
@@ -73,11 +82,74 @@ public abstract class Unit : MonoBehaviour
         rangeSphere.SetActive(show && !gameStatistics.purchasingUnit);
     }
 
+    public virtual void UpdateDecceleratorCount()
+    {
+        deccelerators = 0;
+
+        foreach (GameObject towerObject in GameObject.FindGameObjectsWithTag("Tower"))
+        {
+            Tower tower = towerObject.gameObject.GetComponent<Tower>();
+
+            // Skip non deccelerator towers
+            if (!(tower is TemporalTower)) continue;
+
+            // If the closest point of this tower is in range of the accelerator's radius
+            Vector3 closest = UnitBounds.ClosestPoint(tower.transform.position);
+
+            float distance = Vector2.Distance(new Vector2(closest.x, closest.y)
+            , new Vector2(tower.transform.position.x, tower.transform.position.y));
+
+            if (distance <= tower.ShootRadius) ++deccelerators;
+        }
+    }
+
     public virtual void ResetCooldown()
     {
         canShoot = true;
     }
 
+    // Apply fire damage if on fire
+    public virtual void UpdateFireTime()
+    {
+        if (FireTime <= 0) return;
+        Damage(gameStatistics.fireDamage * Time.deltaTime);
+
+        --FireTime;
+    }
+
+    // Apply poison damage if poisoned
+    public virtual void UpdatePoisonTime()
+    {
+        if (PoisonTime <= 0) return;
+        Damage(gameStatistics.poisonDamage * Time.deltaTime);
+
+        --PoisonTime;
+    }
+
+    public virtual void movement(Vector3 moveGoal, float speed = 1f)
+    {
+        Vector3 moveDirection = Vector3.zero;
+        Vector3 toNormalize;
+        Vector3 zAdjustedGoal;
+        zAdjustedGoal = Vector3.zero;
+        zAdjustedGoal.x = moveGoal.x;
+        zAdjustedGoal.y = moveGoal.y;
+        zAdjustedGoal.z = transform.position.z;
+
+        if (Vector3.Distance(transform.position, zAdjustedGoal) < 0.2)
+        {
+            zAdjustedGoal = transform.position;
+        }
+
+        toNormalize = Vector3.zero;
+        toNormalize = zAdjustedGoal - transform.position;
+
+        moveDirection = Vector3.Normalize(toNormalize);
+        transform.position += speed * Time.deltaTime * moveDirection * SpeedMultiplier; //deltatime used to anchor movement to time elapsed rather than frame count
+
+    }
+
     public abstract void Shoot(Vector3 direction);
     public abstract void Damage(float amount);
+    public abstract void Heal(float amount);
 }
