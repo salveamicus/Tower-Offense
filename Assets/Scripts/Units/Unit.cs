@@ -70,7 +70,7 @@ public abstract class Unit : MonoBehaviour
         if (mousePos.y > transform.position.y + spriteRenderer.bounds.size.y / 2) show = false;
         if (mousePos.y < transform.position.y - spriteRenderer.bounds.size.y / 2) show = false;
 
-        rangeSphere.SetActive(show);
+        rangeSphere.SetActive(show && !gameStatistics.purchasingUnit);
     }
 
     public virtual void ResetCooldown()

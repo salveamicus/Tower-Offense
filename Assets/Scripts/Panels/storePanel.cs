@@ -17,6 +17,7 @@ public class storePanel : MonoBehaviour
     int storePanelEdge = 1920 - 195; // resolution width - store panel width
     static int continuousSpawnStartDelay = gameStatistics.continuousSpawnStartDelay;
     static int continuousSpawnDelay = gameStatistics.continuousSpawnDelay;
+    public bool inTutorial;
     
     void PurchaseUnit(Vector3 screenPosition) {
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
@@ -25,6 +26,9 @@ public class storePanel : MonoBehaviour
         Vector3 scenePosition = ray.GetPoint(distance);
 
         if (gameStatistics.regeneratingLevel) return;
+        if (inTutorial && (scenePosition.x > -3 || scenePosition.x < -7 || scenePosition.y > 3 || scenePosition.y < -3)) {
+            return;
+        }
 
         foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower")) {
             if (Vector3.Distance(tower.transform.position, scenePosition) < tower.GetComponent<Tower>().shootRadius) {
