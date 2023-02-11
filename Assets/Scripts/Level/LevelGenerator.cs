@@ -21,7 +21,7 @@ public class LevelGenerator : MonoBehaviour
 
     // Generation Paramters
     public float smallestRing = 2.5f;
-    public float ringSize = 0.5f;
+    public float ringSize = 2f;
     public float levelGenTime = 3f;
 
     // The Grand Tower of the current level
@@ -35,7 +35,13 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         //GenerateLevel(currentLevel);
-        GenerateLevelFromDNA("LLLL/FFFF/PPPP/UUUU/SSSS");
+
+        // 16
+        // 24 (*1.5)
+        // 36 (*1.5)
+
+        GenerateLevelFromDNA("SSSSSSSSSSSSSSSS/LLLLLLLLLLLLLLLLLLLLLLLL/FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF/");
+        //GenerateLevelFromDNA("LLLL/");
     }
 
     // Update is called once per frame
@@ -112,7 +118,7 @@ public class LevelGenerator : MonoBehaviour
 
         foreach (char symbol in newDNA)
         {
-            if (symbol == '/')
+            if (symbol != '/')
             {
                 currentTowers.Add(symbol);
             }
@@ -121,10 +127,12 @@ public class LevelGenerator : MonoBehaviour
                 float angle = 360f / currentTowers.Count;
                 float startingAngle = -90; // North of the grand tower
 
-                for (int i = 0; i < currentTowers.Capacity; ++i)
+                for (int i = 0; i < currentTowers.Count; ++i)
                 {
                     float radians = (startingAngle + angle * i);
-                    Vector3 pos = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0).normalized * (smallestRing + ringSize * i);
+                    //Vector3 pos = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0).normalized * (smallestRing + i * ringSize);
+                    //Vector3 pos = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0).normalized * smallestRing;
+                    Vector3 pos = Quaternion.Euler(0, 0, startingAngle + angle * i) * new Vector3(smallestRing + ring * ringSize, 0, 0);
                     
                     switch (currentTowers[i])
                     {
@@ -150,7 +158,7 @@ public class LevelGenerator : MonoBehaviour
                         Instantiate(attractorTower, pos, Quaternion.identity, transform);
                         break;
                     case 'L': 
-                        Instantiate(sniperTower, pos, Quaternion.identity, transform);
+                        Instantiate(lightningTower, pos, Quaternion.identity, transform);
                         break;
                     default: // Standard tower if unrecognized symbol
                         Instantiate(standardTower, pos, Quaternion.identity, transform);
