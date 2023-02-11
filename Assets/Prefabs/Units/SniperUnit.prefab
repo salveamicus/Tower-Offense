@@ -203,6 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c7460d833b8acd5ad6c4446b732408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelected: 0
+  selectionCircle: {fileID: 867019839176233997}
   rangeSphere: {fileID: 8649459598546499695}
   healthBar: {fileID: 8668838660729186690}
   spriteRenderer: {fileID: 0}
@@ -227,7 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b4d01d256368547954d32aceed900d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCircle: {fileID: 867019839176233997}
 --- !u!50 &6280719963174523623
 Rigidbody2D:
   serializedVersion: 4

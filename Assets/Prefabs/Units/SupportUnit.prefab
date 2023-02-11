@@ -285,6 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace043cf83eb6a5afa7ecbbff0d6afeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelected: 0
+  selectionCircle: {fileID: 440431166217023911}
   rangeSphere: {fileID: 2593189997614842277}
   healthBar: {fileID: 751014400583185451}
   spriteRenderer: {fileID: 0}
