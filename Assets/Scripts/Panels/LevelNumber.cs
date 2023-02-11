@@ -9,6 +9,6 @@ public class LevelNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.GetComponent<TextMeshProUGUI>().text = "Level " + (gameStatistics.levelNumber).ToString();
+        this.gameObject.GetComponent<TextMeshProUGUI>().text = "Level " + (gameStatistics.levelNumber + 1).ToString();
     }
 }

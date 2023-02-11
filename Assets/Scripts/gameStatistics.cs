@@ -10,6 +10,7 @@ public class gameStatistics : MonoBehaviour
     public static int initialCredits = 2000;
     public static int continuousSpawnStartDelay = 30;
     public static int continuousSpawnDelay = 10;
+    public static int levelNumber = 0;
     public static bool purchasingUnit = false;
     public static bool regeneratingLevel = false;
 
