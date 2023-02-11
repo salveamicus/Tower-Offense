@@ -169,6 +169,6 @@ public class LevelGenerator : MonoBehaviour
     public void GenerateNextLevel()
     {
         GenerateLevel(++currentLevel);
-        levelNumber.GetComponent<TextMeshProUGUI>().text = "Level " + (currentLevel+1).ToString();
+        gameStatistics.levelNumber = this.currentLevel;
     }
 }
