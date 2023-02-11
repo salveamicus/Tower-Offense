@@ -271,6 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b862c6e8c2a04849bc19ed59739d8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelected: 0
+  selectionCircle: {fileID: 1476025404945999650}
   rangeSphere: {fileID: 1289802454}
   healthBar: {fileID: 2536854017638562432}
   spriteRenderer: {fileID: 0}
@@ -282,7 +284,6 @@ MonoBehaviour:
   speed: 1
   ProjectileSpeed: 3
   Health: 50
-  isSelected: 0
   shootRadius: 2
   shootCooldownSeconds: 1
   animator: {fileID: 41640547}
@@ -298,7 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b4d01d256368547954d32aceed900d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCircle: {fileID: 1476025404945999650}
 --- !u!58 &217074514894490492
 CircleCollider2D:
   m_ObjectHideFlags: 0

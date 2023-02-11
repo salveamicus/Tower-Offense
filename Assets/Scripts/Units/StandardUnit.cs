@@ -13,7 +13,6 @@ public class StandardUnit : Unit
     public float ProjectileSpeed = 3f;
     float maxHealth = 50f;
     public float Health = 50f;
-    public bool isSelected = false;
 
     public float shootRadius = 2f;
     public float shootCooldownSeconds = 2f;
@@ -31,6 +30,8 @@ public class StandardUnit : Unit
     // Update is called once per frame
     void Update()
     {
+        selectionCircle.SetActive(isSelected);
+
         // For movement
         zAdjustedGoal = Vector3.zero;
         zAdjustedGoal.x = moveGoal.x;

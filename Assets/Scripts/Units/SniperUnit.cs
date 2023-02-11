@@ -27,6 +27,8 @@ public class SniperUnit : Unit
     // Update is called once per frame
     void Update()
     {
+        selectionCircle.SetActive(isSelected);
+
         // For movement
         movement(moveGoal);
 
