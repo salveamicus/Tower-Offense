@@ -21,7 +21,7 @@ public class selectUnitToPurchase : MonoBehaviour
             transform.parent.GetComponent<storePanel>().selectedButton = index;
             int prev = transform.parent.GetComponent<storePanel>().selectedButton;
             if (prev != -1) {
-                transform.parent.GetChild(index).GetComponent<Image>().color = Color.white;
+                transform.parent.GetChild(prev).GetComponent<Image>().color = Color.white;
             }
             transform.GetComponent<Image>().color = new Color(0.5f, 1f, 0.5f);
             foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower")) {
