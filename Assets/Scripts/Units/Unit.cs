@@ -1,10 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public abstract class Unit : MonoBehaviour
 {
+
+    public bool isSelected = false;
+
+    public GameObject selectionCircle;
     public GameObject rangeSphere;
     public GameObject healthBar;
     public SpriteRenderer spriteRenderer;
@@ -77,7 +83,7 @@ public abstract class Unit : MonoBehaviour
         if (mousePos.y > transform.position.y + spriteRenderer.bounds.size.y / 2) show = false;
         if (mousePos.y < transform.position.y - spriteRenderer.bounds.size.y / 2) show = false;
 
-        rangeSphere.SetActive(show);
+        rangeSphere.SetActive(show && !gameStatistics.purchasingUnit);
     }
 
     public virtual void UpdateDecceleratorCount()
@@ -124,6 +130,30 @@ public abstract class Unit : MonoBehaviour
         --PoisonTime;
     }
 
+    public virtual void movement(Vector3 moveGoal, float speed = 1f)
+    {
+        Vector3 moveDirection = Vector3.zero;
+        Vector3 toNormalize;
+        Vector3 zAdjustedGoal;
+        zAdjustedGoal = Vector3.zero;
+        zAdjustedGoal.x = moveGoal.x;
+        zAdjustedGoal.y = moveGoal.y;
+        zAdjustedGoal.z = transform.position.z;
+
+        if (Vector3.Distance(transform.position, zAdjustedGoal) < 0.2)
+        {
+            zAdjustedGoal = transform.position;
+        }
+
+        toNormalize = Vector3.zero;
+        toNormalize = zAdjustedGoal - transform.position;
+
+        moveDirection = Vector3.Normalize(toNormalize);
+        transform.position += speed * Time.deltaTime * moveDirection * SpeedMultiplier; //deltatime used to anchor movement to time elapsed rather than frame count
+
+    }
+
     public abstract void Shoot(Vector3 direction);
     public abstract void Damage(float amount);
+    public abstract void Heal(float amount);
 }

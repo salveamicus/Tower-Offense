@@ -7,6 +7,9 @@ public class SniperUnit : Unit
 {
     public Projectile Projectile;
 
+    public Vector3 moveGoal;
+    private Vector3 zAdjustedGoal;
+
     public float projectileSpeed = 4f;
 
     public float maxHealth = 50f;
@@ -24,6 +27,11 @@ public class SniperUnit : Unit
     // Update is called once per frame
     void Update()
     {
+        selectionCircle.SetActive(isSelected);
+
+        // For movement
+        movement(moveGoal);
+
         UpdateFireTime();
         UpdatePoisonTime();
 
@@ -55,6 +63,12 @@ public class SniperUnit : Unit
     public override void Damage(float amount)
     {
         health -= amount;
+        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
+    }
+
+    public override void Heal(float amount)
+    {
+        health = MathF.Min(health + amount, maxHealth);
         transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
     }
 }
