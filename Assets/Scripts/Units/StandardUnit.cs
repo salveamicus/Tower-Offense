@@ -6,9 +6,7 @@ using UnityEngine;
 public class StandardUnit : Unit
 {
     public Projectile Projectile;
-    public Vector3 moveDirection = Vector3.zero;
     public Vector3 moveGoal;
-    private Vector3 toNormalize;
     private Vector3 zAdjustedGoal;
     public bool hasDirection = false;
     public float speed = 0.05f;
@@ -20,7 +18,8 @@ public class StandardUnit : Unit
     public float shootRadius = 2f;
     public float shootCooldownSeconds = 2f;
 
-    public GameObject healthBar;
+    //For animation
+    public Animator animator;
 
     private void Start()
     {
@@ -32,25 +31,24 @@ public class StandardUnit : Unit
     // Update is called once per frame
     void Update()
     {
-
         // For movement
         zAdjustedGoal = Vector3.zero;
         zAdjustedGoal.x = moveGoal.x;
         zAdjustedGoal.y = moveGoal.y;
         zAdjustedGoal.z = transform.position.z;
 
-        if (Vector3.Distance(transform.position, zAdjustedGoal) < 0.2)
-        {
-            zAdjustedGoal = transform.position;
-        }
+        //For calculating if movement spritesheet should animate
+        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
+        
+        //Reset attack sprite animation boolean
+        animator.SetBool("IsAttacking", false);
 
-        toNormalize = Vector3.zero;
-        toNormalize = zAdjustedGoal - transform.position;
-
-        moveDirection = Vector3.Normalize(toNormalize);
-        transform.position += speed * Time.deltaTime * moveDirection; //deltatime used to anchor movement to time elapsed rather than frame count
+        movement(moveGoal);
 
         //Debug.Log("Health: " + Health + ", Position: " + transform.position); //use this is you need to debug movement or health 
+
+        UpdateFireTime();
+        UpdatePoisonTime();
 
         if (Health <= 0)
         {
@@ -58,10 +56,11 @@ public class StandardUnit : Unit
             Destroy(this.gameObject);
         }
 
+        UpdateDecceleratorCount();
         UpdateRangeRadius(shootRadius);
         ShowRangeIfMouseHover();
         ShootIfPossible(shootRadius, shootCooldownSeconds);
-
+        
         // Turn towards closest tower
         Tuple<float, Vector3> target = GetClosestTarget();
         Vector3 directionVector = target.Item2 - transform.position;
@@ -82,14 +81,23 @@ public class StandardUnit : Unit
 
     public override void Shoot(Vector3 direction)
     {
+        //Play attack sprite animation
+        animator.SetBool("IsAttacking", true);
+
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
-        p.Velocity = direction.normalized * ProjectileSpeed;
+        p.Velocity = direction.normalized * ProjectileSpeed * SpeedMultiplier;
         p.OwnerTag = tag;
     }
 
     public override void Damage(float amount)
     {
         Health -= amount;
+        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
+    }
+    
+    public override void Heal(float amount)
+    {
+        Health = MathF.Min(Health + amount, maxHealth);
         transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
 }

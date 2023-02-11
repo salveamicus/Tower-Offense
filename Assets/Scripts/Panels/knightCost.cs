@@ -9,7 +9,7 @@ public class knightCost : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(gameStatistics.knightCost);
+        //gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(gameStatistics.knightCost);
     }
 
     // Update is called once per frame

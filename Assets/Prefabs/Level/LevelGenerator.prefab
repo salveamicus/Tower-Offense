@@ -46,4 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grandTower: {fileID: 1650974869570457753, guid: 5722c343266cf22c1b7462effe5e983b, type: 3}
   standardTower: {fileID: -7511692800206537560, guid: ade06c57b95910d4cb6fa1f477b01125, type: 3}
+  levelNumber: {fileID: 0}
   smallestRadius: 2.5
+  levelGenTime: 3

@@ -16,16 +16,23 @@ public abstract class Projectile : MonoBehaviour
         {
             if (collider.gameObject.CompareTag("Unit"))
             {
-                collider.gameObject.GetComponent<Unit>().Damage(Damage);
+                Unit unit = collider.gameObject.GetComponent<Unit>();
+                unit.Damage(Damage);
+                OnHitUnit(unit);
                 Destroy(gameObject);
             }
             else if (collider.gameObject.CompareTag("Tower"))
             {
-                collider.gameObject.GetComponent<Tower>().Damage(Damage);
+                Tower tower = collider.gameObject.GetComponent<Tower>();
+                tower.Damage(Damage);
+                OnHitTower(tower);
                 Destroy(gameObject);
             }
         }
     }
+
+    protected virtual void OnHitUnit(Unit unit) {}
+    protected virtual void OnHitTower(Tower tower) {}
 
     // Remove from screen
     public virtual void Die()

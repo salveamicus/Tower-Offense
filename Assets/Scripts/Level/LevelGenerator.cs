@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LevelGenerator : MonoBehaviour
 {
     // Towers to generate level with
     public GrandTower grandTower;
     public StandardTower standardTower;
+    public GameObject levelNumber;
 
     // Generation Paramters
     public float smallestRadius = 2.5f;
@@ -20,7 +22,7 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GenerateLevel(currentLevel);       
+        GenerateLevel(currentLevel);
     }
 
     // Update is called once per frame
@@ -30,6 +32,9 @@ public class LevelGenerator : MonoBehaviour
         // If the level is dead, delete all towers, wait 3 seconds, and then start the next level
         if (currentGrandTower != null && currentGrandTower.Health <= 0f)
         {
+            gameStatistics.regeneratingLevel = true;
+            gameStatistics.currentCredits += currentGrandTower.CreditReward;
+
             foreach (Transform child in transform)
             {
                 Destroy(child.gameObject);
@@ -69,10 +74,13 @@ public class LevelGenerator : MonoBehaviour
 
             Instantiate(standardTower, pos, Quaternion.identity, transform);
         }
+
+        gameStatistics.regeneratingLevel = false;
     }
 
     public void GenerateNextLevel()
     {
         GenerateLevel(++currentLevel);
+        levelNumber.GetComponent<TextMeshProUGUI>().text = "Level " + (currentLevel+1).ToString();
     }
 }
