@@ -8,10 +8,20 @@ public class LevelGenerator : MonoBehaviour
     // Towers to generate level with
     public GrandTower grandTower;
     public StandardTower standardTower;
+    public SniperTower sniperTower;
+    public SupportTower supportTower;
+    public AccelerationTower accelerationTower;
+    public FireTower fireTower;
+    public PoisonTower poisonTower;
+    public TemporalTower temporalTower;
+    public AttractorTower attractorTower;
+    public LightningTower lightningTower;
+
     public GameObject levelNumber;
 
     // Generation Paramters
-    public float smallestRadius = 2.5f;
+    public float smallestRing = 2.5f;
+    public float ringSize = 0.5f;
     public float levelGenTime = 3f;
 
     // The Grand Tower of the current level
@@ -19,10 +29,13 @@ public class LevelGenerator : MonoBehaviour
 
     private int currentLevel = 0;
 
+    private string dna = "";
+
     // Start is called before the first frame update
     void Start()
     {
-        GenerateLevel(currentLevel);
+        //GenerateLevel(currentLevel);
+        GenerateLevelFromDNA("LLLL/FFFF/PPPP/UUUU/SSSS");
     }
 
     // Update is called once per frame
@@ -70,12 +83,87 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < levelNumber; ++i)
         {
             float radians = (startingAngle + angle * i) * Mathf.Deg2Rad;
-            Vector3 pos = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0).normalized * smallestRadius;
+            Vector3 pos = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0).normalized * smallestRing;
 
             Instantiate(standardTower, pos, Quaternion.identity, transform);
         }
 
         gameStatistics.regeneratingLevel = false;
+    }
+
+    // Slash indicates the next circle out
+    // S - Standard Tower
+    // N - Sniper Tower
+    // U - Support Tower
+    // A - Acceleration Tower
+    // F - Fire Tower
+    // P - Poison Tower
+    // T - Temporal Tower
+    // C - Attractor Tower
+    // L - Lightning Tower
+    public void GenerateLevelFromDNA(string newDNA)
+    {
+        RemoveAllChildren();
+
+        currentGrandTower = Instantiate(grandTower, transform.position, Quaternion.identity, transform);
+
+        List<char> currentTowers = new List<char>();
+        int ring = 1; // Which ring to spawn current set of towers at
+
+        foreach (char symbol in newDNA)
+        {
+            if (symbol == '/')
+            {
+                currentTowers.Add(symbol);
+            }
+            else
+            {
+                float angle = 360f / currentTowers.Count;
+                float startingAngle = -90; // North of the grand tower
+
+                for (int i = 0; i < currentTowers.Capacity; ++i)
+                {
+                    float radians = (startingAngle + angle * i);
+                    Vector3 pos = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0).normalized * (smallestRing + ringSize * i);
+                    
+                    switch (currentTowers[i])
+                    {
+                    case 'N': 
+                        Instantiate(sniperTower, pos, Quaternion.identity, transform);
+                        break;
+                    case 'U': 
+                        Instantiate(supportTower, pos, Quaternion.identity, transform);
+                        break;
+                    case 'A': 
+                        Instantiate(accelerationTower, pos, Quaternion.identity, transform);
+                        break;
+                    case 'F': 
+                        Instantiate(fireTower, pos, Quaternion.identity, transform);
+                        break;
+                    case 'P': 
+                        Instantiate(poisonTower, pos, Quaternion.identity, transform);
+                        break;
+                    case 'T': 
+                        Instantiate(temporalTower, pos, Quaternion.identity, transform);
+                        break;
+                    case 'C': 
+                        Instantiate(attractorTower, pos, Quaternion.identity, transform);
+                        break;
+                    case 'L': 
+                        Instantiate(sniperTower, pos, Quaternion.identity, transform);
+                        break;
+                    default: // Standard tower if unrecognized symbol
+                        Instantiate(standardTower, pos, Quaternion.identity, transform);
+                        break;
+                    }
+                }
+
+                currentTowers.Clear();
+                ++ring;
+            }
+        }
+
+        dna = newDNA;
     }
 
     public void GenerateNextLevel()
