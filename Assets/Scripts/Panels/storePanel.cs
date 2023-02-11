@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class storePanel : MonoBehaviour
 {
     // public GameObject gameStatistics;
     public int selectedButton = -1;
     public GameObject[] units;
-    int[] costs = {gameStatistics.knightCost};
     int currentCredits;
     Plane plane = new Plane(new Vector3(0,0,1), 0); // the xy plane
     int startMouseDown = 0;
@@ -36,7 +36,13 @@ public class storePanel : MonoBehaviour
             }
         }
         Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
-        gameStatistics.currentCredits = currentCredits - costs[selectedButton];
+        gameStatistics.currentCredits = currentCredits - gameStatistics.unitCosts[selectedButton];
+    }
+
+    void Start() {
+        for (int i = 0; i < gameStatistics.unitCosts.Length; i++) {
+            transform.GetChild(i).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = Convert.ToString(gameStatistics.unitCosts[i]);
+        }
     }
 
     void Update() {
@@ -48,7 +54,7 @@ public class storePanel : MonoBehaviour
         {
             startMouseDown = Time.frameCount;
             if (selectedButton != -1 && // there is a unit selected in the store
-                currentCredits >= costs[selectedButton] && // have enough credits
+                currentCredits >= gameStatistics.unitCosts[selectedButton] && // have enough credits
                 Input.mousePosition.x < storePanelEdge) // mouse position is not on the store panel
             {
                 PurchaseUnit(Input.mousePosition);
@@ -59,7 +65,7 @@ public class storePanel : MonoBehaviour
             if(Time.frameCount > startMouseDown + continuousSpawnStartDelay &&
                 framesUntilSpawn == 0 &&
                 selectedButton != -1 && // there is a unit selected in the store
-                currentCredits >= costs[selectedButton] && // have enough credits
+                currentCredits >= gameStatistics.unitCosts[selectedButton] && // have enough credits
                 Input.mousePosition.x < storePanelEdge) // mouse position is not on the store panel
             {
                 PurchaseUnit(Input.mousePosition);

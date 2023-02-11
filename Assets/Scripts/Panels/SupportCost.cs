@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class knightCost : MonoBehaviour
+public class SupportCost : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        //gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(gameStatistics.knightCost);
+        //gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(gameStatistics.supportCost);
     }
 
     // Update is called once per frame
