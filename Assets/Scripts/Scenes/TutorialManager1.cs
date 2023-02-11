@@ -11,6 +11,7 @@ public class TutorialManager1 : MonoBehaviour
     public GameObject[] panels;
     public GameObject leftCube;
     public GameObject rightCube;
+    public GameObject storePanel;
 
     void Start()
     {
@@ -52,7 +53,7 @@ public class TutorialManager1 : MonoBehaviour
             }
         }
         else if (currentState == 1) {
-            if (Globals.SELECTED_UNITS.Count > 0 && Input.GetMouseButtonUp(0)) {
+            if (Globals.SELECTED_UNITS.Count > 0 && Input.GetMouseButtonUp(0) && storePanel.GetComponent<storePanel>().selectedButton == -1) {
                 completedState = 1;
                 currentState = 2;
                 panels[1].SetActive(false);
