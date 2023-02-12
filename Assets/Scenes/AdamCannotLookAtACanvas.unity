@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &1433138272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9099866111141627414, guid: b26346b40bb736c4f94029c8cb060e85, type: 3}
+  m_PrefabInstance: {fileID: 2374473145961521898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf289386d52526539730af37f8542b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1522071381
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +251,7 @@ MonoBehaviour:
   standardUnit: {fileID: 9184017506740824566, guid: 4d6095c2b43d9404da3abd116c94e3dc, type: 3}
   sniperUnit: {fileID: 5699048222165537676, guid: 2a792d3e4559468e58a5aa941e75ab93, type: 3}
   supportUnit: {fileID: 8055455218355538926, guid: e9ddaf8f14ce65710874eeb6c4bcf79c, type: 3}
+  levelGenerator: {fileID: 1433138272}
 --- !u!1 &2042470096
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,15 +375,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9099866111141627415, guid: b26346b40bb736c4f94029c8cb060e85, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9099866111141627415, guid: b26346b40bb736c4f94029c8cb060e85, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9099866111141627415, guid: b26346b40bb736c4f94029c8cb060e85, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9099866111141627415, guid: b26346b40bb736c4f94029c8cb060e85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

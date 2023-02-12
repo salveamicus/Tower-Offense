@@ -168,39 +168,42 @@ public class LevelGenerator : MonoBehaviour
 
                 for (int i = 0; i < currentTowers.Count; ++i)
                 {
-                    float radians = (startingAngle + angle * i);
+                    float degrees = (startingAngle + angle * i);
+                    Quaternion towerAngle = Quaternion.Euler(0, 0, degrees);
+                    Quaternion towerOrientation = Quaternion.Euler(0, 0, degrees - 90);
+
                     //Vector3 pos = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0).normalized * (smallestRing + i * ringSize);
                     //Vector3 pos = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0).normalized * smallestRing;
-                    Vector3 pos = Quaternion.Euler(0, 0, startingAngle + angle * i) * new Vector3(smallestRing + ring * ringSize, 0, 0);
+                    Vector3 pos = towerAngle * new Vector3(smallestRing + ring * ringSize, 0, 0);
                     
                     switch (currentTowers[i])
                     {
                     case 'N': 
-                        Instantiate(sniperTower, pos, Quaternion.identity, transform);
+                        Instantiate(sniperTower, pos, towerOrientation, transform);
                         break;
                     case 'U': 
-                        Instantiate(supportTower, pos, Quaternion.identity, transform);
+                        Instantiate(supportTower, pos, towerOrientation, transform);
                         break;
                     case 'A': 
-                        Instantiate(accelerationTower, pos, Quaternion.identity, transform);
+                        Instantiate(accelerationTower, pos, towerOrientation, transform);
                         break;
                     case 'F': 
-                        Instantiate(fireTower, pos, Quaternion.identity, transform);
+                        Instantiate(fireTower, pos, towerOrientation, transform);
                         break;
                     case 'P': 
-                        Instantiate(poisonTower, pos, Quaternion.identity, transform);
+                        Instantiate(poisonTower, pos, towerOrientation, transform);
                         break;
                     case 'T': 
-                        Instantiate(temporalTower, pos, Quaternion.identity, transform);
+                        Instantiate(temporalTower, pos, towerOrientation, transform);
                         break;
                     case 'C': 
-                        Instantiate(attractorTower, pos, Quaternion.identity, transform);
+                        Instantiate(attractorTower, pos, towerOrientation, transform);
                         break;
                     case 'L': 
-                        Instantiate(lightningTower, pos, Quaternion.identity, transform);
+                        Instantiate(lightningTower, pos, towerOrientation, transform);
                         break;
                     default: // Standard tower if unrecognized symbol
-                        Instantiate(standardTower, pos, Quaternion.identity, transform);
+                        Instantiate(standardTower, pos, towerOrientation, transform);
                         break;
                     }
                 }
