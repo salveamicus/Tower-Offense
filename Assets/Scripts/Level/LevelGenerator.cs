@@ -214,6 +214,6 @@ public class LevelGenerator : MonoBehaviour
     {
         //GenerateLevel(++currentLevel);
         GenerateLevelFromDNA();
-        gameStatistics.levelNumber = this.currentLevel;
+        //gameStatistics.levelNumber = this.currentLevel;
     }
 }
