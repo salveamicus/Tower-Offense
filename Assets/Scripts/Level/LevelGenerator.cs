@@ -65,6 +65,7 @@ public class LevelGenerator : MonoBehaviour
 
             Invoke("GenerateNextLevel", levelGenTime);
         }
+        else gameStatistics.regeneratingLevel = false;
     }
 
     void RemoveAllChildren()
