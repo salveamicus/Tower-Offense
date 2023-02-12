@@ -10,7 +10,7 @@ public class LightningTower : Tower
     public float Health = 150f;
 
     public override float ShootCooldownSeconds => 2f;
-    public override float ShootRadius => 4f;
+    public override float ShootRadius => 8f;
     public override int CreditReward => 110;
 
     // Start is called before the first frame update

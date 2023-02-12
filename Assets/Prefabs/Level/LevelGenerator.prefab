@@ -56,5 +56,7 @@ MonoBehaviour:
   lightningTower: {fileID: 6651119670837397158, guid: f550745b82e0b0573b7eb52ad1b0781a, type: 3}
   levelNumber: {fileID: 0}
   smallestRing: 2
+  innerRingCapacity: 8
+  ringCapacityMultiplier: 1.5
   ringSize: 1.5
   levelGenTime: 3
