@@ -105,6 +105,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (currentState == 6) {
             if (Input.anyKey) {
+                gameStatistics.currentCredits = 2000;
                 SceneManager.LoadScene("game");
             }
         }
