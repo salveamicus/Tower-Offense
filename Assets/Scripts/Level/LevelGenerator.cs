@@ -217,4 +217,9 @@ public class LevelGenerator : MonoBehaviour
         GenerateLevelFromDNA();
         gameStatistics.levelNumber = this.currentLevel;
     }
+
+    public void KillGrandTower()
+    {
+        currentGrandTower.Health = -Mathf.Infinity;
+    }
 }

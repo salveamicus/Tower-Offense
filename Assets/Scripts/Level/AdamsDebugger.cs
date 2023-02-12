@@ -8,9 +8,20 @@ public class AdamsDebugger : MonoBehaviour
     public SniperUnit sniperUnit;
     public SupportUnitScript supportUnit;
 
+    public LevelGenerator levelGenerator;
+
+    void Start()
+    {
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            levelGenerator.KillGrandTower();
+        }
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             SpawnUnit(standardUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
