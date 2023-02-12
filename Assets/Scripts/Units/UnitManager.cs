@@ -1,12 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class UnitManager : MonoBehaviour
 {
-    public GameObject selectionCircle;
     private bool _isDraggingMouseBox = false;
     private Vector3 _dragStartPosition;
     Ray _ray;
@@ -93,8 +89,7 @@ public class UnitManager : MonoBehaviour
     {
         if (Globals.SELECTED_UNITS.Contains(this)) return;
         Globals.SELECTED_UNITS.Add(this);
-        selectionCircle.SetActive(true);
-        this.gameObject.GetComponent<StandardUnit>().isSelected = true;
+        this.gameObject.GetComponent<Unit>().isSelected = true;
     }
     protected virtual bool IsActive()
     {
@@ -131,8 +126,7 @@ public class UnitManager : MonoBehaviour
     {
         if (!Globals.SELECTED_UNITS.Contains(this)) return;
         Globals.SELECTED_UNITS.Remove(this);
-        selectionCircle.SetActive(false);
-        this.gameObject.GetComponent<StandardUnit>().isSelected = false;
+        this.gameObject.GetComponent<Unit>().isSelected = false;
     }
 
     private void _DeselectAllUnits()

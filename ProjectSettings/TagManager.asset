@@ -44,3 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1676057817
+    locked: 0
+  - name: Units, Towers, etc
+    uniqueID: 2317236445
+    locked: 0
+  - name: Projectiles
+    uniqueID: 2852609435
+    locked: 0
