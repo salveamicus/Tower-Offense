@@ -52,6 +52,8 @@ public class GrandTower : Tower
 
     public override void Heal(float amount)
     {
+        if (Health == MaxHealth) return;
+
         Health += amount;
         if (Health > MaxHealth) Health = MaxHealth;
 

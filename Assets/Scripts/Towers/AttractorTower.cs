@@ -59,6 +59,8 @@ public class AttractorTower : Tower
 
     public override void Heal(float amount)
     {
+        if (health == maxHealth) return;
+
         health += amount;
         if (health > maxHealth) health = maxHealth;
 
