@@ -14,7 +14,7 @@ PrefabInstance:
     - target: {fileID: 3579199329216174431, guid: c1ac37e425f39b852bb2903f3a936343, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ec95328cec92b8744804a5ca64e1c22e, type: 3}
+      objectReference: {fileID: 21300000, guid: a8d1e6c7e9d9ef14196e025eaf9e7784, type: 3}
     - target: {fileID: 3638176311955478909, guid: c1ac37e425f39b852bb2903f3a936343, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
@@ -105,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5523961471243327435, guid: c1ac37e425f39b852bb2903f3a936343, type: 3}
       propertyPath: m_text
-      value: Support
+      value: Cleric
       objectReference: {fileID: 0}
     - target: {fileID: 5576036957444648228, guid: c1ac37e425f39b852bb2903f3a936343, type: 3}
       propertyPath: m_Name
@@ -114,6 +114,14 @@ PrefabInstance:
     - target: {fileID: 5969212271489865659, guid: c1ac37e425f39b852bb2903f3a936343, type: 3}
       propertyPath: m_Name
       value: selectSupport
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056462065189612308, guid: c1ac37e425f39b852bb2903f3a936343, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 84.4594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056462065189612308, guid: c1ac37e425f39b852bb2903f3a936343, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -48.528294
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4197731456038987867, guid: c1ac37e425f39b852bb2903f3a936343, type: 3}
