@@ -14,6 +14,9 @@ public class SupportUnitScript : Unit
     public float healRadius = 1.5f;
     public float healCooldownSeconds = 1f;
 
+    //For animation
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +26,16 @@ public class SupportUnitScript : Unit
     // Update is called once per frame
     void Update()
     {
+        selectionCircle.SetActive(isSelected);
+
         // For movement
         movement(moveGoal);
 
         UpdateFireTime();
         UpdatePoisonTime();
+
+        // Play movement animation
+        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
 
         if (health <= 0) Destroy(gameObject);
 

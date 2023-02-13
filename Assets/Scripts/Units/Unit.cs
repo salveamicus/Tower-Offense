@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 
 public abstract class Unit : MonoBehaviour
 {
+
+    public bool isSelected = false;
+
+    public GameObject selectionCircle;
     public GameObject rangeSphere;
     public GameObject healthBar;
     public SpriteRenderer spriteRenderer;

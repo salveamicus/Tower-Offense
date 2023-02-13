@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AttractorTower : Tower
 {
-    public float maxHealth = 80f;
-    public float health = 80f;
+    public float maxHealth = 200f;
+    public float health = 200f;
 
     public float attractionStrength = 0.1f;
 
@@ -59,6 +59,8 @@ public class AttractorTower : Tower
 
     public override void Heal(float amount)
     {
+        if (health == maxHealth) return;
+
         health += amount;
         if (health > maxHealth) health = maxHealth;
 

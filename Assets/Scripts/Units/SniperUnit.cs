@@ -18,6 +18,9 @@ public class SniperUnit : Unit
     public float shootRadius = 5f;
     public float shootCooldownSeconds = 4f;
 
+    //For animation
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,14 @@ public class SniperUnit : Unit
     // Update is called once per frame
     void Update()
     {
+        selectionCircle.SetActive(isSelected);
+
+        //Movement animation
+        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
+
+        //Reset animation attack boolean
+        animator.SetBool("IsAttacking", false);
+
         // For movement
         movement(moveGoal);
 
@@ -53,6 +64,9 @@ public class SniperUnit : Unit
 
     public override void Shoot(Vector3 direction)
     {
+        //Attack animation
+        animator.SetBool("IsAttacking", true);
+
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * projectileSpeed * SpeedMultiplier;
         p.OwnerTag = tag;

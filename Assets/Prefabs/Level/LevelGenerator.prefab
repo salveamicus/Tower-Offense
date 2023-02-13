@@ -46,6 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grandTower: {fileID: 1650974869570457753, guid: 5722c343266cf22c1b7462effe5e983b, type: 3}
   standardTower: {fileID: -7511692800206537560, guid: ade06c57b95910d4cb6fa1f477b01125, type: 3}
+  sniperTower: {fileID: 3497924308386428094, guid: 96ad2c47fd783b99dad51a1c796c0ad4, type: 3}
+  supportTower: {fileID: 6579732991048937639, guid: 24d2e76c3f67bf3259606b3e62d190e0, type: 3}
+  accelerationTower: {fileID: 5293895172292904557, guid: 4d8d40c0674e9a54283695df236abe43, type: 3}
+  fireTower: {fileID: 882996096393551237, guid: e896af4b72cc69d7d894f137dd89e90b, type: 3}
+  poisonTower: {fileID: 3371168397075972126, guid: 9f1bce9adc2967d1380bd3e56f2a4533, type: 3}
+  temporalTower: {fileID: 5165431634190464111, guid: 91349475652166cbeba41770ab77a318, type: 3}
+  attractorTower: {fileID: 2862952900986703668, guid: 1ec0606bbde7ca7e8b37dc70a54bb00f, type: 3}
+  lightningTower: {fileID: 6651119670837397158, guid: f550745b82e0b0573b7eb52ad1b0781a, type: 3}
   levelNumber: {fileID: 0}
-  smallestRadius: 2.5
+  smallestRing: 2
+  innerRingCapacity: 8
+  ringCapacityMultiplier: 1.5
+  ringSize: 1.5
   levelGenTime: 3
