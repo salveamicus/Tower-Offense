@@ -251,6 +251,7 @@ MonoBehaviour:
   standardUnit: {fileID: 9184017506740824566, guid: 4d6095c2b43d9404da3abd116c94e3dc, type: 3}
   sniperUnit: {fileID: 5699048222165537676, guid: 2a792d3e4559468e58a5aa941e75ab93, type: 3}
   supportUnit: {fileID: 8055455218355538926, guid: e9ddaf8f14ce65710874eeb6c4bcf79c, type: 3}
+  magicUnit: {fileID: 1744191104940413993, guid: 53d8dd1b471e7cad0885bec36bea3f38, type: 3}
   levelGenerator: {fileID: 1433138272}
 --- !u!1 &2042470096
 GameObject:
