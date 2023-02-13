@@ -1,51 +1,56 @@
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+Shader "Custom/Range"
+{
+    Properties
+    {
+        _Color("Color",Color) = (0,0,1,0.1)
+    }
+    SubShader
+    {
+Tags {"Queue"="Transparent" "IgnoreProjector"="true" "RenderType"="Transparent"}
+ZWrite Off Blend SrcAlpha OneMinusSrcAlpha Cull Off
 
-Shader "Custom/Range"{
-	 Properties {
-	     _Color ("Main Color", Color) = (1,1,1,1)
-	     _MainTex ("Base (RGB)", 2D) = "white" {}
-	 }
-	 
-	 SubShader {
-	    Tags { "Queue"="Transparent" }
-	     
-		Pass {
-		    Stencil {
-		        Ref 2
-		        Comp NotEqual
-		        Pass Replace
-		    }
+        LOD 100
 
-		     Blend SrcAlpha OneMinusSrcAlpha     
-	 
-			 CGPROGRAM
-			 #pragma vertex vert
-			 #pragma fragment frag
-			 #include "UnityCG.cginc"
-			 
-			 uniform sampler2D _MainTex;
-			 
-			 struct v2f {
-			     half4 pos : POSITION;
-			     half2 uv : TEXCOORD0;
-			 };
-			 
-			 v2f vert(appdata_img v) {
-			     v2f o;
-			     o.pos = UnityObjectToClipPos (v.vertex);
-			     half2 uv = MultiplyUV( UNITY_MATRIX_TEXTURE0, v.texcoord );
-			     o.uv = uv;
-			     return o;
-			 }
+        Pass
+        {
+            Stencil {
+                Ref 0
+                Comp Equal
+                Pass IncrSat 
+                Fail IncrSat 
+            }
 
-			 half4 frag (v2f i) : COLOR {
-			     half4 color = tex2D(_MainTex, i.uv);
-			     return color;
-			 }
-			 ENDCG
-		}
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
 
-	}
- 
-	Fallback off
+            #include "UnityCG.cginc"
+
+            fixed4 _Color;
+
+            struct appdata
+            {
+                float4 vertex : POSITION;
+            };
+
+            struct v2f
+            {
+                float4 vertex : SV_POSITION;
+            };
+
+            v2f vert (appdata v)
+            {
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                return o;
+            }
+
+            fixed4 frag (v2f i) : SV_Target
+            {
+                fixed4 col = _Color;
+                return col;
+            }
+            ENDCG
+        }
+    }
 }
