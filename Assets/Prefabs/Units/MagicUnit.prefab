@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1744191104940413993}
   m_Layer: 0
   m_Name: MagicUnit
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,6 +166,7 @@ MonoBehaviour:
   health: 60
   shootRadius: 5
   shootCooldownSeconds: 0.5
+  shootDeviation: 10
 --- !u!1 &1744191105100877063
 GameObject:
   m_ObjectHideFlags: 0

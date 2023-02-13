@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +16,7 @@ public class MagicUnit : Unit
 
     public float shootRadius = 5f;
     public float shootCooldownSeconds = 0.5f;
+    public float shootDeviation = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class MagicUnit : Unit
         ShootIfPossible(shootRadius, shootCooldownSeconds);
 
         // Turn towards closest tower
-        Tuple<float, Vector3> target = GetClosestTarget();
+        System.Tuple<float, Vector3> target = GetClosestTarget();
         Vector3 directionVector = target.Item2 - transform.position;
 
         float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
@@ -56,7 +56,8 @@ public class MagicUnit : Unit
     public override void Shoot(Vector3 direction)
     {
         Projectile p = Instantiate(projectile, transform.position + Vector3.back, transform.rotation);
-        p.Velocity = direction.normalized * projectileSpeed * SpeedMultiplier;
+        p.transform.localScale = Vector3.one * 1.5f;
+        p.Velocity = Quaternion.Euler(0, 0, Random.Range(-shootDeviation, shootDeviation)) * (direction.normalized * projectileSpeed * SpeedMultiplier);
         p.OwnerTag = tag;
     }
 
@@ -68,7 +69,7 @@ public class MagicUnit : Unit
 
     public override void Heal(float amount)
     {
-        health = MathF.Min(health + amount, maxHealth);
+        health = System.MathF.Min(health + amount, maxHealth);
         transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
     }
 
