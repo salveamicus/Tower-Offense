@@ -6,7 +6,6 @@ public class MagicUnit : Unit
 {
     public Projectile projectile;
 
-    public Vector3 moveGoal;
     private Vector3 zAdjustedGoal;
 
     public float projectileSpeed = 3f;
@@ -21,7 +20,8 @@ public class MagicUnit : Unit
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();       
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        moveGoal = transform.position;
     }
 
     // Update is called once per frame

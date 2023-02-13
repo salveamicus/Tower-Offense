@@ -27,6 +27,7 @@ public class SupportUnitScript : Unit
     void Update()
     {
         selectionCircle.SetActive(isSelected);
+        Debug.Log(isSelected + ": support");
 
         // For movement
         movement(moveGoal);
