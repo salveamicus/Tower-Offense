@@ -7,7 +7,9 @@ public class AttractorTower : Tower
     public float maxHealth = 200f;
     public float health = 200f;
 
-    public float attractionStrength = 0.1f;
+    public float attractionStrength = 2f;
+    public float hurtRadius = 2f;
+    public float damage = 10f;
 
     public override float ShootCooldownSeconds => 1f; // Not used
     public override float ShootRadius => 3f;
@@ -39,6 +41,11 @@ public class AttractorTower : Tower
             , new Vector2(unitObject.transform.position.x, unitObject.transform.position.y));
 
             if (distance > ShootRadius) continue;
+
+            if (distance <= hurtRadius)
+            {
+                unitObject.GetComponent<Unit>().Damage(damage * Time.deltaTime);
+            }
 
             Vector3 force = (transform.position - unitObject.transform.position).normalized * attractionStrength * Time.deltaTime;
             unitObject.GetComponent<Unit>().transform.position += force;

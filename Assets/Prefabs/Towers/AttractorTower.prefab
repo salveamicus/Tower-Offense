@@ -213,9 +213,9 @@ MonoBehaviour:
   healthBar: {fileID: 3801170425313414764}
   spriteRenderer: {fileID: 0}
   rangeDisplayOverride: 0
-  maxHealth: 80
-  health: 80
-  attractionStrength: 1
+  maxHealth: 200
+  health: 200
+  attractionStrength: 2
 --- !u!1001 &2862952901747716271
 PrefabInstance:
   m_ObjectHideFlags: 0
