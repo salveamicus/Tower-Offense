@@ -7,7 +7,6 @@ public class SniperUnit : Unit
 {
     public Projectile Projectile;
 
-    public Vector3 moveGoal;
     private Vector3 zAdjustedGoal;
 
     public float projectileSpeed = 4f;
@@ -25,6 +24,7 @@ public class SniperUnit : Unit
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        moveGoal = transform.position;
     }
 
     // Update is called once per frame

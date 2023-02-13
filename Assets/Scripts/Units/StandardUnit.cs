@@ -6,9 +6,7 @@ using UnityEngine;
 public class StandardUnit : Unit
 {
     public Projectile Projectile;
-    public Vector3 moveGoal;
     private Vector3 zAdjustedGoal;
-    public bool hasDirection = false;
     public float speed = 0.05f;
     public float ProjectileSpeed = 3f;
     float maxHealth = 50f;
@@ -24,7 +22,6 @@ public class StandardUnit : Unit
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         moveGoal = transform.position;
-        hasDirection = false;
     }
 
     // Update is called once per frame

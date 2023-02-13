@@ -29,10 +29,9 @@ public class UnitManager : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            if(this.gameObject.GetComponent<StandardUnit>().isSelected == true)
+            if(this.gameObject.GetComponent<Unit>().isSelected == true)
             {
-                this.gameObject.GetComponent<StandardUnit>().moveGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                this.gameObject.GetComponent<StandardUnit>().hasDirection = false;
+                this.gameObject.GetComponent<Unit>().moveGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
         }
 

@@ -10,6 +10,8 @@ public abstract class Unit : MonoBehaviour
 
     public bool isSelected = false;
 
+    public Vector3 moveGoal;
+
     public GameObject selectionCircle;
     public GameObject rangeSphere;
     public GameObject healthBar;
