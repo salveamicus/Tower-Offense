@@ -23,7 +23,7 @@ public class LossSceneSwitch : MonoBehaviour
             {
                 SceneManager.LoadScene("Loss");
                 gameStatistics.currentCredits = gameStatistics.initialCredits;
-                gameStatistics.levelNumber = 1;
+                
             }
         }
     }
