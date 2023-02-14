@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 8055455218355538926}
   - component: {fileID: 3387478054282585181}
   - component: {fileID: 4688930413444239607}
+  - component: {fileID: 2903408178193762646}
   m_Layer: 0
   m_Name: SupportUnit
   m_TagString: Unit
@@ -287,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
+  moveGoal: {x: 0, y: 0, z: 0}
   selectionCircle: {fileID: 440431166217023911}
   rangeSphere: {fileID: 2593189997614842277}
   healthBar: {fileID: 751014400583185451}
@@ -295,7 +297,6 @@ MonoBehaviour:
   PoisonTime: 0
   maxHealth: 50
   health: 50
-  moveGoal: {x: 0, y: 0, z: 0}
   healAmount: 10
   healRadius: 1.5
   healCooldownSeconds: 1
@@ -341,6 +342,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &2903408178193762646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945334623975686477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b4d01d256368547954d32aceed900d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1807944271176190696
 PrefabInstance:
   m_ObjectHideFlags: 0
