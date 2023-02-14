@@ -7,7 +7,6 @@ public class SupportUnitScript : Unit
 {
     public float maxHealth = 50f;
     public float health = 50f;
-    public Vector3 moveGoal;
     private Vector3 zAdjustedGoal;
 
     public float healAmount = 10f;
@@ -21,12 +20,14 @@ public class SupportUnitScript : Unit
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        moveGoal = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         selectionCircle.SetActive(isSelected);
+        Debug.Log(isSelected + ": support");
 
         // For movement
         movement(moveGoal);
