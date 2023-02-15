@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEditor.PlayerSettings;
 
 public class storePanel : MonoBehaviour
 {
@@ -35,6 +36,11 @@ public class storePanel : MonoBehaviour
                 return;
             }
         }
+
+        scenePosition.x += UnityEngine.Random.Range(-0.05f, 0.05f);
+        scenePosition.y += UnityEngine.Random.Range(-0.05f, 0.05f);
+        scenePosition.z = 0;
+
         Instantiate(units[selectedButton], scenePosition, Quaternion.identity);
         gameStatistics.currentCredits = currentCredits - gameStatistics.unitCosts[selectedButton];
     }
