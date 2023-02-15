@@ -8,6 +8,7 @@ public class AdamsDebugger : MonoBehaviour
     public SniperUnit sniperUnit;
     public SupportUnitScript supportUnit;
     public MagicUnit magicUnit;
+    public MagicSupportUnit magicSupportUnit;
 
     public LevelGenerator levelGenerator;
 
@@ -41,6 +42,11 @@ public class AdamsDebugger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             SpawnUnit(magicUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SpawnUnit(magicSupportUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
         }
     }
 
