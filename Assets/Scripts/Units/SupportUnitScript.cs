@@ -7,7 +7,6 @@ public class SupportUnitScript : Unit
 {
     public float maxHealth = 50f;
     public float health = 50f;
-    private Vector3 zAdjustedGoal;
 
     public float healAmount = 10f;
     public float healCooldownSeconds = 1f;
@@ -18,6 +17,7 @@ public class SupportUnitScript : Unit
     // Start is called before the first frame update
     void Start()
     {
+        isSupport = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         moveGoal = transform.position;
         actionRadius = 1.5f;

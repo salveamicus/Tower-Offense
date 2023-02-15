@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.GraphicsBuffer;
 
 public abstract class Unit : MonoBehaviour
 {
 
     public bool isSelected = false;
+    public bool isSupport = false;
 
     public Vector3 moveGoal;
     public Vector3 zAdjustedGoal;
@@ -43,6 +45,36 @@ public abstract class Unit : MonoBehaviour
             // the center of the tower, because for a large tower that would mean that they would have to be
             // inside the tower to start shooting
             Vector3 closestPoint = tower.gameObject.GetComponent<Tower>().TowerBounds.ClosestPoint(transform.position);
+
+            float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
+            , new Vector2(closestPoint.x, closestPoint.y));
+
+            if (dist < closestDistance)
+            {
+                closestDistance = dist;
+                closestTarget = closestPoint;
+            }
+        }
+
+        return new Tuple<float, Vector3>(closestDistance, closestTarget);
+    }
+
+    public virtual Tuple<float, Vector3> GetClosestUnit()
+    {
+        float closestDistance = Mathf.Infinity;
+        Vector3 closestTarget = Vector3.zero;
+
+        foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
+        {
+            if (isSupport) //so that support units don't clump together
+                continue;
+
+            // Get the closest point of the tower to the unit.
+            // This allows for a more accurate targeting algorithm so that units stop moving
+            // once they are in range of the closest point of the tower, meaning that they no longer target
+            // the center of the tower, because for a large tower that would mean that they would have to be
+            // inside the tower to start shooting
+            Vector3 closestPoint = unit.gameObject.GetComponent<Unit>().UnitBounds.ClosestPoint(transform.position);
 
             float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
             , new Vector2(closestPoint.x, closestPoint.y));
@@ -161,7 +193,11 @@ public abstract class Unit : MonoBehaviour
     public virtual void autoMoveGoalAndRotate()
     {
         // Turn towards closest tower
-        Tuple<float, Vector3> target = GetClosestTarget();
+        Tuple<float, Vector3> target;
+        if (isSupport)
+            target = GetClosestUnit();
+        else
+            target = GetClosestTarget();
         Vector3 directionVector = target.Item2 - transform.position;
 
         float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
