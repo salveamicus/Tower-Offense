@@ -214,9 +214,16 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8755781905659066132}
   rangeDisplayOverride: 0
   standardProjectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
+  fireProjectile: {fileID: 5486519101339117397, guid: c715431796f852c2c97b6ab57d286044, type: 3}
+  poisonProjectile: {fileID: 5770571103085675390, guid: 7eb03e2ba39e9d387a2f4db3107115b4, type: 3}
+  lightningProjectile: {fileID: 6431274346231894845, guid: 66fc4092de5c73a55a23b52905adb5dd, type: 3}
   ProjectileSpeed: 8
   MaxHealth: 100
   Health: 100
+  healAmount: 0.1
+  hurtRadius: 2
+  attractionStrength: 2
+  attractionDamage: 30
 --- !u!1001 &4184324182539539392
 PrefabInstance:
   m_ObjectHideFlags: 0
