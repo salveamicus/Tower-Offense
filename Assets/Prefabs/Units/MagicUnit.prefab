@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1744191104940413993}
   m_Layer: 0
   m_Name: MagicUnit
-  m_TagString: Unit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

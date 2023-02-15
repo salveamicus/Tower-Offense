@@ -176,34 +176,20 @@ public class LevelGenerator : MonoBehaviour
                     //Vector3 pos = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0).normalized * smallestRing;
                     Vector3 pos = towerAngle * new Vector3(smallestRing + ring * ringSize, 0, 0);
                     
+                    System.Func<Tower, Tower> spawn = (Tower t) => Instantiate(t, pos, towerOrientation, transform);
+                    
                     switch (currentTowers[i])
                     {
-                    case 'N': 
-                        Instantiate(sniperTower, pos, towerOrientation, transform);
-                        break;
-                    case 'U': 
-                        Instantiate(supportTower, pos, towerOrientation, transform);
-                        break;
-                    case 'A': 
-                        Instantiate(accelerationTower, pos, towerOrientation, transform);
-                        break;
-                    case 'F': 
-                        Instantiate(fireTower, pos, towerOrientation, transform);
-                        break;
-                    case 'P': 
-                        Instantiate(poisonTower, pos, towerOrientation, transform);
-                        break;
-                    case 'T': 
-                        Instantiate(temporalTower, pos, towerOrientation, transform);
-                        break;
-                    case 'C': 
-                        Instantiate(attractorTower, pos, towerOrientation, transform);
-                        break;
-                    case 'L': 
-                        Instantiate(lightningTower, pos, towerOrientation, transform);
-                        break;
+                    case 'N': spawn(sniperTower);       break;
+                    case 'U': spawn(supportTower);      break;
+                    case 'A': spawn(accelerationTower); break;
+                    case 'F': spawn(fireTower);         break;
+                    case 'P': spawn(poisonTower);       break;
+                    case 'T': spawn(temporalTower);     break;
+                    case 'C': spawn(attractorTower);    break;
+                    case 'L': spawn(lightningTower);    break;
                     default: // Standard tower if unrecognized symbol
-                        Instantiate(standardTower, pos, towerOrientation, transform);
+                        spawn(standardTower);
                         break;
                     }
                 }

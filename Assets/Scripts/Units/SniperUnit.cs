@@ -14,7 +14,6 @@ public class SniperUnit : Unit
     public float maxHealth = 50f;
     public float health = 50f;
 
-    public float shootRadius = 5f;
     public float shootCooldownSeconds = 4f;
 
     //For animation
@@ -25,12 +24,16 @@ public class SniperUnit : Unit
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         moveGoal = transform.position;
+        actionRadius = 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
         selectionCircle.SetActive(isSelected);
+
+        zAdjust();
+        autoMoveGoalAndRotate();
 
         //Movement animation
         animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
@@ -47,16 +50,9 @@ public class SniperUnit : Unit
         if (health <= 0) Destroy(gameObject);
 
         UpdateDecceleratorCount();
-        UpdateRangeRadius(shootRadius);
+        UpdateRangeRadius(actionRadius);
         ShowRangeIfMouseHover();
-        ShootIfPossible(shootRadius, shootCooldownSeconds);
-
-        // Turn towards closest tower
-        Tuple<float, Vector3> target = GetClosestTarget();
-        Vector3 directionVector = target.Item2 - transform.position;
-
-        float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
-        transform.eulerAngles = Vector3.forward * degrees;
+        ShootIfPossible(actionRadius, shootCooldownSeconds);
 
         healthBar.transform.position = transform.position + new Vector3((health/maxHealth-1)/2*0.6f, 0.4f, 0);
         healthBar.transform.rotation = Quaternion.identity;
@@ -75,12 +71,10 @@ public class SniperUnit : Unit
     public override void Damage(float amount)
     {
         health -= amount;
-        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
     }
 
     public override void Heal(float amount)
     {
         health = MathF.Min(health + amount, maxHealth);
-        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
     }
 }
