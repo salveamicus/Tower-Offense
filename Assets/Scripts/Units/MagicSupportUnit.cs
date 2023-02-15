@@ -51,7 +51,7 @@ public class MagicSupportUnit : Unit
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
         {
             if (unit.transform.position == transform.position) continue;
-            if (!(unit.GetComponent<Unit>() is MagicUnit)) continue;
+            //if (!(unit.GetComponent<Unit>() is MagicUnit)) continue;
 
             float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
             ,new Vector2(unit.transform.position.x, unit.transform.position.y));
