@@ -205,6 +205,30 @@ public class LevelGenerator : MonoBehaviour
         //GenerateLevel(++currentLevel);
         GenerateLevelFromDNA();
         gameStatistics.levelNumber = this.currentLevel;
+
+        //Unit conversion to credits at end of each level
+        GameObject[] allUnits = GameObject.FindGameObjectsWithTag("Unit");
+        foreach (GameObject obj in allUnits)
+        {
+            switch (obj.gameObject.GetComponent<Unit>())
+            {
+                case StandardUnit:
+                    gameStatistics.currentCredits += gameStatistics.unitCosts[0];
+                    break;
+
+                case SniperUnit:
+                    gameStatistics.currentCredits += gameStatistics.unitCosts[1];
+                    break;
+
+                case SupportUnitScript:
+                    gameStatistics.currentCredits += gameStatistics.unitCosts[2];
+                    break;
+
+                default:
+                    break;
+            }
+            Destroy(obj);
+        }
     }
 
     public void KillGrandTower()
