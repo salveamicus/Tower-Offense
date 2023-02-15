@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1744191104940413999}
   - component: {fileID: 1744191104940413998}
   - component: {fileID: 1744191104940413993}
+  - component: {fileID: 756088226300566462}
   m_Layer: 0
   m_Name: MagicUnit
   m_TagString: Unit
@@ -169,6 +170,27 @@ MonoBehaviour:
   health: 60
   shootCooldownSeconds: 0.5
   shootDeviation: 10
+  animator: {fileID: 756088226300566462}
+--- !u!95 &756088226300566462
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744191104940413992}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1395bd4fce85684b9741a6177d33ec8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1744191105100877063
 GameObject:
   m_ObjectHideFlags: 0

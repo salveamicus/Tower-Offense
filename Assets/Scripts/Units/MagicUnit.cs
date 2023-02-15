@@ -14,6 +14,9 @@ public class MagicUnit : Unit
     public float shootCooldownSeconds = 0.5f;
     public float shootDeviation = 10f;
 
+    //For animation
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,12 @@ public class MagicUnit : Unit
         UpdateFireTime();
         UpdatePoisonTime();
 
+        //For calculating if movement spritesheet should animate
+        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
+
+        //reset attack sprite animation boolean
+        animator.SetBool("IsAttacking", false);
+
         if (health <= 0) Destroy(gameObject);
 
         UpdateDecceleratorCount();
@@ -49,6 +58,9 @@ public class MagicUnit : Unit
 
     public override void Shoot(Vector3 direction)
     {
+        //Play attack animation
+        animator.SetBool("IsAttacking", true);
+        
         Projectile p = Instantiate(projectile, transform.position + Vector3.back, transform.rotation);
         p.transform.localScale = Vector3.one * 1.5f;
         p.Velocity = Quaternion.Euler(0, 0, Random.Range(-shootDeviation, shootDeviation)) * (direction.normalized * projectileSpeed * SpeedMultiplier);
