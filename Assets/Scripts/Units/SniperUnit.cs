@@ -7,8 +7,6 @@ public class SniperUnit : Unit
 {
     public Projectile Projectile;
 
-    private Vector3 zAdjustedGoal;
-
     public float projectileSpeed = 4f;
 
     public float maxHealth = 50f;
