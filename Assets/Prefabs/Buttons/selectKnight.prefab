@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5457572674098866452}
   - component: {fileID: 5979881867698352805}
   m_Layer: 5
-  m_Name: knight cost
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,8 +170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -45.828728, y: -21.2985}
-  m_SizeDelta: {x: 79.0596, y: 56.995}
+  m_AnchoredPosition: {x: -51.8249, y: -29.6263}
+  m_SizeDelta: {x: 103.6497, y: 59.2527}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1997107616232166018
 CanvasRenderer:
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 6330584560817168332}
   - component: {fileID: 3579199329216174431}
   m_Layer: 5
-  m_Name: knight image
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -303,10 +303,10 @@ RectTransform:
   m_Father: {fileID: 4411477625880727108}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 45.5, y: 0}
-  m_SizeDelta: {x: 68, y: 66.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -56.5, y: -0.5000005}
+  m_SizeDelta: {x: -127, y: -19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6330584560817168332
 CanvasRenderer:
@@ -386,8 +386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.6398, y: 70.54876}
-  m_SizeDelta: {x: 64.7204, y: 34.9025}
+  m_AnchoredPosition: {x: -65.856415, y: 71.043816}
+  m_SizeDelta: {x: 200, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1628215143210689245
 CanvasRenderer:

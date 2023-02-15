@@ -507,21 +507,13 @@ PrefabInstance:
       propertyPath: tower
       value: 
       objectReference: {fileID: 1555651179}
-    - target: {fileID: 572777725334187348, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 97.3471
+    - target: {fileID: 1767205498, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: prev
       objectReference: {fileID: 0}
-    - target: {fileID: 572777725334187348, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 44.1792
-      objectReference: {fileID: 0}
-    - target: {fileID: 572777725334187348, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -48.673332
-      objectReference: {fileID: 0}
-    - target: {fileID: 572777725334187348, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -22.089695
+    - target: {fileID: 1991685729, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: next
       objectReference: {fileID: 0}
     - target: {fileID: 2784006312983556646, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_Name

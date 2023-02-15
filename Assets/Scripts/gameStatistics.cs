@@ -6,8 +6,9 @@ public class gameStatistics : MonoBehaviour
 {
 
     // UI
-    public static int currentCredits = 2000;
-    public static int initialCredits = 2000;
+    public static int tutorialInitialCredits = 2000;
+    public static int currentCredits = 200;
+    public static int initialCredits = 200;
     public static int continuousSpawnStartDelay = 30;
     public static int continuousSpawnDelay = 10;
     public static int levelNumber = 1;
@@ -23,7 +24,4 @@ public class gameStatistics : MonoBehaviour
     // towers
     public static float placementRadius = 5f;
 
-    void start() {
-        currentCredits = initialCredits;
-    }
 }
