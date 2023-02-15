@@ -22,6 +22,8 @@ public class LossSceneSwitch : MonoBehaviour
             if (unitsonfield.Length <= 0)
             {
                 SceneManager.LoadScene("Loss");
+                gameStatistics.currentCredits = gameStatistics.initialCredits;
+                
             }
         }
     }
