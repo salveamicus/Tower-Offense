@@ -65,7 +65,7 @@ public abstract class Unit : MonoBehaviour
 
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
         {
-            if (isSupport) continue;
+            if (unit.gameObject.GetComponent<Unit>().isSelected) continue;
 
             // Get the closest point of the tower to the unit.
             // This allows for a more accurate targeting algorithm so that units stop moving
@@ -202,12 +202,14 @@ public abstract class Unit : MonoBehaviour
         float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
         transform.eulerAngles = Vector3.forward * degrees;
 
+        /*
         // Move towards closet tower if not able to shoot anythnig
         // and not already moving
-        if (target.Item1 > actionRadius && Math.Abs(Vector3.Distance(transform.position, zAdjustedGoal)) <= 0.5 && target.Item1 != Mathf.Infinity)
+        if (target.Item1 > actionRadius && Math.Abs(Vector3.Distance(transform.position, zAdjustedGoal)) <= 0.1 && target.Item1 != Mathf.Infinity)
         {
             moveGoal = target.Item2 - directionVector.normalized * actionRadius / 2;
         }
+        */
     }
 
     public virtual void zAdjust()
