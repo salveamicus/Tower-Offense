@@ -13,7 +13,6 @@ public class MagicUnit : Unit
     public float maxHealth = 60f;
     public float health = 60f;
 
-    public float shootRadius = 5f;
     public float shootCooldownSeconds = 0.5f;
     public float shootDeviation = 10f;
 
@@ -22,12 +21,16 @@ public class MagicUnit : Unit
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         moveGoal = transform.position;
+        actionRadius = 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
         selectionCircle.SetActive(isSelected);
+
+        zAdjust();
+        autoMoveGoalAndRotate();
 
         // For movement
         movement(moveGoal);
@@ -38,16 +41,9 @@ public class MagicUnit : Unit
         if (health <= 0) Destroy(gameObject);
 
         UpdateDecceleratorCount();
-        UpdateRangeRadius(shootRadius);
+        UpdateRangeRadius(actionRadius);
         ShowRangeIfMouseHover();
-        ShootIfPossible(shootRadius, shootCooldownSeconds);
-
-        // Turn towards closest tower
-        System.Tuple<float, Vector3> target = GetClosestTarget();
-        Vector3 directionVector = target.Item2 - transform.position;
-
-        float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
-        transform.eulerAngles = Vector3.forward * degrees;
+        ShootIfPossible(actionRadius, shootCooldownSeconds);
 
         healthBar.transform.position = transform.position + new Vector3((health/maxHealth-1)/2*0.6f, 0.4f, 0);
         healthBar.transform.rotation = Quaternion.identity;

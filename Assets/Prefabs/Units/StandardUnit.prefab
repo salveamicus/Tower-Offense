@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
+  moveGoal: {x: 0, y: 0, z: 0}
   selectionCircle: {fileID: 1476025404945999650}
   rangeSphere: {fileID: 1289802454}
   healthBar: {fileID: 2536854017638562432}
@@ -279,8 +280,6 @@ MonoBehaviour:
   FireTime: 0
   PoisonTime: 0
   Projectile: {fileID: 672542398565441424, guid: a678b6a7243b01f52a5dbb31bc10c932, type: 3}
-  moveGoal: {x: 0, y: 0, z: 0}
-  hasDirection: 0
   speed: 1
   ProjectileSpeed: 3
   Health: 50

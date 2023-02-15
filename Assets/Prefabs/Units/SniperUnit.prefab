@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1442357861
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a5c5e6b55816d3f46959b0ffd88aef91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
+  moveGoal: {x: 0, y: 0, z: 0}
   selectionCircle: {fileID: 867019839176233997}
   rangeSphere: {fileID: 8649459598546499695}
   healthBar: {fileID: 8668838660729186690}
@@ -212,7 +213,6 @@ MonoBehaviour:
   FireTime: 0
   PoisonTime: 0
   Projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
-  moveGoal: {x: 0, y: 0, z: 0}
   projectileSpeed: 4
   maxHealth: 50
   health: 50
