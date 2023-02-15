@@ -1,24 +1,19 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SupportUnitScript : Unit
+public class MagicSupportUnit : Unit
 {
-    public float maxHealth = 50f;
-    public float health = 50f;
+    public float maxHealth = 60f;
+    public float health = 60f;
 
-    public float healAmount = 10f;
+    public float healAmount = 15f;
     public float healCooldownSeconds = 1f;
-
-    //For animation
-    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        isSupport = true;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();       
         moveGoal = transform.position;
         actionRadius = 1.5f;
     }
@@ -36,9 +31,6 @@ public class SupportUnitScript : Unit
 
         UpdateFireTime();
         UpdatePoisonTime();
-
-        // Play movement animation
-        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
 
         if (health <= 0) Destroy(gameObject);
 
@@ -59,6 +51,7 @@ public class SupportUnitScript : Unit
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
         {
             if (unit.transform.position == transform.position) continue;
+            //if (!(unit.GetComponent<Unit>() is MagicUnit)) continue;
 
             float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
             ,new Vector2(unit.transform.position.x, unit.transform.position.y));
@@ -78,6 +71,6 @@ public class SupportUnitScript : Unit
 
     public override void Heal(float amount)
     {
-        health = MathF.Min(health + amount, maxHealth);
+        health = System.MathF.Min(health + amount, maxHealth);
     }
 }
