@@ -7,7 +7,6 @@ public class SupportUnitScript : Unit
 {
     public float maxHealth = 50f;
     public float health = 50f;
-    private Vector3 zAdjustedGoal;
 
     public float healAmount = 10f;
     public float healCooldownSeconds = 1f;

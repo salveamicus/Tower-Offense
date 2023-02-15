@@ -6,8 +6,6 @@ public class MagicUnit : Unit
 {
     public Projectile projectile;
 
-    private Vector3 zAdjustedGoal;
-
     public float projectileSpeed = 3f;
 
     public float maxHealth = 60f;
