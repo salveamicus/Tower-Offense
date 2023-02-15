@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1744191104940413993}
   m_Layer: 0
   m_Name: MagicUnit
-  m_TagString: Unit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
+  moveGoal: {x: 0, y: 0, z: 0}
   selectionCircle: {fileID: 1744191105868423458}
   rangeSphere: {fileID: 1744191105100877063}
   healthBar: {fileID: 815051148707825064}
@@ -160,7 +161,6 @@ MonoBehaviour:
   FireTime: 0
   PoisonTime: 0
   projectile: {fileID: 5486519101339117397, guid: c715431796f852c2c97b6ab57d286044, type: 3}
-  moveGoal: {x: 0, y: 0, z: 0}
   projectileSpeed: 3
   maxHealth: 60
   health: 60
