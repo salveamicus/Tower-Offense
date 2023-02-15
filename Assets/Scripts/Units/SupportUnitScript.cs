@@ -79,12 +79,10 @@ public class SupportUnitScript : Unit
     public override void Damage(float amount)
     {
         health -= amount;
-        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
     }
 
     public override void Heal(float amount)
     {
         health = MathF.Min(health + amount, maxHealth);
-        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
     }
 }
