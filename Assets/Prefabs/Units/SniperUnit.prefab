@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1442357861
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a5c5e6b55816d3f46959b0ffd88aef91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5699048222165537676}
   - component: {fileID: 5582882846023463679}
   - component: {fileID: 6280719963174523623}
+  - component: {fileID: -5717871652996437848}
   m_Layer: 0
   m_Name: SniperUnit
   m_TagString: Unit
@@ -204,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
+  moveGoal: {x: 0, y: 0, z: 0}
   selectionCircle: {fileID: 867019839176233997}
   rangeSphere: {fileID: 8649459598546499695}
   healthBar: {fileID: 8668838660729186690}
@@ -211,12 +213,12 @@ MonoBehaviour:
   FireTime: 0
   PoisonTime: 0
   Projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
-  moveGoal: {x: 0, y: 0, z: 0}
   projectileSpeed: 4
   maxHealth: 50
   health: 50
   shootRadius: 5
   shootCooldownSeconds: 4
+  animator: {fileID: -5717871652996437848}
 --- !u!114 &5582882846023463679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +252,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &-5717871652996437848
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557734351484718965}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 30cc5939695268d4e8d6c94695692e25, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &8649459598546499695
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +333,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3708cc1afa0151439a57c6e37d421f3, type: 2}
+  - {fileID: 2100000, guid: 3e15670c53341d4478bb07ff802daee2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

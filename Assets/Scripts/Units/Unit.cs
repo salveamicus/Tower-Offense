@@ -10,10 +10,15 @@ public abstract class Unit : MonoBehaviour
 
     public bool isSelected = false;
 
+    public Vector3 moveGoal;
+    public Vector3 zAdjustedGoal;
+
     public GameObject selectionCircle;
     public GameObject rangeSphere;
     public GameObject healthBar;
     public SpriteRenderer spriteRenderer;
+
+    public float actionRadius;
 
     public Bounds UnitBounds { get => spriteRenderer.bounds; }
 
@@ -151,6 +156,32 @@ public abstract class Unit : MonoBehaviour
         moveDirection = Vector3.Normalize(toNormalize);
         transform.position += speed * Time.deltaTime * moveDirection * SpeedMultiplier; //deltatime used to anchor movement to time elapsed rather than frame count
 
+    }
+
+    public virtual void autoMoveGoalAndRotate()
+    {
+        // Turn towards closest tower
+        Tuple<float, Vector3> target = GetClosestTarget();
+        Vector3 directionVector = target.Item2 - transform.position;
+
+        float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
+        transform.eulerAngles = Vector3.forward * degrees;
+
+        // Move towards closet tower if not able to shoot anythnig
+        // and not already moving
+        if (target.Item1 > actionRadius && Math.Abs(Vector3.Distance(transform.position, zAdjustedGoal)) <= 0.5 && target.Item1 != Mathf.Infinity)
+        {
+            moveGoal = target.Item2 - directionVector.normalized * actionRadius / 2;
+        }
+    }
+
+    public virtual void zAdjust()
+    { 
+        // For movement
+        zAdjustedGoal = Vector3.zero;
+        zAdjustedGoal.x = moveGoal.x;
+        zAdjustedGoal.y = moveGoal.y;
+        zAdjustedGoal.z = transform.position.z;
     }
 
     public abstract void Shoot(Vector3 direction);
