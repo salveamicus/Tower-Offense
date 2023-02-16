@@ -46,8 +46,8 @@ public class TutorialManager : MonoBehaviour
     }
 
     void onNext() {
-        if (currentState == 6) {
-            SceneManager.LoadScene("TutorialSelect");
+        if (currentState == 9) {
+            SceneManager.LoadScene("game");
         }
         else if (completedState >= currentState) {
             panels[currentState].SetActive(false);
@@ -65,31 +65,57 @@ public class TutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tower.GetComponent<GrandTower>().Health < 0 && completedState < 6) {
-            currentState = 6;
-            completedState = 6;
-            foreach (GameObject panel in panels) {
-            panel.SetActive(false);
+        if (completedState == 2) {
+            if (storePanel.GetComponent<storePanel>().selectedButton == 0) {
+                completedState = 3;
+                currentState = 4;
+                panels[3].SetActive(false);
+                panels[4].SetActive(true);
+                prevButton.SetActive(true);
+                nextButton.SetActive(false);
             }
-            panels[6].SetActive(true);
-            prevButton.SetActive(true);
-            nextButton.SetActive(true);
         }
-        if (storePanel.GetComponent<storePanel>().selectedButton == 0 && completedState < 3) {
-            completedState = 3;
-            currentState = 4;
-            panels[3].SetActive(false);
-            panels[4].SetActive(true);
-            prevButton.SetActive(true);
-            nextButton.SetActive(false);
+        else if (completedState == 3) {
+            if (GameObject.FindGameObjectsWithTag("Unit").Length > 0) {
+                completedState = 4;
+                currentState = 5;
+                panels[4].SetActive(false);
+                panels[5].SetActive(true);
+                prevButton.SetActive(true);
+                nextButton.SetActive(false);
+            }
         }
-        if (GameObject.FindGameObjectsWithTag("Unit").Length > 0 && completedState < 4) {
-            completedState = 4;
-            currentState = 5;
-            panels[4].SetActive(false);
-            panels[5].SetActive(true);
-            prevButton.SetActive(true);
-            nextButton.SetActive(false);
+        else if (completedState == 4) {
+            if (storePanel.GetComponent<storePanel>().selectedButton == -1) {
+                completedState = 5;
+                currentState = 6;
+                panels[5].SetActive(false);
+                panels[6].SetActive(true);
+                prevButton.SetActive(true);
+                nextButton.SetActive(false);
+            }
+        }
+        else if (completedState == 5) {
+            if (Globals.SELECTED_UNITS.Count > 0 && Input.GetMouseButtonUp(0)) {
+                completedState = 8;
+                currentState = 7;
+                panels[6].SetActive(false);
+                panels[7].SetActive(true);
+                prevButton.SetActive(true);
+                nextButton.SetActive(true);
+            }
+        }        
+        else if (completedState == 8) {
+            if (tower.GetComponent<GrandTower>().Health < 0) {
+                currentState = 9;
+                completedState = 9;
+                foreach (GameObject panel in panels) {
+                panel.SetActive(false);
+                }
+                panels[9].SetActive(true);
+                prevButton.SetActive(true);
+                nextButton.SetActive(true);
+            }
         }
     }
 }
