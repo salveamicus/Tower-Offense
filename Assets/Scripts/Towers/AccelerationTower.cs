@@ -30,8 +30,8 @@ public class AccelerationTower : Tower
         UpdateRangeRadius();
         ShowRangeIfMouseHover();
 
-        healthBar.transform.position = transform.position + new Vector3((Health/MaxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / MaxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)
@@ -42,16 +42,10 @@ public class AccelerationTower : Tower
     public override void Damage(float amount)
     {
         Health -= amount;
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
     }
 
     public override void Heal(float amount)
     {
-        if (Health == MaxHealth) return;
-
-        Health += amount;
-        if (Health > MaxHealth) Health = MaxHealth;
-
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
+        Health = Mathf.Min(MaxHealth, Health + amount);
     }
 }

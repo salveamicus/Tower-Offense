@@ -51,8 +51,8 @@ public class AttractorTower : Tower
             unitObject.GetComponent<Unit>().transform.position += force;
         }
 
-        healthBar.transform.position = transform.position + new Vector3((health/maxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(health / maxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     // Tower never shoots anything
@@ -61,16 +61,10 @@ public class AttractorTower : Tower
     public override void Damage(float amount)
     {
         health -= amount;
-        healthBar.GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
     }
 
     public override void Heal(float amount)
     {
-        if (health == maxHealth) return;
-
-        health += amount;
-        if (health > maxHealth) health = maxHealth;
-
-        healthBar.GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
+        health = Mathf.Min(maxHealth, health + amount);
     }
 }

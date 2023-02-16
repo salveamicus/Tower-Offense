@@ -7,7 +7,7 @@ using UnityEngine;
 public abstract class Tower : MonoBehaviour
 {
     public GameObject rangeSphere;
-    public GameObject healthBar;
+    public HealthMeter healthMeter;
     public SpriteRenderer spriteRenderer;
 
     public abstract int CreditReward { get; }

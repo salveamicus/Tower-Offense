@@ -35,8 +35,8 @@ public class SniperTower : Tower
         ShowRangeIfMouseHover();
         ShootIfPossible();
 
-        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / maxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)
@@ -51,16 +51,10 @@ public class SniperTower : Tower
     public override void Damage(float amount)
     {
         Health -= amount;
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
 
     public override void Heal(float amount)
     {
-        if (Health == maxHealth) return;
-
-        Health += amount;
-        if (Health > maxHealth) Health = maxHealth;
-
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
+        Health = Mathf.Min(maxHealth, Health + amount);
     }
 }

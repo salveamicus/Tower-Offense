@@ -52,8 +52,8 @@ public class GrandTower : Tower
             AttractNearbyUnits();
         }
 
-        healthBar.transform.position = transform.position + new Vector3((Health/MaxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / MaxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     void ShootProjectile(Projectile projectile, Vector3 direction)
@@ -115,9 +115,6 @@ public class GrandTower : Tower
             Vector3 force = (transform.position - unitObject.transform.position).normalized * attractionStrength * Time.deltaTime;
             unitObject.GetComponent<Unit>().transform.position += force;
         }
-
-        healthBar.transform.position = transform.position + new Vector3((Health/MaxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
     }
 
     void ShootLightningProjectile(Vector3 direction)
@@ -161,16 +158,10 @@ public class GrandTower : Tower
     public override void Damage(float amount)
     {
         Health -= amount;       
-        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
     }
 
     public override void Heal(float amount)
     {
-        if (Health == MaxHealth) return;
-
-        Health += amount;
-        if (Health > MaxHealth) Health = MaxHealth;
-
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
+        Health = Mathf.Min(MaxHealth, Health + amount);
     }
 }
