@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthMeter : MonoBehaviour
 {
-    [SerializeField] public SpriteRenderer sprite;
+    [SerializeField] public GameObject sprite;
 
     // This value is equal to the x value of the scale in the inspector
     private float maxWidth;
@@ -12,7 +12,7 @@ public class HealthMeter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxWidth = transform.localScale.x;
+        maxWidth = sprite.transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -24,6 +24,6 @@ public class HealthMeter : MonoBehaviour
     // percentage must be a value between 0 and 1
     public void SetValue(float percentage)
     {
-        transform.localScale = new Vector3(maxWidth * percentage, transform.localScale.y, transform.localScale.z);
+        sprite.transform.localScale = new Vector3(maxWidth * percentage, transform.localScale.y, transform.localScale.z);
     }
 }

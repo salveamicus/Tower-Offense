@@ -56,6 +56,7 @@ public class StandardUnit : Unit
         ShootIfPossible(actionRadius, shootCooldownSeconds);
 
         healthMeter.SetValue(Health / maxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)

@@ -16,7 +16,6 @@ public abstract class Unit : MonoBehaviour
 
     public GameObject selectionCircle;
     public GameObject rangeSphere;
-    public GameObject healthBar; // TODO: Delete this
     public HealthMeter healthMeter;
     public SpriteRenderer spriteRenderer;
 
