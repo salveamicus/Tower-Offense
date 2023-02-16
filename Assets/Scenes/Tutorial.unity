@@ -503,13 +503,275 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 99825979, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 99825979, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -450
+      objectReference: {fileID: 0}
+    - target: {fileID: 99825981, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 99825981, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a90b71b2a3ca784884780cc8c081c69, type: 3}
+    - target: {fileID: 101365038, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114143299, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 190117507, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: tower
       value: 
       objectReference: {fileID: 1555651179}
+    - target: {fileID: 654515115, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 666519422, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1048.354
+      objectReference: {fileID: 0}
+    - target: {fileID: 666519422, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 414.6838
+      objectReference: {fileID: 0}
+    - target: {fileID: 666519422, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.7507
+      objectReference: {fileID: 0}
+    - target: {fileID: 666519422, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.0914
+      objectReference: {fileID: 0}
+    - target: {fileID: 666519423, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'Welcome To Medieval Militant!
+
+
+        Mysterious towers have risen
+        out of the ground all over the land, terrorizing the local villages. It is
+        your job as the king to guide your militant to victory and reign supreme
+        over the these vengeful structures.
+
+
+        Click the left and right arrow
+        buttons below to navigate this tutorial.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 666519423, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 713139064, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -66.3286
+      objectReference: {fileID: 0}
+    - target: {fileID: 713139064, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.91160583
+      objectReference: {fileID: 0}
+    - target: {fileID: 713139065, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: "Well done! You have created your first troop. Units will naturally
+        stand still, so it will be your job to direct them toward the correct path
+        to achieve victory. \n\nTo do so, first deselect the knight button by clicking
+        it again."
+      objectReference: {fileID: 0}
+    - target: {fileID: 713139065, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 952730997, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 378.5608
+      objectReference: {fileID: 0}
+    - target: {fileID: 952730997, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.145295
+      objectReference: {fileID: 0}
+    - target: {fileID: 952730998, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'The source of these towers'' power seems to come from their grand towers
+        (like that big golden one in the middle of the field). Your goal will be
+        to destory as many of these as you can with the credits (top left) provided,
+        which can be used to buy units from the store (right). The price of each
+        can be seen on their respective button.
+
+
+        Be weary however, as every
+        grand tower destroyed results in an overall boost of power from all towers.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 952730998, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172083015, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 846.4022
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172083015, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 268.1632
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172083015, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 7.7748
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172083015, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -44.168926
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172083016, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242810190, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246027780, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408810452, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767205498, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798960262, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831755618, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'Left click the knight button in the Shop:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937677118, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 352.197
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937677118, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.9634
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937677119, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'Grand towers leech off the powers of other towers surrounding them,
+        and will inherit the ability of the strongest one! (our scouts informed us
+        that the symbols on each of these towers correlate to what their ability
+        is...)
+
+
+        It seems this grand tower is all by itself, so let''s practice
+        some general combat.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937677119, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991685729, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106748242, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106748242, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -450
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106748244, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106748244, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d04ab0b51e0088f4f882c77fec8e2a66, type: 3}
+    - target: {fileID: 510928496834206352, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'The red area shows the range of all towers; Units cannot be placed
+        there. With the knight button now selected, left click somewhere outside
+        the range of the tower.
+
+
+        Tip: Use the scroll wheel to scroll in
+        and out and move the mouse toward the edge of the screen to pan (or use arrow
+        keys) '
+      objectReference: {fileID: 0}
+    - target: {fileID: 510928496834206352, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 510928496834206352, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 510928496834206352, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479606982577675203, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -175.3712
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479606982577675203, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -134.9932
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479606982577675203, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9.592529
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479606982577675203, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -47.973465
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003026975429228460, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431157482190643000, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580795929948596257, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'Right click on the map to move the selected units towards a destination.
+        Now use your knowledge to destory the Grand Tower in the middle of the field!
+
+
+        Tip:
+        Hold down left click to spawn units continuously
+
+        Tip: Units will
+        always attack the closet tower within their range
+
+        Tip: Hover your
+        mouse over towers and units to see their respective range'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580795929948596257, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2784006312983556646, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2784006312983556646, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2784006312983556650, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_Pivot.x
@@ -593,6 +855,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2784006312983556650, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245277277539783163, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327805370163975308, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: Next, left click and drag a box around the unit/s
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327805370163975308, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974879834954960001, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565943971974823550, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 245.553
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565943971974823550, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 107.50258
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216468108836135, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -105.6145
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216468108836135, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.963
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594482955736519692, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004635099309970024, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -668.0527
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004635099309970024, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -334.0263
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745515410621343875, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -39.2059
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745515410621343875, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -19.6029
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047943615711745361, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: "The white circles indicate that the unit is selected. You can select
+        units only when no button in the store is currently selected.  \n\n(Click
+        the right arrow to continue)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047943615711745361, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763196104842554875, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067721446917451343, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

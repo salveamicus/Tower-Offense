@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5523961471243327435, guid: c1ac37e425f39b852bb2903f3a936343, type: 3}
       propertyPath: m_text
-      value: Cleric
+      value: Mage
       objectReference: {fileID: 0}
     - target: {fileID: 5969212271489865659, guid: c1ac37e425f39b852bb2903f3a936343, type: 3}
       propertyPath: m_Name

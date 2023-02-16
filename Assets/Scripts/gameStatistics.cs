@@ -16,7 +16,7 @@ public class gameStatistics : MonoBehaviour
     public static bool regeneratingLevel = false;
 
     // units
-    public static int[] unitCosts = {30, 50, 40}; // knight, sniper, support in order
+    public static int[] unitCosts = {30, 50, 80, 100, 120}; // knight, sniper, support, mage, cultist in order
 
     public static float fireDamage = 10f;
     public static float poisonDamage = 15f;
