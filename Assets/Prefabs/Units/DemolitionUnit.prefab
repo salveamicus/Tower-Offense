@@ -330,7 +330,7 @@ MonoBehaviour:
   actionRadius: 0
   FireTime: 0
   PoisonTime: 0
-  projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
+  projectile: {fileID: 3470972908069386543, guid: 72e0a01b23d2865aa827c5a99b776cd9, type: 3}
   projectileSpeed: 3
   maxHealth: 80
   health: 80
