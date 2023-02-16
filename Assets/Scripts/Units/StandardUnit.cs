@@ -55,8 +55,7 @@ public class StandardUnit : Unit
         ShowRangeIfMouseHover();
         ShootIfPossible(actionRadius, shootCooldownSeconds);
 
-        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1)/2*0.6f, 0.4f, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / maxHealth);
     }
 
     public override void Shoot(Vector3 direction)
