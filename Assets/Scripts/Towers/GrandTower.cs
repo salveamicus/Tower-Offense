@@ -21,6 +21,9 @@ public class GrandTower : Tower
     public override float ShootRadius => 10f;
     public override int CreditReward => 100;
 
+    private float coolDownMultiplier = 1f;
+    public override float AcceleratedCooldown => coolDownMultiplier * (ShootCooldownSeconds / (accelerators + 1));
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,7 +129,8 @@ public class GrandTower : Tower
     // Will eventually randomly select from all available projectiles
     public override void Shoot(Vector3 direction)
     {
-        canShoot = false;
+        // This shuld only ever not be 1 when in poison mode because poison is OP
+        coolDownMultiplier = 1f;
 
         // Support Ability
         if (gameStatistics.levelNumber >= LevelGenerator.supportTowerThreshold)
@@ -142,6 +146,7 @@ public class GrandTower : Tower
         else if (gameStatistics.levelNumber >= LevelGenerator.poisonTowerThreshold)
         {
             ShootPoisonProjectile(direction);
+            coolDownMultiplier = 3f;
         }
         else if (gameStatistics.levelNumber >= LevelGenerator.fireTowerThreshold)
         {
@@ -151,8 +156,6 @@ public class GrandTower : Tower
         {
             ShootStandardProjectile(direction);
         }
-
-        Invoke("ResetCooldown", AcceleratedCooldown);
     }
 
     public override void Damage(float amount)
