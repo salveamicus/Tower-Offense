@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ExplosiveProjectile : Projectile
 {
+    [SerializeField] public Explosion explosion;
+
     public float LifetimeSeconds = 5f;
     
     // Start is called before the first frame update
@@ -27,8 +29,9 @@ public class ExplosiveProjectile : Projectile
         }
     }
 
-    protected override void OnHitUnit(Unit unit)
+    protected override void OnHitTower(Tower tower)
     {
-        // TODO: Add explosion effect here
+        Explosion e = Instantiate(explosion, transform.position, Quaternion.identity);
+        e.Explode((OwnerTag == "Unit") ? "Tower" : "Unit");
     }
 }
