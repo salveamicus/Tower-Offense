@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeSphere: {fileID: 5293895171253963399}
-  healthMeter: {fileID: 0}
+  healthMeter: {fileID: 8190063547645444798}
   spriteRenderer: {fileID: 0}
   rangeDisplayOverride: 0
   MaxHealth: 70
@@ -296,3 +296,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5742878904441663470, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
   m_PrefabInstance: {fileID: 5571969293350080059}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8190063547645444798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4394228919235792005, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
+  m_PrefabInstance: {fileID: 5571969293350080059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f674184654b29ec7eb3680d3750891b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
