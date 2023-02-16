@@ -224,6 +224,14 @@ public class LevelGenerator : MonoBehaviour
                     gameStatistics.currentCredits += gameStatistics.unitCosts[2];
                     break;
 
+                case MagicUnit:
+                    gameStatistics.currentCredits += gameStatistics.unitCosts[3];
+                    break;
+
+                case MagicSupportUnit:
+                    gameStatistics.currentCredits += gameStatistics.unitCosts[4];
+                    break;
+
                 default:
                     break;
             }
