@@ -16,7 +16,7 @@ public abstract class Unit : MonoBehaviour
 
     public GameObject selectionCircle;
     public GameObject rangeSphere;
-    public GameObject healthBar;
+    public HealthMeter healthMeter;
     public SpriteRenderer spriteRenderer;
 
     public float actionRadius;
