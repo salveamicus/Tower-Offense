@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class AdamsDebugger : MonoBehaviour
 {
-    public StandardUnit standardUnit;
-    public SniperUnit sniperUnit;
-    public SupportUnitScript supportUnit;
-    public MagicUnit magicUnit;
-    public MagicSupportUnit magicSupportUnit;
+    [SerializeField] public StandardUnit standardUnit;
+    [SerializeField] public SniperUnit sniperUnit;
+    [SerializeField] public SupportUnitScript supportUnit;
+    [SerializeField] public MagicUnit magicUnit;
+    [SerializeField] public MagicSupportUnit magicSupportUnit;
+    [SerializeField] public DemolitionUnit demolitionUnit;
 
     public LevelGenerator levelGenerator;
 
@@ -47,6 +48,11 @@ public class AdamsDebugger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             SpawnUnit(magicSupportUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SpawnUnit(demolitionUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
         }
     }
 

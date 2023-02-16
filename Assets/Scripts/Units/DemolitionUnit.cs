@@ -1,28 +1,24 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SniperUnit : Unit
+public class DemolitionUnit : Unit
 {
-    public Projectile Projectile;
+    public Projectile projectile;
 
-    public float projectileSpeed = 4f;
+    public float projectileSpeed = 1f;
 
-    public float maxHealth = 50f;
-    public float health = 50f;
+    public float maxHealth = 80f;
+    public float health = 80f;
 
-    public float shootCooldownSeconds = 4f;
-
-    //For animation
-    public Animator animator;
+    public float shootCooldownSeconds = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         moveGoal = transform.position;
-        actionRadius = 5f;
+        actionRadius = 4f;
     }
 
     // Update is called once per frame
@@ -32,12 +28,6 @@ public class SniperUnit : Unit
 
         zAdjust();
         autoMoveGoalAndRotate();
-
-        //Movement animation
-        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
-
-        //Reset animation attack boolean
-        animator.SetBool("IsAttacking", false);
 
         // For movement
         movement(moveGoal);
@@ -58,10 +48,7 @@ public class SniperUnit : Unit
 
     public override void Shoot(Vector3 direction)
     {
-        //Attack animation
-        animator.SetBool("IsAttacking", true);
-
-        Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
+        Projectile p = Instantiate(projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * projectileSpeed * SpeedMultiplier;
         p.OwnerTag = tag;
     }
