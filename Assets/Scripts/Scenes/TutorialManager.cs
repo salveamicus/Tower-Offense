@@ -97,7 +97,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (completedState == 5) {
             if (Globals.SELECTED_UNITS.Count > 0 && Input.GetMouseButtonUp(0)) {
-                completedState = 8;
+                completedState = 7;
                 currentState = 7;
                 panels[6].SetActive(false);
                 panels[7].SetActive(true);
@@ -105,7 +105,7 @@ public class TutorialManager : MonoBehaviour
                 nextButton.SetActive(true);
             }
         }        
-        else if (completedState == 8) {
+        else if (completedState == 7) {
             if (tower.GetComponent<GrandTower>().Health < 0) {
                 currentState = 9;
                 completedState = 9;
