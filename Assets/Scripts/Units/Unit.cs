@@ -26,7 +26,7 @@ public abstract class Unit : MonoBehaviour
     public float FireTime = 0;
     public float PoisonTime = 0;
 
-    public float SpeedMultiplier => 1f / (1f + deccelerators);
+    public virtual float SpeedMultiplier => 1f / (1f + deccelerators);
 
     protected bool canShoot = true;
     protected float deccelerators = 0;

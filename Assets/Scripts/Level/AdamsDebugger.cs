@@ -10,6 +10,7 @@ public class AdamsDebugger : MonoBehaviour
     [SerializeField] public MagicUnit magicUnit;
     [SerializeField] public MagicSupportUnit magicSupportUnit;
     [SerializeField] public DemolitionUnit demolitionUnit;
+    [SerializeField] public HammerUnit hammerUnit;
 
     public LevelGenerator levelGenerator;
 
@@ -53,6 +54,11 @@ public class AdamsDebugger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             SpawnUnit(demolitionUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            SpawnUnit(hammerUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
         }
     }
 

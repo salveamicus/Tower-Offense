@@ -6,7 +6,6 @@ using UnityEngine;
 public class StandardUnit : Unit
 {
     public Projectile Projectile;
-    public float speed = 0.05f;
     public float ProjectileSpeed = 3f;
     float maxHealth = 50f;
     public float Health = 50f;
