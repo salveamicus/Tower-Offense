@@ -164,7 +164,7 @@ MonoBehaviour:
   FireTime: 0
   PoisonTime: 0
   projectile: {fileID: 1572402366, guid: 0ebc9d423e8e20545ab8cfc107093692, type: 3}
-  ProjectileSpeed: 1
+  ProjectileSpeed: 2
   maxHealth: 80
   health: 80
   shootCooldownSeconds: 4
