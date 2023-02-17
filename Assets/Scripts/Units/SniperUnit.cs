@@ -7,7 +7,7 @@ public class SniperUnit : Unit
 {
     public Projectile Projectile;
 
-    public float projectileSpeed = 4f;
+    public float projectileSpeed = 5f;
 
     public float maxHealth = 50f;
     public float health = 50f;

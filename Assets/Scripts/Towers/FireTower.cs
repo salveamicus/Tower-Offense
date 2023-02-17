@@ -11,7 +11,7 @@ public class FireTower : Tower
 
     public override float ShootCooldownSeconds => 2f;
     public override float ShootRadius => 4f;
-    public override int CreditReward => 50;
+    public override int CreditReward => 30;
 
     // How far each shot in multi shot differs
     public float ShootDeviationDegrees = 7f;

@@ -9,9 +9,12 @@ public class DemolitionUnit : Unit
     public float projectileSpeed = 1f;
 
     public float maxHealth = 80f;
-    public float health = 80f;
+    public float health = 120f;
 
     public float shootCooldownSeconds = 5f;
+
+    //animation
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,12 @@ public class DemolitionUnit : Unit
         // For movement
         movement(moveGoal);
 
+        // Animate movement
+        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
+
+        // Reset attack animation bool
+        animator.SetBool("IsAttacking", false);
+
         UpdateFireTime();
         UpdatePoisonTime();
 
@@ -48,6 +57,9 @@ public class DemolitionUnit : Unit
 
     public override void Shoot(Vector3 direction)
     {
+        // Animate attack
+        animator.SetBool("IsAttacking", true);
+
         Projectile p = Instantiate(projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * projectileSpeed * SpeedMultiplier;
         p.OwnerTag = tag;
