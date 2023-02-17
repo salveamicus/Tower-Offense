@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 2310716675584270056}
   - component: {fileID: 2310716675584270059}
   - component: {fileID: 2310716675584270058}
+  - component: {fileID: 9010689092209626495}
   m_Layer: 0
   m_Name: DemolitionUnit
   m_TagString: Unit
@@ -244,8 +245,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1977730851
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 78c1283b3254acd458a7b323621a503f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -335,6 +336,27 @@ MonoBehaviour:
   maxHealth: 80
   health: 80
   shootCooldownSeconds: 5
+  animator: {fileID: 9010689092209626495}
+--- !u!95 &9010689092209626495
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310716675584270053}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e5aadd9e1caf144c9d07fb157786a95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &2310716674799637809
 PrefabInstance:
   m_ObjectHideFlags: 0

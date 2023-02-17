@@ -5,10 +5,13 @@ using UnityEngine;
 public class MagicSupportUnit : Unit
 {
     public float maxHealth = 60f;
-    public float health = 60f;
+    public float health = 80f;
 
     public float healAmount = 15f;
     public float healCooldownSeconds = 1f;
+
+    //For animation
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,9 @@ public class MagicSupportUnit : Unit
 
         // For movement
         movement(moveGoal);
+
+        // Animate movement
+        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
 
         UpdateFireTime();
         UpdatePoisonTime();

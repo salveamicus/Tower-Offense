@@ -9,11 +9,11 @@ public class SniperTower : Tower
     public float maxHealth = 90;
     public float Health = 90;
     public float shootCooldownSeconds = 3f;
-    public int creditReward = 40;
+    public int creditReward = 20;
 
     public override float ShootCooldownSeconds => 5;
     public override float ShootRadius => 10f;
-    public override int CreditReward => 40;
+    public override int CreditReward => 20;
 
     // Start is called before the first frame update
     void Start()

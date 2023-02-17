@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3026031668189779489}
   - component: {fileID: 6108173992493802674}
   - component: {fileID: 8399861951771743727}
+  - component: {fileID: 3051202172800864969}
   m_Layer: 0
   m_Name: MagicSupportUnit
   m_TagString: Unit
@@ -250,6 +251,27 @@ MonoBehaviour:
   health: 60
   healAmount: 15
   healCooldownSeconds: 1
+  animator: {fileID: 3051202172800864969}
+--- !u!95 &3051202172800864969
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858749182481996037}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b41069be35bb12145ba36cc4ec2ca5c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &3455000680893340533
 GameObject:
   m_ObjectHideFlags: 0

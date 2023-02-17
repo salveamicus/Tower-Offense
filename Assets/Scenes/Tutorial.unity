@@ -575,7 +575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 713139064, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.91160583
+      value: 0.9116211
       objectReference: {fileID: 0}
     - target: {fileID: 713139065, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_text
@@ -618,7 +618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1172083015, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 268.1632
+      value: 342.461
       objectReference: {fileID: 0}
     - target: {fileID: 1172083015, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -626,7 +626,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1172083015, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -44.168926
+      value: -7.0201
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172083016, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: "Congratulations! You're destroyed your first grand tower! \n\n(P.S.
+        Don't worry about saving money during each level, all alive troops are refunded
+        in full at the end of each one!)\n\nPress the right arrow button to start
+        the game."
       objectReference: {fileID: 0}
     - target: {fileID: 1172083016, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -639,6 +646,14 @@ PrefabInstance:
     - target: {fileID: 1246027780, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246027781, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -610
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246027781, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 1408810452, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
@@ -887,7 +902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5594216468108836135, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 9.963
+      value: 9.963013
       objectReference: {fileID: 0}
     - target: {fileID: 6594482955736519692, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
@@ -920,6 +935,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8763196104842554875, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010089532127816478, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

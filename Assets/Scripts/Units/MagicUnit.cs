@@ -9,7 +9,7 @@ public class MagicUnit : Unit
     public float projectileSpeed = 3f;
 
     public float maxHealth = 60f;
-    public float health = 60f;
+    public float health = 80f;
 
     public float shootCooldownSeconds = 0.5f;
     public float shootDeviation = 10f;
@@ -22,7 +22,7 @@ public class MagicUnit : Unit
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         moveGoal = transform.position;
-        actionRadius = 5f;
+        actionRadius = 4f;
     }
 
     // Update is called once per frame
