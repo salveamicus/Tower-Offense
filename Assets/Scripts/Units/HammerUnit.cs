@@ -13,7 +13,7 @@ public class HammerUnit : Unit
     public float shootCooldownSeconds = 4f;
 
     // Slower than normal movement speed
-    public override float SpeedMultiplier => 1f / (2 * (1f + deccelerators));
+    public override float SpeedMultiplier => 1f / (1.5f * (1f + deccelerators));
 
     // Start is called before the first frame update
     void Start()
