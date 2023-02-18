@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class LightningTower : Tower
 {
-    public LightningProjectile Projectile;
+    [SerializeField] public LightningProjectile Projectile;
+    [SerializeField] public AudioSource hitSound;
+
     public float MaxHealth = 150;
     public float Health = 150f;
 
@@ -65,6 +67,7 @@ public class LightningTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
     }
 

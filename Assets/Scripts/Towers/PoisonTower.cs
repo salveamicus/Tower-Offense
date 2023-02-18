@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PoisonTower : Tower
 {
-    public Projectile Projectile;
-    public AudioSource audioSource;
+    [SerializeField] public Projectile Projectile;
+    [SerializeField] public AudioSource launchSound;
+    [SerializeField] public AudioSource hitSound;
 
     public float ProjectileSpeed = 1f;
     public float MaxHealth = 120f;
@@ -23,7 +24,6 @@ public class PoisonTower : Tower
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();       
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -55,7 +55,7 @@ public class PoisonTower : Tower
 
     public override void Shoot(Vector3 direction)
     {
-        audioSource.Play();
+        launchSound.Play();
 
         // Vector3.back is used to change the z coordinate of the projectile so that
         // it renders on top of the tower
@@ -66,6 +66,7 @@ public class PoisonTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
     }
 

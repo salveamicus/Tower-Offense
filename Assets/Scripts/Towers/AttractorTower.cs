@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttractorTower : Tower
 {
+    [SerializeField] public AudioSource hitSound;
+
     public float maxHealth = 200f;
     public float health = 200f;
 
@@ -60,6 +62,7 @@ public class AttractorTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         health -= amount;
     }
 
