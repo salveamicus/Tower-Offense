@@ -15,6 +15,8 @@ public class LightningTower : Tower
     public override float ShootRadius => 8f;
     public override int CreditReward => 50;
 
+    public float MinShootRadius => ShootRadius * 2 / 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +45,7 @@ public class LightningTower : Tower
     {
         if (!canShoot) return;
 
-        Tuple<float, Vector3> target = GetClosestTarget();
+        Tuple<float, Vector3> target = GetClosestTarget(MinShootRadius);
 
         if (target.Item1 <= ShootRadius)
         {

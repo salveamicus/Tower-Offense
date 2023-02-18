@@ -27,7 +27,7 @@ public abstract class Tower : MonoBehaviour
     protected float accelerators = 0;
 
     // I made this because I am not writing this function more than once
-    public virtual Tuple<float, Vector3> GetClosestTarget()
+    public virtual Tuple<float, Vector3> GetClosestTarget(float minRadius = 0f)
     {
         float closestDistance = Mathf.Infinity;
         Vector3 closestTarget = Vector3.zero;
@@ -36,6 +36,8 @@ public abstract class Tower : MonoBehaviour
         {
             float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
             , new Vector2(unit.transform.position.x, unit.transform.position.y));
+
+            if (dist < minRadius) continue;
 
             if (dist < closestDistance)
             {
