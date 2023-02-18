@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class SniperUnit : Unit
 {
-    public Projectile Projectile;
+    [SerializeField] public Projectile Projectile;
+    [SerializeField] public AudioSource launchSound;
 
     public float projectileSpeed = 5f;
 
@@ -60,6 +61,8 @@ public class SniperUnit : Unit
     {
         //Attack animation
         animator.SetBool("IsAttacking", true);
+
+        launchSound.Play();
 
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * projectileSpeed * SpeedMultiplier;
