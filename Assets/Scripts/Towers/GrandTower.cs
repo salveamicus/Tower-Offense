@@ -102,7 +102,14 @@ public class GrandTower : Tower
     void ShootPoisonProjectile(Vector3 direction)
     {
         defaultLaunchSound.Play();
-        ShootProjectile(poisonProjectile, direction);
+
+        PoisonProjectile p = Instantiate(poisonProjectile, transform.position + Vector3.back, transform.rotation);
+        p.PoisonTime /= 4f;
+        p.LifetimeSeconds /= 4f;
+        p.PoisonerTime = 2f;
+        p.PoisonerPoisonTime = 25f;
+        p.Velocity = direction.normalized * ProjectileSpeed * ProjectileVelMultiplier / 2f;
+        p.OwnerTag = tag;
     }
 
     void AttractNearbyUnits()
@@ -128,6 +135,8 @@ public class GrandTower : Tower
     void ShootLightningProjectile(Vector3 direction)
     {
         LightningProjectile p = Instantiate(lightningProjectile, transform.position + Vector3.back, Quaternion.identity);
+        p.Damage /= 4f;
+        p.Piercing = 3;
         p.Zap(transform.position, transform.position + direction, "Unit");
     }
 
@@ -146,6 +155,7 @@ public class GrandTower : Tower
         // Projectiles
         if (gameStatistics.levelNumber >= LevelGenerator.lightningTowerThreshold)
         {
+            coolDownMultiplier = 3f;
             ShootLightningProjectile(direction);
         }
         else if (gameStatistics.levelNumber >= LevelGenerator.poisonTowerThreshold)
