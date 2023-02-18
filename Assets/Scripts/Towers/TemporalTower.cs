@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TemporalTower : Tower
 {
+    [SerializeField] public AudioSource hitSound;
+
     public float MaxHealth = 150f;
     public float Health = 150f;
 
@@ -40,6 +42,7 @@ public class TemporalTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
     }
 

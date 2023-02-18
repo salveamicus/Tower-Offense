@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AccelerationTower : Tower
 {
+    [SerializeField] public AudioSource hitSound;
 
     public float MaxHealth = 70f;
     public float Health = 70f;
@@ -41,6 +42,7 @@ public class AccelerationTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
     }
 

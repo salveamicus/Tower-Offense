@@ -7,6 +7,7 @@ public class StandardTower : Tower
 {
     [SerializeField] public Projectile Projectile;
     [SerializeField] public AudioSource shootSound;
+    [SerializeField] public AudioSource hitSound;
 
     public float ProjectileSpeed = 5f;
     public float maxHealth = 100f;
@@ -54,6 +55,7 @@ public class StandardTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
     }
 
