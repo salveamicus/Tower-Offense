@@ -251,6 +251,7 @@ MonoBehaviour:
   hitSound: {fileID: 1695379211091672802}
   maxHealth: 60
   health: 60
+  speed: 1.2
   healAmount: 15
   healCooldownSeconds: 1
   animator: {fileID: 3051202172800864969}

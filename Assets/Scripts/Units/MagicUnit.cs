@@ -12,6 +12,7 @@ public class MagicUnit : Unit
 
     public float maxHealth = 60f;
     public float health = 80f;
+    public float speed = 1.3f;
 
     public float shootCooldownSeconds = 0.5f;
     public float shootDeviation = 10f;
@@ -36,7 +37,7 @@ public class MagicUnit : Unit
         autoMoveGoalAndRotate();
 
         // For movement
-        movement(moveGoal);
+        movement(moveGoal, speed);
 
         UpdateFireTime();
         UpdatePoisonTime();

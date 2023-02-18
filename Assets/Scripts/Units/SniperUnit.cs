@@ -13,7 +13,7 @@ public class SniperUnit : Unit
 
     public float maxHealth = 50f;
     public float health = 50f;
-    public float speed = 0.8f;
+    public float speed = 1f;
 
     public float shootCooldownSeconds = 4f;
 

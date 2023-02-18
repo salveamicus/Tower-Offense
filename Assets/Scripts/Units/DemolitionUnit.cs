@@ -12,7 +12,7 @@ public class DemolitionUnit : Unit
 
     public float maxHealth = 80f;
     public float health = 120f;
-    public float speed = 0.7f;
+    public float speed = 1f;
 
     public float shootCooldownSeconds = 5f;
 

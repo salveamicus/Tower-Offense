@@ -339,6 +339,7 @@ MonoBehaviour:
   projectileSpeed: 3
   maxHealth: 80
   health: 80
+  speed: 1.2
   shootCooldownSeconds: 5
   animator: {fileID: 9010689092209626495}
 --- !u!95 &9010689092209626495
