@@ -5,6 +5,8 @@ using UnityEngine;
 public class FireTower : Tower
 {
     public Projectile Projectile;
+    public AudioSource audioSource;
+
     public float ProjectileSpeed = 7f;
     public float MaxHealth = 120f;
     public float Health = 120f;
@@ -20,6 +22,7 @@ public class FireTower : Tower
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,6 +45,8 @@ public class FireTower : Tower
 
     public override void Shoot(Vector3 direction)
     {
+        audioSource.Play();
+
         float currentDeviation = -ShootDeviationDegrees;
 
         for (int i = 0; i < 3; ++i)
