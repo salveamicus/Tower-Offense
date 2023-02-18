@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class StandardUnit : Unit
 {
-    public Projectile Projectile;
+    [SerializeField] public Projectile Projectile;
+    [SerializeField] public AudioSource swingSound;
+
     public float ProjectileSpeed = 3f;
     float maxHealth = 50f;
     public float Health = 50f;
@@ -62,6 +64,8 @@ public class StandardUnit : Unit
     {
         //Play attack sprite animation
         animator.SetBool("IsAttacking", true);
+
+        swingSound.Play();
 
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * ProjectileSpeed * SpeedMultiplier;
