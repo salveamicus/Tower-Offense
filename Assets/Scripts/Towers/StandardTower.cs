@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class StandardTower : Tower
 {
-    public Projectile Projectile;
+    [SerializeField] public Projectile Projectile;
+    [SerializeField] public AudioSource shootSound;
+
     public float ProjectileSpeed = 5f;
     public float maxHealth = 100f;
     public float Health = 100f;
@@ -41,6 +43,8 @@ public class StandardTower : Tower
 
     public override void Shoot(Vector3 direction)
     {
+        shootSound.Play();
+
         // Vector3.back is used to change the z coordinate of the projectile so that
         // it renders on top of the tower
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
