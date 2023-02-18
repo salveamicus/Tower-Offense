@@ -9,6 +9,11 @@ public class GrandTower : Tower
     [SerializeField] public PoisonProjectile poisonProjectile;
     [SerializeField] public LightningProjectile lightningProjectile;
 
+    [SerializeField] public AudioSource hitSound;
+
+    [SerializeField] public AudioSource defaultLaunchSound;
+    [SerializeField] public AudioSource fireLaunchSound;
+
     public float ProjectileSpeed = 8f;
     public float MaxHealth = 100f;
     public float Health = 100f;
@@ -65,6 +70,7 @@ public class GrandTower : Tower
 
     void ShootStandardProjectile(Vector3 direction)
     {
+        defaultLaunchSound.Play();
         ShootProjectile(standardProjectile, direction);
     }
 
@@ -89,11 +95,13 @@ public class GrandTower : Tower
 
     void ShootFireProjectile(Vector3 direction)
     {
+        fireLaunchSound.Play();
         ShootProjectile(fireProjectile, direction);
     }
 
     void ShootPoisonProjectile(Vector3 direction)
     {
+        defaultLaunchSound.Play();
         ShootProjectile(poisonProjectile, direction);
     }
 
@@ -157,6 +165,7 @@ public class GrandTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;       
     }
 
