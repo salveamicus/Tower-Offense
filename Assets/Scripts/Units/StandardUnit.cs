@@ -12,6 +12,7 @@ public class StandardUnit : Unit
     public float ProjectileSpeed = 3f;
     float maxHealth = 50f;
     public float Health = 50f;
+    public float speed = 1.5f;
 
     public float shootCooldownSeconds = 2f;
 
@@ -39,7 +40,7 @@ public class StandardUnit : Unit
         //Reset attack sprite animation boolean
         animator.SetBool("IsAttacking", false);
 
-        movement(moveGoal);
+        movement(moveGoal, speed);
 
         //Debug.Log("Health: " + Health + ", Position: " + transform.position); //use this is you need to debug movement or health 
 

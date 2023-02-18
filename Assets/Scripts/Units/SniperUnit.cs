@@ -13,6 +13,7 @@ public class SniperUnit : Unit
 
     public float maxHealth = 50f;
     public float health = 50f;
+    public float speed = 0.8f;
 
     public float shootCooldownSeconds = 4f;
 
@@ -42,7 +43,7 @@ public class SniperUnit : Unit
         animator.SetBool("IsAttacking", false);
 
         // For movement
-        movement(moveGoal);
+        movement(moveGoal, speed);
 
         UpdateFireTime();
         UpdatePoisonTime();

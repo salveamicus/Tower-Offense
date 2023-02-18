@@ -9,6 +9,7 @@ public class SupportUnitScript : Unit
 
     public float maxHealth = 50f;
     public float health = 50f;
+    public float speed = 1.6f;
 
     public float healAmount = 10f;
     public float healCooldownSeconds = 1f;
@@ -34,7 +35,7 @@ public class SupportUnitScript : Unit
         autoMoveGoalAndRotate();
 
         // For movement
-        movement(moveGoal);
+        movement(moveGoal, speed);
 
         UpdateFireTime();
         UpdatePoisonTime();

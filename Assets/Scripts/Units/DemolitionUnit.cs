@@ -12,6 +12,7 @@ public class DemolitionUnit : Unit
 
     public float maxHealth = 80f;
     public float health = 120f;
+    public float speed = 0.7f;
 
     public float shootCooldownSeconds = 5f;
 
@@ -35,7 +36,7 @@ public class DemolitionUnit : Unit
         autoMoveGoalAndRotate();
 
         // For movement
-        movement(moveGoal);
+        movement(moveGoal, speed);
 
         // Animate movement
         animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));

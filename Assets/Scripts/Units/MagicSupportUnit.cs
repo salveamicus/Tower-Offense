@@ -8,6 +8,7 @@ public class MagicSupportUnit : Unit
 
     public float maxHealth = 60f;
     public float health = 80f;
+    public float speed = 1.3f;
 
     public float healAmount = 15f;
     public float healCooldownSeconds = 1f;
@@ -32,7 +33,7 @@ public class MagicSupportUnit : Unit
         autoMoveGoalAndRotate();
 
         // For movement
-        movement(moveGoal);
+        movement(moveGoal, speed);
 
         // Animate movement
         animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
