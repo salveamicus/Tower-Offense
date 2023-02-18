@@ -120,7 +120,7 @@ public class GrandTower : Tower
             float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
             , new Vector2(unitObject.transform.position.x, unitObject.transform.position.y));
 
-            if (distance > ShootRadius) continue;
+            if (distance > ShootRadius / 4) continue;
 
             if (distance <= hurtRadius)
             {
