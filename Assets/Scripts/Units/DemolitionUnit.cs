@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DemolitionUnit : Unit
 {
-    public Projectile projectile;
+    [SerializeField] public Projectile projectile;
+    [SerializeField] public AudioSource launchSound;
 
     public float projectileSpeed = 1f;
 
@@ -59,6 +60,8 @@ public class DemolitionUnit : Unit
     {
         // Animate attack
         animator.SetBool("IsAttacking", true);
+
+        launchSound.Play();
 
         Projectile p = Instantiate(projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * projectileSpeed * SpeedMultiplier;
