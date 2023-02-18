@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MagicUnit : Unit
 {
-    public Projectile projectile;
+    [SerializeField] public Projectile projectile;
+    [SerializeField] public AudioSource launchSound;
 
     public float projectileSpeed = 3f;
 
@@ -60,6 +61,8 @@ public class MagicUnit : Unit
     {
         //Play attack animation
         animator.SetBool("IsAttacking", true);
+        
+        launchSound.Play();
         
         Projectile p = Instantiate(projectile, transform.position + Vector3.back, transform.rotation);
         p.transform.localScale = Vector3.one * 1.5f;
