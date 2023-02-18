@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MagicSupportUnit : Unit
 {
+    [SerializeField] public AudioSource hitSound;
+
     public float maxHealth = 60f;
     public float health = 80f;
 
@@ -72,6 +74,7 @@ public class MagicSupportUnit : Unit
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         health -= amount;
     }
 

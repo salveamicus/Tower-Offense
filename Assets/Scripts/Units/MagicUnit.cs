@@ -6,6 +6,7 @@ public class MagicUnit : Unit
 {
     [SerializeField] public Projectile projectile;
     [SerializeField] public AudioSource launchSound;
+    [SerializeField] public AudioSource hitSound;
 
     public float projectileSpeed = 3f;
 
@@ -72,6 +73,7 @@ public class MagicUnit : Unit
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         health -= amount;
     }
 

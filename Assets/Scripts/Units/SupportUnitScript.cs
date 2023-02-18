@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SupportUnitScript : Unit
 {
+    [SerializeField] public AudioSource hitSound;
+
     public float maxHealth = 50f;
     public float health = 50f;
 
@@ -73,6 +75,7 @@ public class SupportUnitScript : Unit
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         health -= amount;
     }
 

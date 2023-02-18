@@ -7,6 +7,7 @@ public class StandardUnit : Unit
 {
     [SerializeField] public Projectile Projectile;
     [SerializeField] public AudioSource swingSound;
+    [SerializeField] public AudioSource hitSound;
 
     public float ProjectileSpeed = 3f;
     float maxHealth = 50f;
@@ -74,6 +75,7 @@ public class StandardUnit : Unit
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
     }
     

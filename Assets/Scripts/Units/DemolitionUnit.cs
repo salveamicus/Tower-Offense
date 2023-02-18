@@ -6,6 +6,7 @@ public class DemolitionUnit : Unit
 {
     [SerializeField] public Projectile projectile;
     [SerializeField] public AudioSource launchSound;
+    [SerializeField] public AudioSource hitSound;
 
     public float projectileSpeed = 1f;
 
@@ -70,6 +71,7 @@ public class DemolitionUnit : Unit
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         health -= amount;
     }
 

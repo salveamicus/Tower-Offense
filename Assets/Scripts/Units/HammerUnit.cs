@@ -6,6 +6,7 @@ public class HammerUnit : Unit
 {
     [SerializeField] public Projectile projectile;
     [SerializeField] public AudioSource launchSound;
+    [SerializeField] public AudioSource hitSound;
 
     public float ProjectileSpeed = 1f;
     public float maxHealth = 80f;
@@ -58,6 +59,7 @@ public class HammerUnit : Unit
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         health -= amount;
     }
     

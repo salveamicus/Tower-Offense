@@ -7,6 +7,7 @@ public class SniperUnit : Unit
 {
     [SerializeField] public Projectile Projectile;
     [SerializeField] public AudioSource launchSound;
+    [SerializeField] public AudioSource hitSound;
 
     public float projectileSpeed = 5f;
 
@@ -71,6 +72,7 @@ public class SniperUnit : Unit
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         health -= amount;
     }
 
