@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionRadius: 1.5
   ExplosionDamage: 50
-  LifeTimeSeconds: 1
+  LifeTimeSeconds: 1.5
 --- !u!95 &-8129205109082336066
 Animator:
   serializedVersion: 5
