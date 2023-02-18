@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HammerUnit : Unit
 {
-    public Projectile projectile;
+    [SerializeField] public Projectile projectile;
+    [SerializeField] public AudioSource launchSound;
 
     public float ProjectileSpeed = 1f;
     public float maxHealth = 80f;
@@ -48,6 +49,8 @@ public class HammerUnit : Unit
 
     public override void Shoot(Vector3 direction)
     {
+        launchSound.Play();
+
         Projectile p = Instantiate(projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * ProjectileSpeed * SpeedMultiplier;
         p.OwnerTag = tag;
