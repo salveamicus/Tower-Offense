@@ -16,8 +16,6 @@ public class LevelGenerator : MonoBehaviour
     public AttractorTower attractorTower;
     public LightningTower lightningTower;
 
-    public GameObject levelNumber;
-
     // Generation Paramters
     public float smallestRing = 2.5f;
     public float innerRingCapacity = 8f;
