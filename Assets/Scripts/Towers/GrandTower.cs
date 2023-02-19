@@ -22,6 +22,9 @@ public class GrandTower : Tower
     public float attractionStrength = 2f;
     public float attractionDamage = 15f;
 
+    //animator
+    public Animator animator;
+
     public override float ShootCooldownSeconds => 2f;
     public override float ShootRadius => 10f;
     public override int CreditReward => 50;
@@ -38,6 +41,35 @@ public class GrandTower : Tower
     // Update is called once per frame
     void Update()
     {
+        //Animation switch
+        switch (gameStatistics.levelNumber )
+        {
+            case LevelGenerator.supportTowerThreshold:
+                animator.SetInteger("CurrentState", 1);
+                break;
+
+            case LevelGenerator.fireTowerThreshold:
+                animator.SetInteger("CurrentState", 2);
+                break;
+
+            case LevelGenerator.poisonTowerThreshold:
+                animator.SetInteger("CurrentState", 3);
+                break;
+
+            case LevelGenerator.temporalTowerThreshold:
+                animator.SetInteger("CurrentState", 4);
+                break;
+
+            case LevelGenerator.attractorTowerThreshold:
+                animator.SetInteger("CurrentState", 5);
+                break;
+
+            case LevelGenerator.lightningTowerThreshold:
+                animator.SetInteger("CurrentState", 6);
+                break;
+        }
+
+
         // No need to check if health is less than 0 because the level generator 
         // will automatically check for this
     
