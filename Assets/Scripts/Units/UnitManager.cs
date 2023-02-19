@@ -56,22 +56,25 @@ public class UnitManager : MonoBehaviour
     }
     private void _SelectUnitsInDraggingBox()
     {
-        Bounds selectionBounds = Utils.GetViewportBounds(
-            Camera.main,
-            _dragStartPosition,
-            Input.mousePosition
-        );
-        GameObject[] selectableUnits = GameObject.FindGameObjectsWithTag("Unit");
-        bool inBounds;
-        foreach (GameObject unit in selectableUnits)
+        if (!gameStatistics.purchasingUnit)
         {
-            inBounds = selectionBounds.Contains(
-                Camera.main.WorldToViewportPoint(unit.transform.position)
+            Bounds selectionBounds = Utils.GetViewportBounds(
+                Camera.main,
+                _dragStartPosition,
+                Input.mousePosition
             );
-            if (inBounds)
-                unit.GetComponent<UnitManager>().Select();
-            else
-                unit.GetComponent<UnitManager>().Deselect();
+            GameObject[] selectableUnits = GameObject.FindGameObjectsWithTag("Unit");
+            bool inBounds;
+            foreach (GameObject unit in selectableUnits)
+            {
+                inBounds = selectionBounds.Contains(
+                    Camera.main.WorldToViewportPoint(unit.transform.position)
+                );
+                if (inBounds)
+                    unit.GetComponent<UnitManager>().Select();
+                else
+                    unit.GetComponent<UnitManager>().Deselect();
+            }
         }
     }
 
@@ -86,9 +89,12 @@ public class UnitManager : MonoBehaviour
     }
     private void _SelectUtil()
     {
-        if (Globals.SELECTED_UNITS.Contains(this)) return;
-        Globals.SELECTED_UNITS.Add(this);
-        this.gameObject.GetComponent<Unit>().isSelected = true;
+        if (!gameStatistics.purchasingUnit)
+        {
+            if (Globals.SELECTED_UNITS.Contains(this)) return;
+            Globals.SELECTED_UNITS.Add(this);
+            this.gameObject.GetComponent<Unit>().isSelected = true;
+        }
     }
     protected virtual bool IsActive()
     {
