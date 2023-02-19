@@ -24,7 +24,7 @@ public class GrandTower : Tower
 
     public override float ShootCooldownSeconds => 2f;
     public override float ShootRadius => 10f;
-    public override int CreditReward => 100;
+    public override int CreditReward => 50;
 
     private float coolDownMultiplier = 1f;
     public override float AcceleratedCooldown => coolDownMultiplier * (ShootCooldownSeconds / (accelerators + 1));
