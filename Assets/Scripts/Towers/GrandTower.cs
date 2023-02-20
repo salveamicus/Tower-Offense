@@ -92,9 +92,6 @@ public class GrandTower : Tower
 
         healthMeter.SetValue(Health / MaxHealth);
         healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
-
-        if (gameStatistics.isTutorial && Health <= 0)
-            Destroy(this.gameObject);
     }
 
     void ShootProjectile(Projectile projectile, Vector3 direction)

@@ -106,7 +106,8 @@ public class TutorialManager : MonoBehaviour
             }
         }        
         else if (completedState == 7) {
-            if (tower.GetComponent<GrandTower>().Health < 0) {
+            if (tower.GetComponent<GrandTower>().Health <= 0) {
+                Destroy(tower.gameObject);
                 currentState = 9;
                 completedState = 9;
                 foreach (GameObject panel in panels) {
