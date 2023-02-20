@@ -24,4 +24,7 @@ public class gameStatistics : MonoBehaviour
     // towers
     public static float placementRadius = 5f;
 
+    // tutorial
+    public static bool isTutorial = false;
+
 }
