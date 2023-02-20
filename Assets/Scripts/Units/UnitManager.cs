@@ -1,12 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class UnitManager : MonoBehaviour
 {
-    public GameObject selectionCircle;
     private bool _isDraggingMouseBox = false;
     private Vector3 _dragStartPosition;
     Ray _ray;
@@ -33,10 +29,9 @@ public class UnitManager : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            if(this.gameObject.GetComponent<StandardUnit>().isSelected == true)
+            if(this.gameObject.GetComponent<Unit>().isSelected == true)
             {
-                this.gameObject.GetComponent<StandardUnit>().moveGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                this.gameObject.GetComponent<StandardUnit>().hasDirection = false;
+                this.gameObject.GetComponent<Unit>().moveGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
         }
 
@@ -61,22 +56,25 @@ public class UnitManager : MonoBehaviour
     }
     private void _SelectUnitsInDraggingBox()
     {
-        Bounds selectionBounds = Utils.GetViewportBounds(
-            Camera.main,
-            _dragStartPosition,
-            Input.mousePosition
-        );
-        GameObject[] selectableUnits = GameObject.FindGameObjectsWithTag("Unit");
-        bool inBounds;
-        foreach (GameObject unit in selectableUnits)
+        if (!gameStatistics.purchasingUnit)
         {
-            inBounds = selectionBounds.Contains(
-                Camera.main.WorldToViewportPoint(unit.transform.position)
+            Bounds selectionBounds = Utils.GetViewportBounds(
+                Camera.main,
+                _dragStartPosition,
+                Input.mousePosition
             );
-            if (inBounds)
-                unit.GetComponent<UnitManager>().Select();
-            else
-                unit.GetComponent<UnitManager>().Deselect();
+            GameObject[] selectableUnits = GameObject.FindGameObjectsWithTag("Unit");
+            bool inBounds;
+            foreach (GameObject unit in selectableUnits)
+            {
+                inBounds = selectionBounds.Contains(
+                    Camera.main.WorldToViewportPoint(unit.transform.position)
+                );
+                if (inBounds)
+                    unit.GetComponent<UnitManager>().Select();
+                else
+                    unit.GetComponent<UnitManager>().Deselect();
+            }
         }
     }
 
@@ -91,10 +89,12 @@ public class UnitManager : MonoBehaviour
     }
     private void _SelectUtil()
     {
-        if (Globals.SELECTED_UNITS.Contains(this)) return;
-        Globals.SELECTED_UNITS.Add(this);
-        selectionCircle.SetActive(true);
-        this.gameObject.GetComponent<StandardUnit>().isSelected = true;
+        if (!gameStatistics.purchasingUnit)
+        {
+            if (Globals.SELECTED_UNITS.Contains(this)) return;
+            Globals.SELECTED_UNITS.Add(this);
+            this.gameObject.GetComponent<Unit>().isSelected = true;
+        }
     }
     protected virtual bool IsActive()
     {
@@ -131,8 +131,7 @@ public class UnitManager : MonoBehaviour
     {
         if (!Globals.SELECTED_UNITS.Contains(this)) return;
         Globals.SELECTED_UNITS.Remove(this);
-        selectionCircle.SetActive(false);
-        this.gameObject.GetComponent<StandardUnit>().isSelected = false;
+        this.gameObject.GetComponent<Unit>().isSelected = false;
     }
 
     private void _DeselectAllUnits()
