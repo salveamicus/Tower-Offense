@@ -521,6 +521,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 99825979, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 99825979, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 280.05
       objectReference: {fileID: 0}
@@ -528,6 +532,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -191.16
       objectReference: {fileID: 0}
+    - target: {fileID: 99825981, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 99825981, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a90b71b2a3ca784884780cc8c081c69, type: 3}
     - target: {fileID: 101365038, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -594,11 +606,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 666519422, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -36
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 666519423, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'Welcome To Medieval Militant!
+
+
+        Mysterious towers have risen
+        out of the ground all over the land, terrorizing the local villages. It is
+        your job as the king to guide your militant to victory and reign supreme
+        over the these vengeful structures.
+
+
+        Press the left and right arrow
+        buttons below to navigate this tutorial.'
       objectReference: {fileID: 0}
     - target: {fileID: 666519423, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSize
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 666519423, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_margin.z
@@ -606,7 +632,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 666519423, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSizeBase
-      value: 15
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 666519423, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 713139064, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -269.9829
+      objectReference: {fileID: 0}
+    - target: {fileID: 713139064, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6.991455
       objectReference: {fileID: 0}
     - target: {fileID: 713139065, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSize
@@ -624,17 +662,21 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 713139065, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 952730997, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 229
       objectReference: {fileID: 0}
     - target: {fileID: 952730997, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -107
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 952730998, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSize
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 952730998, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_margin.z
@@ -642,7 +684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 952730998, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSizeBase
-      value: 15
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 952730998, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1172083015, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -650,7 +696,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1172083015, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -78.5
+      value: -42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172083016, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'Congratulations! You''ve destroyed your first grand tower!
+
+
+        P.S.
+        All troops alive at the end of each level will be refunded in full at the
+        start of the next, so don''t hold back!
+
+
+        Press the right arrow button
+        below to start the game.'
       objectReference: {fileID: 0}
     - target: {fileID: 1172083016, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSize
@@ -667,6 +726,10 @@ PrefabInstance:
     - target: {fileID: 1172083016, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSizeBase
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172083016, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1242810190, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
@@ -728,6 +791,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -12.286713
       objectReference: {fileID: 0}
+    - target: {fileID: 1767205498, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1798960262, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -765,6 +832,10 @@ PrefabInstance:
       value: -34.8
       objectReference: {fileID: 0}
     - target: {fileID: 1831755618, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'Left click the knight button in the Shop:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831755618, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSize
       value: 15
       objectReference: {fileID: 0}
@@ -785,16 +856,31 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1937677118, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937677118, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 233
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 1937677118, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -94
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937677119, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'Grand towers leech off the powers of other towers surrounding them,
+        and will grow stronger as the levels progress! (our scouts informed us that
+        the symbols on each of these towers correlate to what their ability is...)
+
+
+        It
+        seems this grand tower is all by itself, so let''s practice some general
+        combat.'
       objectReference: {fileID: 0}
     - target: {fileID: 1937677119, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSize
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1937677119, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_margin.z
@@ -802,7 +888,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1937677119, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSizeBase
-      value: 15
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937677119, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991685728, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991685729, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106748242, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2106748242, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -811,6 +913,24 @@ PrefabInstance:
     - target: {fileID: 2106748242, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -194.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106748244, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106748244, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d04ab0b51e0088f4f882c77fec8e2a66, type: 3}
+    - target: {fileID: 510928496834206352, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'The red area shows the range of all towers. You cannot place units
+        there. With the knight button selected, left click somewhere outside the
+        range of the tower.
+
+
+        Tip: use the mouse or arrow keys to pan and
+        use the scroll wheel to zoom'
       objectReference: {fileID: 0}
     - target: {fileID: 510928496834206352, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSize
@@ -823,6 +943,10 @@ PrefabInstance:
     - target: {fileID: 510928496834206352, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSizeBase
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 510928496834206352, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1479606982577675203, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_SizeDelta.x
@@ -840,9 +964,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -7.8999
       objectReference: {fileID: 0}
+    - target: {fileID: 2003026975429228460, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2431157482190643000, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580795929948596257, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: 'Right click on the map to move the selected units towards the grand
+        tower and use your knowledge to destroy it!
+
+
+        Tip: hold down left
+        click to spawn units continuously'
       objectReference: {fileID: 0}
     - target: {fileID: 2580795929948596257, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSize
@@ -859,6 +996,10 @@ PrefabInstance:
     - target: {fileID: 2580795929948596257, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSizeBase
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580795929948596257, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2784006312983556646, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_Name
@@ -948,6 +1089,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4245277277539783163, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4327805370163975308, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSize
       value: 15
@@ -959,6 +1104,14 @@ PrefabInstance:
     - target: {fileID: 4327805370163975308, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSizeBase
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327805370163975308, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974879834954960001, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5565943971974823550, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_SizeDelta.x
@@ -973,8 +1126,12 @@ PrefabInstance:
       value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 5594216468108836135, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -290.726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594216468108836135, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 28
+      value: 20.363007
       objectReference: {fileID: 0}
     - target: {fileID: 5594216468108836135, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -998,7 +1155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7004635099309970024, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -595.2691
+      value: -562.26917
       objectReference: {fileID: 0}
     - target: {fileID: 7004635099309970024, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1006,7 +1163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7004635099309970024, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -35.3654
+      value: -18.865417
       objectReference: {fileID: 0}
     - target: {fileID: 7004635099309970024, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1025,12 +1182,22 @@ PrefabInstance:
       value: -146.96002
       objectReference: {fileID: 0}
     - target: {fileID: 7745515410621343875, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -319.32178
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745515410621343875, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 24
+      value: 19.660889
       objectReference: {fileID: 0}
     - target: {fileID: 7745515410621343875, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047943615711745361, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_text
+      value: "The white circles indicate that the unit is selected. You can select
+        units only when no button in the store is selected. \n\n(Press the right
+        arrow below to continue)"
       objectReference: {fileID: 0}
     - target: {fileID: 8047943615711745361, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_fontSize
@@ -1048,11 +1215,27 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 8047943615711745361, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8253760256496706715, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8454115485016718141, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -65
+      objectReference: {fileID: 0}
     - target: {fileID: 8763196104842554875, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010089532127816478, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067721446917451343, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

@@ -14,7 +14,7 @@ public class storePanel : MonoBehaviour
     Plane plane = new Plane(new Vector3(0,0,1), 0); // the xy plane
     int startMouseDown = 0;
     int framesUntilSpawn = 0;
-    int storePanelEdge = 1920 - 195; // resolution width - store panel width
+    int storePanelEdge = 1120 - 195; // resolution width - store panel width
     static int continuousSpawnStartDelay = gameStatistics.continuousSpawnStartDelay;
     static int continuousSpawnDelay = gameStatistics.continuousSpawnDelay;
     public bool inTutorial;
