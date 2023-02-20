@@ -5,42 +5,34 @@ using UnityEngine;
 
 public class StandardUnit : Unit
 {
-    public Projectile Projectile;
-    public Vector3 moveDirection = Vector3.zero;
-    public Vector3 moveGoal;
-    private Vector3 toNormalize;
-    private Vector3 zAdjustedGoal;
-    public bool hasDirection = false;
-    public float speed = 0.05f;
+    [SerializeField] public Projectile Projectile;
+    [SerializeField] public AudioSource swingSound;
+    [SerializeField] public AudioSource hitSound;
+
     public float ProjectileSpeed = 3f;
     float maxHealth = 50f;
     public float Health = 50f;
-    public bool isSelected = false;
+    public float speed = 1.5f;
 
-    public float shootRadius = 2f;
     public float shootCooldownSeconds = 2f;
-
-    public GameObject healthBar;
 
     //For animation
     public Animator animator;
 
     private void Start()
     {
+        actionRadius = 2f;
         spriteRenderer = GetComponent<SpriteRenderer>();
         moveGoal = transform.position;
-        hasDirection = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        selectionCircle.SetActive(isSelected);
 
-        // For movement
-        zAdjustedGoal = Vector3.zero;
-        zAdjustedGoal.x = moveGoal.x;
-        zAdjustedGoal.y = moveGoal.y;
-        zAdjustedGoal.z = transform.position.z;
+        zAdjust();
+        autoMoveGoalAndRotate();
 
         //For calculating if movement spritesheet should animate
         animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
@@ -48,18 +40,12 @@ public class StandardUnit : Unit
         //Reset attack sprite animation boolean
         animator.SetBool("IsAttacking", false);
 
-        if (Vector3.Distance(transform.position, zAdjustedGoal) < 0.2)
-        {
-            zAdjustedGoal = transform.position;
-        }
-
-        toNormalize = Vector3.zero;
-        toNormalize = zAdjustedGoal - transform.position;
-
-        moveDirection = Vector3.Normalize(toNormalize);
-        transform.position += speed * Time.deltaTime * moveDirection; //deltatime used to anchor movement to time elapsed rather than frame count
+        movement(moveGoal, speed);
 
         //Debug.Log("Health: " + Health + ", Position: " + transform.position); //use this is you need to debug movement or health 
+
+        UpdateFireTime();
+        UpdatePoisonTime();
 
         if (Health <= 0)
         {
@@ -67,26 +53,13 @@ public class StandardUnit : Unit
             Destroy(this.gameObject);
         }
 
-        UpdateRangeRadius(shootRadius);
+        UpdateDecceleratorCount();
+        UpdateRangeRadius(actionRadius);
         ShowRangeIfMouseHover();
-        ShootIfPossible(shootRadius, shootCooldownSeconds);
+        ShootIfPossible(actionRadius, shootCooldownSeconds);
 
-        // Turn towards closest tower
-        Tuple<float, Vector3> target = GetClosestTarget();
-        Vector3 directionVector = target.Item2 - transform.position;
-
-        float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
-        transform.eulerAngles = Vector3.forward * degrees;
-
-        // Move towards closet tower if not able to shoot anythnig
-        // and not already moving
-        if (target.Item1 > shootRadius && transform.position == zAdjustedGoal && target.Item1 != Mathf.Infinity)
-        {
-            moveGoal = target.Item2 - directionVector.normalized * shootRadius / 2;
-        }
-
-        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1)/2*0.6f, 0.4f, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / maxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)
@@ -94,14 +67,21 @@ public class StandardUnit : Unit
         //Play attack sprite animation
         animator.SetBool("IsAttacking", true);
 
+        swingSound.Play();
+
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
-        p.Velocity = direction.normalized * ProjectileSpeed;
+        p.Velocity = direction.normalized * ProjectileSpeed * SpeedMultiplier;
         p.OwnerTag = tag;
     }
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
-        transform.GetChild(1).GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
+    }
+    
+    public override void Heal(float amount)
+    {
+        Health = MathF.Min(Health + amount, maxHealth);
     }
 }
