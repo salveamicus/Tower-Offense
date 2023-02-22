@@ -18,7 +18,7 @@ public class PoisonTower : Tower
 
     public override float ShootCooldownSeconds => 5f;
     public override float ShootRadius => 3f;
-    public override int CreditReward => 30;
+    public override int CreditReward => 60;
 
     // Start is called before the first frame update
     void Start()

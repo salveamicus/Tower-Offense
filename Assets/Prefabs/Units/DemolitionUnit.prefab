@@ -337,8 +337,8 @@ MonoBehaviour:
   launchSound: {fileID: 970689479162007944}
   hitSound: {fileID: 7120616540718347892}
   projectileSpeed: 3
-  maxHealth: 80
-  health: 80
+  maxHealth: 120
+  health: 120
   speed: 1.2
   shootCooldownSeconds: 5
   animator: {fileID: 9010689092209626495}

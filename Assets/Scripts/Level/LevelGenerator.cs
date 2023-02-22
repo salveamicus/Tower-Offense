@@ -25,14 +25,14 @@ public class LevelGenerator : MonoBehaviour
     public int additionalTowersPerLevel = 1;
 
     // The level number for each tower to start spawning
-    public const int sniperTowerThreshold = 5;
-    public const int supportTowerThreshold = 10;
-    public const int accelerationTowerThreshold = 15;
-    public const int fireTowerThreshold = 20;
-    public const int poisonTowerThreshold = 25;
-    public const int temporalTowerThreshold = 30;
-    public const int attractorTowerThreshold = 35;
-    public const int lightningTowerThreshold = 40;
+    public const int sniperTowerThreshold = 9;
+    public const int supportTowerThreshold = 15;
+    public const int accelerationTowerThreshold = 21;
+    public const int fireTowerThreshold = 27;
+    public const int poisonTowerThreshold = 33;
+    public const int temporalTowerThreshold = 39;
+    public const int attractorTowerThreshold = 45;
+    public const int lightningTowerThreshold = 51;
 
     // The Grand Tower of the current level
     private GrandTower currentGrandTower = null;

@@ -27,7 +27,7 @@ public class GrandTower : Tower
 
     public override float ShootCooldownSeconds => 2f;
     public override float ShootRadius => 10f;
-    public override int CreditReward => 50;
+    public override int CreditReward => 100;
 
     private float coolDownMultiplier = 1f;
     public override float AcceleratedCooldown => coolDownMultiplier * (ShootCooldownSeconds / (accelerators + 1));
@@ -44,27 +44,27 @@ public class GrandTower : Tower
         //Animation switch
         switch (gameStatistics.levelNumber )
         {
-            case LevelGenerator.supportTowerThreshold:
+            case LevelGenerator.supportTowerThreshold/3:
                 animator.SetInteger("CurrentState", 1);
                 break;
 
-            case LevelGenerator.fireTowerThreshold:
+            case LevelGenerator.fireTowerThreshold/3:
                 animator.SetInteger("CurrentState", 2);
                 break;
 
-            case LevelGenerator.poisonTowerThreshold:
+            case LevelGenerator.poisonTowerThreshold/3:
                 animator.SetInteger("CurrentState", 3);
                 break;
 
-            case LevelGenerator.temporalTowerThreshold:
+            case LevelGenerator.temporalTowerThreshold/3:
                 animator.SetInteger("CurrentState", 4);
                 break;
 
-            case LevelGenerator.attractorTowerThreshold:
+            case LevelGenerator.attractorTowerThreshold/3:
                 animator.SetInteger("CurrentState", 5);
                 break;
 
-            case LevelGenerator.lightningTowerThreshold:
+            case LevelGenerator.lightningTowerThreshold/3:
                 animator.SetInteger("CurrentState", 6);
                 break;
         }
@@ -79,12 +79,12 @@ public class GrandTower : Tower
         ShootIfPossible();
 
         // Support + Attract Ability
-        if (gameStatistics.levelNumber >= LevelGenerator.supportTowerThreshold)
+        if (gameStatistics.levelNumber >= LevelGenerator.supportTowerThreshold/3)
         {
             SupportNearbyTowers();
         }
 
-        if (gameStatistics.levelNumber >= LevelGenerator.attractorTowerThreshold)
+        if (gameStatistics.levelNumber >= LevelGenerator.attractorTowerThreshold/3)
         {
             AttractNearbyUnits();
         }
@@ -179,23 +179,23 @@ public class GrandTower : Tower
         coolDownMultiplier = 1f;
 
         // Support Ability
-        if (gameStatistics.levelNumber >= LevelGenerator.supportTowerThreshold)
+        if (gameStatistics.levelNumber >= LevelGenerator.supportTowerThreshold/3)
         {
             SupportNearbyTowers();
         }
         
         // Projectiles
-        if (gameStatistics.levelNumber >= LevelGenerator.lightningTowerThreshold)
+        if (gameStatistics.levelNumber >= LevelGenerator.lightningTowerThreshold/3)
         {
             coolDownMultiplier = 3f;
             ShootLightningProjectile(direction);
         }
-        else if (gameStatistics.levelNumber >= LevelGenerator.poisonTowerThreshold)
+        else if (gameStatistics.levelNumber >= LevelGenerator.poisonTowerThreshold/3)
         {
             ShootPoisonProjectile(direction);
             coolDownMultiplier = 3f;
         }
-        else if (gameStatistics.levelNumber >= LevelGenerator.fireTowerThreshold)
+        else if (gameStatistics.levelNumber >= LevelGenerator.fireTowerThreshold/3)
         {
             ShootFireProjectile(direction);
         }

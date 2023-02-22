@@ -11,7 +11,7 @@ public class AccelerationTower : Tower
 
     public override float ShootCooldownSeconds => 1f; // Never used
     public override float ShootRadius => 3f;
-    public override int CreditReward => 10;
+    public override int CreditReward => 40;
 
     // Start is called before the first frame update
     void Start()

@@ -13,7 +13,7 @@ public class LightningTower : Tower
 
     public override float ShootCooldownSeconds => 2f;
     public override float ShootRadius => 8f;
-    public override int CreditReward => 50;
+    public override int CreditReward => 90;
 
     public float MinShootRadius => ShootRadius * 2 / 3;
 

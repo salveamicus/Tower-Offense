@@ -12,7 +12,7 @@ public class SupportTower : Tower
 
     public override float ShootCooldownSeconds => 1f;
     public override float ShootRadius => 3f;
-    public override int CreditReward => 10;
+    public override int CreditReward => 30;
 
     // Start is called before the first frame update
     void Start()

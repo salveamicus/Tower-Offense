@@ -303,8 +303,8 @@ MonoBehaviour:
   maxHealth: 50
   health: 50
   speed: 1.5
-  healAmount: 10
-  healCooldownSeconds: 1
+  healAmount: 8
+  healCooldownSeconds: 2
   animator: {fileID: 4688930413444239607}
 --- !u!50 &3387478054282585181
 Rigidbody2D:
