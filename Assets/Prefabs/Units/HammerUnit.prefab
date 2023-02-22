@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 692146906692766043}
   - component: {fileID: -7894242862583827216}
   - component: {fileID: 5585969306600783167}
+  - component: {fileID: 7104472109185544190}
   m_Layer: 0
   m_Name: HammerUnit
   m_TagString: Unit
@@ -169,9 +170,10 @@ MonoBehaviour:
   launchSound: {fileID: -7894242862583827216}
   hitSound: {fileID: 5585969306600783167}
   ProjectileSpeed: 3
-  maxHealth: 80
-  health: 80
+  maxHealth: 500
+  health: 500
   shootCooldownSeconds: 4
+  animator: {fileID: 7104472109185544190}
 --- !u!82 &-7894242862583827216
 AudioSource:
   m_ObjectHideFlags: 0
@@ -364,6 +366,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7104472109185544190
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736341053964125350}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 464ac7955342ad94ca9d7c26e38fc80c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &7408591358065363103
 GameObject:
   m_ObjectHideFlags: 0

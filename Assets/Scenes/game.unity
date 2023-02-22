@@ -287,7 +287,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 468294789540180627, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: units.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 468294789540180627, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: units.Array.data[3]
@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: units.Array.data[5]
       value: 
       objectReference: {fileID: 858749182481996037, guid: 6fbd54bb62a7b3fa386afda426b3552c, type: 3}
+    - target: {fileID: 468294789540180627, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: units.Array.data[6]
+      value: 
+      objectReference: {fileID: 1736341053964125350, guid: c802419af729c47f6848e49650b3ad31, type: 3}
     - target: {fileID: 773187137449657574, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: m_Type
       value: 0
@@ -353,6 +357,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -33
       objectReference: {fileID: 0}
+    - target: {fileID: 1136680203537207300, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 103.4705
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136680203537207300, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 55.7522
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136680203537207300, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -59.675
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136680203537207300, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -33.169388
+      objectReference: {fileID: 0}
     - target: {fileID: 1576573884638250793, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: m_text
       value: Bowman Ranged
@@ -368,6 +388,14 @@ PrefabInstance:
     - target: {fileID: 1818408135434609615, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -19.8789
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215865625601879259, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_text
+      value: Heavy MelEE
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215865625601879259, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3259563650168350183, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: m_text
