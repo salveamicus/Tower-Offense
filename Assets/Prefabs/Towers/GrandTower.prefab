@@ -201,7 +201,7 @@ MonoBehaviour:
   ProjectileSpeed: 8
   MaxHealth: 100
   Health: 100
-  healAmount: 0.1
+  healAmount: 0.025
   hurtRadius: 2
   attractionStrength: 2
   attractionDamage: 30
