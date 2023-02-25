@@ -179,23 +179,23 @@ public class GrandTower : Tower
         coolDownMultiplier = 1f;
 
         // Support Ability
-        if (gameStatistics.levelNumber >= LevelGenerator.supportTowerThreshold/3)
+        if (gameStatistics.levelNumber >= LevelGenerator.supportTowerThreshold)
         {
             SupportNearbyTowers();
         }
         
         // Projectiles
-        if (gameStatistics.levelNumber >= LevelGenerator.lightningTowerThreshold/3)
+        if (gameStatistics.levelNumber >= LevelGenerator.lightningTowerThreshold)
         {
             coolDownMultiplier = 3f;
             ShootLightningProjectile(direction);
         }
-        else if (gameStatistics.levelNumber >= LevelGenerator.poisonTowerThreshold/3)
+        else if (gameStatistics.levelNumber >= LevelGenerator.poisonTowerThreshold)
         {
             ShootPoisonProjectile(direction);
             coolDownMultiplier = 3f;
         }
-        else if (gameStatistics.levelNumber >= LevelGenerator.fireTowerThreshold/3)
+        else if (gameStatistics.levelNumber >= LevelGenerator.fireTowerThreshold)
         {
             ShootFireProjectile(direction);
         }
