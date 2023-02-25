@@ -44,27 +44,27 @@ public class GrandTower : Tower
         //Animation switch
         switch (gameStatistics.levelNumber )
         {
-            case LevelGenerator.supportTowerThreshold/3:
+            case LevelGenerator.supportTowerThreshold:
                 animator.SetInteger("CurrentState", 1);
                 break;
 
-            case LevelGenerator.fireTowerThreshold/3:
+            case LevelGenerator.fireTowerThreshold:
                 animator.SetInteger("CurrentState", 2);
                 break;
 
-            case LevelGenerator.poisonTowerThreshold/3:
+            case LevelGenerator.poisonTowerThreshold:
                 animator.SetInteger("CurrentState", 3);
                 break;
 
-            case LevelGenerator.temporalTowerThreshold/3:
+            case LevelGenerator.temporalTowerThreshold:
                 animator.SetInteger("CurrentState", 4);
                 break;
 
-            case LevelGenerator.attractorTowerThreshold/3:
+            case LevelGenerator.attractorTowerThreshold:
                 animator.SetInteger("CurrentState", 5);
                 break;
 
-            case LevelGenerator.lightningTowerThreshold/3:
+            case LevelGenerator.lightningTowerThreshold:
                 animator.SetInteger("CurrentState", 6);
                 break;
         }
