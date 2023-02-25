@@ -40,7 +40,7 @@ public class UnitManager : MonoBehaviour
             if (this.gameObject.GetComponent<Unit>().isSelected)
             {
                 this.gameObject.GetComponent<Unit>().moveGoal = this.gameObject.transform.position;
-                
+            }
         }
 
         if (Globals.SELECTED_UNITS.Count > 0)
