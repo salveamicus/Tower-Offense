@@ -1800,7 +1800,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9099866111141627414, guid: b26346b40bb736c4f94029c8cb060e85, type: 3}
       propertyPath: additionalTowersPerLevel
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9099866111141627415, guid: b26346b40bb736c4f94029c8cb060e85, type: 3}
       propertyPath: m_RootOrder
@@ -2274,6 +2274,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Demo Blast
       objectReference: {fileID: 0}
+    - target: {fileID: 3783719348484630492, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783719348484630492, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 896af52b94c2d1344920d5347f251095, type: 3}
     - target: {fileID: 3928930772943846390, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 102.0482

@@ -36,55 +36,62 @@ public class GrandTower : Tower
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        //Animation switch
+        if (gameStatistics.levelNumber >= LevelGenerator.sniperTowerThreshold)
+        {
+            animator.SetInteger("CurrentState", 1);
+        }
+        if (gameStatistics.levelNumber >= LevelGenerator.supportTowerThreshold)
+        {
+            animator.SetInteger("CurrentState", 2);
+        }
+        if (gameStatistics.levelNumber >= LevelGenerator.accelerationTowerThreshold)
+        {
+            animator.SetInteger("CurrentState", 3);
+        }
+        if (gameStatistics.levelNumber >= LevelGenerator.fireTowerThreshold)
+        {
+            animator.SetInteger("CurrentState", 4);
+        }
+        if (gameStatistics.levelNumber >= LevelGenerator.poisonTowerThreshold)
+        {
+            animator.SetInteger("CurrentState", 5);
+        }
+        if (gameStatistics.levelNumber >= LevelGenerator.temporalTowerThreshold)
+        {
+            animator.SetInteger("CurrentState", 6);
+        }
+        if (gameStatistics.levelNumber >= LevelGenerator.attractorTowerThreshold)
+        {
+            animator.SetInteger("CurrentState", 7);
+        }
+        if (gameStatistics.levelNumber >= LevelGenerator.lightningTowerThreshold)
+        {
+            animator.SetInteger("CurrentState", 8);
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Animation switch
-        switch (gameStatistics.levelNumber )
-        {
-            case LevelGenerator.supportTowerThreshold:
-                animator.SetInteger("CurrentState", 1);
-                break;
-
-            case LevelGenerator.fireTowerThreshold:
-                animator.SetInteger("CurrentState", 2);
-                break;
-
-            case LevelGenerator.poisonTowerThreshold:
-                animator.SetInteger("CurrentState", 3);
-                break;
-
-            case LevelGenerator.temporalTowerThreshold:
-                animator.SetInteger("CurrentState", 4);
-                break;
-
-            case LevelGenerator.attractorTowerThreshold:
-                animator.SetInteger("CurrentState", 5);
-                break;
-
-            case LevelGenerator.lightningTowerThreshold:
-                animator.SetInteger("CurrentState", 6);
-                break;
-        }
-
-
+      
         // No need to check if health is less than 0 because the level generator 
         // will automatically check for this
-    
+
         UpdateAcceleratorCount();
         UpdateRangeRadius();
         ShowRangeIfMouseHover();
         ShootIfPossible();
 
         // Support + Attract Ability
-        if (gameStatistics.levelNumber >= LevelGenerator.supportTowerThreshold/3)
+        if (gameStatistics.levelNumber >= LevelGenerator.supportTowerThreshold)
         {
             SupportNearbyTowers();
         }
 
-        if (gameStatistics.levelNumber >= LevelGenerator.attractorTowerThreshold/3)
+        if (gameStatistics.levelNumber >= LevelGenerator.attractorTowerThreshold)
         {
             AttractNearbyUnits();
         }
