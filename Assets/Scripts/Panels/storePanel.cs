@@ -10,6 +10,7 @@ public class storePanel : MonoBehaviour
     // public GameObject gameStatistics;
     public int selectedButton = -1;
     public GameObject[] units;
+    public GameObject[] buttons;
     int currentCredits;
     Plane plane = new Plane(new Vector3(0,0,1), 0); // the xy plane
     int startMouseDown = 0;
@@ -53,65 +54,70 @@ public class storePanel : MonoBehaviour
         RectTransform rt = gameObject.GetComponent<RectTransform>();
         Vector3[] worldCorners = new Vector3[4];
         rt.GetWorldCorners(worldCorners);
+        // worldCorners[0] is lowerleft, [1] is topleft, [2] is topright, [3] is lowerright
         storePaneltopleft = worldCorners[1];
 
         rt = helpbutton.GetComponent<RectTransform>();
         rt.GetWorldCorners(worldCorners);
         helpbuttontopright = worldCorners[2];
-        foreach (Vector3 corner in worldCorners) {
-        Debug.Log(corner);
-        }
     }
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            int temp = selectedButton;
-            selectedButton = 0;
-            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
-            selectedButton = temp;
+            buttons[0].GetComponent<Button>().onClick.Invoke();
+            // int temp = selectedButton;
+            // selectedButton = 0;
+            // if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            // selectedButton = temp;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            int temp = selectedButton;
-            selectedButton = 1;
-            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
-            selectedButton = temp;
+            buttons[1].GetComponent<Button>().onClick.Invoke();
+            // int temp = selectedButton;
+            // selectedButton = 1;
+            // if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            // selectedButton = temp;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            int temp = selectedButton;
-            selectedButton = 2;
-            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
-            selectedButton = temp;
+            buttons[2].GetComponent<Button>().onClick.Invoke();
+            // int temp = selectedButton;
+            // selectedButton = 2;
+            // if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            // selectedButton = temp;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            int temp = selectedButton;
-            selectedButton = 3;
-            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
-            selectedButton = temp;
+            buttons[3].GetComponent<Button>().onClick.Invoke();
+            // int temp = selectedButton;
+            // selectedButton = 3;
+            // if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            // selectedButton = temp;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            int temp = selectedButton;
-            selectedButton = 4;
-            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
-            selectedButton = temp;
+            buttons[4].GetComponent<Button>().onClick.Invoke();
+            // int temp = selectedButton;
+            // selectedButton = 4;
+            // if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            // selectedButton = temp;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            int temp = selectedButton;
-            selectedButton = 5;
-            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
-            selectedButton = temp;
+            buttons[5].GetComponent<Button>().onClick.Invoke();
+            // int temp = selectedButton;
+            // selectedButton = 5;
+            // if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            // selectedButton = temp;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            int temp = selectedButton;
-            selectedButton = 6;
-            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
-            selectedButton = temp;
+            buttons[6].GetComponent<Button>().onClick.Invoke();
+            // int temp = selectedButton;
+            // selectedButton = 6;
+            // if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            // selectedButton = temp;
         }
 
         if (framesUntilSpawn > 0) {
