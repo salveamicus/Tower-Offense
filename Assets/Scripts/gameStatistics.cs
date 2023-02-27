@@ -7,8 +7,8 @@ public class gameStatistics : MonoBehaviour
 
     // UI
     public static int tutorialInitialCredits = 2000;
-    public static int currentCredits = 450;
-    public static int initialCredits = 450;
+    public static int currentCredits = 400;
+    public static int initialCredits = 400;
     public static int continuousSpawnStartDelay = 30;
     public static int continuousSpawnDelay = 10;
     public static int levelNumber = 1;
@@ -16,7 +16,7 @@ public class gameStatistics : MonoBehaviour
     public static bool regeneratingLevel = false;
 
     // units
-    public static int[] unitCosts = {75, 100, 200, 300, 275, 350, 600}; // knight, sniper, support, mage, demo, cultist, heavy in order
+    public static int[] unitCosts = {75, 100, 200, 350, 325, 450, 750}; // knight, sniper, support, mage, demo, cultist, heavy in order
 
     public static float fireDamage = 10f;
     public static float poisonDamage = 15f;
