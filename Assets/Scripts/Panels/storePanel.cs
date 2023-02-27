@@ -48,6 +48,56 @@ public class storePanel : MonoBehaviour
     }
 
     void Update() {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            int temp = selectedButton;
+            selectedButton = 0;
+            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            selectedButton = temp;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            int temp = selectedButton;
+            selectedButton = 1;
+            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            selectedButton = temp;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            int temp = selectedButton;
+            selectedButton = 2;
+            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            selectedButton = temp;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            int temp = selectedButton;
+            selectedButton = 3;
+            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            selectedButton = temp;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            int temp = selectedButton;
+            selectedButton = 4;
+            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            selectedButton = temp;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            int temp = selectedButton;
+            selectedButton = 5;
+            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            selectedButton = temp;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            int temp = selectedButton;
+            selectedButton = 6;
+            if(currentCredits >= gameStatistics.unitCosts[selectedButton]) PurchaseUnit(Input.mousePosition);
+            selectedButton = temp;
+        }
+
         if (framesUntilSpawn > 0) {
             framesUntilSpawn -= 1;
         }
