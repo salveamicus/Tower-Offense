@@ -5909,11 +5909,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1650974869570457753, guid: 5722c343266cf22c1b7462effe5e983b, type: 3}
       propertyPath: Health
-      value: 700
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1650974869570457753, guid: 5722c343266cf22c1b7462effe5e983b, type: 3}
       propertyPath: MaxHealth
-      value: 700
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 8755781905659066129, guid: 5722c343266cf22c1b7462effe5e983b, type: 3}
       propertyPath: m_Name
@@ -6578,6 +6578,14 @@ PrefabInstance:
       propertyPath: m_SpriteState.m_HighlightedSprite
       value: 
       objectReference: {fileID: 21300000, guid: de1cd3ff001c4ed42ab268d39b0dc4d4, type: 3}
+    - target: {fileID: 1800177461288779824, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926797738825409218, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1800177461288779824, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_Color.a
       value: 1

@@ -45,7 +45,7 @@ public class UnitManager : MonoBehaviour
 
         if (Globals.SELECTED_UNITS.Count > 0)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Backspace))
                 _DeselectAllUnits();
             if (Input.GetMouseButtonDown(0))
             {

@@ -30,11 +30,13 @@ public class MoveCamera : MonoBehaviour
         {
             Camera.main.orthographicSize -= scrollSpeed * Time.deltaTime;
             Camera.main.nearClipPlane -= scrollSpeed * Time.deltaTime;
+            borderRadius += scrollSpeed * Time.deltaTime;
         }
         else if ((Input.mouseScrollDelta.y < 0) && (Camera.main.orthographicSize < 10))
         {
             Camera.main.orthographicSize += scrollSpeed * Time.deltaTime;
             Camera.main.farClipPlane += scrollSpeed * Time.deltaTime;
+            borderRadius -= scrollSpeed * Time.deltaTime;
         }
 
         if ((Input.mousePosition.y >= Screen.height && Input.mousePosition.x >= Screen.width) || ((Input.GetKey("right") || Input.GetKey("d")) && (Input.GetKey("up") || Input.GetKey("w"))))

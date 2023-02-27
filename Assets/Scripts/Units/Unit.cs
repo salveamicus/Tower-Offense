@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.GraphicsBuffer;
 
 public abstract class Unit : MonoBehaviour
 {
@@ -65,7 +66,8 @@ public abstract class Unit : MonoBehaviour
 
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
         {
-            if (unit.gameObject.GetComponent<Unit>().isSelected) continue;
+            if (isSupport) //so that support units don't clump together
+                continue;
 
             // Get the closest point of the tower to the unit.
             // This allows for a more accurate targeting algorithm so that units stop moving
