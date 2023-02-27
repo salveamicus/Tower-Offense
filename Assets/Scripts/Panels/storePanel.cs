@@ -14,17 +14,22 @@ public class storePanel : MonoBehaviour
     Plane plane = new Plane(new Vector3(0,0,1), 0); // the xy plane
     int startMouseDown = 0;
     int framesUntilSpawn = 0;
-    int storePanelEdge = 1920 - 195; // resolution width - store panel width
+    private Vector3 storePaneltopleft;
+    private Vector3 helpbuttontopright;
     static int continuousSpawnStartDelay = gameStatistics.continuousSpawnStartDelay;
     static int continuousSpawnDelay = gameStatistics.continuousSpawnDelay;
+
+    public GameObject helpMenu;
+    public GameObject pauseMenu;
+    public GameObject helpbutton;
     
     void PurchaseUnit(Vector3 screenPosition) {
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-        Debug.Log(screenPosition);
+
         float distance = 1f;
         plane.Raycast(ray, out distance);
         Vector3 scenePosition = ray.GetPoint(distance);
-
+        
         if (gameStatistics.regeneratingLevel) return;
 
         foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower")) {
@@ -44,6 +49,17 @@ public class storePanel : MonoBehaviour
     void Start() {
         for (int i = 0; i < gameStatistics.unitCosts.Length; i++) {
             transform.GetChild(i).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = Convert.ToString(gameStatistics.unitCosts[i]);
+        }
+        RectTransform rt = gameObject.GetComponent<RectTransform>();
+        Vector3[] worldCorners = new Vector3[4];
+        rt.GetWorldCorners(worldCorners);
+        storePaneltopleft = worldCorners[1];
+
+        rt = helpbutton.GetComponent<RectTransform>();
+        rt.GetWorldCorners(worldCorners);
+        helpbuttontopright = worldCorners[2];
+        foreach (Vector3 corner in worldCorners) {
+        Debug.Log(corner);
         }
     }
 
@@ -104,21 +120,30 @@ public class storePanel : MonoBehaviour
         currentCredits = gameStatistics.currentCredits;
         if (Input.GetMouseButtonDown(0)) // left click 
         {
+            Debug.Log(Input.mousePosition);
             startMouseDown = Time.frameCount;
             if (selectedButton != -1 && // there is a unit selected in the store
                 currentCredits >= gameStatistics.unitCosts[selectedButton] && // have enough credits
-                Input.mousePosition.x < storePanelEdge) // mouse position is not on the store panel
+                !pauseMenu.activeSelf &&
+                !helpMenu.activeSelf && 
+                (Input.mousePosition.x < storePaneltopleft.x || Input.mousePosition.y > storePaneltopleft.y) && // mouse position is not on the store panel
+                (Input.mousePosition.x > helpbuttontopright.x || Input.mousePosition.y > helpbuttontopright.y) // mouse not on help and pause buttons
+                )
             {
                 PurchaseUnit(Input.mousePosition);
             }
         }
         else if (Input.GetMouseButton(0))
         {
-            if(Time.frameCount > startMouseDown + continuousSpawnStartDelay &&
+            if (Time.frameCount > startMouseDown + continuousSpawnStartDelay &&
                 framesUntilSpawn == 0 &&
                 selectedButton != -1 && // there is a unit selected in the store
                 currentCredits >= gameStatistics.unitCosts[selectedButton] && // have enough credits
-                Input.mousePosition.x < storePanelEdge) // mouse position is not on the store panel
+                !pauseMenu.activeSelf &&
+                !helpMenu.activeSelf && 
+                (Input.mousePosition.x < storePaneltopleft.x || Input.mousePosition.y > storePaneltopleft.y) && // mouse position is not on the store panel
+                (Input.mousePosition.x > helpbuttontopright.x || Input.mousePosition.y > helpbuttontopright.y) // mouse not on help and pause buttons
+            )
             {
                 PurchaseUnit(Input.mousePosition);
                 framesUntilSpawn = continuousSpawnDelay;
