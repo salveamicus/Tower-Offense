@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class AdamsDebugger : MonoBehaviour
 {
-    public StandardUnit standardUnit;
-    public SniperUnit sniperUnit;
-    public SupportUnitScript supportUnit;
-    public MagicUnit magicUnit;
+    [SerializeField] public StandardUnit standardUnit;
+    [SerializeField] public SniperUnit sniperUnit;
+    [SerializeField] public SupportUnitScript supportUnit;
+    [SerializeField] public MagicUnit magicUnit;
+    [SerializeField] public MagicSupportUnit magicSupportUnit;
+    [SerializeField] public DemolitionUnit demolitionUnit;
+    [SerializeField] public HammerUnit hammerUnit;
 
     public LevelGenerator levelGenerator;
 
@@ -41,6 +44,21 @@ public class AdamsDebugger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             SpawnUnit(magicUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SpawnUnit(magicSupportUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SpawnUnit(demolitionUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            SpawnUnit(hammerUnit, (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? 50 : 1);
         }
     }
 

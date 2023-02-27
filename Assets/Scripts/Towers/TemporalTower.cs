@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class TemporalTower : Tower
 {
+    [SerializeField] public AudioSource hitSound;
+
     public float MaxHealth = 150f;
     public float Health = 150f;
 
     public override float ShootCooldownSeconds => 1f; // Never used
     public override float ShootRadius => 4f;
-    public override int CreditReward => 40;
+    public override int CreditReward => 70;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +31,8 @@ public class TemporalTower : Tower
         UpdateRangeRadius();
         ShowRangeIfMouseHover();
 
-        healthBar.transform.position = transform.position + new Vector3((Health/MaxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / MaxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)
@@ -40,17 +42,12 @@ public class TemporalTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
     }
 
     public override void Heal(float amount)
     {
-        if (Health == MaxHealth) return;
-
-        Health += amount;
-        if (Health > MaxHealth) Health = MaxHealth;
-
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
+        Health = Mathf.Min(MaxHealth, Health + amount);
     }
 }

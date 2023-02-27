@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class StandardUnit : Unit
 {
-    public Projectile Projectile;
-    public float speed = 0.05f;
+    [SerializeField] public Projectile Projectile;
+    [SerializeField] public AudioSource swingSound;
+    [SerializeField] public AudioSource hitSound;
+
     public float ProjectileSpeed = 3f;
     float maxHealth = 50f;
     public float Health = 50f;
+    public float speed = 1.5f;
 
     public float shootCooldownSeconds = 2f;
 
@@ -37,7 +40,7 @@ public class StandardUnit : Unit
         //Reset attack sprite animation boolean
         animator.SetBool("IsAttacking", false);
 
-        movement(moveGoal);
+        movement(moveGoal, speed);
 
         //Debug.Log("Health: " + Health + ", Position: " + transform.position); //use this is you need to debug movement or health 
 
@@ -55,14 +58,16 @@ public class StandardUnit : Unit
         ShowRangeIfMouseHover();
         ShootIfPossible(actionRadius, shootCooldownSeconds);
 
-        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1)/2*0.6f, 0.4f, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / maxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)
     {
         //Play attack sprite animation
         animator.SetBool("IsAttacking", true);
+
+        swingSound.Play();
 
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * ProjectileSpeed * SpeedMultiplier;
@@ -71,6 +76,7 @@ public class StandardUnit : Unit
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
     }
     

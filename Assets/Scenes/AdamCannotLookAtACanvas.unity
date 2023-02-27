@@ -252,6 +252,9 @@ MonoBehaviour:
   sniperUnit: {fileID: 5699048222165537676, guid: 2a792d3e4559468e58a5aa941e75ab93, type: 3}
   supportUnit: {fileID: 8055455218355538926, guid: e9ddaf8f14ce65710874eeb6c4bcf79c, type: 3}
   magicUnit: {fileID: 1744191104940413993, guid: 53d8dd1b471e7cad0885bec36bea3f38, type: 3}
+  magicSupportUnit: {fileID: 8399861951771743727, guid: 6fbd54bb62a7b3fa386afda426b3552c, type: 3}
+  demolitionUnit: {fileID: 2310716675584270058, guid: 8fe7191b80937657299f6b696df098fa, type: 3}
+  hammerUnit: {fileID: 692146906692766043, guid: c802419af729c47f6848e49650b3ad31, type: 3}
   levelGenerator: {fileID: 1433138272}
 --- !u!1 &2042470096
 GameObject:
@@ -354,6 +357,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9099866111141627414, guid: b26346b40bb736c4f94029c8cb060e85, type: 3}
+      propertyPath: levelGenTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9099866111141627415, guid: b26346b40bb736c4f94029c8cb060e85, type: 3}
       propertyPath: m_RootOrder
       value: 1

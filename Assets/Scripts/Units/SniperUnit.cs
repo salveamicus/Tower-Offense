@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class SniperUnit : Unit
 {
-    public Projectile Projectile;
+    [SerializeField] public Projectile Projectile;
+    [SerializeField] public AudioSource launchSound;
+    [SerializeField] public AudioSource hitSound;
 
-    public float projectileSpeed = 4f;
+    public float projectileSpeed = 5f;
 
     public float maxHealth = 50f;
     public float health = 50f;
+    public float speed = 1f;
 
     public float shootCooldownSeconds = 4f;
 
@@ -40,7 +43,7 @@ public class SniperUnit : Unit
         animator.SetBool("IsAttacking", false);
 
         // For movement
-        movement(moveGoal);
+        movement(moveGoal, speed);
 
         UpdateFireTime();
         UpdatePoisonTime();
@@ -52,14 +55,16 @@ public class SniperUnit : Unit
         ShowRangeIfMouseHover();
         ShootIfPossible(actionRadius, shootCooldownSeconds);
 
-        healthBar.transform.position = transform.position + new Vector3((health/maxHealth-1)/2*0.6f, 0.4f, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(health / maxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)
     {
         //Attack animation
         animator.SetBool("IsAttacking", true);
+
+        launchSound.Play();
 
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
         p.Velocity = direction.normalized * projectileSpeed * SpeedMultiplier;
@@ -68,11 +73,12 @@ public class SniperUnit : Unit
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         health -= amount;
     }
 
     public override void Heal(float amount)
     {
-        health = MathF.Min(health + amount, maxHealth);
+        health = Mathf.Min(health + amount, maxHealth);
     }
 }

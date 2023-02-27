@@ -30,14 +30,16 @@ public class MoveCamera : MonoBehaviour
         {
             Camera.main.orthographicSize -= scrollSpeed * Time.deltaTime;
             Camera.main.nearClipPlane -= scrollSpeed * Time.deltaTime;
+            borderRadius += scrollSpeed * Time.deltaTime;
         }
         else if ((Input.mouseScrollDelta.y < 0) && (Camera.main.orthographicSize < 10))
         {
             Camera.main.orthographicSize += scrollSpeed * Time.deltaTime;
             Camera.main.farClipPlane += scrollSpeed * Time.deltaTime;
+            borderRadius -= scrollSpeed * Time.deltaTime;
         }
 
-        if ((Input.mousePosition.y >= Screen.height && Input.mousePosition.x >= Screen.width) || (Input.GetKey("right") && Input.GetKey("up")))
+        if ((Input.mousePosition.y >= Screen.height && Input.mousePosition.x >= Screen.width) || ((Input.GetKey("right") || Input.GetKey("d")) && (Input.GetKey("up") || Input.GetKey("w"))))
         {
             if ((transform.position.x < borderRadius) && (transform.position.y < borderRadius))
             {
@@ -52,7 +54,7 @@ public class MoveCamera : MonoBehaviour
                 transform.position += panSpeed * Time.deltaTime * Vector3.up;
             }
         }
-        else if ((Input.mousePosition.y >= Screen.height && Input.mousePosition.x <= 0 )|| (Input.GetKey("left") && Input.GetKey("up")))
+        else if ((Input.mousePosition.y >= Screen.height && Input.mousePosition.x <= 0 )|| ((Input.GetKey("left") || Input.GetKey("a")) && (Input.GetKey("up") || Input.GetKey("w"))))
         {
             if ((transform.position.x > -borderRadius) && (transform.position.y < borderRadius))
             {
@@ -67,7 +69,7 @@ public class MoveCamera : MonoBehaviour
                 transform.position += panSpeed * Time.deltaTime * Vector3.up;
             }
         }
-        else if ((Input.mousePosition.y <= 0 && Input.mousePosition.x >= Screen.width) || (Input.GetKey("right") && Input.GetKey("down")))
+        else if ((Input.mousePosition.y <= 0 && Input.mousePosition.x >= Screen.width) || ((Input.GetKey("right") || Input.GetKey("d")) && (Input.GetKey("down") || Input.GetKey("s"))))
         {
             if ((transform.position.x < borderRadius) && (transform.position.y > -borderRadius))
             {
@@ -82,7 +84,7 @@ public class MoveCamera : MonoBehaviour
                 transform.position += panSpeed * Time.deltaTime * Vector3.down;
             }
         }
-        else if ((Input.mousePosition.y <= 0 && Input.mousePosition.x <= 0) || ((Input.GetKey("left") && Input.GetKey("down") )))
+        else if ((Input.mousePosition.y <= 0 && Input.mousePosition.x <= 0) || (((Input.GetKey("left") || Input.GetKey("a")) && (Input.GetKey("down") || Input.GetKey("s")) )))
         {
             if ((transform.position.x > -borderRadius) && (transform.position.y > -borderRadius))
             {
@@ -97,28 +99,28 @@ public class MoveCamera : MonoBehaviour
                 transform.position += panSpeed * Time.deltaTime * Vector3.down;
             }
         }
-        else if (Input.mousePosition.x >= Screen.width || Input.GetKey("right"))
+        else if (Input.mousePosition.x >= Screen.width || (Input.GetKey("right") || Input.GetKey("d")))
         {
             if (transform.position.x < borderRadius)
             {
                 transform.position += panSpeed * Time.deltaTime * Vector3.right;
             }
         } 
-        else if (Input.mousePosition.x <= 0 || Input.GetKey("left"))
+        else if (Input.mousePosition.x <= 0 || (Input.GetKey("left") || Input.GetKey("a")))
         {
             if (transform.position.x > -borderRadius)
             {
                 transform.position += panSpeed * Time.deltaTime * Vector3.left;
             }
         }
-        else if (Input.mousePosition.y <= 0 || Input.GetKey("down"))
+        else if (Input.mousePosition.y <= 0 || (Input.GetKey("down") || Input.GetKey("s")))
         {
             if (transform.position.y > -borderRadius)
             {
                 transform.position += panSpeed * Time.deltaTime * Vector3.down;
             }
         }
-        else if (Input.mousePosition.y >= Screen.height || Input.GetKey("up"))
+        else if (Input.mousePosition.y >= Screen.height || (Input.GetKey("up") || Input.GetKey("w")))
         {
             if (transform.position.y < borderRadius)
             {

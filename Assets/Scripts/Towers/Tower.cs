@@ -7,7 +7,7 @@ using UnityEngine;
 public abstract class Tower : MonoBehaviour
 {
     public GameObject rangeSphere;
-    public GameObject healthBar;
+    public HealthMeter healthMeter;
     public SpriteRenderer spriteRenderer;
 
     public abstract int CreditReward { get; }
@@ -15,8 +15,8 @@ public abstract class Tower : MonoBehaviour
     public abstract float ShootCooldownSeconds { get; }
 
     // Function that calculates how the cooldown is affected by nearby acceleration towers
-    public float AcceleratedCooldown => ShootCooldownSeconds / (accelerators + 1);
-    public float ProjectileVelMultiplier => 1f + accelerators / 10f;
+    public virtual float AcceleratedCooldown => ShootCooldownSeconds / (accelerators + 1);
+    public virtual float ProjectileVelMultiplier => 1f + accelerators / 10f;
 
     public Bounds TowerBounds => spriteRenderer.bounds;
 
@@ -27,7 +27,7 @@ public abstract class Tower : MonoBehaviour
     protected float accelerators = 0;
 
     // I made this because I am not writing this function more than once
-    public virtual Tuple<float, Vector3> GetClosestTarget()
+    public virtual Tuple<float, Vector3> GetClosestTarget(float minRadius = 0f)
     {
         float closestDistance = Mathf.Infinity;
         Vector3 closestTarget = Vector3.zero;
@@ -36,6 +36,8 @@ public abstract class Tower : MonoBehaviour
         {
             float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
             , new Vector2(unit.transform.position.x, unit.transform.position.y));
+
+            if (dist < minRadius) continue;
 
             if (dist < closestDistance)
             {

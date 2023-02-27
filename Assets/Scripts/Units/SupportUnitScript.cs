@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class SupportUnitScript : Unit
 {
+    [SerializeField] public AudioSource hitSound;
+
     public float maxHealth = 50f;
     public float health = 50f;
+    public float speed = 1.5f;
 
     public float healAmount = 10f;
     public float healCooldownSeconds = 1f;
@@ -32,7 +35,7 @@ public class SupportUnitScript : Unit
         autoMoveGoalAndRotate();
 
         // For movement
-        movement(moveGoal);
+        movement(moveGoal, speed);
 
         UpdateFireTime();
         UpdatePoisonTime();
@@ -48,8 +51,8 @@ public class SupportUnitScript : Unit
 
         if (canShoot) Shoot(Vector3.zero);
 
-        healthBar.transform.position = transform.position + new Vector3((health/maxHealth-1)/2*0.6f, 0.4f, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(health / maxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)
@@ -73,6 +76,7 @@ public class SupportUnitScript : Unit
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         health -= amount;
     }
 

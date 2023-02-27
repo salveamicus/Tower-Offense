@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class StandardTower : Tower
 {
-    public Projectile Projectile;
+    [SerializeField] public Projectile Projectile;
+    [SerializeField] public AudioSource shootSound;
+    [SerializeField] public AudioSource hitSound;
+
     public float ProjectileSpeed = 5f;
     public float maxHealth = 100f;
     public float Health = 100f;
 
     public override float ShootCooldownSeconds => 3f;
     public override float ShootRadius => 3f;
-    public override int CreditReward => 40;
+    public override int CreditReward => 10;
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +38,14 @@ public class StandardTower : Tower
         ShowRangeIfMouseHover();
         ShootIfPossible();
 
-        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / maxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)
     {
+        shootSound.Play();
+
         // Vector3.back is used to change the z coordinate of the projectile so that
         // it renders on top of the tower
         Projectile p = Instantiate(Projectile, transform.position + Vector3.back, transform.rotation);
@@ -50,17 +55,12 @@ public class StandardTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
 
     public override void Heal(float amount)
     {
-        if (Health == maxHealth) return;
-
-        Health += amount;
-        if (Health > maxHealth) Health = maxHealth;
-
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
+        Health = Mathf.Min(maxHealth, Health + amount);
     }
 }

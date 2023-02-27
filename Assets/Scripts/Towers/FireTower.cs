@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class FireTower : Tower
 {
-    public Projectile Projectile;
+    [SerializeField] public Projectile Projectile;
+    [SerializeField] public AudioSource launchSound;
+    [SerializeField] public AudioSource hitSound;
+
     public float ProjectileSpeed = 7f;
     public float MaxHealth = 120f;
     public float Health = 120f;
@@ -36,12 +39,14 @@ public class FireTower : Tower
         ShowRangeIfMouseHover();
         ShootIfPossible();
 
-        healthBar.transform.position = transform.position + new Vector3((Health/MaxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / MaxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)
     {
+        launchSound.Play();
+
         float currentDeviation = -ShootDeviationDegrees;
 
         for (int i = 0; i < 3; ++i)
@@ -58,18 +63,13 @@ public class FireTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
     }
 
     public override void Heal(float amount)
     {
-        if (Health == MaxHealth) return;
-
-        Health += amount;
-        if (Health > MaxHealth) Health = MaxHealth;
-
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
+        Health = Mathf.Min(MaxHealth, Health + amount);
     }
 
 }

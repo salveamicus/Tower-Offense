@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class LightningTower : Tower
 {
-    public LightningProjectile Projectile;
+    [SerializeField] public LightningProjectile Projectile;
+    [SerializeField] public AudioSource hitSound;
+
     public float MaxHealth = 150;
     public float Health = 150f;
 
     public override float ShootCooldownSeconds => 2f;
     public override float ShootRadius => 8f;
-    public override int CreditReward => 110;
+    public override int CreditReward => 90;
+
+    public float MinShootRadius => ShootRadius * 2 / 3;
 
     // Start is called before the first frame update
     void Start()
@@ -33,15 +37,15 @@ public class LightningTower : Tower
         ShowRangeIfMouseHover();
         ShootIfPossible();
 
-        healthBar.transform.position = transform.position + new Vector3((Health/MaxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / MaxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void ShootIfPossible()
     {
         if (!canShoot) return;
 
-        Tuple<float, Vector3> target = GetClosestTarget();
+        Tuple<float, Vector3> target = GetClosestTarget(MinShootRadius);
 
         if (target.Item1 <= ShootRadius)
         {
@@ -65,17 +69,12 @@ public class LightningTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
     }
 
     public override void Heal(float amount)
     {
-        if (Health == MaxHealth) return;
-
-        Health += amount;
-        if (Health > MaxHealth) Health = MaxHealth;
-
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/MaxHealth);
+        Health = Mathf.Min(MaxHealth, Health + amount);
     }
 }

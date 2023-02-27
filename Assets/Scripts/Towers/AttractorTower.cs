@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttractorTower : Tower
 {
+    [SerializeField] public AudioSource hitSound;
+
     public float maxHealth = 200f;
     public float health = 200f;
 
@@ -13,7 +15,7 @@ public class AttractorTower : Tower
 
     public override float ShootCooldownSeconds => 1f; // Not used
     public override float ShootRadius => 3f;
-    public override int CreditReward => 20;
+    public override int CreditReward => 80;
 
     // Start is called before the first frame update
     void Start()
@@ -51,8 +53,8 @@ public class AttractorTower : Tower
             unitObject.GetComponent<Unit>().transform.position += force;
         }
 
-        healthBar.transform.position = transform.position + new Vector3((health/maxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(health / maxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     // Tower never shoots anything
@@ -60,17 +62,12 @@ public class AttractorTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         health -= amount;
-        healthBar.GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
     }
 
     public override void Heal(float amount)
     {
-        if (health == maxHealth) return;
-
-        health += amount;
-        if (health > maxHealth) health = maxHealth;
-
-        healthBar.GetComponent<HealthBar>().ChangeHealth(health/maxHealth);
+        health = Mathf.Min(maxHealth, health + amount);
     }
 }

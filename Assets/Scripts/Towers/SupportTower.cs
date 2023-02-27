@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class SupportTower : Tower
 {
+    [SerializeField] public AudioSource hitSound;
+
     public float maxHealth = 100f;
     public float Health = 100f;
     public float HealthAmount = 5f;
 
     public override float ShootCooldownSeconds => 1f;
     public override float ShootRadius => 3f;
-    public override int CreditReward => 10;
+    public override int CreditReward => 30;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +35,8 @@ public class SupportTower : Tower
 
         if (canShoot) Shoot(Vector3.zero);
 
-        healthBar.transform.position = transform.position + new Vector3((Health/maxHealth-1) / 2 * healthBar.GetComponent<HealthBar>().barWidth, healthBar.GetComponent<HealthBar>().height, 0);
-        healthBar.transform.rotation = Quaternion.identity;
+        healthMeter.SetValue(Health / maxHealth);
+        healthMeter.transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.eulerAngles.z);
     }
 
     public override void Shoot(Vector3 direction)
@@ -62,17 +64,12 @@ public class SupportTower : Tower
 
     public override void Damage(float amount)
     {
+        hitSound.Play();
         Health -= amount;
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
     }
 
     public override void Heal(float amount)
     {
-        if (Health == maxHealth) return;
-
-        Health += amount;
-        if (Health > maxHealth) Health = maxHealth;
-
-        healthBar.GetComponent<HealthBar>().ChangeHealth(Health/maxHealth);
+        Health = Mathf.Min(maxHealth, Health);
     }
 }

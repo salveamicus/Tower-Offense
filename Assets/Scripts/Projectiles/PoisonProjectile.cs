@@ -9,6 +9,11 @@ public class PoisonProjectile : Projectile
     public float LifetimeSeconds = 5f;
     public float PoisonTime = 100f;
 
+    // Changing these values overrides the poisoner's life time
+    // Used by the grand tower to be less powerful
+    public float PoisonerTime = 0f;
+    public float PoisonerPoisonTime = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +38,9 @@ public class PoisonProjectile : Projectile
     protected override void OnHitUnit(Unit unit)
     {
         unit.PoisonTime += PoisonTime;
-        Instantiate(poisoner, unit.transform.position, Quaternion.identity);
+        Poisoner p = Instantiate(poisoner, unit.transform.position, Quaternion.identity);
+
+        if (PoisonerTime > 0) p.LifeTimeSeconds = PoisonerTime;
+        if (PoisonerPoisonTime > 0) p.PoisonTime = PoisonerPoisonTime;
     }
 }
