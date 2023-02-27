@@ -89,35 +89,6 @@ public abstract class Unit : MonoBehaviour
         return new Tuple<float, Vector3>(closestDistance, closestTarget);
     }
 
-    public virtual Tuple<float, Vector3> GetClosestUnit()
-    {
-        float closestDistance = Mathf.Infinity;
-        Vector3 closestTarget = Vector3.zero;
-
-        foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
-        {
-            if (unit.gameObject.GetComponent<Unit>().isSelected) continue;
-
-            // Get the closest point of the tower to the unit.
-            // This allows for a more accurate targeting algorithm so that units stop moving
-            // once they are in range of the closest point of the tower, meaning that they no longer target
-            // the center of the tower, because for a large tower that would mean that they would have to be
-            // inside the tower to start shooting
-            Vector3 closestPoint = unit.gameObject.GetComponent<Unit>().UnitBounds.ClosestPoint(transform.position);
-
-            float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
-            , new Vector2(closestPoint.x, closestPoint.y));
-
-            if (dist < closestDistance)
-            {
-                closestDistance = dist;
-                closestTarget = closestPoint;
-            }
-        }
-
-        return new Tuple<float, Vector3>(closestDistance, closestTarget);
-    }
-
     public virtual void ShootIfPossible(float radius, float cooldown)
     {
         if (!canShoot) return;
