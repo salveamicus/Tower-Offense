@@ -58,7 +58,7 @@ public class TutorialManager : MonoBehaviour
             selectKnight.SetActive(true);
         }
         if (currentState == 9) {
-            tower.GetComponent<GrandTower>().Health = 200;
+            tower.GetComponent<GrandTower>().Health = 100;
             restartButton.SetActive(true);
 
         }
@@ -82,7 +82,7 @@ public class TutorialManager : MonoBehaviour
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit")) {
             Destroy(unit);
         }
-        gameStatistics.currentCredits = 60;
+        gameStatistics.currentCredits = 150;
         tower.SetActive(true);
         tower.GetComponent<GrandTower>().Health = 100;
     }
@@ -137,9 +137,9 @@ public class TutorialManager : MonoBehaviour
                 foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit")) {
                     Destroy(unit);
                 }
-                gameStatistics.currentCredits = 60;
-                tower.GetComponent<GrandTower>().MaxHealth = 200;
-                tower.GetComponent<GrandTower>().Health = 200;
+                gameStatistics.currentCredits = 150;
+                tower.GetComponent<GrandTower>().MaxHealth = 100;
+                tower.GetComponent<GrandTower>().Health = 100;
                 panels[currentState].SetActive(false);
                 currentState = 9;
                 panels[9].SetActive(true);

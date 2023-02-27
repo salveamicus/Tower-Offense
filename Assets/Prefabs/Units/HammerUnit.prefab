@@ -172,7 +172,7 @@ MonoBehaviour:
   ProjectileSpeed: 3
   maxHealth: 500
   health: 500
-  shootCooldownSeconds: 4
+  shootCooldownSeconds: 3
   animator: {fileID: 7104472109185544190}
 --- !u!82 &-7894242862583827216
 AudioSource:

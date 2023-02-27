@@ -289,7 +289,8 @@ MonoBehaviour:
   hitSound: {fileID: 1249077222667461633}
   ProjectileSpeed: 3
   Health: 50
-  shootCooldownSeconds: 1
+  speed: 1.5
+  shootCooldownSeconds: 2.5
   animator: {fileID: 41640547}
 --- !u!114 &3991358683692401194
 MonoBehaviour:

@@ -25,14 +25,14 @@ public class LevelGenerator : MonoBehaviour
     public int additionalTowersPerLevel = 1;
 
     // The level number for each tower to start spawning
-    public const int sniperTowerThreshold = 5;
-    public const int supportTowerThreshold = 10;
-    public const int accelerationTowerThreshold = 15;
-    public const int fireTowerThreshold = 20;
-    public const int poisonTowerThreshold = 25;
-    public const int temporalTowerThreshold = 30;
-    public const int attractorTowerThreshold = 35;
-    public const int lightningTowerThreshold = 40;
+    public const int sniperTowerThreshold = 3;
+    public const int supportTowerThreshold = 5;
+    public const int accelerationTowerThreshold = 7;
+    public const int fireTowerThreshold = 9;
+    public const int poisonTowerThreshold = 11;
+    public const int temporalTowerThreshold = 13;
+    public const int attractorTowerThreshold = 15;
+    public const int lightningTowerThreshold = 17;
 
     // The Grand Tower of the current level
     private GrandTower currentGrandTower = null;
@@ -107,25 +107,28 @@ public class LevelGenerator : MonoBehaviour
     {
         ++currentLevel;
 
-        int currentRing = dna.Length - dna.Replace("/", "").Length;
-
-        try
+        for (int i = 0; i < Random.Range(2, 4); ++i)
         {
-            string outerRing = dna.Substring(0, dna.Length - 1);
-            if (outerRing.LastIndexOf('/') != -1) outerRing = outerRing.Substring(outerRing.LastIndexOf('/'));
+            int currentRing = dna.Length - dna.Replace("/", "").Length;
 
-            if (outerRing.Length < innerRingCapacity * currentRing * ringCapacityMultiplier)
+            try
             {
-                dna = dna.Substring(0, dna.Length - 1) + GetRandomTowerSymbol() + "/";
+                string outerRing = dna.Substring(0, dna.Length - 1);
+                if (outerRing.LastIndexOf('/') != -1) outerRing = outerRing.Substring(outerRing.LastIndexOf('/'));
+
+                if (outerRing.Length < innerRingCapacity * currentRing * ringCapacityMultiplier)
+                {
+                    dna = dna.Substring(0, dna.Length - 1) + GetRandomTowerSymbol() + "/";
+                }
+                else
+                {
+                    dna += GetRandomTowerSymbol() + "/";
+                }
             }
-            else
+            catch
             {
-                dna += GetRandomTowerSymbol() + "/";
+                dna = dna.Substring(0, Mathf.Max(0, dna.Length - 1)) + GetRandomTowerSymbol() + "/";
             }
-        }
-        catch
-        {
-            dna = dna.Substring(0, Mathf.Max(0, dna.Length - 1)) + GetRandomTowerSymbol() + "/";
         }
     }
 

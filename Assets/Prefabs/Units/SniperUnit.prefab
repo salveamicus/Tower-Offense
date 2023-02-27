@@ -224,7 +224,7 @@ MonoBehaviour:
   maxHealth: 50
   health: 50
   speed: 1.2
-  shootCooldownSeconds: 4
+  shootCooldownSeconds: 2
   animator: {fileID: -5717871652996437848}
 --- !u!114 &5582882846023463679
 MonoBehaviour:
