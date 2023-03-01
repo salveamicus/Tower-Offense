@@ -209,7 +209,7 @@ public abstract class Unit : MonoBehaviour
 
         if (autoMove)
         {
-            moveGoal = target.Item2 - directionVector.normalized * actionRadius / 2;
+            moveGoal = target.Item2 - directionVector.normalized * (actionRadius - 0.5f) / 2;
         }
         
     }
