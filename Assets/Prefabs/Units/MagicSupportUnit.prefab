@@ -253,7 +253,7 @@ MonoBehaviour:
   health: 75
   speed: 1.2
   healAmount: 15
-  healCooldownSeconds: 2
+  healCooldownSeconds: 1
   animator: {fileID: 3051202172800864969}
 --- !u!95 &3051202172800864969
 Animator:

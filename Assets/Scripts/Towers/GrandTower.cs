@@ -32,6 +32,11 @@ public class GrandTower : Tower
     private float coolDownMultiplier = 1f;
     public override float AcceleratedCooldown => coolDownMultiplier * (ShootCooldownSeconds / (accelerators + 1));
 
+    public override void UpdateRangeRadius()
+    {
+        rangeSphere.transform.localScale = new Vector3(ShootRadius, 1, ShootRadius);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
