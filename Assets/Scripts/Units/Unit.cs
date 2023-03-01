@@ -11,6 +11,7 @@ public abstract class Unit : MonoBehaviour
 
     public bool isSelected = false;
     public bool isSupport = false;
+    public bool autoMove = false;
 
     public Vector3 moveGoal;
     public Vector3 zAdjustedGoal;
@@ -208,10 +209,7 @@ public abstract class Unit : MonoBehaviour
         float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
         transform.eulerAngles = Vector3.forward * degrees;
 
-        
-        // Move towards closet tower if not able to shoot anythnig
-        // and not already moving
-        if (target.Item1 > actionRadius && Math.Abs(Vector3.Distance(transform.position, zAdjustedGoal)) <= 0.1 && target.Item1 != Mathf.Infinity)
+        if (autoMove)
         {
             moveGoal = target.Item2 - directionVector.normalized * actionRadius / 2;
         }

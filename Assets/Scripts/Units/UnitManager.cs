@@ -39,7 +39,17 @@ public class UnitManager : MonoBehaviour
         {
             if (this.gameObject.GetComponent<Unit>().isSelected)
             {
+                this.gameObject.GetComponent<Unit>().autoMove = false;
                 this.gameObject.GetComponent<Unit>().moveGoal = this.gameObject.transform.position;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            if (this.gameObject.GetComponent<Unit>().isSelected)
+            {
+                this.gameObject.GetComponent<Unit>().autoMove = true;
+                this.gameObject.GetComponent<Unit>().autoMoveGoalAndRotate();
             }
         }
 
@@ -146,6 +156,9 @@ public class UnitManager : MonoBehaviour
     {
         List<UnitManager> selectedUnits = new List<UnitManager>(Globals.SELECTED_UNITS);
         foreach (UnitManager um in selectedUnits)
+        {
+            um.gameObject.GetComponent<Unit>().autoMove = false;
             um.Deselect();
+        }
     }
 }
