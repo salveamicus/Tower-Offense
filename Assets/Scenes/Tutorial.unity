@@ -6696,6 +6696,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 155
       objectReference: {fileID: 0}
+    - target: {fileID: 2522894997662557315, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2580795929948596257, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_text
       value: 'Right click on the map to move the selected units towards a destination.
@@ -6900,6 +6904,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 4889570327664807418, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4969761006607138188, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_text
       value: 
@@ -6909,6 +6917,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5252958884039513555, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447651997726440379, guid: 4fc70f43bbb9c564a93940f159be9d90, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
