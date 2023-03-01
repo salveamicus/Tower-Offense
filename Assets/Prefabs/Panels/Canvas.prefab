@@ -4275,7 +4275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &889566709394606393
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12018,7 +12018,9 @@ MonoBehaviour:
   - {fileID: 3665622096421776555}
   helpMenu: {fileID: 384993996}
   pauseMenu: {fileID: 1822494990}
-  helpbutton: {fileID: 310598399}
+  helpButton: {fileID: 310598399}
+  infoButton: {fileID: 7896986904700907355}
+  infoMenu: {fileID: 959154928185689634}
 --- !u!1 &7757664205046212642
 GameObject:
   m_ObjectHideFlags: 0
@@ -12264,6 +12266,7 @@ GameObject:
   - component: {fileID: 1213876416346397851}
   - component: {fileID: 1181803695600445770}
   - component: {fileID: 658614790}
+  - component: {fileID: 66293450542180713}
   m_Layer: 5
   m_Name: Info Button
   m_TagString: Untagged
@@ -12373,7 +12376,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658614790}
+      - m_Target: {fileID: 66293450542180713}
         m_TargetAssemblyTypeName: InfoMenu, Assembly-CSharp
         m_MethodName: PauseI
         m_Mode: 1
@@ -12386,6 +12389,26 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &658614790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7896986904700907355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe55cd105257c84680d8aa1469b2753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoMenu: {fileID: 959154928185689634}
+  sniperinfo: {fileID: 0}
+  supportInfo: {fileID: 0}
+  accelInfo: {fileID: 0}
+  fireInfo: {fileID: 0}
+  poisonInfo: {fileID: 0}
+  attractInfo: {fileID: 0}
+  lightningInfo: {fileID: 0}
+--- !u!114 &66293450542180713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

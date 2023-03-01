@@ -62,7 +62,7 @@ public class storePanel : MonoBehaviour
 
         rt = infoButton.GetComponent<RectTransform>();
         rt.GetWorldCorners(worldCorners);
-        infobuttontopleft = worldCorners[2];
+        infobuttontopleft = worldCorners[1];
 
         rt = helpButton.GetComponent<RectTransform>();
         rt.GetWorldCorners(worldCorners);
