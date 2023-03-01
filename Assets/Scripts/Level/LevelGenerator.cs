@@ -44,6 +44,7 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        additionalTowersPerLevel = gameStatistics.towersPerLevel;
         GenerateLevelFromDNA();
     }
 
@@ -107,8 +108,8 @@ public class LevelGenerator : MonoBehaviour
     {
         ++currentLevel;
 
-        for (int i = 0; i < Random.Range(2, 4); ++i)
-        {
+        //for (int i = 0; i < Random.Range(2, 4); ++i)
+        //{
             int currentRing = dna.Length - dna.Replace("/", "").Length;
 
             try
@@ -129,7 +130,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 dna = dna.Substring(0, Mathf.Max(0, dna.Length - 1)) + GetRandomTowerSymbol() + "/";
             }
-        }
+        //}
     }
 
     // Slash indicates the next circle out
