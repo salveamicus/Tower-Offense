@@ -6,13 +6,6 @@ using UnityEngine.UI;
 public class InfoMenu : MonoBehaviour
 {
     [SerializeField] GameObject infoMenu;
-    public Image sniperinfo;
-    public Image supportInfo;
-    public Image accelInfo;
-    public Image fireInfo;
-    public Image poisonInfo;
-    public Image attractInfo;
-    public Image lightningInfo;
 
     public void PauseI()
     {
@@ -26,15 +19,4 @@ public class InfoMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void GenerateLevelLocks()
-    {
-        if (gameStatistics.levelNumber < LevelGenerator.sniperTowerThreshold)
-        {
-            sniperinfo.enabled = true;
-        } else
-        {
-            sniperinfo.enabled = false;
-        }
-
-    }
 }
