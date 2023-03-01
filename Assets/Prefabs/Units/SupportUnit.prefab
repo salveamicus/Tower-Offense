@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
-  isSupport: 0
+  isSupport: 1
   moveGoal: {x: 0, y: 0, z: 0}
   zAdjustedGoal: {x: 0, y: 0, z: 0}
   selectionCircle: {fileID: 440431166217023911}
