@@ -3468,7 +3468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &981537130386240500
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3769,7 +3769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &889566709394606393
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3823,7 +3823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8784314}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4012,7 +4012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137, y: -163}
+  m_AnchoredPosition: {x: -137, y: -148.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &367088235926959803
@@ -4122,7 +4122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoMenu: {fileID: 959154928185689634}
-  sniperInfo: {fileID: 2176879904192997298}
+  sniperinfo: {fileID: 3916085011987781447}
   supportInfo: {fileID: 0}
   accelInfo: {fileID: 0}
   fireInfo: {fileID: 0}
@@ -4739,7 +4739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6157340085951264570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9201,7 +9201,7 @@ MonoBehaviour:
   - {fileID: 837377918742824793}
   - {fileID: 8394398736282376739}
   - {fileID: 3719657375806988486}
-  - {fileID: 3693972595996501399}
+  - {fileID: 1744191104940413992, guid: 53d8dd1b471e7cad0885bec36bea3f38, type: 3}
   - {fileID: 6149817531359657076}
   - {fileID: 3665622096421776555}
   helpMenu: {fileID: 384993996}
@@ -9295,6 +9295,7 @@ GameObject:
   - component: {fileID: 4309887931151228200}
   - component: {fileID: 1213876416346397851}
   - component: {fileID: 1181803695600445770}
+  - component: {fileID: 658614790}
   m_Layer: 5
   m_Name: Info Button
   m_TagString: Untagged
@@ -9403,7 +9404,39 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1213876416346397851}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 658614790}
+        m_TargetAssemblyTypeName: InfoMenu, Assembly-CSharp
+        m_MethodName: PauseI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &658614790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7896986904700907355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe55cd105257c84680d8aa1469b2753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoMenu: {fileID: 959154928185689634}
+  sniperinfo: {fileID: 0}
+  supportInfo: {fileID: 0}
+  accelInfo: {fileID: 0}
+  fireInfo: {fileID: 0}
+  poisonInfo: {fileID: 0}
+  attractInfo: {fileID: 0}
+  lightningInfo: {fileID: 0}
 --- !u!1 &8623525311623485664
 GameObject:
   m_ObjectHideFlags: 0
@@ -10751,11 +10784,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c590957ff7400548a5b4e71dd8664ef, type: 3}
---- !u!1 &3693972595996501399 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1191358894882554232, guid: 8c590957ff7400548a5b4e71dd8664ef, type: 3}
-  m_PrefabInstance: {fileID: 2579205907164177647}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6678259807442189416 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9180271121172273287, guid: 8c590957ff7400548a5b4e71dd8664ef, type: 3}
