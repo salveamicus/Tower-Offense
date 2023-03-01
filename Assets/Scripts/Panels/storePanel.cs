@@ -153,7 +153,7 @@ public class storePanel : MonoBehaviour
         currentCredits = gameStatistics.currentCredits;
         if (Input.GetMouseButtonDown(0)) // left click 
         {
-            Debug.Log(Input.mousePosition);
+            //Debug.Log(Input.mousePosition);
             startMouseDown = Time.frameCount;
             if (selectedButton != -1 && // there is a unit selected in the store
                 currentCredits >= gameStatistics.unitCosts[selectedButton] && // have enough credits
