@@ -539,6 +539,14 @@ PrefabInstance:
       propertyPath: buttons.Array.data[4]
       value: 
       objectReference: {fileID: 1201975490}
+    - target: {fileID: 5995804409122369024, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046118208592718673, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7509298143268633074, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
