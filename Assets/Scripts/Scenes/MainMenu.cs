@@ -14,4 +14,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial");
     }
+
+    public void ChangeTowers(int n)
+    {
+        gameStatistics.towersPerLevel = n;
+    }
 }
