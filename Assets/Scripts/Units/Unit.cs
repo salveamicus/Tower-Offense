@@ -71,8 +71,6 @@ public abstract class Unit : MonoBehaviour
 
             if (!unit.GetComponent<Unit>().isSupport)
             {
-                Debug.Log("reaching code");
-
                 // Get the closest point of the tower to the unit.
                 // This allows for a more accurate targeting algorithm so that units stop moving
                 // once they are in range of the closest point of the tower, meaning that they no longer target
