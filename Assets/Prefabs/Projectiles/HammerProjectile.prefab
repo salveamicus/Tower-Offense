@@ -149,5 +149,5 @@ MonoBehaviour:
   body: {fileID: 6363584104950316596}
   Velocity: {x: 0, y: 0, z: 0}
   OwnerTag: 
-  Damage: 30
+  Damage: 70
   LifetimeSeconds: 5

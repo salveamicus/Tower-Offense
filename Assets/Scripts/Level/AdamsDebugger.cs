@@ -12,15 +12,28 @@ public class AdamsDebugger : MonoBehaviour
     [SerializeField] public DemolitionUnit demolitionUnit;
     [SerializeField] public HammerUnit hammerUnit;
 
-    public LevelGenerator levelGenerator;
-
-    void Start()
-    {
-    }
+    [SerializeField] public LevelGenerator levelGenerator;
+    public bool active = false;
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftControl)
+            && Input.GetKey(KeyCode.LeftShift)
+            && Input.GetKey(KeyCode.H)
+            && Input.GetKey(KeyCode.A)
+            && Input.GetKey(KeyCode.S)
+            && Input.GetKey(KeyCode.K)
+            && Input.GetKey(KeyCode.E)
+            && Input.GetKey(KeyCode.L)
+        )
+        {
+            Debug.Log("Haskell Mode Activated");
+            active = true;
+        }
+
+        if (!active) return;
+
         if (Input.GetKeyDown(KeyCode.Return))
         {
             levelGenerator.KillGrandTower();

@@ -32,6 +32,6 @@ public class ExplosiveProjectile : Projectile
     protected override void OnHitTower(Tower tower)
     {
         Explosion e = Instantiate(explosion, transform.position, Quaternion.identity);
-        e.Explode((OwnerTag == "Unit") ? "Tower" : "Unit");
+        e.Explode();
     }
 }
