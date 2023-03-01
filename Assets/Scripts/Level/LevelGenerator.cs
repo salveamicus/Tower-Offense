@@ -22,7 +22,6 @@ public class LevelGenerator : MonoBehaviour
     public float ringCapacityMultiplier = 1.5f;
     public float ringSize = 2f;
     public float levelGenTime = 3f;
-    public int additionalTowersPerLevel = 1;
 
     // The level number for each tower to start spawning
     public const int sniperTowerThreshold = 3;
@@ -44,7 +43,6 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        additionalTowersPerLevel = gameStatistics.towersPerLevel;
         GenerateLevelFromDNA();
     }
 
@@ -108,8 +106,8 @@ public class LevelGenerator : MonoBehaviour
     {
         ++currentLevel;
 
-        //for (int i = 0; i < Random.Range(2, 4); ++i)
-        //{
+        for (int i = 0; i < Random.Range(1, gameStatistics.towersPerLevel + 1); ++i)
+        {
             int currentRing = dna.Length - dna.Replace("/", "").Length;
 
             try
@@ -130,7 +128,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 dna = dna.Substring(0, Mathf.Max(0, dna.Length - 1)) + GetRandomTowerSymbol() + "/";
             }
-        //}
+        }
     }
 
     // Slash indicates the next circle out
@@ -146,9 +144,7 @@ public class LevelGenerator : MonoBehaviour
     public void GenerateLevelFromDNA()
     {
         RemoveAllChildren();
-        for (int i = 0; i < additionalTowersPerLevel; i++) {
-            MutateDNA();
-        }
+        MutateDNA();
 
         Debug.Log("Level DNA: " + dna);
 
@@ -209,7 +205,7 @@ public class LevelGenerator : MonoBehaviour
     {
         //GenerateLevel(++currentLevel);
         GenerateLevelFromDNA();
-        gameStatistics.levelNumber = this.currentLevel/additionalTowersPerLevel;
+        gameStatistics.levelNumber = currentLevel;
 
         //Unit conversion to credits at end of each level
         GameObject[] allUnits = GameObject.FindGameObjectsWithTag("Unit");
