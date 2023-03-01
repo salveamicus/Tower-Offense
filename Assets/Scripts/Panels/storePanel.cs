@@ -17,12 +17,15 @@ public class storePanel : MonoBehaviour
     int framesUntilSpawn = 0;
     private Vector3 storePaneltopleft;
     private Vector3 helpbuttontopright;
+    private Vector3 infobuttontopleft;
     static int continuousSpawnStartDelay = gameStatistics.continuousSpawnStartDelay;
     static int continuousSpawnDelay = gameStatistics.continuousSpawnDelay;
 
     public GameObject helpMenu;
     public GameObject pauseMenu;
-    public GameObject helpbutton;
+    public GameObject helpButton;
+    public GameObject infoButton;
+    public GameObject infoMenu;
     
     void PurchaseUnit(Vector3 screenPosition) {
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
@@ -57,7 +60,11 @@ public class storePanel : MonoBehaviour
         // worldCorners[0] is lowerleft, [1] is topleft, [2] is topright, [3] is lowerright
         storePaneltopleft = worldCorners[1];
 
-        rt = helpbutton.GetComponent<RectTransform>();
+        rt = infoButton.GetComponent<RectTransform>();
+        rt.GetWorldCorners(worldCorners);
+        infobuttontopleft = worldCorners[2];
+
+        rt = helpButton.GetComponent<RectTransform>();
         rt.GetWorldCorners(worldCorners);
         helpbuttontopright = worldCorners[2];
     }
@@ -159,8 +166,8 @@ public class storePanel : MonoBehaviour
                 currentCredits >= gameStatistics.unitCosts[selectedButton] && // have enough credits
                 !pauseMenu.activeSelf &&
                 !helpMenu.activeSelf && 
-                (Input.mousePosition.x < storePaneltopleft.x || Input.mousePosition.y > storePaneltopleft.y) && // mouse position is not on the store panel
-                (Input.mousePosition.x > helpbuttontopright.x || Input.mousePosition.y > helpbuttontopright.y) // mouse not on help and pause buttons
+                !infoMenu.activeSelf &&
+                validMousePosition(Input.mousePosition)
                 )
             {
                 PurchaseUnit(Input.mousePosition);
@@ -174,8 +181,8 @@ public class storePanel : MonoBehaviour
                 currentCredits >= gameStatistics.unitCosts[selectedButton] && // have enough credits
                 !pauseMenu.activeSelf &&
                 !helpMenu.activeSelf && 
-                (Input.mousePosition.x < storePaneltopleft.x || Input.mousePosition.y > storePaneltopleft.y) && // mouse position is not on the store panel
-                (Input.mousePosition.x > helpbuttontopright.x || Input.mousePosition.y > helpbuttontopright.y) // mouse not on help and pause buttons
+                !infoMenu.activeSelf &&
+                validMousePosition(Input.mousePosition)
             )
             {
                 PurchaseUnit(Input.mousePosition);
@@ -187,5 +194,12 @@ public class storePanel : MonoBehaviour
 
         }
         
+    }
+
+    bool validMousePosition(Vector3 mousePosition) {
+        return
+        (mousePosition.x < storePaneltopleft.x || mousePosition.y > storePaneltopleft.y) && // mouse position is not on the store panel
+        (mousePosition.x > helpbuttontopright.x || mousePosition.y > helpbuttontopright.y) && // mouse not on help and pause buttons
+        (mousePosition.x < infobuttontopleft.x || mousePosition.y > infobuttontopleft.y); // mouse not on info button
     }
 }
