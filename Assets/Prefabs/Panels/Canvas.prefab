@@ -9201,7 +9201,7 @@ MonoBehaviour:
   - {fileID: 837377918742824793}
   - {fileID: 8394398736282376739}
   - {fileID: 3719657375806988486}
-  - {fileID: 1744191104940413992, guid: 53d8dd1b471e7cad0885bec36bea3f38, type: 3}
+  - {fileID: 3693972595996501399}
   - {fileID: 6149817531359657076}
   - {fileID: 3665622096421776555}
   helpMenu: {fileID: 384993996}
@@ -10784,6 +10784,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c590957ff7400548a5b4e71dd8664ef, type: 3}
+--- !u!1 &3693972595996501399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1191358894882554232, guid: 8c590957ff7400548a5b4e71dd8664ef, type: 3}
+  m_PrefabInstance: {fileID: 2579205907164177647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6678259807442189416 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9180271121172273287, guid: 8c590957ff7400548a5b4e71dd8664ef, type: 3}
