@@ -206,6 +206,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   rangeDisplayOverride: 0
   hitSound: {fileID: 1408250279464511471}
+  circleCollider: {fileID: 5293895172292904556}
   MaxHealth: 70
   Health: 70
 --- !u!95 &-3004321022665417624
