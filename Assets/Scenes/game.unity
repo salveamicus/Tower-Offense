@@ -123,6 +123,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &159001430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 42880103714640550, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+  m_PrefabInstance: {fileID: 1201975488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &159001434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159001430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092466016}
+          m_TargetAssemblyTypeName: ActivatePurchaseUnit, Assembly-CSharp
+          m_MethodName: activatePurchaseUnit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092466016}
+          m_TargetAssemblyTypeName: ActivatePurchaseUnit, Assembly-CSharp
+          m_MethodName: activatePurchaseUnit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &244702911
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +603,118 @@ MonoBehaviour:
   hammerUnit: {fileID: 692146906692766043, guid: c802419af729c47f6848e49650b3ad31, type: 3}
   levelGenerator: {fileID: 669619899}
   active: 0
+--- !u!1 &1092466015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7613705899836815945, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+  m_PrefabInstance: {fileID: 1201975488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1092466016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092466015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c514eab2908c346a4f25447468b908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1092466017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092466015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092466016}
+          m_TargetAssemblyTypeName: ActivatePurchaseUnit, Assembly-CSharp
+          m_MethodName: activatePurchaseUnit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092466016}
+          m_TargetAssemblyTypeName: ActivatePurchaseUnit, Assembly-CSharp
+          m_MethodName: activatePurchaseUnit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+--- !u!1 &1178518896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 15963675, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+  m_PrefabInstance: {fileID: 1201975488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1178518902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178518896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092466016}
+          m_TargetAssemblyTypeName: ActivatePurchaseUnit, Assembly-CSharp
+          m_MethodName: activatePurchaseUnit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092466016}
+          m_TargetAssemblyTypeName: ActivatePurchaseUnit, Assembly-CSharp
+          m_MethodName: activatePurchaseUnit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1001 &1201975488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -722,6 +884,106 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1342817040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 310598399, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+  m_PrefabInstance: {fileID: 1201975488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1342817046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342817040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092466016}
+          m_TargetAssemblyTypeName: ActivatePurchaseUnit, Assembly-CSharp
+          m_MethodName: activatePurchaseUnit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092466016}
+          m_TargetAssemblyTypeName: ActivatePurchaseUnit, Assembly-CSharp
+          m_MethodName: activatePurchaseUnit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+--- !u!1 &1538019679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7896986904700907355, guid: b7e28cee6513d7143845b48befdba29a, type: 3}
+  m_PrefabInstance: {fileID: 1201975488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1538019681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538019679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092466016}
+          m_TargetAssemblyTypeName: ActivatePurchaseUnit, Assembly-CSharp
+          m_MethodName: activatePurchaseUnit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1092466016}
+          m_TargetAssemblyTypeName: ActivatePurchaseUnit, Assembly-CSharp
+          m_MethodName: activatePurchaseUnit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &1543758204
 GameObject:
   m_ObjectHideFlags: 0
