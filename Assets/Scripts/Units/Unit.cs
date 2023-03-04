@@ -45,7 +45,7 @@ public abstract class Unit : MonoBehaviour
             // once they are in range of the closest point of the tower, meaning that they no longer target
             // the center of the tower, because for a large tower that would mean that they would have to be
             // inside the tower to start shooting
-            Vector3 closestPoint = tower.gameObject.GetComponent<Tower>().TowerBounds.ClosestPoint(transform.position);
+            Vector3 closestPoint = tower.gameObject.GetComponent<Tower>().ClosestPoint(transform.position);
 
             float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
             , new Vector2(closestPoint.x, closestPoint.y));

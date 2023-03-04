@@ -18,7 +18,7 @@ public abstract class Tower : MonoBehaviour
     public virtual float AcceleratedCooldown => ShootCooldownSeconds / (accelerators + 1);
     public virtual float ProjectileVelMultiplier => 1f + accelerators / 10f;
 
-    public Bounds TowerBounds => spriteRenderer.bounds;
+    public virtual Vector3 ClosestPoint(Vector3 p) => spriteRenderer.bounds.ClosestPoint(p);
 
     // Display the range sphere even if the mouse is not hovering over it
     public bool rangeDisplayOverride = false;
@@ -61,7 +61,7 @@ public abstract class Tower : MonoBehaviour
             if (!(tower is AccelerationTower) && !(tower is TemporalTower)) continue;
             
             // If the closest point of this tower is in range of the accelerator's radius
-            Vector3 closest = TowerBounds.ClosestPoint(tower.transform.position);
+            Vector3 closest = ClosestPoint(tower.transform.position);
 
             float distance = Vector2.Distance(new Vector2(closest.x, closest.y)
             , new Vector2(tower.transform.position.x, tower.transform.position.y));

@@ -9,10 +9,13 @@ public class GrandTower : Tower
     [SerializeField] public PoisonProjectile poisonProjectile;
     [SerializeField] public LightningProjectile lightningProjectile;
 
-    [SerializeField] public AudioSource hitSound;
+    [SerializeField] public CircleCollider2D circleCollider;
 
+    [SerializeField] public AudioSource hitSound;
     [SerializeField] public AudioSource defaultLaunchSound;
     [SerializeField] public AudioSource fireLaunchSound;
+
+    public override Vector3 ClosestPoint(Vector3 p) => circleCollider.ClosestPoint(p);
 
     public float ProjectileSpeed = 8f;
     public float MaxHealth = 100f;
@@ -125,7 +128,7 @@ public class GrandTower : Tower
             // Don't heal self
             if (tower.transform.position == transform.position) continue;
 
-            Vector3 closestPoint = tower.GetComponent<Tower>().TowerBounds.ClosestPoint(transform.position);
+            Vector3 closestPoint = tower.GetComponent<Tower>().ClosestPoint(transform.position);
 
             float distance = Vector2.Distance(transform.position
             , new Vector2(closestPoint.x, closestPoint.y));

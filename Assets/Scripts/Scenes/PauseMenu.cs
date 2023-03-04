@@ -24,4 +24,15 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Loss");
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(pauseMenu.activeInHierarchy)
+                Resume();
+            else
+                Pause();
+        }
+    }
 }
