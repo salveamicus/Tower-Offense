@@ -27,7 +27,12 @@ public class PauseMenu : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && pauseMenu.activeSelf) Resume();
-        if (Input.GetKeyDown(KeyCode.Escape) && !pauseMenu.activeSelf) Pause();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(pauseMenu.activeInHierarchy)
+                Resume();
+            else
+                Pause();
+        }
     }
 }
