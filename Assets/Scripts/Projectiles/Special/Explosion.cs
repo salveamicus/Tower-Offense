@@ -19,7 +19,7 @@ public class Explosion : MonoBehaviour
         foreach (GameObject targetObject in GameObject.FindGameObjectsWithTag("Tower"))
         {
             Tower tower = targetObject.GetComponent<Tower>();
-            Vector3 closestPoint = tower.TowerBounds.ClosestPoint(transform.position);
+            Vector3 closestPoint = tower.ClosestPoint(transform.position);
 
             float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
             , new Vector2(closestPoint.x, closestPoint.y));

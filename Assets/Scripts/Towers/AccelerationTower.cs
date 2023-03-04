@@ -5,6 +5,9 @@ using UnityEngine;
 public class AccelerationTower : Tower
 {
     [SerializeField] public AudioSource hitSound;
+    [SerializeField] public CircleCollider2D circleCollider;
+
+    public override Vector3 ClosestPoint(Vector3 p) => circleCollider.ClosestPoint(p);
 
     public float MaxHealth = 70f;
     public float Health = 70f;

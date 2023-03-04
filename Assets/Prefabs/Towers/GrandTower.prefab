@@ -195,6 +195,7 @@ MonoBehaviour:
   fireProjectile: {fileID: 5486519101339117397, guid: c715431796f852c2c97b6ab57d286044, type: 3}
   poisonProjectile: {fileID: 5770571103085675390, guid: 7eb03e2ba39e9d387a2f4db3107115b4, type: 3}
   lightningProjectile: {fileID: 6431274346231894845, guid: 66fc4092de5c73a55a23b52905adb5dd, type: 3}
+  circleCollider: {fileID: -7274408634276979186}
   hitSound: {fileID: 7072017818019351494}
   defaultLaunchSound: {fileID: 4835294537966384537}
   fireLaunchSound: {fileID: 2580971140625759921}

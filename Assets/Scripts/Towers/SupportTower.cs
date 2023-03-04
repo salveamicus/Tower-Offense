@@ -48,7 +48,7 @@ public class SupportTower : Tower
             // Don't heal self
             if (tower.transform.position == transform.position) continue;
 
-            Vector3 closestPoint = tower.GetComponent<Tower>().TowerBounds.ClosestPoint(transform.position);
+            Vector3 closestPoint = tower.GetComponent<Tower>().ClosestPoint(transform.position);
 
             float distance = Vector2.Distance(transform.position
             , new Vector2(closestPoint.x, closestPoint.y));
