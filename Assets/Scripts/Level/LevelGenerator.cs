@@ -106,7 +106,26 @@ public class LevelGenerator : MonoBehaviour
     {
         ++currentLevel;
 
-        for (int i = 0; i < Random.Range(1, gameStatistics.towersPerLevel + 1); ++i)
+        int towersToGenerate;
+
+        switch (currentLevel)
+        {
+        case sniperTowerThreshold       :
+        case supportTowerThreshold      :
+        case accelerationTowerThreshold :
+        case fireTowerThreshold         :
+        case poisonTowerThreshold       :
+        case temporalTowerThreshold     :
+        case attractorTowerThreshold    :
+        case lightningTowerThreshold    :
+            towersToGenerate = 1;
+            break;
+        default:
+            towersToGenerate = Random.Range(1, gameStatistics.towersPerLevel + 1);
+            break;
+        }
+
+        for (int i = 0; i < towersToGenerate; ++i)
         {
             int currentRing = dna.Length - dna.Replace("/", "").Length;
 
