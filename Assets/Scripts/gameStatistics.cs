@@ -17,7 +17,7 @@ public class gameStatistics : MonoBehaviour
     public static int towersPerLevel = 3;
 
     // units
-    public static int[] unitCosts = {75, 100, 200, 325, 350, 450, 750}; // knight, sniper, support, demo, mage, cultist, heavy in order
+    public static int[] unitCosts = {75, 100, 200, 450, 500, 600, 1000}; // knight, sniper, support, demo, mage, cultist, heavy in order
 
     public static float fireDamage = 10f;
     public static float poisonDamage = 15f;
