@@ -9,7 +9,7 @@ public class UnitManager : MonoBehaviour
     RaycastHit _raycastHit;
 
     private void Update()
-    {
+    { 
         if (Input.GetMouseButtonDown(0))
         {
             _isDraggingMouseBox = true;

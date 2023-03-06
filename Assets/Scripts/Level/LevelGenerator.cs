@@ -222,6 +222,8 @@ public class LevelGenerator : MonoBehaviour
 
     public void GenerateNextLevel()
     {
+        Globals.SELECTED_UNITS.Clear();
+
         //GenerateLevel(++currentLevel);
         GenerateLevelFromDNA();
         gameStatistics.levelNumber = currentLevel;
