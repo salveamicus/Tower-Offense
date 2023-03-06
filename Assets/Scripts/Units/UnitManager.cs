@@ -53,10 +53,11 @@ public class UnitManager : MonoBehaviour
             }
         }
 
+        if (Input.GetKey(KeyCode.Backspace))
+            _DeselectAllUnits();
+
         if (Globals.SELECTED_UNITS.Count > 0)
         {
-            if (Input.GetKeyDown(KeyCode.Backspace))
-                _DeselectAllUnits();
             if (Input.GetMouseButtonDown(0))
             {
                 _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
