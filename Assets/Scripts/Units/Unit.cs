@@ -13,6 +13,8 @@ public abstract class Unit : MonoBehaviour
     public bool isSupport = false;
     public bool autoMove = false;
 
+    public bool isDebuggingUnit = false;
+
     public Vector3 moveGoal;
     public Vector3 zAdjustedGoal;
 

@@ -84,7 +84,8 @@ public class AdamsDebugger : MonoBehaviour
             pos.y += Random.Range(-0.5f, 0.5f);
             pos.z = 0;
 
-            Instantiate(unit, pos, Quaternion.identity);
+            Unit u = Instantiate(unit, pos, Quaternion.identity);
+            u.isDebuggingUnit = true;
         }
     }
 }

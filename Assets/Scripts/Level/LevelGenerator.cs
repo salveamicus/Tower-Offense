@@ -230,7 +230,15 @@ public class LevelGenerator : MonoBehaviour
         GameObject[] allUnits = GameObject.FindGameObjectsWithTag("Unit");
         foreach (GameObject obj in allUnits)
         {
-            switch (obj.gameObject.GetComponent<Unit>())
+            // Do not refund debugger generated units
+            Unit unit = obj.gameObject.GetComponent<Unit>();
+            if (unit.isDebuggingUnit)
+            {
+                Destroy(obj);
+                continue;
+            }
+
+            switch (unit)
             {
                 case StandardUnit:
                     gameStatistics.currentCredits += gameStatistics.unitCosts[0];
