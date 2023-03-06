@@ -30,6 +30,7 @@ public class AdamsDebugger : MonoBehaviour
         {
             Debug.Log("Haskell Mode Activated");
             active = true;
+            levelGenerator.levelGenTime = 0;
         }
 
         if (!active) return;
