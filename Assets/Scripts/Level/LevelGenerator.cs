@@ -273,6 +273,8 @@ public class LevelGenerator : MonoBehaviour
             }
             Destroy(obj);
         }
+
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Projectile")) Destroy(obj);
     }
 
     public void KillGrandTower()
