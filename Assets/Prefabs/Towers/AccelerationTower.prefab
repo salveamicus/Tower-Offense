@@ -206,6 +206,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   rangeDisplayOverride: 0
   hitSound: {fileID: 1408250279464511471}
+  circleCollider: {fileID: 5293895172292904556}
   MaxHealth: 70
   Health: 70
 --- !u!95 &-3004321022665417624
@@ -331,6 +332,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5293895172292904554}
     m_Modifications:
+    - target: {fileID: 2033613035150221884, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033613035150221884, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1442357861
+      objectReference: {fileID: 0}
     - target: {fileID: 5742878904441663470, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
       propertyPath: m_RootOrder
       value: 1

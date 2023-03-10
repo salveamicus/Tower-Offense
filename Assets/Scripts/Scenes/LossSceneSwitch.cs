@@ -16,7 +16,7 @@ public class LossSceneSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameStatistics.currentCredits < 30)
+        if (gameStatistics.currentCredits < gameStatistics.unitCosts[0])
         {
             unitsonfield = GameObject.FindGameObjectsWithTag("Unit");
             if (unitsonfield.Length <= 0)

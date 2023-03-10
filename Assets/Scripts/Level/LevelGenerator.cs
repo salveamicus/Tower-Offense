@@ -24,14 +24,14 @@ public class LevelGenerator : MonoBehaviour
     public float levelGenTime = 3f;
 
     // The level number for each tower to start spawning
-    public const int sniperTowerThreshold = 5;
-    public const int supportTowerThreshold = 10;
-    public const int accelerationTowerThreshold = 15;
-    public const int fireTowerThreshold = 20;
-    public const int poisonTowerThreshold = 25;
-    public const int temporalTowerThreshold = 30;
-    public const int attractorTowerThreshold = 35;
-    public const int lightningTowerThreshold = 40;
+    public const int sniperTowerThreshold = 3;
+    public const int supportTowerThreshold = 5;
+    public const int accelerationTowerThreshold = 7;
+    public const int fireTowerThreshold = 9;
+    public const int poisonTowerThreshold = 11;
+    public const int temporalTowerThreshold = 13;
+    public const int attractorTowerThreshold = 15;
+    public const int lightningTowerThreshold = 17;
 
     // The Grand Tower of the current level
     private GrandTower currentGrandTower = null;
@@ -106,25 +106,47 @@ public class LevelGenerator : MonoBehaviour
     {
         ++currentLevel;
 
-        int currentRing = dna.Length - dna.Replace("/", "").Length;
+        int towersToGenerate;
 
-        try
+        switch (currentLevel)
         {
-            string outerRing = dna.Substring(0, dna.Length - 1);
-            if (outerRing.LastIndexOf('/') != -1) outerRing = outerRing.Substring(outerRing.LastIndexOf('/'));
-
-            if (outerRing.Length < innerRingCapacity * currentRing * ringCapacityMultiplier)
-            {
-                dna = dna.Substring(0, dna.Length - 1) + GetRandomTowerSymbol() + "/";
-            }
-            else
-            {
-                dna += GetRandomTowerSymbol() + "/";
-            }
+        case sniperTowerThreshold       :
+        case supportTowerThreshold      :
+        case accelerationTowerThreshold :
+        case fireTowerThreshold         :
+        case poisonTowerThreshold       :
+        case temporalTowerThreshold     :
+        case attractorTowerThreshold    :
+        case lightningTowerThreshold    :
+            towersToGenerate = 1;
+            break;
+        default:
+            towersToGenerate = Random.Range(1, gameStatistics.towersPerLevel + 1);
+            break;
         }
-        catch
+
+        for (int i = 0; i < towersToGenerate; ++i)
         {
-            dna = dna.Substring(0, Mathf.Max(0, dna.Length - 1)) + GetRandomTowerSymbol() + "/";
+            int currentRing = dna.Length - dna.Replace("/", "").Length;
+
+            try
+            {
+                string outerRing = dna.Substring(0, dna.Length - 1);
+                if (outerRing.LastIndexOf('/') != -1) outerRing = outerRing.Substring(outerRing.LastIndexOf('/'));
+
+                if (outerRing.Length < innerRingCapacity * currentRing * ringCapacityMultiplier)
+                {
+                    dna = dna.Substring(0, dna.Length - 1) + GetRandomTowerSymbol() + "/";
+                }
+                else
+                {
+                    dna += GetRandomTowerSymbol() + "/";
+                }
+            }
+            catch
+            {
+                dna = dna.Substring(0, Mathf.Max(0, dna.Length - 1)) + GetRandomTowerSymbol() + "/";
+            }
         }
     }
 
@@ -200,15 +222,25 @@ public class LevelGenerator : MonoBehaviour
 
     public void GenerateNextLevel()
     {
+        Globals.SELECTED_UNITS.Clear();
+
         //GenerateLevel(++currentLevel);
         GenerateLevelFromDNA();
-        gameStatistics.levelNumber = this.currentLevel;
+        gameStatistics.levelNumber = currentLevel;
 
         //Unit conversion to credits at end of each level
         GameObject[] allUnits = GameObject.FindGameObjectsWithTag("Unit");
         foreach (GameObject obj in allUnits)
         {
-            switch (obj.gameObject.GetComponent<Unit>())
+            // Do not refund debugger generated units
+            Unit unit = obj.gameObject.GetComponent<Unit>();
+            if (unit.isDebuggingUnit)
+            {
+                Destroy(obj);
+                continue;
+            }
+
+            switch (unit)
             {
                 case StandardUnit:
                     gameStatistics.currentCredits += gameStatistics.unitCosts[0];
@@ -234,11 +266,17 @@ public class LevelGenerator : MonoBehaviour
                     gameStatistics.currentCredits += gameStatistics.unitCosts[5];
                     break;
 
+                case HammerUnit:
+                    gameStatistics.currentCredits += gameStatistics.unitCosts[6];
+                    break;
+
                 default:
                     break;
             }
             Destroy(obj);
         }
+
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Projectile")) Destroy(obj);
     }
 
     public void KillGrandTower()

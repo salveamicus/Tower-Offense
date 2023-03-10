@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.GraphicsBuffer;
 
 public abstract class Unit : MonoBehaviour
 {
 
     public bool isSelected = false;
     public bool isSupport = false;
+    public bool autoMove = false;
+
+    public bool isDebuggingUnit = false;
 
     public Vector3 moveGoal;
     public Vector3 zAdjustedGoal;
@@ -43,7 +47,7 @@ public abstract class Unit : MonoBehaviour
             // once they are in range of the closest point of the tower, meaning that they no longer target
             // the center of the tower, because for a large tower that would mean that they would have to be
             // inside the tower to start shooting
-            Vector3 closestPoint = tower.gameObject.GetComponent<Tower>().TowerBounds.ClosestPoint(transform.position);
+            Vector3 closestPoint = tower.gameObject.GetComponent<Tower>().ClosestPoint(transform.position);
 
             float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
             , new Vector2(closestPoint.x, closestPoint.y));
@@ -65,22 +69,25 @@ public abstract class Unit : MonoBehaviour
 
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Unit"))
         {
-            if (unit.gameObject.GetComponent<Unit>().isSelected) continue;
+            Debug.Log(unit.GetComponent<Unit>().isSupport);
 
-            // Get the closest point of the tower to the unit.
-            // This allows for a more accurate targeting algorithm so that units stop moving
-            // once they are in range of the closest point of the tower, meaning that they no longer target
-            // the center of the tower, because for a large tower that would mean that they would have to be
-            // inside the tower to start shooting
-            Vector3 closestPoint = unit.gameObject.GetComponent<Unit>().UnitBounds.ClosestPoint(transform.position);
-
-            float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
-            , new Vector2(closestPoint.x, closestPoint.y));
-
-            if (dist < closestDistance)
+            if (!unit.GetComponent<Unit>().isSupport)
             {
-                closestDistance = dist;
-                closestTarget = closestPoint;
+                // Get the closest point of the tower to the unit.
+                // This allows for a more accurate targeting algorithm so that units stop moving
+                // once they are in range of the closest point of the tower, meaning that they no longer target
+                // the center of the tower, because for a large tower that would mean that they would have to be
+                // inside the tower to start shooting
+                Vector3 closestPoint = unit.gameObject.GetComponent<Unit>().UnitBounds.ClosestPoint(transform.position);
+
+                float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
+                , new Vector2(closestPoint.x, closestPoint.y));
+
+                if (dist < closestDistance && dist != 0)
+                {
+                    closestDistance = dist;
+                    closestTarget = closestPoint;
+                }
             }
         }
 
@@ -202,14 +209,11 @@ public abstract class Unit : MonoBehaviour
         float degrees = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg + 180;
         transform.eulerAngles = Vector3.forward * degrees;
 
-        /*
-        // Move towards closet tower if not able to shoot anythnig
-        // and not already moving
-        if (target.Item1 > actionRadius && Math.Abs(Vector3.Distance(transform.position, zAdjustedGoal)) <= 0.1 && target.Item1 != Mathf.Infinity)
+        if (autoMove)
         {
-            moveGoal = target.Item2 - directionVector.normalized * actionRadius / 2;
+            moveGoal = target.Item2 - directionVector.normalized * (actionRadius - 0.5f) / 2;
         }
-        */
+        
     }
 
     public virtual void zAdjust()

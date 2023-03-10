@@ -54,9 +54,9 @@ MonoBehaviour:
   temporalTower: {fileID: 5165431634190464111, guid: 91349475652166cbeba41770ab77a318, type: 3}
   attractorTower: {fileID: 2862952900986703668, guid: 1ec0606bbde7ca7e8b37dc70a54bb00f, type: 3}
   lightningTower: {fileID: 6651119670837397158, guid: f550745b82e0b0573b7eb52ad1b0781a, type: 3}
-  levelNumber: {fileID: 0}
   smallestRing: 2
   innerRingCapacity: 8
   ringCapacityMultiplier: 1.5
   ringSize: 1.5
   levelGenTime: 3
+  additionalTowersPerLevel: 1

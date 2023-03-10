@@ -15,7 +15,7 @@ public class AttractorTower : Tower
 
     public override float ShootCooldownSeconds => 1f; // Not used
     public override float ShootRadius => 3f;
-    public override int CreditReward => 10;
+    public override int CreditReward => 80;
 
     // Start is called before the first frame update
     void Start()

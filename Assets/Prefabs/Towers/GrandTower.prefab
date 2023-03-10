@@ -115,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 8755781905659066129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.79, y: 0.06609741, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1732287763}
@@ -195,13 +195,14 @@ MonoBehaviour:
   fireProjectile: {fileID: 5486519101339117397, guid: c715431796f852c2c97b6ab57d286044, type: 3}
   poisonProjectile: {fileID: 5770571103085675390, guid: 7eb03e2ba39e9d387a2f4db3107115b4, type: 3}
   lightningProjectile: {fileID: 6431274346231894845, guid: 66fc4092de5c73a55a23b52905adb5dd, type: 3}
+  circleCollider: {fileID: -7274408634276979186}
   hitSound: {fileID: 7072017818019351494}
   defaultLaunchSound: {fileID: 4835294537966384537}
   fireLaunchSound: {fileID: 2580971140625759921}
   ProjectileSpeed: 8
   MaxHealth: 100
   Health: 100
-  healAmount: 0.1
+  healAmount: 0.025
   hurtRadius: 2
   attractionStrength: 2
   attractionDamage: 30
@@ -537,6 +538,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8755781905659066133}
     m_Modifications:
+    - target: {fileID: 2033613035150221884, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033613035150221884, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1442357861
+      objectReference: {fileID: 0}
     - target: {fileID: 5742878904441663470, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
       propertyPath: m_RootOrder
       value: 1

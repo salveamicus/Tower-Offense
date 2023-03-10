@@ -14,23 +14,19 @@ public class Explosion : MonoBehaviour
         Invoke("Die", LifeTimeSeconds);
     }
 
-    public void Explode(string targetTag)
+    public void Explode()
     {
-        foreach (GameObject targetObject in GameObject.FindGameObjectsWithTag(targetTag))
+        foreach (GameObject targetObject in GameObject.FindGameObjectsWithTag("Tower"))
         {
+            Tower tower = targetObject.GetComponent<Tower>();
+            Vector3 closestPoint = tower.ClosestPoint(transform.position);
+
             float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.y)
-            , new Vector2(targetObject.transform.position.x, targetObject.transform.position.y));
+            , new Vector2(closestPoint.x, closestPoint.y));
 
             if (distance <= ExplosionRadius)
             {
-                if (targetTag == "Unit")
-                {
-                    targetObject.gameObject.GetComponent<Unit>().Damage(ExplosionDamage);
-                }
-                else if (targetTag == "Tower")
-                {
-                    targetObject.gameObject.GetComponent<Tower>().Damage(ExplosionDamage);
-                }
+                targetObject.gameObject.GetComponent<Tower>().Damage(ExplosionDamage);
             }
         }
     }

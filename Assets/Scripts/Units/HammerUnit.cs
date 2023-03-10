@@ -9,13 +9,16 @@ public class HammerUnit : Unit
     [SerializeField] public AudioSource hitSound;
 
     public float ProjectileSpeed = 1f;
-    public float maxHealth = 80f;
-    public float health = 80f;
+    public float maxHealth = 500f;
+    public float health = 500f;
 
     public float shootCooldownSeconds = 4f;
 
     // Slower than normal movement speed
     public override float SpeedMultiplier => 1f / (1.5f * (1f + deccelerators));
+
+    // Animator
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,10 @@ public class HammerUnit : Unit
         autoMoveGoalAndRotate();
         movement(moveGoal);
 
+        // Animation
+        animator.SetFloat("DistToTarget", Vector3.Distance(transform.position, zAdjustedGoal));
+        animator.SetBool("IsAttacking", false);
+
         UpdateFireTime();
         UpdatePoisonTime();
 
@@ -50,6 +57,9 @@ public class HammerUnit : Unit
 
     public override void Shoot(Vector3 direction)
     {
+        // Attack Anim
+        animator.SetBool("IsAttacking", true);
+
         launchSound.Play();
 
         Projectile p = Instantiate(projectile, transform.position + Vector3.back, transform.rotation);

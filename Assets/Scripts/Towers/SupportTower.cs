@@ -12,7 +12,7 @@ public class SupportTower : Tower
 
     public override float ShootCooldownSeconds => 1f;
     public override float ShootRadius => 3f;
-    public override int CreditReward => 10;
+    public override int CreditReward => 30;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +48,7 @@ public class SupportTower : Tower
             // Don't heal self
             if (tower.transform.position == transform.position) continue;
 
-            Vector3 closestPoint = tower.GetComponent<Tower>().TowerBounds.ClosestPoint(transform.position);
+            Vector3 closestPoint = tower.GetComponent<Tower>().ClosestPoint(transform.position);
 
             float distance = Vector2.Distance(transform.position
             , new Vector2(closestPoint.x, closestPoint.y));

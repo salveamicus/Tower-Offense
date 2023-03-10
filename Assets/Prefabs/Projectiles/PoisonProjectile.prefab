@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5770571103085675390}
   m_Layer: 0
   m_Name: PoisonProjectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,3 +143,5 @@ MonoBehaviour:
   poisoner: {fileID: 2337649930502586752, guid: fb27518530c6be4b080578bcca1f2b6f, type: 3}
   LifetimeSeconds: 5
   PoisonTime: 100
+  PoisonerTime: 0
+  PoisonerPoisonTime: 0

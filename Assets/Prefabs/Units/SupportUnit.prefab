@@ -289,7 +289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
-  isSupport: 0
+  isSupport: 1
+  autoMove: 0
   moveGoal: {x: 0, y: 0, z: 0}
   zAdjustedGoal: {x: 0, y: 0, z: 0}
   selectionCircle: {fileID: 440431166217023911}
@@ -303,8 +304,8 @@ MonoBehaviour:
   maxHealth: 50
   health: 50
   speed: 1.5
-  healAmount: 10
-  healCooldownSeconds: 1
+  healAmount: 8
+  healCooldownSeconds: 2
   animator: {fileID: 4688930413444239607}
 --- !u!50 &3387478054282585181
 Rigidbody2D:
@@ -462,6 +463,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2129630424629842245}
     m_Modifications:
+    - target: {fileID: 2033613035150221884, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033613035150221884, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1442357861
+      objectReference: {fileID: 0}
     - target: {fileID: 5742878904441663470, guid: d65aedd6a418faa3aa9e5402e62f3c0e, type: 3}
       propertyPath: m_RootOrder
       value: 1
